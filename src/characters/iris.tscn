@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://3lj7jr7m57ri"]
 
-[ext_resource type="PackedScene" uid="uid://bpl25njjvqyno" path="res://Iris-in-Wonderland/iris_rig.tscn" id="1_juv4q"]
-[ext_resource type="Script" path="res://Iris-in-Wonderland/iris.gd" id="1_y4332"]
+[ext_resource type="PackedScene" uid="uid://bpl25njjvqyno" path="res://Iris-in-Wonderland/src/characters/iris_rig.tscn" id="1_juv4q"]
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/iris.gd" id="1_y4332"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4nqvm"]
 radius = 75.0113
@@ -27,3 +27,12 @@ metadata/_edit_lock_ = true
 [node name="Marker2D" type="Marker2D" parent="."]
 
 [node name="iris_rig" parent="Marker2D" instance=ExtResource("1_juv4q")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -360)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.5
+drag_top_margin = 1.0
+drag_right_margin = 0.5
+drag_bottom_margin = 1.0

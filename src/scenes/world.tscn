@@ -1,26 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqasmoo2r3l6c"]
+[gd_scene load_steps=5 format=3 uid="uid://cqasmoo2r3l6c"]
 
-[ext_resource type="PackedScene" uid="uid://3lj7jr7m57ri" path="res://Iris-in-Wonderland/iris.tscn" id="1_5qfh0"]
+[ext_resource type="PackedScene" uid="uid://3lj7jr7m57ri" path="res://Iris-in-Wonderland/src/characters/iris.tscn" id="1_pv5ai"]
+[ext_resource type="PackedScene" uid="uid://bah2pxas0yt5v" path="res://Iris-in-Wonderland/src/scenes/level.tscn" id="2_1aki1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0a42m"]
-size = Vector2(1351, 28)
+size = Vector2(1351, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ibpon"]
 size = Vector2(73, 741)
 
 [node name="world" type="Node2D"]
 
-[node name="iris" parent="." instance=ExtResource("1_5qfh0")]
-position = Vector2(585, 333)
+[node name="iris" parent="." instance=ExtResource("1_pv5ai")]
+position = Vector2(459, 624)
+scale = Vector2(0.75, 0.75)
 
 [node name="walls" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="walls"]
-position = Vector2(653, 727)
+position = Vector2(653, 703)
 shape = SubResource("RectangleShape2D_0a42m")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="walls"]
-position = Vector2(618, 6)
+position = Vector2(616, -16)
 shape = SubResource("RectangleShape2D_0a42m")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="walls"]
@@ -30,3 +32,5 @@ shape = SubResource("RectangleShape2D_ibpon")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="walls"]
 position = Vector2(1287, 331)
 shape = SubResource("RectangleShape2D_ibpon")
+
+[node name="level" parent="." instance=ExtResource("2_1aki1")]
