@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqasmoo2r3l6c"]
+
+[ext_resource type="PackedScene" uid="uid://3lj7jr7m57ri" path="res://Iris-in-Wonderland/iris.tscn" id="1_5qfh0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0a42m"]
+size = Vector2(1351, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ibpon"]
+size = Vector2(73, 741)
+
+[node name="world" type="Node2D"]
+
+[node name="iris" parent="." instance=ExtResource("1_5qfh0")]
+position = Vector2(585, 333)
+
+[node name="walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls"]
+position = Vector2(653, 727)
+shape = SubResource("RectangleShape2D_0a42m")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="walls"]
+position = Vector2(618, 6)
+shape = SubResource("RectangleShape2D_0a42m")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="walls"]
+position = Vector2(-24, 366)
+shape = SubResource("RectangleShape2D_ibpon")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="walls"]
+position = Vector2(1287, 331)
+shape = SubResource("RectangleShape2D_ibpon")
