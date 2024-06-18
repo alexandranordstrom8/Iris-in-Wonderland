@@ -442,7 +442,6 @@ region_rect = Rect2(49.09, 184.61, 170.61, 153.67)
 [node name="Sprite2D4" type="Sprite2D" parent="ParallaxLayer2/Sprite2D2"]
 position = Vector2(96.4739, 23.6169)
 rotation = 0.159446
-scale = Vector2(1, 1)
 texture = ExtResource("3_sphrs")
 region_enabled = true
 region_rect = Rect2(277.78, 257.21, 234.22, 93.17)

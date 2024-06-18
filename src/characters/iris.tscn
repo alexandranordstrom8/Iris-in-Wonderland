@@ -18,12 +18,11 @@ script = ExtResource("1_y4332")
 position = Vector2(-2, 13)
 rotation = 1.5679
 shape = SubResource("CapsuleShape2D_4nqvm")
-metadata/_edit_lock_ = true
 
 [node name="Collision_head" type="CollisionShape2D" parent="."]
 position = Vector2(45, -76)
 shape = SubResource("CircleShape2D_t52qp")
-metadata/_edit_lock_ = true
+disabled = true
 
 [node name="Marker2D" type="Marker2D" parent="."]
 
@@ -37,4 +36,4 @@ drag_vertical_enabled = true
 drag_left_margin = 0.75
 drag_top_margin = 1.0
 drag_right_margin = 0.75
-drag_bottom_margin = 1.0
+drag_bottom_margin = 0.0

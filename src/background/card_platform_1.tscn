@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://brma5q2nftysu"]
+
+[ext_resource type="Texture2D" uid="uid://kl2ifar8blmr" path="res://Iris-in-Wonderland/assets/card1.png" id="1_7c60l"]
+
+[node name="card_platform1" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7c60l")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-1.52588e-05, 9.57803)
+scale = Vector2(1, 0.82197)
+polygon = PackedVector2Array(-95, -11.6525, 99, -11.6525, 74, 34, -119, 34)
+one_way_collision = true
