@@ -11,6 +11,7 @@ height = 194.005
 radius = 64.3817
 
 [node name="iris" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_y4332")
 
 [node name="Collision_body" type="CollisionShape2D" parent="."]
@@ -30,9 +31,10 @@ metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -360)
+process_callback = 0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
-drag_left_margin = 0.5
+drag_left_margin = 0.75
 drag_top_margin = 1.0
-drag_right_margin = 0.5
+drag_right_margin = 0.75
 drag_bottom_margin = 1.0
