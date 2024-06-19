@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cqasmoo2r3l6c"]
+[gd_scene load_steps=22 format=3 uid="uid://cqasmoo2r3l6c"]
 
 [ext_resource type="PackedScene" uid="uid://3lj7jr7m57ri" path="res://Iris-in-Wonderland/src/characters/iris.tscn" id="1_pv5ai"]
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/world.gd" id="1_wclp7"]
@@ -6,12 +6,29 @@
 [ext_resource type="PackedScene" uid="uid://bah2pxas0yt5v" path="res://Iris-in-Wonderland/src/background/sky.tscn" id="2_1aki1"]
 [ext_resource type="PackedScene" uid="uid://duenctpiba1bt" path="res://Iris-in-Wonderland/src/background/card_platform_2.tscn" id="2_pdhwg"]
 [ext_resource type="PackedScene" uid="uid://co5rhs1t15yqh" path="res://Iris-in-Wonderland/src/background/card_platform_3.tscn" id="3_1jexh"]
+[ext_resource type="Texture2D" uid="uid://d0uhb7j45xd1g" path="res://Iris-in-Wonderland/assets/grass.png" id="3_1oo16"]
 [ext_resource type="PackedScene" uid="uid://brma5q2nftysu" path="res://Iris-in-Wonderland/src/background/card_platform_1.tscn" id="4_1c0di"]
 [ext_resource type="PackedScene" uid="uid://btqp4gxdg4jpw" path="res://Iris-in-Wonderland/src/background/card_platform_4.tscn" id="4_dqle1"]
+[ext_resource type="Texture2D" uid="uid://p6jiynjt247g" path="res://Iris-in-Wonderland/assets/tree1.png" id="4_ti27y"]
+[ext_resource type="Texture2D" uid="uid://bktnksctnbgnq" path="res://Iris-in-Wonderland/assets/mushroom3.png" id="5_imxuh"]
+[ext_resource type="Texture2D" uid="uid://cuuxerwjk3wsr" path="res://Iris-in-Wonderland/assets/tree2.png" id="5_mw3q7"]
+[ext_resource type="Texture2D" uid="uid://kc6lqx4qc6qk" path="res://Iris-in-Wonderland/assets/mushroom1.png" id="6_ndqar"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aul4g"]
+radius = 62.8204
+height = 672.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3r7qf"]
+radius = 89.6639
+height = 305.347
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5ppyx"]
+radius = 71.9561
+height = 288.0
 
 [sub_resource type="Animation" id="Animation_qhn4w"]
 resource_name = "slide"
-length = 2.0
+length = 3.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -20,10 +37,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
+"times": PackedFloat32Array(0, 1.5, 3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(371, 232), Vector2(186, 232), Vector2(371, 232)]
+"values": [Vector2(309, 193), Vector2(788, -2), Vector2(309, 193)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -32,7 +49,7 @@ tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 2),
+"times": PackedFloat32Array(0, 1.5, 3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 0.0, 0.0]
@@ -50,7 +67,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(371, 232)]
+"values": [Vector2(308, 193)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -81,29 +98,122 @@ size = Vector2(73, 741)
 script = ExtResource("1_wclp7")
 
 [node name="ground" parent="." instance=ExtResource("2_0bxyw")]
+position = Vector2(71, 3)
 
-[node name="card_platform1" parent="." instance=ExtResource("4_1c0di")]
+[node name="bg" type="Node" parent="."]
+
+[node name="ground" type="Node" parent="bg"]
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/ground"]
+visible = false
+position = Vector2(896.5, 744)
+scale = Vector2(1.51016, 1)
+texture = ExtResource("3_1oo16")
+region_enabled = true
+region_rect = Rect2(0, 538.968, 1280, 181.032)
+
+[node name="tree" type="StaticBody2D" parent="bg"]
+position = Vector2(0, 15)
+
+[node name="sprite" type="Sprite2D" parent="bg/tree"]
+position = Vector2(155, 72)
+rotation = 1.5708
+texture = ExtResource("4_ti27y")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="bg/tree"]
+visible = false
+position = Vector2(155, 72)
+rotation = 1.5708
+polygon = PackedVector2Array(632, -147, 555, -79, 434, 11, 359, 51, 96, 87, -9, 111, -450, 89, -545, 87, -609, 96, -640, 103, -635, 360, 637, 351)
+
+[node name="tree2" type="StaticBody2D" parent="bg"]
+
+[node name="sprite2" type="Sprite2D" parent="bg/tree2"]
+position = Vector2(1337, 8)
+rotation = 1.37696
+scale = Vector2(1.38596, 1)
+texture = ExtResource("4_ti27y")
+flip_v = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="bg/tree2"]
+polygon = PackedVector2Array(1417, 715, 1449, 645, 1464, 537, 1484, 385, 1444, -39, 1287, -703, 1267, -871, 1531, -883, 1827, 713)
+
+[node name="branch" type="StaticBody2D" parent="bg/tree2"]
+
+[node name="sprite" type="Sprite2D" parent="bg/tree2/branch"]
+position = Vector2(1259, -177)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_mw3q7")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0, 240.688, 876.031, 479.312)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bg/tree2/branch"]
+position = Vector2(1259, -159)
+rotation = 1.39811
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CapsuleShape2D_aul4g")
+
+[node name="mushrooms" type="Node" parent="bg"]
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/mushrooms"]
+position = Vector2(74, 549)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_imxuh")
+region_enabled = true
+region_rect = Rect2(0, 0, 677.715, 720)
+
+[node name="y" type="StaticBody2D" parent="bg/mushrooms"]
+
+[node name="Sprite2D3" type="Sprite2D" parent="bg/mushrooms/y"]
+position = Vector2(1400, 435)
+rotation = 1.88951
+scale = Vector2(1, 1)
+texture = ExtResource("6_ndqar")
+region_enabled = true
+region_rect = Rect2(748.937, 0, 531.063, 357.406)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bg/mushrooms/y"]
+position = Vector2(1456, 323)
+rotation = 1.27867
+shape = SubResource("CapsuleShape2D_3r7qf")
+
+[node name="b" type="StaticBody2D" parent="bg/mushrooms"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="bg/mushrooms/b"]
+position = Vector2(1331, 612)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_imxuh")
+region_enabled = true
+region_rect = Rect2(800.812, 0, 422.78, 720)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bg/mushrooms/b"]
+position = Vector2(1359, 614)
+rotation = 1.67834
+shape = SubResource("CapsuleShape2D_5ppyx")
+
+[node name="platforms" type="Node" parent="."]
+
+[node name="card_platform1" parent="platforms" instance=ExtResource("4_1c0di")]
 position = Vector2(894, 537)
 
-[node name="card_platform2" parent="." instance=ExtResource("2_pdhwg")]
-position = Vector2(1109, 438)
+[node name="card_platform2" parent="platforms" instance=ExtResource("2_pdhwg")]
+position = Vector2(700, 293)
 
-[node name="card_platform3" parent="." instance=ExtResource("3_1jexh")]
-position = Vector2(699, 294)
+[node name="card_platform3" parent="platforms" instance=ExtResource("3_1jexh")]
+position = Vector2(1119, 403)
 
-[node name="card_platform4" parent="." instance=ExtResource("4_dqle1")]
-position = Vector2(371, 232)
+[node name="card_platform4" parent="platforms" instance=ExtResource("4_dqle1")]
+position = Vector2(308, 193)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="card_platform4"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/card_platform4"]
 libraries = {
 "": SubResource("AnimationLibrary_saj8e")
 }
 
-[node name="player" parent="." instance=ExtResource("1_pv5ai")]
-position = Vector2(643, 625)
-scale = Vector2(0.75, 0.75)
-
 [node name="walls" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="floor" type="CollisionShape2D" parent="walls"]
 visible = false
@@ -112,15 +222,23 @@ shape = SubResource("RectangleShape2D_0a42m")
 disabled = true
 
 [node name="roof" type="CollisionShape2D" parent="walls"]
-position = Vector2(616, -16)
+position = Vector2(610, -591)
 shape = SubResource("RectangleShape2D_0a42m")
 
 [node name="left" type="CollisionShape2D" parent="walls"]
 position = Vector2(-37, 350)
 shape = SubResource("RectangleShape2D_ibpon")
+disabled = true
 
 [node name="right" type="CollisionShape2D" parent="walls"]
 position = Vector2(1319, 347)
 shape = SubResource("RectangleShape2D_ibpon")
+disabled = true
 
 [node name="sky" parent="." instance=ExtResource("2_1aki1")]
+
+[node name="player" type="Node" parent="."]
+
+[node name="iris" parent="player" instance=ExtResource("1_pv5ai")]
+position = Vector2(643, 625)
+scale = Vector2(0.75, 0.75)

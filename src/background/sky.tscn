@@ -486,6 +486,7 @@ region_enabled = true
 region_rect = Rect2(268.1, 265.68, 243.9, 82.28)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+visible = false
 position = Vector2(-189, -48)
 motion_scale = Vector2(0.1, 0.05)
 motion_mirroring = Vector2(1500, 800)

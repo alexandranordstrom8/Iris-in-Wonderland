@@ -1,13 +1,7 @@
-extends CharacterBody2D
+extends Character
 
 @onready var animations = $Marker2D/iris_rig/Sprite2D/AnimationPlayer
 @onready var pos2d = $Marker2D
-
-const SPEED = 500.0
-const JUMP_VELOCITY = -600.0
-
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var jumped = 0
 
 func handle_input():
 	var direction = Input.get_axis("ui_left", "ui_right")
@@ -36,7 +30,7 @@ func update_animation():
 		animations.play("idle")
 
 func _physics_process(delta):
-	velocity.y += gravity * delta
+	super._physics_process(delta)
 		
 	handle_input()
 	update_animation()
