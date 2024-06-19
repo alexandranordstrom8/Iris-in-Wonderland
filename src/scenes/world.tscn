@@ -1,12 +1,75 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqasmoo2r3l6c"]
+[gd_scene load_steps=14 format=3 uid="uid://cqasmoo2r3l6c"]
 
 [ext_resource type="PackedScene" uid="uid://3lj7jr7m57ri" path="res://Iris-in-Wonderland/src/characters/iris.tscn" id="1_pv5ai"]
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/world.gd" id="1_wclp7"]
 [ext_resource type="PackedScene" uid="uid://b8wxjqdavi135" path="res://Iris-in-Wonderland/src/background/ground.tscn" id="2_0bxyw"]
 [ext_resource type="PackedScene" uid="uid://bah2pxas0yt5v" path="res://Iris-in-Wonderland/src/background/sky.tscn" id="2_1aki1"]
 [ext_resource type="PackedScene" uid="uid://duenctpiba1bt" path="res://Iris-in-Wonderland/src/background/card_platform_2.tscn" id="2_pdhwg"]
 [ext_resource type="PackedScene" uid="uid://co5rhs1t15yqh" path="res://Iris-in-Wonderland/src/background/card_platform_3.tscn" id="3_1jexh"]
 [ext_resource type="PackedScene" uid="uid://brma5q2nftysu" path="res://Iris-in-Wonderland/src/background/card_platform_1.tscn" id="4_1c0di"]
 [ext_resource type="PackedScene" uid="uid://btqp4gxdg4jpw" path="res://Iris-in-Wonderland/src/background/card_platform_4.tscn" id="4_dqle1"]
+
+[sub_resource type="Animation" id="Animation_qhn4w"]
+resource_name = "slide"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(371, 232), Vector2(186, 232), Vector2(371, 232)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_dftqb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(371, 232)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_saj8e"]
+_data = {
+"RESET": SubResource("Animation_dftqb"),
+"slide": SubResource("Animation_qhn4w")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0a42m"]
 size = Vector2(1351, 47)
@@ -15,6 +78,9 @@ size = Vector2(1351, 47)
 size = Vector2(73, 741)
 
 [node name="world" type="Node2D"]
+script = ExtResource("1_wclp7")
+
+[node name="ground" parent="." instance=ExtResource("2_0bxyw")]
 
 [node name="card_platform1" parent="." instance=ExtResource("4_1c0di")]
 position = Vector2(894, 537)
@@ -28,15 +94,22 @@ position = Vector2(699, 294)
 [node name="card_platform4" parent="." instance=ExtResource("4_dqle1")]
 position = Vector2(371, 232)
 
-[node name="iris" parent="." instance=ExtResource("1_pv5ai")]
-position = Vector2(643, 602)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="card_platform4"]
+libraries = {
+"": SubResource("AnimationLibrary_saj8e")
+}
+
+[node name="player" parent="." instance=ExtResource("1_pv5ai")]
+position = Vector2(643, 625)
 scale = Vector2(0.75, 0.75)
 
 [node name="walls" type="StaticBody2D" parent="."]
 
 [node name="floor" type="CollisionShape2D" parent="walls"]
+visible = false
 position = Vector2(653, 695.5)
 shape = SubResource("RectangleShape2D_0a42m")
+disabled = true
 
 [node name="roof" type="CollisionShape2D" parent="walls"]
 position = Vector2(616, -16)
@@ -51,5 +124,3 @@ position = Vector2(1319, 347)
 shape = SubResource("RectangleShape2D_ibpon")
 
 [node name="sky" parent="." instance=ExtResource("2_1aki1")]
-
-[node name="ground" parent="." instance=ExtResource("2_0bxyw")]
