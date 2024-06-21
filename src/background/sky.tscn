@@ -402,6 +402,7 @@ scroll_ignore_camera_zoom = true
 script = ExtResource("1_pxf51")
 
 [node name="sky_bg" type="ParallaxLayer" parent="."]
+position = Vector2(-2709, -1)
 motion_scale = Vector2(0, 0.1)
 motion_mirroring = Vector2(64, 64)
 
@@ -413,6 +414,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 1280, 720)
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+position = Vector2(-2709, -1)
 motion_scale = Vector2(0.05, 0.05)
 motion_mirroring = Vector2(1280, 720)
 

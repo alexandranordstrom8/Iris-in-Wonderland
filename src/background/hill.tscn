@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=3 uid="uid://ttaqxg3mnnyy"]
+
+[ext_resource type="Texture2D" uid="uid://cbqo77367xmhg" path="res://Iris-in-Wonderland/assets/grass2.png" id="1_kcids"]
+[ext_resource type="Texture2D" uid="uid://cc0kuu0c3c2m0" path="res://Iris-in-Wonderland/assets/path2.png" id="2_1ejbw"]
+[ext_resource type="PackedScene" uid="uid://dabnyunyw0f1x" path="res://Iris-in-Wonderland/src/background/grass_texture.tscn" id="3_vmwfr"]
+
+[node name="hill" type="ParallaxBackground"]
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 0.8)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(375, 525.5)
+rotation = -0.00475729
+texture = ExtResource("1_kcids")
+region_enabled = true
+region_rect = Rect2(618.031, 90.0952, 661.969, 273.043)
+
+[node name="Sprite2D5" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(1718, 627)
+rotation = -0.00475729
+scale = Vector2(1, 0.988441)
+texture = ExtResource("1_kcids")
+region_enabled = true
+region_rect = Rect2(618.031, 90.0952, 661.969, 273.043)
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(344, 462.5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_1ejbw")
+region_enabled = true
+region_rect = Rect2(1019.75, 375.692, 260.25, 141.229)
+
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(1183, 444)
+texture = ExtResource("1_kcids")
+region_enabled = true
+region_rect = Rect2(0, 0, 570.955, 369.415)
+
+[node name="Sprite2D6" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(1410, 424)
+texture = ExtResource("1_kcids")
+region_enabled = true
+region_rect = Rect2(0, 0, 570.955, 250)
+
+[node name="Sprite2D7" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(2311, 532)
+texture = ExtResource("1_kcids")
+region_enabled = true
+region_rect = Rect2(0, 0, 570.955, 250)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(-397, 496.5)
+scale = Vector2(1.58125, 1.14444)
+texture = ExtResource("1_kcids")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 494.953, 1280, 225.047)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(-14, 638)
+scale = Vector2(1.98594, 0.517779)
+texture = ExtResource("1_kcids")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 494.953, 1280, 225.047)
+
+[node name="grass_texture" parent="ParallaxLayer" instance=ExtResource("3_vmwfr")]
+position = Vector2(808, -43)
+
+[node name="grass_texture2" parent="ParallaxLayer" instance=ExtResource("3_vmwfr")]
+position = Vector2(932, -43)
+
+[node name="grass_texture3" parent="ParallaxLayer" instance=ExtResource("3_vmwfr")]
+position = Vector2(443, 2)
+
+[node name="grass_texture4" parent="ParallaxLayer" instance=ExtResource("3_vmwfr")]
+position = Vector2(-62, -20)
+
+[node name="grass_texture5" parent="ParallaxLayer" instance=ExtResource("3_vmwfr")]
+position = Vector2(1211, 97)
+
+[node name="grass_texture6" parent="ParallaxLayer" instance=ExtResource("3_vmwfr")]
+position = Vector2(1451, -42)

@@ -3,18 +3,19 @@
 [ext_resource type="Texture2D" uid="uid://d0rnodolsycqm" path="res://Iris-in-Wonderland/assets/green.png" id="1_ndw3q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5j8xv"]
-size = Vector2(1437, 26)
+size = Vector2(1281, 24)
 
 [node name="ground" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_repeat = 2
-position = Vector2(-107, 655)
+position = Vector2(0, 656)
 texture = ExtResource("1_ndw3q")
 centered = false
 region_enabled = true
-region_rect = Rect2(0, 1280, 1500, 64)
+region_rect = Rect2(0, 1280, 1280, 64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(622, 702)
+visible = false
+position = Vector2(639.5, 701)
 shape = SubResource("RectangleShape2D_5j8xv")

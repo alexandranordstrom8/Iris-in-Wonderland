@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsd8hqkxtxg33"]
+
+[ext_resource type="Texture2D" uid="uid://bqdgm4e6it73k" path="res://Iris-in-Wonderland/assets/brown1.png" id="1_a675u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jupmj"]
+size = Vector2(1281, 24)
+
+[node name="dirt_ground" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(0, 656)
+texture = ExtResource("1_a675u")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 1280, 1280, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(639.5, 701)
+shape = SubResource("RectangleShape2D_jupmj")

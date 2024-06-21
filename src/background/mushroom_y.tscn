@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr1yrh62u5xdn"]
+
+[ext_resource type="Texture2D" uid="uid://kc6lqx4qc6qk" path="res://Iris-in-Wonderland/assets/mushroom1.png" id="1_85wpf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_edrba"]
+radius = 60.9065
+height = 262.453
+
+[node name="MushroomY" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(348, 0)
+rotation = 1.5708
+texture = ExtResource("1_85wpf")
+centered = false
+region_enabled = true
+region_rect = Rect2(746.707, 0, 533.293, 350.585)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(176, 182)
+rotation = 1.27741
+shape = SubResource("CapsuleShape2D_edrba")

@@ -20,10 +20,10 @@ func handle_input():
 
 func update_animation():
 	if not is_on_floor():
-		if velocity.y > 0:
-			animations.play("fall")
-		else:
+		if velocity.y < 0:
 			animations.play("jump")
+		else:
+			animations.play("fall")
 	elif velocity.x:
 		animations.play("walk")
 	else:

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dabnyunyw0f1x"]
+
+[ext_resource type="Texture2D" uid="uid://d0rnodolsycqm" path="res://Iris-in-Wonderland/assets/green.png" id="1_ymjsf"]
+
+[node name="grass_texture" type="Sprite2D"]
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(0, 591)
+texture = ExtResource("1_ymjsf")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 64)
