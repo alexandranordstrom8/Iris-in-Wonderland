@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cqasmoo2r3l6c"]
+[gd_scene load_steps=47 format=3 uid="uid://cqasmoo2r3l6c"]
 
 [ext_resource type="PackedScene" uid="uid://3lj7jr7m57ri" path="res://Iris-in-Wonderland/src/characters/iris.tscn" id="1_pv5ai"]
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/world.gd" id="1_wclp7"]
@@ -24,6 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://e6jqk46t2v08" path="res://Iris-in-Wonderland/src/background/dirt_wall.tscn" id="15_34ch6"]
 [ext_resource type="Texture2D" uid="uid://duvi3sfpv6eib" path="res://Iris-in-Wonderland/assets/dirt2.png" id="15_otv1k"]
 [ext_resource type="Texture2D" uid="uid://cd7ky2ec07inu" path="res://Iris-in-Wonderland/assets/dirt.png" id="15_s8os6"]
+[ext_resource type="Texture2D" uid="uid://b1spr21vkwkto" path="res://Iris-in-Wonderland/assets/mushroom1_l.png" id="16_0ey4m"]
+[ext_resource type="Texture2D" uid="uid://cwg7lmm8ukgir" path="res://Iris-in-Wonderland/assets/mushroom2_l.png" id="16_2nsrq"]
 [ext_resource type="PackedScene" uid="uid://bsd8hqkxtxg33" path="res://Iris-in-Wonderland/src/background/dirt_ground.tscn" id="16_4aauh"]
 [ext_resource type="Texture2D" uid="uid://doc36gr68jycm" path="res://Iris-in-Wonderland/assets/mushroom2.png" id="18_uq8na"]
 [ext_resource type="Texture2D" uid="uid://cc0kuu0c3c2m0" path="res://Iris-in-Wonderland/assets/path2.png" id="19_ysxqt"]
@@ -439,21 +441,21 @@ region_rect = Rect2(10.4273, 199.659, 749.828, 511.675)
 [node name="Sprite2D8" type="Sprite2D" parent="bg/down/mushrooms"]
 position = Vector2(1515, 1246)
 rotation = 1.5708
-texture = ExtResource("18_uq8na")
+texture = ExtResource("16_2nsrq")
 region_enabled = true
 region_rect = Rect2(10.4273, 199.659, 749.828, 511.675)
 
 [node name="Sprite2D" type="Sprite2D" parent="bg/down/mushrooms"]
 position = Vector2(2205, 1978)
 rotation = 1.5708
-texture = ExtResource("6_ndqar")
+texture = ExtResource("16_0ey4m")
 region_enabled = true
 region_rect = Rect2(878.152, 400.085, 401.848, 247.585)
 
 [node name="Sprite2D6" type="Sprite2D" parent="bg/down/mushrooms"]
 position = Vector2(225, 1951)
 rotation = 1.5708
-texture = ExtResource("6_ndqar")
+texture = ExtResource("16_0ey4m")
 region_enabled = true
 region_rect = Rect2(878.152, 400.085, 401.848, 247.585)
 
@@ -467,7 +469,7 @@ region_rect = Rect2(404.205, 166.648, 346.618, 544.686)
 [node name="Sprite2D3" type="Sprite2D" parent="bg/down/mushrooms"]
 position = Vector2(2341, 1948)
 rotation = 1.5708
-texture = ExtResource("18_uq8na")
+texture = ExtResource("16_2nsrq")
 region_enabled = true
 region_rect = Rect2(779.118, 411.875, 492.811, 299.459)
 
@@ -525,6 +527,11 @@ shape = SubResource("CapsuleShape2D_v1vfs")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="bg/down/StaticBody2D4"]
 position = Vector2(158, 1607)
+rotation = 1.28583
+shape = SubResource("CapsuleShape2D_vibw8")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="bg/down/StaticBody2D4"]
+position = Vector2(1184, 1564)
 rotation = 1.28583
 shape = SubResource("CapsuleShape2D_vibw8")
 
@@ -609,14 +616,14 @@ region_rect = Rect2(0, 0, 465.207, 251.556)
 [node name="Sprite2D7" type="Sprite2D" parent="bg/down/path"]
 position = Vector2(1487, 1927)
 rotation = 1.5708
-texture = ExtResource("6_ndqar")
+texture = ExtResource("16_0ey4m")
 region_enabled = true
 region_rect = Rect2(878.152, 400.085, 401.848, 247.585)
 
 [node name="Sprite2D8" type="Sprite2D" parent="bg/down/path"]
 position = Vector2(1589, 2079)
 rotation = 1.5708
-texture = ExtResource("6_ndqar")
+texture = ExtResource("16_0ey4m")
 region_enabled = true
 region_rect = Rect2(878.152, 400.085, 401.848, 247.585)
 
@@ -633,7 +640,7 @@ region_enabled = true
 region_rect = Rect2(974.828, 277.472, 264.09, 153.267)
 
 [node name="Sprite2D" type="Sprite2D" parent="bg/down/path"]
-position = Vector2(2108, 1435)
+position = Vector2(2101, 1438)
 texture = ExtResource("19_ysxqt")
 region_enabled = true
 region_rect = Rect2(512.67, 381.221, 254.658, 167.414)
@@ -802,8 +809,8 @@ position = Vector2(2020, 1962)
 position = Vector2(-131, 1351)
 
 [node name="Sprite2D7" type="Sprite2D" parent="fg"]
-position = Vector2(208, 990)
-rotation = -1.57606
-texture = ExtResource("6_ndqar")
+position = Vector2(212, 986)
+rotation = -1.57269
+texture = ExtResource("16_0ey4m")
 region_enabled = true
 region_rect = Rect2(404.205, 166.648, 346.618, 544.686)

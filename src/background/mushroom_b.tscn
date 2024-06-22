@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dpj8w1xhqb18n"]
 
-[ext_resource type="Texture2D" uid="uid://bktnksctnbgnq" path="res://Iris-in-Wonderland/assets/mushroom3.png" id="1_48vko"]
+[ext_resource type="Texture2D" uid="uid://cg5c6ne3jj4bo" path="res://Iris-in-Wonderland/assets/mushroom3_l.png" id="1_ybadd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xy58p"]
 radius = 43.6831
@@ -12,7 +12,7 @@ height = 238.834
 position = Vector2(180, 127)
 rotation = 1.5708
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_48vko")
+texture = ExtResource("1_ybadd")
 region_enabled = true
 region_rect = Rect2(771.815, 0, 508.185, 720)
 
