@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhmj4gwta52oe"]
+
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/character.gd" id="1_au1dv"]
+[ext_resource type="Texture2D" uid="uid://ddngphqd4wjcm" path="res://Iris-in-Wonderland/assets/isabell.png" id="1_boq2j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okyei"]
+atlas = ExtResource("1_boq2j")
+region = Rect2(206, 0, 163, 389)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bgpc"]
+atlas = ExtResource("1_boq2j")
+region = Rect2(43, 0, 163, 389)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_047dt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okyei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okyei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okyei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okyei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bgpc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qd4l6"]
+radius = 36.8642
+height = 143.11
+
+[node name="isabell" type="CharacterBody2D"]
+script = ExtResource("1_au1dv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_047dt")
+animation = &"idle"
+frame_progress = 0.295908
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-29, -35)
+rotation = -0.246194
+shape = SubResource("CapsuleShape2D_qd4l6")

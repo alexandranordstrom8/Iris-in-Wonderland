@@ -1,0 +1,100 @@
+[gd_scene load_steps=12 format=3 uid="uid://c0dydbsm6epto"]
+
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/character.gd" id="1_6uevh"]
+[ext_resource type="Texture2D" uid="uid://c77yv0av6rj5k" path="res://Iris-in-Wonderland/assets/benjamin.png" id="1_f3uih"]
+[ext_resource type="Texture2D" uid="uid://bo84i7iswt2sv" path="res://Iris-in-Wonderland/assets/benjamin_sleep.png" id="2_fuchd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3egfo"]
+atlas = ExtResource("1_f3uih")
+region = Rect2(0, 0, 249, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqwlr"]
+atlas = ExtResource("1_f3uih")
+region = Rect2(249, 0, 249, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3g4n6"]
+atlas = ExtResource("1_f3uih")
+region = Rect2(747, 0, 249, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fv0kx"]
+atlas = ExtResource("2_fuchd")
+region = Rect2(0, 0, 249, 284)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gm1s6"]
+atlas = ExtResource("2_fuchd")
+region = Rect2(249, 0, 249, 284)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50v82"]
+atlas = ExtResource("2_fuchd")
+region = Rect2(498, 0, 249, 284)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t3a4s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3egfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3egfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3egfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqwlr")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_3g4n6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqwlr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqwlr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fv0kx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fv0kx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fv0kx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gm1s6")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_50v82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gm1s6")
+}],
+"loop": true,
+"name": &"sleep",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c7xad"]
+radius = 84.0228
+height = 177.636
+
+[node name="benjamin" type="CharacterBody2D"]
+script = ExtResource("1_6uevh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_t3a4s")
+animation = &"idle"
+frame_progress = 0.346633
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-16, 25)
+rotation = -0.287325
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_c7xad")

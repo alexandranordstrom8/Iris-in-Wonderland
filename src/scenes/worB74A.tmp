@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://cqasmoo2r3l6c"]
+[gd_scene load_steps=50 format=3 uid="uid://cqasmoo2r3l6c"]
 
 [ext_resource type="PackedScene" uid="uid://3lj7jr7m57ri" path="res://Iris-in-Wonderland/src/characters/iris.tscn" id="1_pv5ai"]
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/world.gd" id="1_wclp7"]
@@ -56,68 +56,6 @@ height = 1044.06
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vibw8"]
 radius = 42.6523
 height = 204.963
-
-[sub_resource type="Animation" id="Animation_166dr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2713, 288)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_4rbtp"]
-resource_name = "slide"
-length = 4.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(2713, 288), Vector2(2709, 1300), Vector2(2713, 288)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2, 4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_g7blk"]
-_data = {
-"RESET": SubResource("Animation_166dr"),
-"slide": SubResource("Animation_4rbtp")
-}
 
 [sub_resource type="Animation" id="Animation_dftqb"]
 length = 0.001
@@ -181,8 +119,73 @@ _data = {
 "slide": SubResource("Animation_qhn4w")
 }
 
+[sub_resource type="Animation" id="Animation_166dr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2713, 288)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_4rbtp"]
+resource_name = "slide"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2713, 288), Vector2(2709, 1300), Vector2(2713, 288)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g7blk"]
+_data = {
+"RESET": SubResource("Animation_166dr"),
+"slide": SubResource("Animation_4rbtp")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0a42m"]
 size = Vector2(3498, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7525"]
+size = Vector2(1114, 65)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ej3yq"]
 size = Vector2(890.5, 704.5)
@@ -809,6 +812,14 @@ position = Vector2(700, 293)
 [node name="card_platform3" parent="platforms" instance=ExtResource("3_1jexh")]
 position = Vector2(1119, 403)
 
+[node name="card_platform4" parent="platforms" instance=ExtResource("4_dqle1")]
+position = Vector2(308, 193)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/card_platform4"]
+libraries = {
+"": SubResource("AnimationLibrary_saj8e")
+}
+
 [node name="AnimatedPlatform" type="Sprite2D" parent="platforms"]
 script = ExtResource("26_ba708")
 
@@ -821,23 +832,17 @@ libraries = {
 "": SubResource("AnimationLibrary_g7blk")
 }
 
-[node name="AnimatedPlatform2" type="Sprite2D" parent="platforms"]
-script = ExtResource("26_ba708")
-
-[node name="card_platform4" parent="platforms/AnimatedPlatform2" instance=ExtResource("4_dqle1")]
-position = Vector2(308, 193)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/AnimatedPlatform2"]
-root_node = NodePath("../card_platform4")
-libraries = {
-"": SubResource("AnimationLibrary_saj8e")
-}
-
 [node name="walls" type="StaticBody2D" parent="."]
 
 [node name="roof" type="CollisionShape2D" parent="walls"]
 position = Vector2(1555, -591)
 shape = SubResource("RectangleShape2D_0a42m")
+
+[node name="temp_floor" type="CollisionShape2D" parent="walls"]
+visible = false
+position = Vector2(2611, 1181)
+shape = SubResource("RectangleShape2D_y7525")
+disabled = true
 
 [node name="wall" type="CollisionShape2D" parent="walls"]
 position = Vector2(2642, 1821)
