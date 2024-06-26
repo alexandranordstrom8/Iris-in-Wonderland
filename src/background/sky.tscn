@@ -1,9 +1,9 @@
 [gd_scene load_steps=17 format=3 uid="uid://bah2pxas0yt5v"]
 
-[ext_resource type="Texture2D" uid="uid://d3rvwap5orm4u" path="res://Iris-in-Wonderland/assets/blue.png" id="1_po2ai"]
+[ext_resource type="Texture2D" uid="uid://d3rvwap5orm4u" path="res://Iris-in-Wonderland/assets/background/blue.png" id="1_po2ai"]
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/background/sky.gd" id="1_pxf51"]
-[ext_resource type="Texture2D" uid="uid://bs40x4iohvjfv" path="res://Iris-in-Wonderland/assets/clouds.png" id="3_3c1j6"]
-[ext_resource type="Texture2D" uid="uid://dpu3kh5g53f03" path="res://Iris-in-Wonderland/assets/clouds2.png" id="3_sphrs"]
+[ext_resource type="Texture2D" uid="uid://bs40x4iohvjfv" path="res://Iris-in-Wonderland/assets/background/clouds.png" id="3_3c1j6"]
+[ext_resource type="Texture2D" uid="uid://dpu3kh5g53f03" path="res://Iris-in-Wonderland/assets/background/clouds2.png" id="3_sphrs"]
 
 [sub_resource type="Animation" id="Animation_77ssc"]
 resource_name = "1"

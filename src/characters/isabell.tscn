@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bhmj4gwta52oe"]
 
-[ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/character.gd" id="1_au1dv"]
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/animated_character.gd" id="1_05pul"]
 [ext_resource type="Texture2D" uid="uid://ddngphqd4wjcm" path="res://Iris-in-Wonderland/assets/isabell.png" id="1_boq2j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_okyei"]
@@ -39,7 +39,7 @@ radius = 36.8642
 height = 143.11
 
 [node name="isabell" type="CharacterBody2D"]
-script = ExtResource("1_au1dv")
+script = ExtResource("1_05pul")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_047dt")

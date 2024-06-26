@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dqu1hdmh0ypou"]
+
+[ext_resource type="FontFile" uid="uid://ckq0opjxkh4f1" path="res://Iris-in-Wonderland/assets/interface/Happy School.otf" id="1_vae2p"]
+
+[resource]
+default_font = ExtResource("1_vae2p")
+EditorIcons/icons/Label = null

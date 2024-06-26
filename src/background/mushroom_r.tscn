@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dv1q6s4q2mm3c"]
 
-[ext_resource type="Texture2D" uid="uid://cg5c6ne3jj4bo" path="res://Iris-in-Wonderland/assets/mushroom3_l.png" id="1_ciq4w"]
+[ext_resource type="Texture2D" uid="uid://cg5c6ne3jj4bo" path="res://Iris-in-Wonderland/assets/background/mushroom3_l.png" id="1_ciq4w"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f14ew"]
 radius = 41.6573

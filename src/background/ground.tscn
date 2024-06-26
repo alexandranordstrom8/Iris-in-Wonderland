@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b8wxjqdavi135"]
 
-[ext_resource type="Texture2D" uid="uid://d0rnodolsycqm" path="res://Iris-in-Wonderland/assets/green.png" id="1_ndw3q"]
+[ext_resource type="Texture2D" uid="uid://d0rnodolsycqm" path="res://Iris-in-Wonderland/assets/background/green.png" id="1_ndw3q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5j8xv"]
 size = Vector2(1281, 24)

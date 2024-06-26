@@ -2,13 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://bpl25njjvqyno" path="res://Iris-in-Wonderland/src/characters/iris_rig.tscn" id="1_juv4q"]
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/iris.gd" id="1_y4332"]
+[ext_resource type="AudioStream" uid="uid://46fnjfe3g6jo" path="res://Iris-in-Wonderland/assets/audio/jump2.mp3" id="4_6ynxu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4nqvm"]
 radius = 75.0113
 height = 194.005
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_t52qp"]
-radius = 64.3817
 
 [node name="iris" type="CharacterBody2D"]
 script = ExtResource("1_y4332")
@@ -17,11 +15,6 @@ script = ExtResource("1_y4332")
 position = Vector2(-2, 13)
 rotation = 1.5679
 shape = SubResource("CapsuleShape2D_4nqvm")
-
-[node name="Collision_head" type="CollisionShape2D" parent="."]
-position = Vector2(45, -76)
-shape = SubResource("CircleShape2D_t52qp")
-disabled = true
 
 [node name="Marker2D" type="Marker2D" parent="."]
 
@@ -36,3 +29,6 @@ drag_left_margin = 0.5
 drag_top_margin = 1.0
 drag_right_margin = 0.5
 drag_bottom_margin = 0.0
+
+[node name="audio_jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_6ynxu")

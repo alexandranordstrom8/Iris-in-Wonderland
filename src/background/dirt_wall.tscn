@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://e6jqk46t2v08"]
 
-[ext_resource type="Texture2D" uid="uid://bi3pnx50gmcry" path="res://Iris-in-Wonderland/assets/brown2.png" id="1_6tht5"]
+[ext_resource type="Texture2D" uid="uid://bi3pnx50gmcry" path="res://Iris-in-Wonderland/assets/background/brown2.png" id="1_6tht5"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 

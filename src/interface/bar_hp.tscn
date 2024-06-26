@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1tkqows1e84o"]
+
+[ext_resource type="PackedScene" uid="uid://dvdvbcq3xug4a" path="res://Iris-in-Wonderland/src/interface/counter_hp.tscn" id="1_okxbo"]
+[ext_resource type="Theme" uid="uid://dqu1hdmh0ypou" path="res://Iris-in-Wonderland/src/interface/theme.tres" id="2_57uix"]
+[ext_resource type="Texture2D" uid="uid://cj1x3po6gx5sy" path="res://Iris-in-Wonderland/assets/interface/bar1_1.png" id="3_jbfxv"]
+[ext_resource type="Texture2D" uid="uid://vrscvoxuqee7" path="res://Iris-in-Wonderland/assets/interface/bar1_2.png" id="4_4h8l1"]
+
+[node name="bar" type="HBoxContainer"]
+offset_right = 240.0
+offset_bottom = 51.0
+size_flags_horizontal = 0
+
+[node name="counter" parent="." instance=ExtResource("1_okxbo")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme = ExtResource("2_57uix")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 2
+value = 100.0
+texture_over = ExtResource("3_jbfxv")
+texture_progress = ExtResource("4_4h8l1")

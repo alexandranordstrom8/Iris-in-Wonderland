@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://cqasmoo2r3l6c"]
+[gd_scene load_steps=57 format=3 uid="uid://cqasmoo2r3l6c"]
 
 [ext_resource type="PackedScene" uid="uid://3lj7jr7m57ri" path="res://Iris-in-Wonderland/src/characters/iris.tscn" id="1_pv5ai"]
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/world.gd" id="1_wclp7"]
@@ -6,35 +6,37 @@
 [ext_resource type="PackedScene" uid="uid://bah2pxas0yt5v" path="res://Iris-in-Wonderland/src/background/sky.tscn" id="2_1aki1"]
 [ext_resource type="PackedScene" uid="uid://duenctpiba1bt" path="res://Iris-in-Wonderland/src/background/card_platform_2.tscn" id="2_pdhwg"]
 [ext_resource type="PackedScene" uid="uid://co5rhs1t15yqh" path="res://Iris-in-Wonderland/src/background/card_platform_3.tscn" id="3_1jexh"]
-[ext_resource type="Texture2D" uid="uid://d0uhb7j45xd1g" path="res://Iris-in-Wonderland/assets/grass.png" id="3_1oo16"]
+[ext_resource type="Texture2D" uid="uid://d0uhb7j45xd1g" path="res://Iris-in-Wonderland/assets/background/grass.png" id="3_1oo16"]
 [ext_resource type="PackedScene" uid="uid://brma5q2nftysu" path="res://Iris-in-Wonderland/src/background/card_platform_1.tscn" id="4_1c0di"]
 [ext_resource type="PackedScene" uid="uid://btqp4gxdg4jpw" path="res://Iris-in-Wonderland/src/background/card_platform_4.tscn" id="4_dqle1"]
 [ext_resource type="PackedScene" uid="uid://dabnyunyw0f1x" path="res://Iris-in-Wonderland/src/background/grass_texture.tscn" id="4_lr65x"]
-[ext_resource type="Texture2D" uid="uid://b0ucchoxmyik8" path="res://Iris-in-Wonderland/assets/ground_texture.png" id="5_axj4f"]
-[ext_resource type="Texture2D" uid="uid://bktnksctnbgnq" path="res://Iris-in-Wonderland/assets/mushroom3.png" id="5_imxuh"]
-[ext_resource type="Texture2D" uid="uid://cuuxerwjk3wsr" path="res://Iris-in-Wonderland/assets/tree2.png" id="5_mw3q7"]
-[ext_resource type="Texture2D" uid="uid://kc6lqx4qc6qk" path="res://Iris-in-Wonderland/assets/mushroom1.png" id="6_ndqar"]
-[ext_resource type="Texture2D" uid="uid://eu3slbl72t25" path="res://Iris-in-Wonderland/assets/tree1_l.png" id="7_e0mm3"]
+[ext_resource type="Texture2D" uid="uid://b0ucchoxmyik8" path="res://Iris-in-Wonderland/assets/background/ground_texture.png" id="5_axj4f"]
+[ext_resource type="Texture2D" uid="uid://bktnksctnbgnq" path="res://Iris-in-Wonderland/assets/background/mushroom3.png" id="5_imxuh"]
+[ext_resource type="Texture2D" uid="uid://cuuxerwjk3wsr" path="res://Iris-in-Wonderland/assets/background/tree2.png" id="5_mw3q7"]
+[ext_resource type="Texture2D" uid="uid://kc6lqx4qc6qk" path="res://Iris-in-Wonderland/assets/background/mushroom1.png" id="6_ndqar"]
+[ext_resource type="Texture2D" uid="uid://eu3slbl72t25" path="res://Iris-in-Wonderland/assets/background/tree1_l.png" id="7_e0mm3"]
 [ext_resource type="PackedScene" uid="uid://dv1q6s4q2mm3c" path="res://Iris-in-Wonderland/src/background/mushroom_r.tscn" id="9_f6eke"]
 [ext_resource type="PackedScene" uid="uid://dr1yrh62u5xdn" path="res://Iris-in-Wonderland/src/background/mushroom_y.tscn" id="10_c35p7"]
 [ext_resource type="PackedScene" uid="uid://dpj8w1xhqb18n" path="res://Iris-in-Wonderland/src/background/mushroom_b.tscn" id="11_fj40n"]
-[ext_resource type="Texture2D" uid="uid://cbqo77367xmhg" path="res://Iris-in-Wonderland/assets/grass2.png" id="13_me6ou"]
-[ext_resource type="Texture2D" uid="uid://deiug4fdhqlhy" path="res://Iris-in-Wonderland/assets/path1.png" id="14_2k2ct"]
+[ext_resource type="Texture2D" uid="uid://cbqo77367xmhg" path="res://Iris-in-Wonderland/assets/background/grass2.png" id="13_me6ou"]
+[ext_resource type="Texture2D" uid="uid://deiug4fdhqlhy" path="res://Iris-in-Wonderland/assets/background/path1.png" id="14_2k2ct"]
 [ext_resource type="PackedScene" uid="uid://ttaqxg3mnnyy" path="res://Iris-in-Wonderland/src/background/hill.tscn" id="14_fmvir"]
 [ext_resource type="PackedScene" uid="uid://e6jqk46t2v08" path="res://Iris-in-Wonderland/src/background/dirt_wall.tscn" id="15_34ch6"]
-[ext_resource type="Texture2D" uid="uid://duvi3sfpv6eib" path="res://Iris-in-Wonderland/assets/dirt2.png" id="15_otv1k"]
-[ext_resource type="Texture2D" uid="uid://cd7ky2ec07inu" path="res://Iris-in-Wonderland/assets/dirt.png" id="15_s8os6"]
-[ext_resource type="Texture2D" uid="uid://b1spr21vkwkto" path="res://Iris-in-Wonderland/assets/mushroom1_l.png" id="16_0ey4m"]
-[ext_resource type="Texture2D" uid="uid://cwg7lmm8ukgir" path="res://Iris-in-Wonderland/assets/mushroom2_l.png" id="16_2nsrq"]
+[ext_resource type="Texture2D" uid="uid://duvi3sfpv6eib" path="res://Iris-in-Wonderland/assets/background/dirt2.png" id="15_otv1k"]
+[ext_resource type="Texture2D" uid="uid://cd7ky2ec07inu" path="res://Iris-in-Wonderland/assets/background/dirt.png" id="15_s8os6"]
+[ext_resource type="Texture2D" uid="uid://b1spr21vkwkto" path="res://Iris-in-Wonderland/assets/background/mushroom1_l.png" id="16_0ey4m"]
+[ext_resource type="Texture2D" uid="uid://cwg7lmm8ukgir" path="res://Iris-in-Wonderland/assets/background/mushroom2_l.png" id="16_2nsrq"]
 [ext_resource type="PackedScene" uid="uid://bsd8hqkxtxg33" path="res://Iris-in-Wonderland/src/background/dirt_ground.tscn" id="16_4aauh"]
-[ext_resource type="Texture2D" uid="uid://doc36gr68jycm" path="res://Iris-in-Wonderland/assets/mushroom2.png" id="18_uq8na"]
-[ext_resource type="Texture2D" uid="uid://cc0kuu0c3c2m0" path="res://Iris-in-Wonderland/assets/path2.png" id="19_ysxqt"]
+[ext_resource type="Texture2D" uid="uid://doc36gr68jycm" path="res://Iris-in-Wonderland/assets/background/mushroom2.png" id="18_uq8na"]
+[ext_resource type="Texture2D" uid="uid://cc0kuu0c3c2m0" path="res://Iris-in-Wonderland/assets/background/path2.png" id="19_ysxqt"]
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/background/animated_platform.gd" id="26_ba708"]
 [ext_resource type="PackedScene" uid="uid://c0dydbsm6epto" path="res://Iris-in-Wonderland/src/characters/benjamin.tscn" id="30_u2nvl"]
 [ext_resource type="PackedScene" uid="uid://bhmj4gwta52oe" path="res://Iris-in-Wonderland/src/characters/isabell.tscn" id="31_er7db"]
+[ext_resource type="AudioStream" uid="uid://b6rxv45eh6p66" path="res://Iris-in-Wonderland/assets/audio/audio_hero_Yellow-Cafe_SIPML_C-0361.mp3" id="33_6dgrg"]
+[ext_resource type="PackedScene" uid="uid://b3dx42g8s16rl" path="res://Iris-in-Wonderland/src/interface/interface.tscn" id="34_s5xvp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aul4g"]
-radius = 29.3018
+radius = 16.1245
 height = 672.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3r7qf"]
@@ -181,6 +183,130 @@ _data = {
 "slide": SubResource("Animation_qhn4w")
 }
 
+[sub_resource type="Animation" id="Animation_cwxvd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("card_platform5:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1568, -5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("card_platform5:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_7dbei"]
+resource_name = "slide"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("card_platform5:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 2, 2.5, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1739, -212), Vector2(1739, -212), Vector2(1568, -5), Vector2(1734, 217), Vector2(1734, 217), Vector2(1568, -5), Vector2(1739, -212)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("card_platform5:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 2, 2.5, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wngl0"]
+_data = {
+"RESET": SubResource("Animation_cwxvd"),
+"slide": SubResource("Animation_7dbei")
+}
+
+[sub_resource type="Animation" id="Animation_7433d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("card_platform4:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2018, 361)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("card_platform4:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_hiino"]
+resource_name = "slide"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("card_platform4:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2018, 361), Vector2(2018, 342), Vector2(2018, 361)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("card_platform4:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hamyc"]
+_data = {
+"RESET": SubResource("Animation_7433d"),
+"slide": SubResource("Animation_hiino")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0a42m"]
 size = Vector2(3498, 47)
 
@@ -291,7 +417,7 @@ region_rect = Rect2(0, 240.688, 876.031, 479.312)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bg/up/trees/tree2/branch"]
 position = Vector2(1259, -159)
-rotation = 1.39811
+rotation = 1.44837
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CapsuleShape2D_aul4g")
 
@@ -607,7 +733,7 @@ region_rect = Rect2(0, 0, 674.523, 720)
 position = Vector2(336, 1820)
 texture = ExtResource("15_otv1k")
 region_enabled = true
-region_rect = Rect2(0, 0, 674.523, 720)
+region_rect = Rect2(0, 0, 659.897, 720)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bg/down/StaticBody2D"]
 position = Vector2(285, 1622)
@@ -618,11 +744,11 @@ shape = SubResource("CapsuleShape2D_27u56")
 position = Vector2(911, -53)
 
 [node name="Sprite2D4" type="Sprite2D" parent="bg/down/StaticBody2D4"]
-position = Vector2(336, 1820)
+position = Vector2(311, 1820)
 texture = ExtResource("15_otv1k")
 flip_h = true
 region_enabled = true
-region_rect = Rect2(0, 0, 674.523, 720)
+region_rect = Rect2(0, 0, 656.105, 720)
 
 [node name="Sprite2D5" type="Sprite2D" parent="bg/down/StaticBody2D4"]
 position = Vector2(965, 1824)
@@ -730,13 +856,6 @@ texture = ExtResource("16_0ey4m")
 region_enabled = true
 region_rect = Rect2(878.152, 400.085, 401.848, 247.585)
 
-[node name="Sprite2D8" type="Sprite2D" parent="bg/down/path"]
-position = Vector2(1589, 2079)
-rotation = 1.5708
-texture = ExtResource("16_0ey4m")
-region_enabled = true
-region_rect = Rect2(878.152, 400.085, 401.848, 247.585)
-
 [node name="Sprite2D11" type="Sprite2D" parent="bg/down/path"]
 position = Vector2(2869, 753)
 texture = ExtResource("3_1oo16")
@@ -782,7 +901,7 @@ region_enabled = true
 region_rect = Rect2(24.575, 192.586, 490.453, 252.3)
 
 [node name="Sprite2D5" type="Sprite2D" parent="bg/down/path"]
-position = Vector2(1549, 2127)
+position = Vector2(1510, 2148)
 rotation = -0.288161
 texture = ExtResource("19_ysxqt")
 region_enabled = true
@@ -800,14 +919,17 @@ region_rect = Rect2(482.017, 72.3302, 346.618, 245.227)
 [node name="card_platform1" parent="platforms" instance=ExtResource("4_1c0di")]
 position = Vector2(894, 537)
 
-[node name="card_platform5" parent="platforms" instance=ExtResource("4_1c0di")]
-position = Vector2(1568, -5)
-
 [node name="card_platform2" parent="platforms" instance=ExtResource("2_pdhwg")]
 position = Vector2(700, 293)
 
 [node name="card_platform3" parent="platforms" instance=ExtResource("3_1jexh")]
 position = Vector2(1119, 403)
+
+[node name="card_platform5" parent="platforms" instance=ExtResource("3_1jexh")]
+position = Vector2(2334, 116)
+
+[node name="card_platform6" parent="platforms" instance=ExtResource("3_1jexh")]
+position = Vector2(2142, 116)
 
 [node name="AnimatedPlatform" type="Sprite2D" parent="platforms"]
 script = ExtResource("26_ba708")
@@ -831,6 +953,28 @@ position = Vector2(308, 193)
 root_node = NodePath("../card_platform4")
 libraries = {
 "": SubResource("AnimationLibrary_saj8e")
+}
+
+[node name="AnimatedPlatform3" type="Sprite2D" parent="platforms"]
+script = ExtResource("26_ba708")
+
+[node name="card_platform5" parent="platforms/AnimatedPlatform3" instance=ExtResource("4_1c0di")]
+position = Vector2(1568, -5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/AnimatedPlatform3"]
+libraries = {
+"": SubResource("AnimationLibrary_wngl0")
+}
+
+[node name="AnimatedPlatform4" type="Sprite2D" parent="platforms"]
+script = ExtResource("26_ba708")
+
+[node name="card_platform4" parent="platforms/AnimatedPlatform4" instance=ExtResource("4_1c0di")]
+position = Vector2(2018, 361)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/AnimatedPlatform4"]
+libraries = {
+"": SubResource("AnimationLibrary_hamyc")
 }
 
 [node name="walls" type="StaticBody2D" parent="."]
@@ -860,7 +1004,7 @@ shape = SubResource("RectangleShape2D_86pvv")
 [node name="character" type="Node" parent="."]
 
 [node name="iris" parent="character" instance=ExtResource("1_pv5ai")]
-position = Vector2(403, 629)
+position = Vector2(439, 629)
 scale = Vector2(0.75, 0.75)
 
 [node name="benjamin" parent="character" instance=ExtResource("30_u2nvl")]
@@ -955,3 +1099,21 @@ rotation = 3.14159
 texture = ExtResource("6_ndqar")
 region_enabled = true
 region_rect = Rect2(-36.7316, 126.563, 448.508, 394.352)
+
+[node name="Sprite2D8" type="Sprite2D" parent="fg"]
+position = Vector2(1589, 2079)
+rotation = 1.5708
+texture = ExtResource("16_0ey4m")
+region_enabled = true
+region_rect = Rect2(878.152, 400.085, 401.848, 247.585)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("33_6dgrg")
+volume_db = -5.0
+
+[node name="Interface" parent="." instance=ExtResource("34_s5xvp")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+grow_horizontal = 1
+grow_vertical = 0

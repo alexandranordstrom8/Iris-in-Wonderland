@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://dmgjvfs6b5eut"]
+
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/animated_character.gd" id="1_tsaoo"]
+[ext_resource type="Texture2D" uid="uid://bty6vatwmphsg" path="res://Iris-in-Wonderland/assets/shopkeeper.png" id="2_ixwmw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5c5fu"]
+atlas = ExtResource("2_ixwmw")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vj2u"]
+atlas = ExtResource("2_ixwmw")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hihh8"]
+atlas = ExtResource("2_ixwmw")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tlstg"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_5c5fu")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_7vj2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hihh8")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_7vj2u")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_5c5fu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0mgri"]
+radius = 33.0
+height = 95.0097
+
+[node name="shopkeeper" type="CharacterBody2D"]
+script = ExtResource("1_tsaoo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tlstg")
+animation = &"idle"
+frame_progress = 0.920044
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(42, -7)
+rotation = 1.31745
+shape = SubResource("CapsuleShape2D_0mgri")

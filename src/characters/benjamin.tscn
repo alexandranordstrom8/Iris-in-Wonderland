@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://c0dydbsm6epto"]
 
-[ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/character.gd" id="1_6uevh"]
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/animated_character.gd" id="1_6uevh"]
 [ext_resource type="Texture2D" uid="uid://c77yv0av6rj5k" path="res://Iris-in-Wonderland/assets/benjamin.png" id="1_f3uih"]
 [ext_resource type="Texture2D" uid="uid://bo84i7iswt2sv" path="res://Iris-in-Wonderland/assets/benjamin_sleep.png" id="2_fuchd"]
 

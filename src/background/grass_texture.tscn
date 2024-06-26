@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dabnyunyw0f1x"]
 
-[ext_resource type="Texture2D" uid="uid://d0rnodolsycqm" path="res://Iris-in-Wonderland/assets/green.png" id="1_ymjsf"]
+[ext_resource type="Texture2D" uid="uid://d0rnodolsycqm" path="res://Iris-in-Wonderland/assets/background/green.png" id="1_ymjsf"]
 
 [node name="grass_texture" type="Sprite2D"]
 

@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://54pg3bcv71dy"]
+
+[ext_resource type="Texture2D" uid="uid://qpl6ueuxq1in" path="res://Iris-in-Wonderland/assets/interface/icon_bg.png" id="1_k1p85"]
+[ext_resource type="Texture2D" uid="uid://cpk48otbvquon" path="res://Iris-in-Wonderland/assets/interface/icon.png" id="2_2j5yv"]
+
+[node name="AspectRatioContainer" type="NinePatchRect"]
+offset_right = 137.0
+offset_bottom = 128.0
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 2
+offset_right = 164.0
+offset_bottom = 164.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_k1p85")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 14.0
+offset_top = 25.0
+offset_right = 142.0
+offset_bottom = 153.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 11.54
+texture = ExtResource("2_2j5yv")

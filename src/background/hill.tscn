@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ttaqxg3mnnyy"]
 
-[ext_resource type="Texture2D" uid="uid://cbqo77367xmhg" path="res://Iris-in-Wonderland/assets/grass2.png" id="1_kcids"]
-[ext_resource type="Texture2D" uid="uid://cc0kuu0c3c2m0" path="res://Iris-in-Wonderland/assets/path2.png" id="2_1ejbw"]
+[ext_resource type="Texture2D" uid="uid://cbqo77367xmhg" path="res://Iris-in-Wonderland/assets/background/grass2.png" id="1_kcids"]
+[ext_resource type="Texture2D" uid="uid://cc0kuu0c3c2m0" path="res://Iris-in-Wonderland/assets/background/path2.png" id="2_1ejbw"]
 [ext_resource type="PackedScene" uid="uid://dabnyunyw0f1x" path="res://Iris-in-Wonderland/src/background/grass_texture.tscn" id="3_vmwfr"]
 
 [node name="hill" type="ParallaxBackground"]
