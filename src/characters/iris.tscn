@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://3lj7jr7m57ri"]
+[gd_scene load_steps=6 format=3 uid="uid://3lj7jr7m57ri"]
 
 [ext_resource type="PackedScene" uid="uid://bpl25njjvqyno" path="res://Iris-in-Wonderland/src/characters/iris_rig.tscn" id="1_juv4q"]
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/iris.gd" id="1_y4332"]
 [ext_resource type="AudioStream" uid="uid://46fnjfe3g6jo" path="res://Iris-in-Wonderland/assets/audio/jump2.mp3" id="4_6ynxu"]
+[ext_resource type="AudioStream" uid="uid://3asaeccxvber" path="res://Iris-in-Wonderland/assets/audio/zapsplat_cartoon_very_fast_whoosh_swipe_swish_air_007_80464.mp3" id="4_84xg6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4nqvm"]
 radius = 75.0113
@@ -32,3 +33,7 @@ drag_bottom_margin = 0.0
 
 [node name="audio_jump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_6ynxu")
+
+[node name="audio_scratch" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_84xg6")
+pitch_scale = 1.5

@@ -2,11 +2,17 @@ extends CharacterBody2D
 
 const SPEED = 500.0
 const JUMP_VELOCITY = -600.0
+const ACTION_COOLDOWN = 0.8
+
+var _timer = ACTION_COOLDOWN
+var prev_dir = 1
+var attacking = false
 
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animations = $Marker2D/iris_rig/Sprite2D/AnimationPlayer
 @onready var pos2d = $Marker2D
 @onready var audio_jump = $audio_jump
+@onready var audio_scratch = $audio_scratch
 
 func handle_input():
 	var direction = Input.get_axis("ui_left", "ui_right")
@@ -18,32 +24,45 @@ func handle_input():
 	if Input.is_action_just_pressed("ui_jump") and is_on_floor():
 		audio_jump.play()
 		velocity.y = JUMP_VELOCITY
-	elif Input.is_action_pressed("ui_attack"):
+	
+	if Input.is_action_just_pressed("ui_attack"):
+		if _timer >= ACTION_COOLDOWN:
+			_timer = 0
+			audio_scratch.play()
+			attacking = true
+	if animations.is_playing() and animations.current_animation == "scratch":
 		velocity.x = 0
-	elif Input.is_action_pressed("ui_dash"):
-		velocity.x *= 2
+		
+	if Input.is_action_pressed("ui_dash"):
+		if velocity.x == 0:
+			velocity.x = SPEED * 2 * prev_dir
+		else:
+			velocity.x *= 2
 
 	if velocity.x < 0:
 		pos2d.scale.x = -1
+		prev_dir = -1
 	elif velocity.x > 0:
 		pos2d.scale.x = 1
+		prev_dir = 1
 
 func update_animation():
-	if Input.is_action_pressed("ui_attack"):
-		animations.play("scratch")
-	elif not is_on_floor():
+	if not is_on_floor():
 		if velocity.y < 0:
 			animations.play("jump")
 		else:
 			animations.play("fall")
 	elif Input.is_action_pressed("ui_dash"):
 		animations.play("dash")
+	elif attacking and _timer < ACTION_COOLDOWN:
+		animations.play("scratch")
 	elif velocity.x:
 		animations.play("walk")
 	else:
 		animations.play("idle")
 
 func _physics_process(delta):
+	_timer += delta
 	velocity.y += gravity * delta
 		
 	handle_input()

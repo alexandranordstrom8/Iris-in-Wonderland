@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://cqasmoo2r3l6c"]
+[gd_scene load_steps=58 format=3 uid="uid://cqasmoo2r3l6c"]
 
 [ext_resource type="PackedScene" uid="uid://3lj7jr7m57ri" path="res://Iris-in-Wonderland/src/characters/iris.tscn" id="1_pv5ai"]
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/world.gd" id="1_wclp7"]
@@ -33,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://c0dydbsm6epto" path="res://Iris-in-Wonderland/src/characters/benjamin.tscn" id="30_u2nvl"]
 [ext_resource type="PackedScene" uid="uid://bhmj4gwta52oe" path="res://Iris-in-Wonderland/src/characters/isabell.tscn" id="31_er7db"]
 [ext_resource type="AudioStream" uid="uid://b6rxv45eh6p66" path="res://Iris-in-Wonderland/assets/audio/audio_hero_Yellow-Cafe_SIPML_C-0361.mp3" id="33_6dgrg"]
+[ext_resource type="PackedScene" uid="uid://dmgjvfs6b5eut" path="res://Iris-in-Wonderland/src/characters/shopkeeper.tscn" id="33_jwptl"]
 [ext_resource type="PackedScene" uid="uid://b3dx42g8s16rl" path="res://Iris-in-Wonderland/src/interface/interface.tscn" id="34_s5xvp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aul4g"]
@@ -661,8 +662,9 @@ region_enabled = true
 region_rect = Rect2(10.4273, 199.659, 749.828, 511.675)
 
 [node name="Sprite2D8" type="Sprite2D" parent="bg/down/mushrooms"]
-position = Vector2(1515, 1246)
+position = Vector2(1525.7, 1299.51)
 rotation = 1.5708
+scale = Vector2(0.857105, 0.958109)
 texture = ExtResource("16_2nsrq")
 region_enabled = true
 region_rect = Rect2(10.4273, 199.659, 749.828, 511.675)
@@ -812,7 +814,7 @@ position = Vector2(1280, 1465)
 position = Vector2(2142, 766)
 
 [node name="dirt_ground6" parent="bg/down/ground" instance=ExtResource("16_4aauh")]
-position = Vector2(-239, 442)
+position = Vector2(-341, 447)
 
 [node name="Sprite2D3" type="Sprite2D" parent="bg/down/ground"]
 position = Vector2(3434, 1408)
@@ -1003,10 +1005,6 @@ shape = SubResource("RectangleShape2D_86pvv")
 
 [node name="character" type="Node" parent="."]
 
-[node name="iris" parent="character" instance=ExtResource("1_pv5ai")]
-position = Vector2(439, 629)
-scale = Vector2(0.75, 0.75)
-
 [node name="benjamin" parent="character" instance=ExtResource("30_u2nvl")]
 position = Vector2(427, 2067)
 scale = Vector2(0.75, 0.75)
@@ -1014,6 +1012,15 @@ scale = Vector2(0.75, 0.75)
 [node name="isabell" parent="character" instance=ExtResource("31_er7db")]
 position = Vector2(1795, -459)
 scale = Vector2(0.75, 0.75)
+
+[node name="shopkeeper" parent="character" instance=ExtResource("33_jwptl")]
+position = Vector2(2984, 1384)
+scale = Vector2(0.75, 0.75)
+
+[node name="iris" parent="character" instance=ExtResource("1_pv5ai")]
+position = Vector2(641, 629)
+scale = Vector2(0.75, 0.75)
+platform_on_leave = 2
 
 [node name="fg" type="Node" parent="."]
 
@@ -1112,8 +1119,10 @@ stream = ExtResource("33_6dgrg")
 volume_db = -5.0
 
 [node name="Interface" parent="." instance=ExtResource("34_s5xvp")]
+visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_right = 0.0
 grow_horizontal = 1
 grow_vertical = 0
+size_flags_vertical = 4
