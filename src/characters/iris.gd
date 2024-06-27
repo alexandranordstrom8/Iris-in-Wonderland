@@ -14,6 +14,8 @@ var attacking = false
 @onready var audio_jump = $audio_jump
 @onready var audio_scratch = $audio_scratch
 
+signal hp_depleted
+
 func handle_input():
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
@@ -61,10 +63,24 @@ func update_animation():
 	else:
 		animations.play("idle")
 
+func test_health():
+	if Input.is_action_just_pressed("test_heal"):
+		$hp.heal(5)
+	if Input.is_action_just_pressed("test_damage"):
+		$hp.take_damage(5)
+	if Input.is_action_just_pressed("test_sp_heal"):
+		$sp.heal(5)
+	if Input.is_action_just_pressed("test_sp"):
+		$sp.take_damage(5)
+
 func _physics_process(delta):
 	_timer += delta
 	velocity.y += gravity * delta
 		
 	handle_input()
 	update_animation()
+	test_health()
 	move_and_slide()
+
+func _on_hp_health_depleted():
+	emit_signal("hp_depleted")

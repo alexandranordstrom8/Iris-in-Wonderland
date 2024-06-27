@@ -34,7 +34,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_5c5fu")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"default",
 "speed": 5.0
 }]
 
@@ -47,8 +47,6 @@ script = ExtResource("1_tsaoo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tlstg")
-animation = &"idle"
-frame_progress = 0.920044
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

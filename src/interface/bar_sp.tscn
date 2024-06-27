@@ -9,7 +9,7 @@ offset_right = 240.0
 offset_bottom = 31.0
 size_flags_horizontal = 0
 
-[node name="counter2" parent="." instance=ExtResource("1_koipj")]
+[node name="counter" parent="." instance=ExtResource("1_koipj")]
 layout_mode = 2
 size_flags_horizontal = 4
 

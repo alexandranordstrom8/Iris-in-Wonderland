@@ -5,8 +5,7 @@ extends Node2D
 func _ready():
 	#pass
 	music.play()
-	#benjamin.play("sleep")
 
 func _process(_delta):
-	benjamin.play("sleep")
+	#benjamin.change_animation("idle")
 	pass

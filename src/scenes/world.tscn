@@ -1118,11 +1118,14 @@ region_rect = Rect2(878.152, 400.085, 401.848, 247.585)
 stream = ExtResource("33_6dgrg")
 volume_db = -5.0
 
-[node name="Interface" parent="." instance=ExtResource("34_s5xvp")]
-visible = false
-anchors_preset = 2
-anchor_top = 1.0
-anchor_right = 0.0
-grow_horizontal = 1
-grow_vertical = 0
-size_flags_vertical = 4
+[node name="ui" type="CanvasLayer" parent="."]
+
+[node name="Interface" parent="ui" instance=ExtResource("34_s5xvp")]
+size_flags_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="hp_depleted" from="character/iris" to="ui/Interface" method="_on_iris_hp_depleted"]
+[connection signal="health_changed" from="character/iris/hp" to="ui/Interface" method="_on_hp_health_changed"]
+[connection signal="health_changed" from="character/iris/sp" to="ui/Interface" method="_on_sp_health_changed"]
+
+[editable path="character/iris"]
