@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://c0dydbsm6epto"]
+[gd_scene load_steps=13 format=3 uid="uid://c0dydbsm6epto"]
 
-[ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/animated_character.gd" id="1_6uevh"]
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/benjamin.gd" id="1_8kdg6"]
 [ext_resource type="Texture2D" uid="uid://c77yv0av6rj5k" path="res://Iris-in-Wonderland/assets/benjamin.png" id="1_f3uih"]
 [ext_resource type="Texture2D" uid="uid://bo84i7iswt2sv" path="res://Iris-in-Wonderland/assets/benjamin_sleep.png" id="2_fuchd"]
 
@@ -84,8 +84,12 @@ animations = [{
 radius = 84.0228
 height = 177.636
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8rnl8"]
+radius = 117.979
+height = 306.219
+
 [node name="benjamin" type="CharacterBody2D"]
-script = ExtResource("1_6uevh")
+script = ExtResource("1_8kdg6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_t3a4s")
@@ -97,3 +101,13 @@ visible = false
 position = Vector2(-16, 25)
 rotation = -0.287325
 shape = SubResource("CapsuleShape2D_c7xad")
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.59981
+shape = SubResource("CapsuleShape2D_8rnl8")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

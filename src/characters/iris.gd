@@ -7,6 +7,7 @@ const ACTION_COOLDOWN = 0.8
 var _timer = ACTION_COOLDOWN
 var prev_dir = 1
 var attacking = false
+var can_interact = false
 
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animations = $Marker2D/iris_rig/Sprite2D/AnimationPlayer
@@ -15,6 +16,8 @@ var attacking = false
 @onready var audio_scratch = $audio_scratch
 
 signal hp_depleted
+signal interacted
+signal left
 
 func handle_input():
 	var direction = Input.get_axis("ui_left", "ui_right")
@@ -40,6 +43,9 @@ func handle_input():
 			velocity.x = SPEED * 2 * prev_dir
 		else:
 			velocity.x *= 2
+			
+	if Input.is_action_pressed("ui_accept") and can_interact:
+		emit_signal("interacted")
 
 	if velocity.x < 0:
 		pos2d.scale.x = -1
@@ -84,3 +90,10 @@ func _physics_process(delta):
 
 func _on_hp_health_depleted():
 	emit_signal("hp_depleted")
+
+func _on_area_2d_area_entered(_area):
+	can_interact = true
+
+func _on_area_2d_area_exited(_area):
+	can_interact = false
+	emit_signal("left")

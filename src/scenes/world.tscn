@@ -1018,7 +1018,7 @@ position = Vector2(2984, 1384)
 scale = Vector2(0.75, 0.75)
 
 [node name="iris" parent="character" instance=ExtResource("1_pv5ai")]
-position = Vector2(641, 629)
+position = Vector2(640, 629)
 scale = Vector2(0.75, 0.75)
 platform_on_leave = 2
 
@@ -1124,8 +1124,14 @@ volume_db = -5.0
 size_flags_horizontal = 0
 metadata/_edit_use_anchors_ = true
 
+[connection signal="interacted" from="." to="character/benjamin" method="_on_world_interacted"]
+[connection signal="area_entered" from="character/benjamin/Area2D" to="character/iris" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="character/benjamin/Area2D" to="character/iris" method="_on_area_2d_area_exited"]
 [connection signal="hp_depleted" from="character/iris" to="ui/Interface" method="_on_iris_hp_depleted"]
+[connection signal="interacted" from="character/iris" to="character/benjamin" method="_on_iris_interacted"]
+[connection signal="left" from="character/iris" to="character/benjamin" method="_on_iris_left"]
 [connection signal="health_changed" from="character/iris/hp" to="ui/Interface" method="_on_hp_health_changed"]
 [connection signal="health_changed" from="character/iris/sp" to="ui/Interface" method="_on_sp_health_changed"]
 
+[editable path="character/benjamin"]
 [editable path="character/iris"]

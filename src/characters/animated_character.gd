@@ -6,7 +6,6 @@ var animation_name = "default"
 
 func change_animation(_name):
 	animation_name = _name
-
+	
 func _physics_process(_delta):
-	if _animation:
-		_animation.play(animation_name)
+	_animation.play(animation_name)
