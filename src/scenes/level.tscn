@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://cnpmjhr3i3unn"]
+
+[ext_resource type="PackedScene" uid="uid://bng63fw5pf27e" path="res://Iris-in-Wonderland/src/background/green_background.tscn" id="1_efq5o"]
+[ext_resource type="Texture2D" uid="uid://cbqo77367xmhg" path="res://Iris-in-Wonderland/assets/background/grass2.png" id="2_rji1i"]
+[ext_resource type="PackedScene" uid="uid://b8wxjqdavi135" path="res://Iris-in-Wonderland/src/background/ground.tscn" id="3_5ve78"]
+[ext_resource type="PackedScene" uid="uid://cd631r3s13cp4" path="res://Iris-in-Wonderland/src/characters/cat.tscn" id="4_g2hht"]
+[ext_resource type="PackedScene" uid="uid://3lj7jr7m57ri" path="res://Iris-in-Wonderland/src/characters/iris.tscn" id="5_1sc4e"]
+[ext_resource type="PackedScene" uid="uid://b3dx42g8s16rl" path="res://Iris-in-Wonderland/src/interface/interface.tscn" id="6_h21cj"]
+[ext_resource type="Theme" uid="uid://dqu1hdmh0ypou" path="res://Iris-in-Wonderland/src/interface/theme.tres" id="7_n8l8m"]
+[ext_resource type="Theme" uid="uid://bscjj8hb4a3ex" path="res://Iris-in-Wonderland/src/interface/boss_theme.tres" id="7_wy7p4"]
+[ext_resource type="PackedScene" uid="uid://caly8lh80pjwu" path="res://Iris-in-Wonderland/src/interface/bar_boss.tscn" id="8_ak7h7"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="bg" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="bg"]
+position = Vector2(0, 552)
+texture = ExtResource("2_rji1i")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 558.943, 1280, 161.057)
+
+[node name="Sprite2D2" type="Sprite2D" parent="bg/Sprite2D"]
+position = Vector2(77, -145)
+texture = ExtResource("2_rji1i")
+centered = false
+region_enabled = true
+region_rect = Rect2(646.43, 89.9083, 610.923, 214.359)
+
+[node name="ground" parent="bg" instance=ExtResource("3_5ve78")]
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_efq5o")]
+
+[node name="character" type="Node2D" parent="."]
+
+[node name="cat" parent="character" instance=ExtResource("4_g2hht")]
+position = Vector2(1110, 575)
+
+[node name="iris" parent="character" instance=ExtResource("5_1sc4e")]
+position = Vector2(639, 629)
+
+[node name="ui" type="CanvasLayer" parent="."]
+
+[node name="Interface" parent="ui" instance=ExtResource("6_h21cj")]
+theme = ExtResource("7_n8l8m")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ui"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -640.5
+offset_right = 640.5
+offset_bottom = 161.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ui/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+
+[node name="Label" type="Label" parent="ui/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("7_wy7p4")
+text = "Neighborhood Cat"
+
+[node name="boss_bar" parent="ui/VBoxContainer" instance=ExtResource("8_ak7h7")]
+layout_mode = 2
+size_flags_horizontal = 4

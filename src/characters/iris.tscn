@@ -15,9 +15,11 @@ radius = 87.0
 height = 330.0
 
 [node name="iris" type="CharacterBody2D"]
+scale = Vector2(0.75, 0.75)
 script = ExtResource("1_y4332")
 
-[node name="Collision_body" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-2, 13)
 rotation = 1.5679
 shape = SubResource("CapsuleShape2D_4nqvm")

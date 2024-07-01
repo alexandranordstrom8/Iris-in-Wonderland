@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://cqasmoo2r3l6c"]
+[gd_scene load_steps=59 format=3 uid="uid://cqasmoo2r3l6c"]
 
 [ext_resource type="PackedScene" uid="uid://3lj7jr7m57ri" path="res://Iris-in-Wonderland/src/characters/iris.tscn" id="1_pv5ai"]
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/world.gd" id="1_wclp7"]
@@ -35,6 +35,7 @@
 [ext_resource type="AudioStream" uid="uid://b6rxv45eh6p66" path="res://Iris-in-Wonderland/assets/audio/audio_hero_Yellow-Cafe_SIPML_C-0361.mp3" id="33_6dgrg"]
 [ext_resource type="PackedScene" uid="uid://dmgjvfs6b5eut" path="res://Iris-in-Wonderland/src/characters/shopkeeper.tscn" id="33_jwptl"]
 [ext_resource type="PackedScene" uid="uid://b3dx42g8s16rl" path="res://Iris-in-Wonderland/src/interface/interface.tscn" id="34_s5xvp"]
+[ext_resource type="Theme" uid="uid://dqu1hdmh0ypou" path="res://Iris-in-Wonderland/src/interface/theme.tres" id="37_k3lju"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aul4g"]
 radius = 16.1245
@@ -1019,7 +1020,6 @@ scale = Vector2(0.75, 0.75)
 
 [node name="iris" parent="character" instance=ExtResource("1_pv5ai")]
 position = Vector2(640, 629)
-scale = Vector2(0.75, 0.75)
 platform_on_leave = 2
 
 [node name="fg" type="Node" parent="."]
@@ -1122,6 +1122,7 @@ volume_db = -5.0
 
 [node name="Interface" parent="ui" instance=ExtResource("34_s5xvp")]
 size_flags_horizontal = 0
+theme = ExtResource("37_k3lju")
 metadata/_edit_use_anchors_ = true
 
 [connection signal="interacted" from="." to="character/benjamin" method="_on_world_interacted"]

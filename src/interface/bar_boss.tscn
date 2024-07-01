@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://caly8lh80pjwu"]
+
+[ext_resource type="Texture2D" uid="uid://b1j0j6tx0ao0v" path="res://Iris-in-Wonderland/assets/interface/bar3_1.png" id="1_qop16"]
+[ext_resource type="Texture2D" uid="uid://j7728ffihxiy" path="res://Iris-in-Wonderland/assets/interface/bar3_2.png" id="2_c7j1q"]
+
+[node name="boss_bar" type="TextureProgressBar"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+texture_over = ExtResource("1_qop16")
+texture_progress = ExtResource("2_c7j1q")
