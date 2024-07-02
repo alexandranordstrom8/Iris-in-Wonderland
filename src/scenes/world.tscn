@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://d0uhb7j45xd1g" path="res://Iris-in-Wonderland/assets/background/grass.png" id="3_1oo16"]
 [ext_resource type="PackedScene" uid="uid://brma5q2nftysu" path="res://Iris-in-Wonderland/src/background/card_platform_1.tscn" id="4_1c0di"]
 [ext_resource type="PackedScene" uid="uid://btqp4gxdg4jpw" path="res://Iris-in-Wonderland/src/background/card_platform_4.tscn" id="4_dqle1"]
-[ext_resource type="PackedScene" uid="uid://dabnyunyw0f1x" path="res://Iris-in-Wonderland/src/background/grass_texture.tscn" id="4_lr65x"]
 [ext_resource type="Texture2D" uid="uid://b0ucchoxmyik8" path="res://Iris-in-Wonderland/assets/background/ground_texture.png" id="5_axj4f"]
 [ext_resource type="Texture2D" uid="uid://bktnksctnbgnq" path="res://Iris-in-Wonderland/assets/background/mushroom3.png" id="5_imxuh"]
 [ext_resource type="Texture2D" uid="uid://cuuxerwjk3wsr" path="res://Iris-in-Wonderland/assets/background/tree2.png" id="5_mw3q7"]
@@ -35,6 +34,7 @@
 [ext_resource type="AudioStream" uid="uid://b6rxv45eh6p66" path="res://Iris-in-Wonderland/assets/audio/audio_hero_Yellow-Cafe_SIPML_C-0361.mp3" id="33_6dgrg"]
 [ext_resource type="PackedScene" uid="uid://dmgjvfs6b5eut" path="res://Iris-in-Wonderland/src/characters/shopkeeper.tscn" id="33_jwptl"]
 [ext_resource type="PackedScene" uid="uid://b3dx42g8s16rl" path="res://Iris-in-Wonderland/src/interface/interface.tscn" id="34_s5xvp"]
+[ext_resource type="PackedScene" uid="uid://dsrkb3ytklumg" path="res://Iris-in-Wonderland/src/scenes/panning_camera.tscn" id="36_pdvhx"]
 [ext_resource type="Theme" uid="uid://dqu1hdmh0ypou" path="res://Iris-in-Wonderland/src/interface/theme.tres" id="37_k3lju"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aul4g"]
@@ -362,8 +362,6 @@ position = Vector2(298, 632)
 texture = ExtResource("5_axj4f")
 region_enabled = true
 region_rect = Rect2(137.852, 438.461, 266.766, 200.86)
-
-[node name="grass_texture" parent="bg/up/ground" instance=ExtResource("4_lr65x")]
 
 [node name="trees" type="Node" parent="bg/up"]
 
@@ -1125,9 +1123,12 @@ size_flags_horizontal = 0
 theme = ExtResource("37_k3lju")
 metadata/_edit_use_anchors_ = true
 
+[node name="PanningCamera" parent="." instance=ExtResource("36_pdvhx")]
+
 [connection signal="interacted" from="." to="character/benjamin" method="_on_world_interacted"]
 [connection signal="area_entered" from="character/benjamin/Area2D" to="character/iris" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="character/benjamin/Area2D" to="character/iris" method="_on_area_2d_area_exited"]
+[connection signal="current_position" from="character/iris" to="PanningCamera" method="_on_iris_current_position"]
 [connection signal="hp_depleted" from="character/iris" to="ui/Interface" method="_on_iris_hp_depleted"]
 [connection signal="interacted" from="character/iris" to="character/benjamin" method="_on_iris_interacted"]
 [connection signal="left" from="character/iris" to="character/benjamin" method="_on_iris_left"]

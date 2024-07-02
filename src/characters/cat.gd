@@ -1,6 +1,6 @@
 extends Enemy
 
-@onready var animations = $Marker2D/Sprite2D/AnimationPlayer
+@onready var animations = $Marker2D/AnimationPlayer
 @onready var pos2d = $Marker2D
 
 var prev_dir = 1

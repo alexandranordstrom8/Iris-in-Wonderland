@@ -1,8 +1,13 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dqu1hdmh0ypou"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dqu1hdmh0ypou"]
 
 [ext_resource type="FontFile" uid="uid://ckq0opjxkh4f1" path="res://Iris-in-Wonderland/assets/interface/Happy School.otf" id="1_vae2p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s7ryr"]
+bg_color = Color(0.65098, 0.807843, 0.882353, 1)
 
 [resource]
 default_font = ExtResource("1_vae2p")
 default_font_size = 18
+BoxContainer/constants/separation = 4
 EditorIcons/icons/Label = null
+Panel/styles/panel = SubResource("StyleBoxFlat_s7ryr")

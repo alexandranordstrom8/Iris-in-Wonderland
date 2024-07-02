@@ -1,16 +1,21 @@
-[gd_scene load_steps=29 format=3 uid="uid://cnpmjhr3i3unn"]
+[gd_scene load_steps=45 format=3 uid="uid://cnpmjhr3i3unn"]
 
 [ext_resource type="PackedScene" uid="uid://bng63fw5pf27e" path="res://Iris-in-Wonderland/src/background/green_background.tscn" id="1_efq5o"]
+[ext_resource type="Texture2D" uid="uid://p6jiynjt247g" path="res://Iris-in-Wonderland/assets/background/tree1.png" id="1_gt21c"]
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/boss_level.gd" id="1_rcf78"]
 [ext_resource type="Texture2D" uid="uid://cbqo77367xmhg" path="res://Iris-in-Wonderland/assets/background/grass2.png" id="2_rji1i"]
 [ext_resource type="Texture2D" uid="uid://d0uhb7j45xd1g" path="res://Iris-in-Wonderland/assets/background/grass.png" id="2_yvab1"]
 [ext_resource type="PackedScene" uid="uid://b8wxjqdavi135" path="res://Iris-in-Wonderland/src/background/ground.tscn" id="3_5ve78"]
+[ext_resource type="Texture2D" uid="uid://doc36gr68jycm" path="res://Iris-in-Wonderland/assets/background/mushroom2.png" id="3_a6jop"]
 [ext_resource type="Texture2D" uid="uid://eu3slbl72t25" path="res://Iris-in-Wonderland/assets/background/tree1_l.png" id="4_6mcpg"]
 [ext_resource type="PackedScene" uid="uid://cd631r3s13cp4" path="res://Iris-in-Wonderland/src/characters/cat.tscn" id="4_g2hht"]
+[ext_resource type="Texture2D" uid="uid://cc0kuu0c3c2m0" path="res://Iris-in-Wonderland/assets/background/path2.png" id="4_xs5ne"]
 [ext_resource type="PackedScene" uid="uid://3lj7jr7m57ri" path="res://Iris-in-Wonderland/src/characters/iris.tscn" id="5_1sc4e"]
 [ext_resource type="Texture2D" uid="uid://djnh45cefqrtg" path="res://Iris-in-Wonderland/assets/background/tree3.png" id="5_2lo61"]
 [ext_resource type="PackedScene" uid="uid://b3dx42g8s16rl" path="res://Iris-in-Wonderland/src/interface/interface.tscn" id="6_h21cj"]
 [ext_resource type="Texture2D" uid="uid://cuuxerwjk3wsr" path="res://Iris-in-Wonderland/assets/background/tree2.png" id="6_mdp28"]
 [ext_resource type="Theme" uid="uid://dqu1hdmh0ypou" path="res://Iris-in-Wonderland/src/interface/theme.tres" id="7_n8l8m"]
+[ext_resource type="Texture2D" uid="uid://bgemt3eaij6yc" path="res://Iris-in-Wonderland/assets/background/tree4.png" id="7_r0w0i"]
 [ext_resource type="PackedScene" uid="uid://dv1q6s4q2mm3c" path="res://Iris-in-Wonderland/src/background/mushroom_r.tscn" id="7_ut1y5"]
 [ext_resource type="Theme" uid="uid://bscjj8hb4a3ex" path="res://Iris-in-Wonderland/src/interface/boss_theme.tres" id="7_wy7p4"]
 [ext_resource type="PackedScene" uid="uid://caly8lh80pjwu" path="res://Iris-in-Wonderland/src/interface/bar_boss.tscn" id="8_ak7h7"]
@@ -20,8 +25,12 @@
 [ext_resource type="PackedScene" uid="uid://duenctpiba1bt" path="res://Iris-in-Wonderland/src/background/card_platform_2.tscn" id="11_uuu67"]
 [ext_resource type="PackedScene" uid="uid://co5rhs1t15yqh" path="res://Iris-in-Wonderland/src/background/card_platform_3.tscn" id="12_8sxrc"]
 [ext_resource type="PackedScene" uid="uid://btqp4gxdg4jpw" path="res://Iris-in-Wonderland/src/background/card_platform_4.tscn" id="13_rmkha"]
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/background/animated_platform.gd" id="15_56dt6"]
 [ext_resource type="Texture2D" uid="uid://b1spr21vkwkto" path="res://Iris-in-Wonderland/assets/background/mushroom1_l.png" id="16_7sq42"]
 [ext_resource type="Texture2D" uid="uid://cwg7lmm8ukgir" path="res://Iris-in-Wonderland/assets/background/mushroom2_l.png" id="17_i0k2n"]
+[ext_resource type="PackedScene" uid="uid://ttaqxg3mnnyy" path="res://Iris-in-Wonderland/src/background/hill.tscn" id="25_rlq13"]
+[ext_resource type="AudioStream" uid="uid://cefom4cif0rk7" path="res://Iris-in-Wonderland/assets/audio/ambience_summer_night.mp3" id="29_k5ocv"]
+[ext_resource type="PackedScene" uid="uid://dsrkb3ytklumg" path="res://Iris-in-Wonderland/src/scenes/panning_camera.tscn" id="32_3jta5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ff3g"]
 radius = 96.5
@@ -35,58 +44,253 @@ height = 224.0
 height = 342.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e3sor"]
-height = 100.0
+height = 161.176
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fxna0"]
-height = 100.0
+height = 142.242
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1xkp1"]
 radius = 9.50323
 height = 178.443
 
+[sub_resource type="Animation" id="Animation_u25w5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("card_platform6:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1491, 362)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("card_platform6:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_nvtkb"]
+resource_name = "slide"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("card_platform6:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1491, 362), Vector2(1207, 587), Vector2(1491, 362)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("card_platform6:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6qsne"]
+_data = {
+"RESET": SubResource("Animation_u25w5"),
+"slide": SubResource("Animation_nvtkb")
+}
+
+[sub_resource type="Animation" id="Animation_bfe6r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("card_platform3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1308, 152)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("card_platform3:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_1dh88"]
+resource_name = "slide"
+length = 2.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("card_platform3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1456, 245), Vector2(1308, 152), Vector2(1308, 152), Vector2(1456, 245)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("card_platform3:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cpd2x"]
+_data = {
+"RESET": SubResource("Animation_bfe6r"),
+"slide": SubResource("Animation_1dh88")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2l7si"]
+radius = 82.353
+height = 508.235
+
 [node name="boss_level" type="Node2D"]
+script = ExtResource("1_rcf78")
+
+[node name="distant_bg" type="Node" parent="."]
+
+[node name="Sprite2D2" type="Sprite2D" parent="distant_bg"]
+position = Vector2(147, 204)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_gt21c")
+
+[node name="Sprite2D3" type="Sprite2D" parent="distant_bg"]
+position = Vector2(-89, 202)
+rotation = 1.5708
+scale = Vector2(0.5, -0.5)
+texture = ExtResource("1_gt21c")
+
+[node name="Sprite2D31" type="Sprite2D" parent="distant_bg"]
+position = Vector2(71, -117)
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(0, 0, 951.348, 315.37)
+
+[node name="Sprite2D32" type="Sprite2D" parent="distant_bg"]
+position = Vector2(-10, 441)
+rotation = 1.5708
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_a6jop")
+region_enabled = true
+region_rect = Rect2(0, 192.91, 761.52, 520.258)
+
+[node name="Sprite2D4" type="Sprite2D" parent="distant_bg"]
+position = Vector2(1250.5, 368.5)
+rotation = 1.5708
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_gt21c")
+
+[node name="Sprite2D5" type="Sprite2D" parent="distant_bg"]
+position = Vector2(1062, 367)
+rotation = 1.5708
+scale = Vector2(0.3, -0.3)
+texture = ExtResource("1_gt21c")
+
+[node name="Sprite2D33" type="Sprite2D" parent="distant_bg"]
+position = Vector2(1232, 41)
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(0, 0, 951.348, 315.37)
+
+[node name="Sprite2D34" type="Sprite2D" parent="distant_bg"]
+position = Vector2(1043, 108)
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(0, 0, 951.348, 315.37)
+
+[node name="Sprite2D35" type="Sprite2D" parent="distant_bg"]
+position = Vector2(1258, 91)
+rotation = 1.5708
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(962.787, 382.785, 167.09, 337.977)
+
+[node name="Sprite2D36" type="Sprite2D" parent="distant_bg"]
+position = Vector2(1460, 179)
+rotation = 1.5708
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(962.787, 382.785, 167.09, 337.977)
 
 [node name="bg" type="Node" parent="."]
 
-[node name="ground4" type="Node" parent="bg"]
+[node name="ground" type="Node" parent="bg"]
 
-[node name="Sprite2D" type="Sprite2D" parent="bg/ground4"]
+[node name="Sprite2D" type="Sprite2D" parent="bg/ground"]
 position = Vector2(0, 552)
 texture = ExtResource("2_rji1i")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 558.943, 1280, 161.057)
 
-[node name="Sprite2D2" type="Sprite2D" parent="bg/ground4/Sprite2D"]
-position = Vector2(77, -145)
+[node name="Sprite2D2" type="Sprite2D" parent="bg/ground/Sprite2D"]
+position = Vector2(-99, -150)
 texture = ExtResource("2_rji1i")
 centered = false
 region_enabled = true
 region_rect = Rect2(646.43, 89.9083, 610.923, 214.359)
 
-[node name="Sprite2D5" type="Sprite2D" parent="bg/ground4/Sprite2D"]
+[node name="Sprite2D5" type="Sprite2D" parent="bg/ground/Sprite2D"]
 show_behind_parent = true
-position = Vector2(474, -122)
+position = Vector2(298, -127)
 texture = ExtResource("2_yvab1")
 centered = false
 region_enabled = true
 region_rect = Rect2(646.43, 89.9083, 610.923, 214.359)
 
-[node name="Sprite2D2" type="Sprite2D" parent="bg/ground4"]
+[node name="Sprite2D2" type="Sprite2D" parent="bg/ground"]
 position = Vector2(1280, 552)
 texture = ExtResource("2_rji1i")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 558.943, 1280, 161.057)
 
-[node name="Sprite2D3" type="Sprite2D" parent="bg/ground4"]
+[node name="Sprite2D3" type="Sprite2D" parent="bg/ground"]
 position = Vector2(2560, 552)
 texture = ExtResource("2_rji1i")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 558.943, 1280, 161.057)
 
-[node name="Sprite2D4" type="Sprite2D" parent="bg/ground4/Sprite2D3"]
+[node name="Sprite2D4" type="Sprite2D" parent="bg/ground/Sprite2D3"]
 show_behind_parent = true
 position = Vector2(451, -145)
 texture = ExtResource("2_rji1i")
@@ -94,7 +298,7 @@ centered = false
 region_enabled = true
 region_rect = Rect2(646.43, 89.9083, 610.923, 214.359)
 
-[node name="Sprite2D3" type="Sprite2D" parent="bg/ground4/Sprite2D3"]
+[node name="Sprite2D3" type="Sprite2D" parent="bg/ground/Sprite2D3"]
 show_behind_parent = true
 position = Vector2(209, -133)
 texture = ExtResource("2_yvab1")
@@ -102,20 +306,124 @@ centered = false
 region_enabled = true
 region_rect = Rect2(646.43, 89.9083, 610.923, 214.359)
 
-[node name="Sprite2D2" type="Sprite2D" parent="bg/ground4/Sprite2D3"]
+[node name="Sprite2D2" type="Sprite2D" parent="bg/ground/Sprite2D3"]
 position = Vector2(-58, -88)
 texture = ExtResource("2_rji1i")
 centered = false
 region_enabled = true
 region_rect = Rect2(646.43, 89.9083, 610.923, 214.359)
 
-[node name="ground" parent="bg/ground4" instance=ExtResource("3_5ve78")]
+[node name="ground" parent="bg/ground" instance=ExtResource("3_5ve78")]
 
-[node name="ground2" parent="bg/ground4" instance=ExtResource("3_5ve78")]
+[node name="ground2" parent="bg/ground" instance=ExtResource("3_5ve78")]
 position = Vector2(1280, 0)
 
-[node name="ground3" parent="bg/ground4" instance=ExtResource("3_5ve78")]
+[node name="ground3" parent="bg/ground" instance=ExtResource("3_5ve78")]
 position = Vector2(2560, 0)
+
+[node name="path" type="Node" parent="bg/ground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/ground/path"]
+position = Vector2(1087, 666)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_xs5ne")
+region_enabled = true
+region_rect = Rect2(510.885, 56.2, 303.8, 254.433)
+
+[node name="Sprite2D5" type="Sprite2D" parent="bg/ground/path"]
+position = Vector2(1235, 713)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_xs5ne")
+region_enabled = true
+region_rect = Rect2(510.885, 56.2, 303.8, 254.433)
+
+[node name="Sprite2D11" type="Sprite2D" parent="bg/ground/path"]
+position = Vector2(1988, 683)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_xs5ne")
+region_enabled = true
+region_rect = Rect2(510.885, 56.2, 303.8, 254.433)
+
+[node name="Sprite2D12" type="Sprite2D" parent="bg/ground/path"]
+position = Vector2(377, 703)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_xs5ne")
+region_enabled = true
+region_rect = Rect2(510.885, 56.2, 303.8, 254.433)
+
+[node name="Sprite2D13" type="Sprite2D" parent="bg/ground/path"]
+position = Vector2(649, 693)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_xs5ne")
+region_enabled = true
+region_rect = Rect2(510.885, 56.2, 303.8, 254.433)
+
+[node name="Sprite2D14" type="Sprite2D" parent="bg/ground/path"]
+position = Vector2(232, 690)
+rotation = -3.1798
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_xs5ne")
+region_enabled = true
+region_rect = Rect2(510.885, 56.2, 303.8, 254.433)
+
+[node name="Sprite2D2" type="Sprite2D" parent="bg/ground/path"]
+position = Vector2(905, 679)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_xs5ne")
+region_enabled = true
+region_rect = Rect2(39.995, 177.72, 394.94, 284.813)
+
+[node name="Sprite2D9" type="Sprite2D" parent="bg/ground/path"]
+position = Vector2(2264, 699)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_xs5ne")
+region_enabled = true
+region_rect = Rect2(39.995, 177.72, 394.94, 284.813)
+
+[node name="Sprite2D3" type="Sprite2D" parent="bg/ground/path"]
+position = Vector2(481, 659)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_xs5ne")
+region_enabled = true
+region_rect = Rect2(39.995, 443.545, 417.725, 231.648)
+
+[node name="Sprite2D4" type="Sprite2D" parent="bg/ground/path"]
+position = Vector2(1305, 669)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_xs5ne")
+region_enabled = true
+region_rect = Rect2(39.995, 443.545, 417.725, 231.648)
+
+[node name="Sprite2D6" type="Sprite2D" parent="bg/ground/path"]
+position = Vector2(1046, 730)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_xs5ne")
+region_enabled = true
+region_rect = Rect2(39.995, 443.545, 417.725, 231.648)
+
+[node name="Sprite2D7" type="Sprite2D" parent="bg/ground/path"]
+position = Vector2(1544, 662)
+rotation = 1.44169
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_xs5ne")
+region_enabled = true
+region_rect = Rect2(791.9, 246.075, 208.863, 432.915)
+
+[node name="Sprite2D8" type="Sprite2D" parent="bg/ground/path"]
+position = Vector2(2415, 669)
+rotation = 1.44169
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_xs5ne")
+region_enabled = true
+region_rect = Rect2(791.9, 246.075, 208.863, 288.61)
+
+[node name="Sprite2D10" type="Sprite2D" parent="bg/ground/path"]
+position = Vector2(2103, 686)
+rotation = 0.775151
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_xs5ne")
+region_enabled = true
+region_rect = Rect2(791.9, 246.075, 208.863, 288.61)
 
 [node name="trees" type="Node" parent="bg"]
 
@@ -135,6 +443,25 @@ shape = SubResource("CapsuleShape2D_4ff3g")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="bg/trees/StaticBody2D"]
 position = Vector2(3480, 651)
 rotation = 0.869264
+shape = SubResource("CapsuleShape2D_jnbpu")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="bg/trees"]
+position = Vector2(-3778, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/trees/StaticBody2D3"]
+position = Vector2(3743, 82)
+rotation = 1.5708
+texture = ExtResource("4_6mcpg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bg/trees/StaticBody2D3"]
+position = Vector2(3582, 340)
+rotation = -3.32136
+shape = SubResource("CapsuleShape2D_4ff3g")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="bg/trees/StaticBody2D3"]
+position = Vector2(3744, 631)
+rotation = -0.869174
+scale = Vector2(-1, 1)
 shape = SubResource("CapsuleShape2D_jnbpu")
 
 [node name="Sprite2D" type="Sprite2D" parent="bg/trees"]
@@ -163,19 +490,210 @@ rotation = 1.50892
 shape = SubResource("CapsuleShape2D_d3fw5")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="bg/trees/StaticBody2D2"]
-position = Vector2(2631, 632)
-rotation = 0.993615
+position = Vector2(2659, 664)
+rotation = 1.23064
 shape = SubResource("CapsuleShape2D_e3sor")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="bg/trees/StaticBody2D2"]
-position = Vector2(2763, 656)
-rotation = 0.969396
+position = Vector2(2802, 643)
+rotation = 1.64861
 shape = SubResource("CapsuleShape2D_fxna0")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="bg/trees/StaticBody2D2"]
-position = Vector2(2955, 655)
-rotation = 1.67212
+position = Vector2(2952, 661)
+rotation = 1.71206
 shape = SubResource("CapsuleShape2D_1xkp1")
+
+[node name="leaves" type="Node" parent="bg/trees"]
+
+[node name="Sprite2D11" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(3203, -80)
+rotation = 1.5708
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(1110.89, 10.6299, 292.407, 698.74)
+
+[node name="Sprite2D12" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(1625, -76)
+rotation = 1.5708
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(971.272, 360, 144.305, 349.37)
+
+[node name="Sprite2D13" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(2416, -44)
+rotation = 1.5708
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(971.272, 360, 144.305, 349.37)
+
+[node name="Sprite2D15" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(2174, -40)
+rotation = 1.5708
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(971.272, 52.4025, 144.305, 262.028)
+
+[node name="Sprite2D16" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(3076, 27)
+rotation = 1.5708
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(971.272, 52.4025, 144.305, 262.028)
+
+[node name="Sprite2D17" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(1904, -18)
+rotation = 1.5708
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(971.272, 52.4025, 144.305, 262.028)
+
+[node name="Sprite2D28" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(483.5, -137)
+rotation = 1.5708
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(971.272, 52.4025, 144.305, 262.028)
+
+[node name="Sprite2D29" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(-391.5, -251)
+rotation = 1.5708
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(971.272, 52.4025, 144.305, 262.028)
+
+[node name="Sprite2D30" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(1002.5, -232)
+rotation = 1.5708
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(971.272, 52.4025, 144.305, 262.028)
+
+[node name="Sprite2D14" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(3478, -422)
+rotation = 1.5708
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(971.272, 360, 144.305, 349.37)
+
+[node name="Sprite2D20" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(-168.5, -203)
+rotation = 1.5708
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(971.272, 360, 144.305, 349.37)
+
+[node name="Sprite2D25" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(140.5, -170)
+rotation = 1.5708
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(971.272, 360, 144.305, 349.37)
+
+[node name="Sprite2D26" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(-11.5, -232)
+rotation = 1.5708
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(971.272, 360, 144.305, 349.37)
+
+[node name="Sprite2D27" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(825.5, -151)
+rotation = 1.5708
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(971.272, 360, 144.305, 349.37)
+
+[node name="Sprite2D2" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(1966, -177)
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(0, 0, 951.348, 315.37)
+
+[node name="Sprite2D10" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(2454, -355)
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(0, 0, 951.348, 315.37)
+
+[node name="Sprite2D6" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(2613, -207)
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(0, 0, 951.348, 315.37)
+
+[node name="Sprite2D8" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(3483, -617)
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(0, 0, 951.348, 315.37)
+
+[node name="Sprite2D19" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(-101.5, -380)
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(0, 0, 951.348, 315.37)
+
+[node name="Sprite2D24" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(440.5, -299)
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(0, 0, 951.348, 315.37)
+
+[node name="Sprite2D5" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(2880, -99)
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(0, 0, 951.348, 315.37)
+
+[node name="Sprite2D3" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(1816, -252)
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(0, 333.417, 951.348, 375.953)
+
+[node name="Sprite2D4" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(2376, -261)
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(0, 333.417, 951.348, 375.953)
+
+[node name="Sprite2D7" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(3050, -315)
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(0, 333.417, 951.348, 375.953)
+
+[node name="Sprite2D9" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(2067, -365)
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(0, 333.417, 951.348, 375.953)
+
+[node name="Sprite2D21" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(115, -418.5)
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(0, 333.417, 951.348, 375.953)
+
+[node name="Sprite2D22" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(675, -427.5)
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(0, 333.417, 951.348, 375.953)
+
+[node name="Sprite2D23" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(366, -531.5)
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(0, 333.417, 951.348, 375.953)
+
+[node name="Sprite2D18" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(3143, -121)
+rotation = 1.5708
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(971.272, 52.4025, 144.305, 262.028)
 
 [node name="mushrooms" type="Node" parent="bg"]
 
@@ -189,8 +707,27 @@ position = Vector2(1603, 114)
 
 [node name="grass" type="Node" parent="bg"]
 
+[node name="Sprite2D17" type="Sprite2D" parent="bg/grass"]
+position = Vector2(1127, 536)
+texture = ExtResource("2_yvab1")
+region_enabled = true
+region_rect = Rect2(996.965, 287.847, 212.66, 148.103)
+
+[node name="Sprite2D18" type="Sprite2D" parent="bg/grass"]
+position = Vector2(1009, 529)
+texture = ExtResource("2_yvab1")
+region_enabled = true
+region_rect = Rect2(408.352, 344.81, 231.648, 144.305)
+
 [node name="Sprite2D8" type="Sprite2D" parent="bg/grass"]
 position = Vector2(1840, 607)
+texture = ExtResource("2_yvab1")
+region_enabled = true
+region_rect = Rect2(53.8141, 354.813, 277.531, 166)
+
+[node name="Sprite2D19" type="Sprite2D" parent="bg/grass"]
+position = Vector2(1241, 533)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_yvab1")
 region_enabled = true
 region_rect = Rect2(53.8141, 354.813, 277.531, 166)
@@ -201,8 +738,15 @@ texture = ExtResource("2_yvab1")
 region_enabled = true
 region_rect = Rect2(53.8141, 354.813, 277.531, 166)
 
+[node name="Sprite2D20" type="Sprite2D" parent="bg/grass"]
+position = Vector2(2697, 629)
+rotation = 0.329696
+texture = ExtResource("2_yvab1")
+region_enabled = true
+region_rect = Rect2(621.012, 280.253, 349.37, 216.457)
+
 [node name="Sprite2D10" type="Sprite2D" parent="bg/grass"]
-position = Vector2(278, 620)
+position = Vector2(1740, 582)
 texture = ExtResource("9_r7dey")
 region_enabled = true
 region_rect = Rect2(142.001, 432.625, 510.967, 215.281)
@@ -227,7 +771,14 @@ region_enabled = true
 region_rect = Rect2(455.844, -8.31152, 370.905, 282.718)
 
 [node name="Sprite2D12" type="Sprite2D" parent="bg/grass"]
-position = Vector2(313, 604)
+position = Vector2(78, 486)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_r7dey")
+region_enabled = true
+region_rect = Rect2(9.72052, -2.0921, 378.686, 365.718)
+
+[node name="Sprite2D16" type="Sprite2D" parent="bg/grass"]
+position = Vector2(179, 550)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_r7dey")
 region_enabled = true
@@ -248,12 +799,6 @@ position = Vector2(2048, 260)
 [node name="card_platform2" parent="platforms" instance=ExtResource("11_uuu67")]
 position = Vector2(2295, 181)
 
-[node name="card_platform6" parent="platforms" instance=ExtResource("11_uuu67")]
-position = Vector2(1539, 438)
-
-[node name="card_platform3" parent="platforms" instance=ExtResource("12_8sxrc")]
-position = Vector2(1308, 152)
-
 [node name="card_platform7" parent="platforms" instance=ExtResource("12_8sxrc")]
 position = Vector2(3054, 396)
 
@@ -263,13 +808,54 @@ position = Vector2(1114, 152)
 [node name="card_platform5" parent="platforms" instance=ExtResource("13_rmkha")]
 position = Vector2(1114, 152)
 
+[node name="card_platform3" parent="platforms" instance=ExtResource("11_uuu67")]
+position = Vector2(269, 256)
+
+[node name="card_platform6" parent="platforms" instance=ExtResource("13_rmkha")]
+position = Vector2(75, 256)
+
+[node name="card_platform8" parent="platforms" instance=ExtResource("12_8sxrc")]
+position = Vector2(464, 256)
+
+[node name="AnimatedPlatform" type="Sprite2D" parent="platforms"]
+script = ExtResource("15_56dt6")
+
+[node name="card_platform6" parent="platforms/AnimatedPlatform" instance=ExtResource("11_uuu67")]
+position = Vector2(1491, 362)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/AnimatedPlatform"]
+libraries = {
+"": SubResource("AnimationLibrary_6qsne")
+}
+
+[node name="AnimatedPlatform2" type="Sprite2D" parent="platforms"]
+script = ExtResource("15_56dt6")
+
+[node name="card_platform3" parent="platforms/AnimatedPlatform2" instance=ExtResource("12_8sxrc")]
+position = Vector2(1308, 152)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/AnimatedPlatform2"]
+libraries = {
+"": SubResource("AnimationLibrary_cpd2x")
+}
+
 [node name="character" type="Node" parent="."]
 
 [node name="cat" parent="character" instance=ExtResource("4_g2hht")]
-position = Vector2(3220, 597)
+position = Vector2(3159, 587)
 
 [node name="iris" parent="character" instance=ExtResource("5_1sc4e")]
-position = Vector2(639, 629)
+position = Vector2(249, 626)
+
+[node name="start_area" type="Area2D" parent="character"]
+position = Vector2(2191, 778)
+scale = Vector2(0.85, 0.85)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="character/start_area"]
+position = Vector2(172.941, -275.294)
+shape = SubResource("CapsuleShape2D_2l7si")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_efq5o")]
 
 [node name="fg" type="Node" parent="."]
 
@@ -334,7 +920,12 @@ texture = ExtResource("2_yvab1")
 region_enabled = true
 region_rect = Rect2(53.8141, 354.813, 277.531, 166)
 
-[node name="ParallaxBackground" parent="." instance=ExtResource("1_efq5o")]
+[node name="Sprite2D33" type="Sprite2D" parent="fg"]
+position = Vector2(-111, 602)
+rotation = 1.5708
+texture = ExtResource("3_a6jop")
+region_enabled = true
+region_rect = Rect2(784.305, 390.38, 562.03, 322.787)
 
 [node name="ui" type="CanvasLayer" parent="."]
 
@@ -342,6 +933,7 @@ region_rect = Rect2(53.8141, 354.813, 277.531, 166)
 theme = ExtResource("7_n8l8m")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ui"]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -364,9 +956,25 @@ text = "Neighborhood Cat"
 layout_mode = 2
 size_flags_horizontal = 4
 
+[node name="hill" parent="." instance=ExtResource("25_rlq13")]
+visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("29_k5ocv")
+volume_db = -20.412
+autoplay = true
+
+[node name="PanningCamera" parent="." instance=ExtResource("32_3jta5")]
+
+[connection signal="pan_camera" from="." to="character/iris" method="_on_boss_level_pan_camera"]
+[connection signal="pan_camera" from="." to="PanningCamera" method="_on_boss_level_pan_camera"]
 [connection signal="health_changed" from="character/cat/hp" to="ui/VBoxContainer/boss_bar" method="_on_hp_health_changed"]
+[connection signal="current_position" from="character/iris" to="PanningCamera" method="_on_iris_current_position"]
 [connection signal="health_changed" from="character/iris/hp" to="ui/Interface" method="_on_hp_health_changed"]
 [connection signal="health_changed" from="character/iris/sp" to="ui/Interface" method="_on_sp_health_changed"]
+[connection signal="body_entered" from="character/start_area" to="." method="_on_start_area_body_entered"]
+[connection signal="finished_panning" from="PanningCamera" to="." method="_on_panning_camera_finished_panning"]
+[connection signal="finished_panning" from="PanningCamera" to="character/iris" method="_on_panning_camera_finished_panning"]
 
 [editable path="character/cat"]
 [editable path="character/iris"]

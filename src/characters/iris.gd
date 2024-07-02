@@ -4,6 +4,8 @@ const SPEED = 500.0
 const JUMP_VELOCITY = -600.0
 const ACTION_COOLDOWN = 0.8
 
+var freeze_movement = false
+
 var _timer = ACTION_COOLDOWN
 var prev_dir = 1
 var attacking = false
@@ -15,6 +17,7 @@ var can_interact = false
 @onready var audio_jump = $audio_jump
 @onready var audio_scratch = $audio_scratch
 
+signal current_position(pos)
 signal hp_depleted
 signal interacted
 signal left
@@ -83,7 +86,10 @@ func _physics_process(delta):
 	_timer += delta
 	velocity.y += gravity * delta
 		
-	handle_input()
+	if not freeze_movement:
+		handle_input()
+		emit_signal("current_position", position)
+		
 	update_animation()
 	test_health()
 	move_and_slide()
@@ -93,7 +99,18 @@ func _on_hp_health_depleted():
 
 func _on_area_2d_area_entered(_area):
 	can_interact = true
+	print("can interact")
 
 func _on_area_2d_area_exited(_area):
 	can_interact = false
+	print("can no longer interact")
 	emit_signal("left")
+
+func _on_boss_level_pan_camera():
+	print("freeze")
+	velocity.x = 0
+	freeze_movement = true
+
+func _on_panning_camera_finished_panning():
+	print("unfreeze")
+	freeze_movement = false
