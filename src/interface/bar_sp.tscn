@@ -11,10 +11,13 @@ size_flags_horizontal = 0
 
 [node name="counter" parent="." instance=ExtResource("1_koipj")]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
+size_flags_vertical = 4
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 value = 100.0
 texture_over = ExtResource("2_lm7ru")
 texture_progress = ExtResource("3_gpg2k")

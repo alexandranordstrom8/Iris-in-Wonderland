@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtv2v5whvwg3k"
-path="res://.godot/imported/hp_label.png-6e8d42e77d08458eacb1957a30b016ef.ctex"
+uid="uid://bly7hh38jkbfr"
+path="res://.godot/imported/label_hp.png-72a3bb97aa4f860ae08c6ec2b3d2f14b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Iris-in-Wonderland/assets/interface/hp_label.png"
-dest_files=["res://.godot/imported/hp_label.png-6e8d42e77d08458eacb1957a30b016ef.ctex"]
+source_file="res://Iris-in-Wonderland/assets/interface/label_hp.png"
+dest_files=["res://.godot/imported/label_hp.png-72a3bb97aa4f860ae08c6ec2b3d2f14b.ctex"]
 
 [params]
 

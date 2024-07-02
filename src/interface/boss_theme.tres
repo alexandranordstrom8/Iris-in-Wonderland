@@ -5,4 +5,6 @@
 [resource]
 default_font = ExtResource("1_qbyq5")
 default_font_size = 36
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
 EditorIcons/icons/Label = null
+Label/colors/font_color = Color(1, 1, 1, 1)
