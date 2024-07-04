@@ -30,7 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://cwg7lmm8ukgir" path="res://Iris-in-Wonderland/assets/background/mushroom2_l.png" id="17_i0k2n"]
 [ext_resource type="PackedScene" uid="uid://ttaqxg3mnnyy" path="res://Iris-in-Wonderland/src/background/hill.tscn" id="25_rlq13"]
 [ext_resource type="AudioStream" uid="uid://cefom4cif0rk7" path="res://Iris-in-Wonderland/assets/audio/ambience_summer_night.mp3" id="29_k5ocv"]
-[ext_resource type="PackedScene" uid="uid://dsrkb3ytklumg" path="res://Iris-in-Wonderland/src/scenes/panning_camera.tscn" id="32_3jta5"]
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/PanningCamera.gd" id="31_ifxlr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ff3g"]
 radius = 96.5
@@ -179,7 +179,7 @@ _data = {
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2l7si"]
 radius = 82.353
-height = 508.235
+height = 1350.59
 
 [node name="boss_level" type="Node2D"]
 script = ExtResource("1_rcf78")
@@ -852,8 +852,12 @@ position = Vector2(2191, 778)
 scale = Vector2(0.85, 0.85)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="character/start_area"]
-position = Vector2(172.941, -275.294)
+position = Vector2(96.4705, -550.588)
 shape = SubResource("CapsuleShape2D_2l7si")
+
+[node name="cat_pos" type="Marker2D" parent="character"]
+position = Vector2(3159, 587)
+scale = Vector2(0.85, 0.85)
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("1_efq5o")]
 
@@ -964,7 +968,17 @@ stream = ExtResource("29_k5ocv")
 volume_db = -20.412
 autoplay = true
 
-[node name="PanningCamera" parent="." instance=ExtResource("32_3jta5")]
+[node name="PanningCamera" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+ignore_rotation = false
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.5
+drag_top_margin = 1.0
+drag_right_margin = 0.5
+drag_bottom_margin = 0.0
+script = ExtResource("31_ifxlr")
 
 [connection signal="pan_camera" from="." to="character/iris" method="_on_boss_level_pan_camera"]
 [connection signal="pan_camera" from="." to="PanningCamera" method="_on_boss_level_pan_camera"]

@@ -106,7 +106,7 @@ func _on_area_2d_area_exited(_area):
 	print("can no longer interact")
 	emit_signal("left")
 
-func _on_boss_level_pan_camera():
+func _on_boss_level_pan_camera(_can_target_pos):
 	print("freeze")
 	velocity.x = 0
 	freeze_movement = true
