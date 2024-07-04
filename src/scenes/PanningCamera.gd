@@ -1,7 +1,6 @@
 class_name PanningCamera
 extends Camera2D
 
-const PANNING = 800
 const COOLDOWN = 2
 
 var is_panning = false
@@ -10,10 +9,8 @@ var timer = COOLDOWN
 var target = 0
 var move_speed = 10
 
+signal timer_started
 signal finished_panning
-
-func _ready():
-	offset.y = -270
 
 func _process(_delta): 
 	if not done:
@@ -28,6 +25,7 @@ func _process(_delta):
 		else:
 			timer = 0
 			is_panning = false
+			emit_signal("timer_started")
 	
 	if not is_panning and timer > COOLDOWN: 		
 		timer = COOLDOWN

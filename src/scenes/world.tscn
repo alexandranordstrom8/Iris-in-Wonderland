@@ -34,7 +34,7 @@
 [ext_resource type="AudioStream" uid="uid://b6rxv45eh6p66" path="res://Iris-in-Wonderland/assets/audio/audio_hero_Yellow-Cafe_SIPML_C-0361.mp3" id="33_6dgrg"]
 [ext_resource type="PackedScene" uid="uid://dmgjvfs6b5eut" path="res://Iris-in-Wonderland/src/characters/shopkeeper.tscn" id="33_jwptl"]
 [ext_resource type="PackedScene" uid="uid://b3dx42g8s16rl" path="res://Iris-in-Wonderland/src/interface/interface.tscn" id="34_s5xvp"]
-[ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/PanningCamera.gd" id="36_313xc"]
+[ext_resource type="PackedScene" uid="uid://dfwlix1amhelg" path="res://Iris-in-Wonderland/src/scenes/panning_camera.tscn" id="36_pdvhx"]
 [ext_resource type="Theme" uid="uid://dqu1hdmh0ypou" path="res://Iris-in-Wonderland/src/interface/theme.tres" id="37_k3lju"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aul4g"]
@@ -1123,18 +1123,7 @@ size_flags_horizontal = 0
 theme = ExtResource("37_k3lju")
 metadata/_edit_use_anchors_ = true
 
-[node name="PanningCamera" type="Camera2D" parent="."]
-position = Vector2(640, 360)
-offset = Vector2(0, -270)
-ignore_rotation = false
-position_smoothing_enabled = true
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_left_margin = 0.5
-drag_top_margin = 1.0
-drag_right_margin = 0.5
-drag_bottom_margin = 0.0
-script = ExtResource("36_313xc")
+[node name="PanningCamera" parent="." instance=ExtResource("36_pdvhx")]
 
 [connection signal="interacted" from="." to="character/benjamin" method="_on_world_interacted"]
 [connection signal="area_entered" from="character/benjamin/Area2D" to="character/iris" method="_on_area_2d_area_entered"]

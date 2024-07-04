@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfwlix1amhelg"]
+
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/PanningCamera.gd" id="1_7eupe"]
+
+[node name="PanningCamera" type="Camera2D"]
+position = Vector2(640, 360)
+offset = Vector2(0, -270)
+ignore_rotation = false
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.5
+drag_top_margin = 1.0
+drag_right_margin = 0.5
+drag_bottom_margin = 0.0
+script = ExtResource("1_7eupe")
