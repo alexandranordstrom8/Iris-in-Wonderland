@@ -3,8 +3,8 @@ extends HBoxContainer
 func animate(old, new, is_hp):
 	var tween = get_tree().create_tween()
 	tween.tween_property($TextureProgressBar, "value", new, 0.5).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
-	if old > new and is_hp:
-		$counter/AnimationPlayer.play("shake")
+	#if old > new and is_hp:
+	#	$counter/AnimationPlayer.play("shake")
 
 #player hp
 func _on_interface_hp_changed(hp):

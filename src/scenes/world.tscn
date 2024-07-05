@@ -1009,21 +1009,9 @@ shape = SubResource("RectangleShape2D_86pvv")
 position = Vector2(427, 2067)
 scale = Vector2(0.75, 0.75)
 
-[node name="InteractButton" parent="character/benjamin" instance=ExtResource("36_wiwep")]
-offset_left = 82.6666
-offset_top = -8.0
-offset_right = 163.667
-offset_bottom = 33.0
-
 [node name="isabell" parent="character" instance=ExtResource("31_er7db")]
 position = Vector2(1795, -459)
 scale = Vector2(0.75, 0.75)
-
-[node name="InteractButton2" parent="character/isabell" instance=ExtResource("36_wiwep")]
-offset_left = -136.0
-offset_top = 6.66663
-offset_right = -55.0
-offset_bottom = 47.6666
 
 [node name="shopkeeper" parent="character" instance=ExtResource("33_jwptl")]
 position = Vector2(2984, 1384)
@@ -1125,6 +1113,20 @@ texture = ExtResource("16_0ey4m")
 region_enabled = true
 region_rect = Rect2(878.152, 400.085, 401.848, 247.585)
 
+[node name="buttons" type="Node" parent="."]
+
+[node name="InteractButton2" parent="buttons" instance=ExtResource("36_wiwep")]
+offset_left = 1693.0
+offset_top = -454.0
+offset_right = 1774.0
+offset_bottom = -413.0
+
+[node name="InteractButton" parent="buttons" instance=ExtResource("36_wiwep")]
+offset_left = 489.0
+offset_top = 2061.0
+offset_right = 570.0
+offset_bottom = 2102.0
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("33_6dgrg")
 volume_db = -5.0
@@ -1144,7 +1146,7 @@ metadata/_edit_use_anchors_ = true
 [connection signal="current_position" from="character/iris" to="PanningCamera" method="_on_iris_current_position"]
 [connection signal="hp_depleted" from="character/iris" to="ui/Interface" method="_on_iris_hp_depleted"]
 [connection signal="interacted" from="character/iris" to="character/benjamin" method="_on_iris_interacted"]
-[connection signal="interacted" from="character/iris" to="character/benjamin/InteractButton" method="_on_iris_interacted"]
+[connection signal="interacted" from="character/iris" to="buttons/InteractButton" method="_on_iris_interacted"]
 [connection signal="left_area" from="character/iris" to="character/benjamin" method="_on_iris_left_area"]
 [connection signal="health_changed" from="character/iris/hp" to="ui/Interface" method="_on_hp_health_changed"]
 [connection signal="health_changed" from="character/iris/sp" to="ui/Interface" method="_on_sp_health_changed"]

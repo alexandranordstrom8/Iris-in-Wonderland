@@ -1,23 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1tkqows1e84o"]
+[gd_scene load_steps=4 format=3 uid="uid://d1tkqows1e84o"]
 
-[ext_resource type="PackedScene" uid="uid://dvdvbcq3xug4a" path="res://Iris-in-Wonderland/src/interface/counter_hp.tscn" id="1_okxbo"]
-[ext_resource type="FontFile" uid="uid://ckq0opjxkh4f1" path="res://Iris-in-Wonderland/assets/interface/Happy School.otf" id="2_vr22f"]
+[ext_resource type="PackedScene" uid="uid://crdxbcop773fx" path="res://Iris-in-Wonderland/src/interface/counter_hp.tscn" id="1_okxbo"]
 [ext_resource type="Texture2D" uid="uid://cj1x3po6gx5sy" path="res://Iris-in-Wonderland/assets/interface/bar1_1.png" id="3_jbfxv"]
 [ext_resource type="Texture2D" uid="uid://vrscvoxuqee7" path="res://Iris-in-Wonderland/assets/interface/bar1_2.png" id="4_4h8l1"]
 
-[sub_resource type="Theme" id="Theme_o8ieo"]
-default_font = ExtResource("2_vr22f")
-EditorIcons/icons/Label = null
-
 [node name="bar" type="HBoxContainer"]
-offset_right = 191.0
+offset_right = 195.0
 offset_bottom = 51.0
 size_flags_horizontal = 0
 
 [node name="counter" parent="." instance=ExtResource("1_okxbo")]
 layout_mode = 2
 size_flags_vertical = 8
-theme = SubResource("Theme_o8ieo")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 layout_mode = 2
