@@ -4,10 +4,22 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s7ryr"]
 bg_color = Color(0.65098, 0.807843, 0.882353, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.97943, 0.56931, 0.631873, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [resource]
 default_font = ExtResource("1_vae2p")
 default_font_size = 18
 BoxContainer/constants/separation = 4
 EditorIcons/icons/Label = null
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0.97943, 0.56931, 0.631873, 1)
+Label/constants/outline_size = 5
 Panel/styles/panel = SubResource("StyleBoxFlat_s7ryr")

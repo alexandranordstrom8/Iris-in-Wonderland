@@ -28,7 +28,6 @@ func update_position(delta):
 func timer_actions():
 	if can_interact and timer >= ACTION_COOLDOWN:
 		timer = 0
-		$audio_attack.play()
 		if target_pos.y > position.y:
 			if pos2d.scale.x == 1 and target_pos.x - OFFSET > position.x:
 				pass
@@ -57,7 +56,8 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_hp_health_depleted():
-	pass 
+	freeze_movement = true
+	can_interact = false
 
 func _on_panning_camera_finished_panning():
 	freeze_movement = false
@@ -86,7 +86,7 @@ func _on_iris_knock_back(_velocity, dir, xpos):
 		pass
 	else:
 		can_interact = false
-		velocity.x = (int)(_velocity * 0.75)
+		velocity.x = int(_velocity * 0.75)
 
 func _on_iris_knock_back_stop():
 	can_interact = true

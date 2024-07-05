@@ -13,8 +13,6 @@ var can_interact = false
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animations = $Marker2D/iris_rig/Sprite2D/AnimationPlayer
 @onready var pos2d = $Marker2D
-@onready var audio_jump = $audio_jump
-@onready var audio_scratch = $audio_scratch
 
 var scratch_dmg = 10
 var dash_dmg = 1
@@ -35,13 +33,11 @@ func handle_input():
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	if Input.is_action_just_pressed("ui_jump") and is_on_floor():
-		audio_jump.play()
 		velocity.y = JUMP_VELOCITY
 	
 	# attacking or interacting
 	if Input.is_action_just_pressed("ui_attack") and _timer >= ACTION_COOLDOWN:
 		_timer = 0
-		audio_scratch.play()
 		attacking = true
 		
 		if can_interact:
@@ -56,7 +52,7 @@ func handle_input():
 		_timer = 0
 		attacking = false
 	
-	if Input.is_action_pressed("ui_dash") and _timer < ACTION_COOLDOWN:
+	if Input.is_action_pressed("ui_dash") and _timer < ACTION_COOLDOWN and is_on_floor():
 		if velocity.x == 0:
 			velocity.x = SPEED * 2 * pos2d.scale.x
 		else:

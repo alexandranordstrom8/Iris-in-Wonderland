@@ -27,3 +27,7 @@ func _on_panning_camera_timer_started():
 	$audio/ambience.stop()
 	$audio/music.play()
 	play_music = true
+
+func _on_cat_health_depleted():
+	$audio/music.stop()
+	$audio/ambience.play()

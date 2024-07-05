@@ -10,19 +10,19 @@ default_font = ExtResource("2_vr22f")
 EditorIcons/icons/Label = null
 
 [node name="bar" type="HBoxContainer"]
-offset_right = 240.0
+offset_right = 191.0
 offset_bottom = 51.0
 size_flags_horizontal = 0
 
 [node name="counter" parent="." instance=ExtResource("1_okxbo")]
 layout_mode = 2
-size_flags_horizontal = 0
 size_flags_vertical = 8
 theme = SubResource("Theme_o8ieo")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 8
 value = 100.0
 texture_over = ExtResource("3_jbfxv")
 texture_progress = ExtResource("4_4h8l1")

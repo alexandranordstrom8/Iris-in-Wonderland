@@ -16,16 +16,16 @@ func _ready():
 func _process(delta):
 	velocity.y += gravity * delta
 	
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(_body):
 	pass
 
-func _on_area_2d_body_exited(body):
+func _on_area_2d_body_exited(_body):
 	pass
 
 func _on_iris_damage_dealt(amount):
 	$hp.take_damage(amount)
 
-func _on_iris_knock_back(_velocity, dir, xpos):
+func _on_iris_knock_back(_velocity, _dir, _xpos):
 	pass
 
 func _on_iris_knock_back_stop():

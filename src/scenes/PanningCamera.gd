@@ -1,4 +1,3 @@
-class_name PanningCamera
 extends Camera2D
 
 const COOLDOWN = 2

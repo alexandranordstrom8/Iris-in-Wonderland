@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=3 uid="uid://em5hl7ux263y"]
+
+[ext_resource type="Texture2D" uid="uid://chlr6bnythav7" path="res://Iris-in-Wonderland/assets/interface/paw2.png" id="1_3csmt"]
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/interface/interact_button.gd" id="1_j4dug"]
+[ext_resource type="StyleBox" uid="uid://b4ohi7you0n08" path="res://Iris-in-Wonderland/src/interface/ui_bg.tres" id="1_vwwih"]
+[ext_resource type="Theme" uid="uid://dqu1hdmh0ypou" path="res://Iris-in-Wonderland/src/interface/theme.tres" id="2_ek1li"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x7d67"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6fhcs"]
+radius = 180.178
+
+[node name="InteractButton" type="Panel"]
+offset_right = 81.0
+offset_bottom = 41.0
+theme_override_styles/panel = ExtResource("1_vwwih")
+script = ExtResource("1_j4dug")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.5
+offset_top = -20.0
+offset_right = 34.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(35, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_x7d67")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_3csmt")
+stretch_mode = 2
+
+[node name="Panel2" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_ek1li")
+
+[node name="Label" type="Label" parent="HBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "E"
+horizontal_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+position = Vector2(33, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_6fhcs")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

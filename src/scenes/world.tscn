@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://cqasmoo2r3l6c"]
+[gd_scene load_steps=60 format=3 uid="uid://cqasmoo2r3l6c"]
 
 [ext_resource type="PackedScene" uid="uid://3lj7jr7m57ri" path="res://Iris-in-Wonderland/src/characters/iris.tscn" id="1_pv5ai"]
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/world.gd" id="1_wclp7"]
@@ -35,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://dmgjvfs6b5eut" path="res://Iris-in-Wonderland/src/characters/shopkeeper.tscn" id="33_jwptl"]
 [ext_resource type="PackedScene" uid="uid://b3dx42g8s16rl" path="res://Iris-in-Wonderland/src/interface/interface.tscn" id="34_s5xvp"]
 [ext_resource type="PackedScene" uid="uid://dfwlix1amhelg" path="res://Iris-in-Wonderland/src/scenes/panning_camera.tscn" id="36_pdvhx"]
+[ext_resource type="PackedScene" uid="uid://em5hl7ux263y" path="res://Iris-in-Wonderland/src/interface/interact_button.tscn" id="36_wiwep"]
 [ext_resource type="Theme" uid="uid://dqu1hdmh0ypou" path="res://Iris-in-Wonderland/src/interface/theme.tres" id="37_k3lju"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aul4g"]
@@ -1008,9 +1009,21 @@ shape = SubResource("RectangleShape2D_86pvv")
 position = Vector2(427, 2067)
 scale = Vector2(0.75, 0.75)
 
+[node name="InteractButton" parent="character/benjamin" instance=ExtResource("36_wiwep")]
+offset_left = 82.6666
+offset_top = -8.0
+offset_right = 163.667
+offset_bottom = 33.0
+
 [node name="isabell" parent="character" instance=ExtResource("31_er7db")]
 position = Vector2(1795, -459)
 scale = Vector2(0.75, 0.75)
+
+[node name="InteractButton2" parent="character/isabell" instance=ExtResource("36_wiwep")]
+offset_left = -136.0
+offset_top = 6.66663
+offset_right = -55.0
+offset_bottom = 47.6666
 
 [node name="shopkeeper" parent="character" instance=ExtResource("33_jwptl")]
 position = Vector2(2984, 1384)
@@ -1131,6 +1144,8 @@ metadata/_edit_use_anchors_ = true
 [connection signal="current_position" from="character/iris" to="PanningCamera" method="_on_iris_current_position"]
 [connection signal="hp_depleted" from="character/iris" to="ui/Interface" method="_on_iris_hp_depleted"]
 [connection signal="interacted" from="character/iris" to="character/benjamin" method="_on_iris_interacted"]
+[connection signal="interacted" from="character/iris" to="character/benjamin/InteractButton" method="_on_iris_interacted"]
+[connection signal="left_area" from="character/iris" to="character/benjamin" method="_on_iris_left_area"]
 [connection signal="health_changed" from="character/iris/hp" to="ui/Interface" method="_on_hp_health_changed"]
 [connection signal="health_changed" from="character/iris/sp" to="ui/Interface" method="_on_sp_health_changed"]
 

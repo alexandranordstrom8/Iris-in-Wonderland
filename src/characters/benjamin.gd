@@ -14,6 +14,6 @@ func _on_iris_interacted():
 	super.change_animation("idle")
 	interacting = true
 
-func _on_iris_left():
+func _on_iris_left_area():
 	_timer = 0
 	interacting = false

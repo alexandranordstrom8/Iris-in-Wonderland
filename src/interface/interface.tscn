@@ -1,21 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3dx42g8s16rl"]
+[gd_scene load_steps=6 format=3 uid="uid://b3dx42g8s16rl"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/interface/interface.gd" id="1_3717i"]
 [ext_resource type="PackedScene" uid="uid://d1tkqows1e84o" path="res://Iris-in-Wonderland/src/interface/bar_hp.tscn" id="1_e16j3"]
 [ext_resource type="PackedScene" uid="uid://bvxi0nrt2q5a5" path="res://Iris-in-Wonderland/src/interface/bar_sp.tscn" id="2_1bsgo"]
-[ext_resource type="Texture2D" uid="uid://cpk48otbvquon" path="res://Iris-in-Wonderland/assets/interface/icon.png" id="2_kegn5"]
+[ext_resource type="StyleBox" uid="uid://b4ohi7you0n08" path="res://Iris-in-Wonderland/src/interface/ui_bg.tres" id="2_mmkhv"]
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/interface/bar.gd" id="3_30mir"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77kv3"]
-bg_color = Color(0.65098, 0.807843, 0.882353, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0.964706, 0.917647, 0.870588, 1)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_left = 100
 
 [node name="Interface" type="Control"]
 layout_mode = 3
@@ -27,56 +16,35 @@ grow_vertical = 2
 script = ExtResource("1_3717i")
 
 [node name="Panel" type="Panel" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -224.0
-offset_top = -199.0
-offset_right = -74.0
-offset_bottom = -49.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_77kv3")
-
-[node name="TextureRect" type="TextureRect" parent="Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_kegn5")
-expand_mode = 2
-stretch_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 36.0
-offset_top = -122.0
-offset_right = 276.0
-offset_bottom = -36.0
+offset_left = 28.0
+offset_top = -133.0
+offset_right = 250.0
+offset_bottom = -25.0
+grow_vertical = 0
+theme_override_styles/panel = ExtResource("2_mmkhv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -102.0
+offset_right = 248.0
+offset_bottom = -11.0
 grow_vertical = 0
 
-[node name="hp_bar" parent="VBoxContainer" instance=ExtResource("1_e16j3")]
+[node name="hp_bar" parent="Panel/VBoxContainer" instance=ExtResource("1_e16j3")]
 layout_mode = 2
 script = ExtResource("3_30mir")
 
-[node name="sp_bar" parent="VBoxContainer" instance=ExtResource("2_1bsgo")]
+[node name="sp_bar" parent="Panel/VBoxContainer" instance=ExtResource("2_1bsgo")]
 layout_mode = 2
 script = ExtResource("3_30mir")
 
-[connection signal="hp_changed" from="." to="VBoxContainer/hp_bar" method="_on_interface_hp_changed"]
-[connection signal="sp_changed" from="." to="VBoxContainer/sp_bar" method="_on_interface_sp_changed"]
+[connection signal="hp_changed" from="." to="Panel/VBoxContainer/hp_bar" method="_on_interface_hp_changed"]
+[connection signal="sp_changed" from="." to="Panel/VBoxContainer/sp_bar" method="_on_interface_sp_changed"]
