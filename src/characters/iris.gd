@@ -7,7 +7,6 @@ const ACTION_COOLDOWN = 0.8
 var freeze_movement = false
 
 var _timer = ACTION_COOLDOWN
-var prev_dir = 1
 var attacking = false
 var can_interact = false
 
@@ -17,13 +16,13 @@ var can_interact = false
 @onready var audio_jump = $audio_jump
 @onready var audio_scratch = $audio_scratch
 
-var scratch_dmg = 5
+var scratch_dmg = 10
 var dash_dmg = 1
 
 signal current_position(pos)
 signal hp_depleted
 signal interacted
-signal left
+signal left_area
 signal damage_dealt(amount)
 signal knock_back(_velocity, dir, xpos)
 signal knock_back_stop()
@@ -39,37 +38,42 @@ func handle_input():
 		audio_jump.play()
 		velocity.y = JUMP_VELOCITY
 	
-	if Input.is_action_just_pressed("ui_attack"):
-		if _timer >= ACTION_COOLDOWN:
-			_timer = 0
-			audio_scratch.play()
-			attacking = true
+	# attacking or interacting
+	if Input.is_action_just_pressed("ui_attack") and _timer >= ACTION_COOLDOWN:
+		_timer = 0
+		audio_scratch.play()
+		attacking = true
+		
+		if can_interact:
+			emit_signal("interacted")
+			emit_signal("damage_dealt", scratch_dmg)
 	
 	if animations.is_playing() and animations.current_animation == "scratch":
 		velocity.x = 0
 		
-	if Input.is_action_pressed("ui_dash"):
+	# dash
+	if Input.is_action_just_pressed("ui_dash") and _timer >= ACTION_COOLDOWN:
+		_timer = 0
+		attacking = false
+	
+	if Input.is_action_pressed("ui_dash") and _timer < ACTION_COOLDOWN:
 		if velocity.x == 0:
-			velocity.x = SPEED * 2 * prev_dir
+			velocity.x = SPEED * 2 * pos2d.scale.x
 		else:
 			velocity.x *= 2
 		if can_interact:
-			emit_signal("knock_back", velocity.x, prev_dir, position.x)
+			emit_signal("knock_back", velocity.x, pos2d.scale.x, position.x)
 			emit_signal("damage_dealt", dash_dmg)
 			
-	if can_interact and Input.is_action_just_released("ui_dash"):
-		emit_signal("knock_back_stop")
-			
-	if Input.is_action_just_pressed("ui_accept") and can_interact:
-		emit_signal("interacted")
-		emit_signal("damage_dealt", scratch_dmg)
+	if can_interact:
+		if Input.is_action_just_released("ui_dash") or _timer > ACTION_COOLDOWN:
+			emit_signal("knock_back_stop")
 
+	# sprite direction
 	if velocity.x < 0:
 		pos2d.scale.x = -1
-		prev_dir = -1
 	elif velocity.x > 0:
 		pos2d.scale.x = 1
-		prev_dir = 1
 
 func update_animation():
 	if not is_on_floor():
@@ -77,7 +81,7 @@ func update_animation():
 			animations.play("jump")
 		else:
 			animations.play("fall")
-	elif Input.is_action_pressed("ui_dash"):
+	elif Input.is_action_pressed("ui_dash") and _timer < ACTION_COOLDOWN:
 		animations.play("dash")
 	elif attacking and _timer < ACTION_COOLDOWN:
 		animations.play("scratch")
@@ -116,16 +120,14 @@ func _on_area_2d_area_entered(_area):
 
 func _on_area_2d_area_exited(_area):
 	can_interact = false
-	emit_signal("left")
+	emit_signal("left_area")
 
 func _on_boss_level_pan_camera(_can_target_pos):
-	#print("freeze")
 	velocity.x = 0
 	freeze_movement = true
 
 func _on_panning_camera_finished_panning():
-	#print("unfreeze")
 	freeze_movement = false
 
-func _on_enemy_attacked(dmg):
+func _on_cat_attacked(dmg):
 	$hp.take_damage(dmg)

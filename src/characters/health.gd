@@ -26,4 +26,6 @@ func heal(amount):
 	
 func change_max(maximum):
 	max_health = maximum
+	health = maximum
 	emit_signal("max_health_changed", maximum)
+	emit_signal("health_changed", health)

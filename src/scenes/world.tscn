@@ -1131,7 +1131,6 @@ metadata/_edit_use_anchors_ = true
 [connection signal="current_position" from="character/iris" to="PanningCamera" method="_on_iris_current_position"]
 [connection signal="hp_depleted" from="character/iris" to="ui/Interface" method="_on_iris_hp_depleted"]
 [connection signal="interacted" from="character/iris" to="character/benjamin" method="_on_iris_interacted"]
-[connection signal="left" from="character/iris" to="character/benjamin" method="_on_iris_left"]
 [connection signal="health_changed" from="character/iris/hp" to="ui/Interface" method="_on_hp_health_changed"]
 [connection signal="health_changed" from="character/iris/sp" to="ui/Interface" method="_on_sp_health_changed"]
 

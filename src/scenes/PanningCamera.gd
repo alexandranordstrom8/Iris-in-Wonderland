@@ -27,16 +27,15 @@ func _process(_delta):
 			is_panning = false
 			emit_signal("timer_started")
 	
-	if not is_panning and timer > COOLDOWN: 		
+	if not is_panning and timer > COOLDOWN:
 		timer = COOLDOWN
 		emit_signal("finished_panning")
 		done = true
 	
-func _on_boss_level_pan_camera(target_pos):	
+func _on_boss_level_pan_camera(target_pos):
 	is_panning = true
 	done = false
 	target = target_pos
-	print(target)
 
 func _on_iris_current_position(pos):
 	position = pos
