@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddngphqd4wjcm"
-path="res://.godot/imported/isabell.png-22fbabc88879e8cced7e6f836a144b8f.ctex"
+uid="uid://bty6vatwmphsg"
+path="res://.godot/imported/shopkeeper.png-32d4f137daeb276805c52845dfd3d976.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Iris-in-Wonderland/assets/isabell.png"
-dest_files=["res://.godot/imported/isabell.png-22fbabc88879e8cced7e6f836a144b8f.ctex"]
+source_file="res://Iris-in-Wonderland/assets/characters/shopkeeper.png"
+dest_files=["res://.godot/imported/shopkeeper.png-32d4f137daeb276805c52845dfd3d976.ctex"]
 
 [params]
 

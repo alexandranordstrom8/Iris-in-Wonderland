@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://dj3w5cv15t8k4"]
+
+[ext_resource type="StyleBox" uid="uid://b4ohi7you0n08" path="res://Iris-in-Wonderland/src/interface/ui_bg.tres" id="1_e3g6u"]
+[ext_resource type="Texture2D" uid="uid://bfrexgkbcbk1q" path="res://Iris-in-Wonderland/assets/interface/coin.png" id="2_e321y"]
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/interface/counter_coin.gd" id="2_wraci"]
+
+[node name="coin_counter" type="Panel"]
+custom_minimum_size = Vector2(70, 36)
+offset_right = 70.0
+offset_bottom = 36.0
+theme_override_styles/panel = ExtResource("1_e3g6u")
+script = ExtResource("2_wraci")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -16.5
+offset_right = 34.0
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("2_e321y")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1

@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://cd631r3s13cp4"]
 
-[ext_resource type="Texture2D" uid="uid://by76d5bxsfi6i" path="res://Iris-in-Wonderland/assets/cat.png" id="1_8ktdf"]
+[ext_resource type="Texture2D" uid="uid://by76d5bxsfi6i" path="res://Iris-in-Wonderland/assets/characters/cat.png" id="1_8ktdf"]
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/cat.gd" id="1_q5rhp"]
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/health.gd" id="3_dyhw3"]
 [ext_resource type="AudioStream" uid="uid://3asaeccxvber" path="res://Iris-in-Wonderland/assets/audio/zapsplat_cartoon_very_fast_whoosh_swipe_swish_air_007_80464.mp3" id="4_0j85c"]

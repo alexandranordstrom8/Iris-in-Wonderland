@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo84i7iswt2sv"
-path="res://.godot/imported/benjamin_sleep.png-4cdd09e8aad94124cb5236b99b565f9c.ctex"
+uid="uid://bmjq6os88ikon"
+path="res://.godot/imported/iris_1.png-33087f8d70ea25ffbfd6e02c9f1bec0a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Iris-in-Wonderland/assets/benjamin_sleep.png"
-dest_files=["res://.godot/imported/benjamin_sleep.png-4cdd09e8aad94124cb5236b99b565f9c.ctex"]
+source_file="res://Iris-in-Wonderland/assets/characters/iris_1.png"
+dest_files=["res://.godot/imported/iris_1.png-33087f8d70ea25ffbfd6e02c9f1bec0a.ctex"]
 
 [params]
 

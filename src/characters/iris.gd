@@ -20,7 +20,6 @@ var dash_dmg = 1
 signal current_position(pos)
 signal hp_depleted
 signal interacted
-signal left_area
 signal damage_dealt(amount)
 signal knock_back(_velocity, dir, xpos)
 signal knock_back_stop()
@@ -39,10 +38,8 @@ func handle_input():
 	if Input.is_action_just_pressed("ui_attack") and _timer >= ACTION_COOLDOWN:
 		_timer = 0
 		attacking = true
-		
-		if can_interact:
-			emit_signal("interacted")
-			emit_signal("damage_dealt", scratch_dmg)
+		emit_signal("interacted")
+		emit_signal("damage_dealt", scratch_dmg)
 	
 	if animations.is_playing() and animations.current_animation == "scratch":
 		velocity.x = 0
@@ -57,11 +54,10 @@ func handle_input():
 			velocity.x = SPEED * 2 * pos2d.scale.x
 		else:
 			velocity.x *= 2
-		if can_interact:
-			emit_signal("knock_back", velocity.x, pos2d.scale.x, position.x)
-			emit_signal("damage_dealt", dash_dmg)
-			
-	if can_interact:
+	
+		emit_signal("knock_back", velocity.x, pos2d.scale.x, position.x)
+		emit_signal("damage_dealt", dash_dmg)
+		
 		if Input.is_action_just_released("ui_dash") or _timer > ACTION_COOLDOWN:
 			emit_signal("knock_back_stop")
 
@@ -110,13 +106,6 @@ func _physics_process(delta):
 
 func _on_hp_health_depleted():
 	emit_signal("hp_depleted")
-
-func _on_area_2d_area_entered(_area):
-	can_interact = true
-
-func _on_area_2d_area_exited(_area):
-	can_interact = false
-	emit_signal("left_area")
 
 func _on_boss_level_pan_camera(_can_target_pos):
 	velocity.x = 0

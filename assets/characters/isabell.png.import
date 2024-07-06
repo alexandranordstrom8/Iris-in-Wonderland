@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmjq6os88ikon"
-path="res://.godot/imported/iris_1.png-572807f33b6cfa1d269030e6edbbc46b.ctex"
+uid="uid://ddngphqd4wjcm"
+path="res://.godot/imported/isabell.png-78576dc4c7bbb8bb4a25617136c6dcd6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Iris-in-Wonderland/assets/iris_1.png"
-dest_files=["res://.godot/imported/iris_1.png-572807f33b6cfa1d269030e6edbbc46b.ctex"]
+source_file="res://Iris-in-Wonderland/assets/characters/isabell.png"
+dest_files=["res://.godot/imported/isabell.png-78576dc4c7bbb8bb4a25617136c6dcd6.ctex"]
 
 [params]
 

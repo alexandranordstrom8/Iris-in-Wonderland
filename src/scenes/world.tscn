@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://cqasmoo2r3l6c"]
+[gd_scene load_steps=61 format=3 uid="uid://cqasmoo2r3l6c"]
 
 [ext_resource type="PackedScene" uid="uid://3lj7jr7m57ri" path="res://Iris-in-Wonderland/src/characters/iris.tscn" id="1_pv5ai"]
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/world.gd" id="1_wclp7"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://doc36gr68jycm" path="res://Iris-in-Wonderland/assets/background/mushroom2.png" id="18_uq8na"]
 [ext_resource type="Texture2D" uid="uid://cc0kuu0c3c2m0" path="res://Iris-in-Wonderland/assets/background/path2.png" id="19_ysxqt"]
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/background/animated_platform.gd" id="26_ba708"]
+[ext_resource type="PackedScene" uid="uid://cgvgmi8l5dw87" path="res://Iris-in-Wonderland/src/interface/coin.tscn" id="29_yvgkg"]
 [ext_resource type="PackedScene" uid="uid://c0dydbsm6epto" path="res://Iris-in-Wonderland/src/characters/benjamin.tscn" id="30_u2nvl"]
 [ext_resource type="PackedScene" uid="uid://bhmj4gwta52oe" path="res://Iris-in-Wonderland/src/characters/isabell.tscn" id="31_er7db"]
 [ext_resource type="AudioStream" uid="uid://b6rxv45eh6p66" path="res://Iris-in-Wonderland/assets/audio/audio_hero_Yellow-Cafe_SIPML_C-0361.mp3" id="33_6dgrg"]
@@ -556,13 +557,6 @@ position = Vector2(1123, 324)
 
 [node name="texture" type="Node" parent="bg/down"]
 
-[node name="Sprite2D12" type="Sprite2D" parent="bg/down/texture"]
-position = Vector2(455, 2008)
-rotation = 1.25795
-texture = ExtResource("15_s8os6")
-region_enabled = true
-region_rect = Rect2(750.823, 51.1086, 502.243, 370.198)
-
 [node name="Sprite2D" type="Sprite2D" parent="bg/down/texture"]
 position = Vector2(322, 2009)
 texture = ExtResource("5_axj4f")
@@ -574,6 +568,13 @@ position = Vector2(3195, 1297)
 texture = ExtResource("5_axj4f")
 region_enabled = true
 region_rect = Rect2(140.115, 442.528, 285.312, 186.278)
+
+[node name="Sprite2D10" type="Sprite2D" parent="bg/down/texture"]
+position = Vector2(1831, 962)
+rotation = 0.162078
+texture = ExtResource("5_axj4f")
+region_enabled = true
+region_rect = Rect2(882.868, 34.603, 386.704, 188.636)
 
 [node name="Sprite2D3" type="Sprite2D" parent="bg/down/texture"]
 position = Vector2(3195, 1297)
@@ -627,13 +628,6 @@ rotation = 0.474841
 texture = ExtResource("5_axj4f")
 region_enabled = true
 region_rect = Rect2(449.006, 3.94966, 351.334, 280.596)
-
-[node name="Sprite2D10" type="Sprite2D" parent="bg/down/texture"]
-position = Vector2(222, 894)
-rotation = 3.54042
-texture = ExtResource("15_s8os6")
-region_enabled = true
-region_rect = Rect2(750.823, 51.1086, 502.243, 370.198)
 
 [node name="Sprite2D11" type="Sprite2D" parent="bg/down/texture"]
 position = Vector2(3167, 932)
@@ -715,7 +709,7 @@ region_rect = Rect2(779.118, 411.875, 492.811, 299.459)
 position = Vector2(94, 1944)
 
 [node name="MushroomY2" parent="bg/down/mushrooms" instance=ExtResource("10_c35p7")]
-position = Vector2(783, 1600)
+position = Vector2(783, 1615)
 rotation = -0.0280698
 
 [node name="MushroomR2" parent="bg/down/mushrooms" instance=ExtResource("9_f6eke")]
@@ -830,20 +824,6 @@ region_rect = Rect2(0, 0, 465.207, 251.556)
 
 [node name="Sprite2D4" type="Sprite2D" parent="bg/down/ground"]
 position = Vector2(3366, 800)
-rotation = 2.87765
-texture = ExtResource("15_s8os6")
-region_enabled = true
-region_rect = Rect2(0, 0, 465.207, 251.556)
-
-[node name="Sprite2D6" type="Sprite2D" parent="bg/down/ground"]
-position = Vector2(2473, 2165)
-rotation = 2.87765
-texture = ExtResource("15_s8os6")
-region_enabled = true
-region_rect = Rect2(0, 0, 465.207, 251.556)
-
-[node name="Sprite2D7" type="Sprite2D" parent="bg/down/ground"]
-position = Vector2(-59, 1673)
 rotation = 2.87765
 texture = ExtResource("15_s8os6")
 region_enabled = true
@@ -1003,11 +983,70 @@ shape = SubResource("RectangleShape2D_86pvv")
 
 [node name="dirt_wall" parent="." instance=ExtResource("15_34ch6")]
 
+[node name="collectibles" type="Node" parent="."]
+
+[node name="coin" parent="collectibles" instance=ExtResource("29_yvgkg")]
+position = Vector2(892, 489)
+
+[node name="coin2" parent="collectibles" instance=ExtResource("29_yvgkg")]
+position = Vector2(1117, 353)
+
+[node name="coin3" parent="collectibles" instance=ExtResource("29_yvgkg")]
+position = Vector2(702, 239)
+
+[node name="coin4" parent="collectibles" instance=ExtResource("29_yvgkg")]
+position = Vector2(321, 48)
+
+[node name="coin5" parent="collectibles" instance=ExtResource("29_yvgkg")]
+position = Vector2(2253, 48)
+
+[node name="coin6" parent="collectibles" instance=ExtResource("29_yvgkg")]
+position = Vector2(2732, -83)
+
+[node name="coin7" parent="collectibles" instance=ExtResource("29_yvgkg")]
+position = Vector2(355, 1074)
+
+[node name="coin8" parent="collectibles" instance=ExtResource("29_yvgkg")]
+position = Vector2(482, 1074)
+
+[node name="coin9" parent="collectibles" instance=ExtResource("29_yvgkg")]
+position = Vector2(609, 1074)
+
+[node name="coin10" parent="collectibles" instance=ExtResource("29_yvgkg")]
+position = Vector2(1381, 955)
+
+[node name="coin11" parent="collectibles" instance=ExtResource("29_yvgkg")]
+position = Vector2(1508, 955)
+
+[node name="coin12" parent="collectibles" instance=ExtResource("29_yvgkg")]
+position = Vector2(1635, 955)
+
+[node name="coin13" parent="collectibles" instance=ExtResource("29_yvgkg")]
+position = Vector2(75, 1336)
+
+[node name="coin14" parent="collectibles" instance=ExtResource("29_yvgkg")]
+position = Vector2(397, 1497)
+
+[node name="coin15" parent="collectibles" instance=ExtResource("29_yvgkg")]
+position = Vector2(770, 1400)
+
+[node name="coin16" parent="collectibles" instance=ExtResource("29_yvgkg")]
+position = Vector2(770, 1582)
+
+[node name="coin17" parent="collectibles" instance=ExtResource("29_yvgkg")]
+position = Vector2(770, 1764)
+
 [node name="character" type="Node" parent="."]
 
 [node name="benjamin" parent="character" instance=ExtResource("30_u2nvl")]
 position = Vector2(427, 2067)
 scale = Vector2(0.75, 0.75)
+
+[node name="Area2D" parent="character/benjamin" index="2"]
+visible = true
+
+[node name="CollisionShape2D" parent="character/benjamin/Area2D" index="0"]
+position = Vector2(62.6667, 5.33333)
 
 [node name="isabell" parent="character" instance=ExtResource("31_er7db")]
 position = Vector2(1795, -459)
@@ -1127,9 +1166,16 @@ offset_top = 2061.0
 offset_right = 570.0
 offset_bottom = 2102.0
 
+[node name="Area2D" parent="buttons/InteractButton" index="1"]
+visible = true
+
+[node name="CollisionShape2D" parent="buttons/InteractButton/Area2D" index="0"]
+position = Vector2(-1, -9)
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("33_6dgrg")
 volume_db = -5.0
+autoplay = true
 
 [node name="ui" type="CanvasLayer" parent="."]
 
@@ -1141,15 +1187,30 @@ metadata/_edit_use_anchors_ = true
 [node name="PanningCamera" parent="." instance=ExtResource("36_pdvhx")]
 
 [connection signal="interacted" from="." to="character/benjamin" method="_on_world_interacted"]
-[connection signal="area_entered" from="character/benjamin/Area2D" to="character/iris" method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="character/benjamin/Area2D" to="character/iris" method="_on_area_2d_area_exited"]
+[connection signal="coin_collected" from="collectibles/coin" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin2" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin3" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin4" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin5" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin6" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin7" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin8" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin9" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin10" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin11" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin12" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin13" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin14" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin15" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin16" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin17" to="ui/Interface" method="_on_coin_coin_collected"]
 [connection signal="current_position" from="character/iris" to="PanningCamera" method="_on_iris_current_position"]
 [connection signal="hp_depleted" from="character/iris" to="ui/Interface" method="_on_iris_hp_depleted"]
 [connection signal="interacted" from="character/iris" to="character/benjamin" method="_on_iris_interacted"]
 [connection signal="interacted" from="character/iris" to="buttons/InteractButton" method="_on_iris_interacted"]
-[connection signal="left_area" from="character/iris" to="character/benjamin" method="_on_iris_left_area"]
 [connection signal="health_changed" from="character/iris/hp" to="ui/Interface" method="_on_hp_health_changed"]
 [connection signal="health_changed" from="character/iris/sp" to="ui/Interface" method="_on_sp_health_changed"]
 
 [editable path="character/benjamin"]
 [editable path="character/iris"]
+[editable path="buttons/InteractButton"]

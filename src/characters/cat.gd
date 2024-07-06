@@ -28,10 +28,12 @@ func update_position(delta):
 func timer_actions():
 	if can_interact and timer >= ACTION_COOLDOWN:
 		timer = 0
-		if target_pos.y > position.y:
-			if pos2d.scale.x == 1 and target_pos.x - OFFSET > position.x:
+		if target_pos.y >= position.y:
+			# enemy facing left, player on right
+			if pos2d.scale.x == 1 and target_pos.x > position.x:
 				pass
-			if pos2d.scale.x == -1 and target_pos.x + OFFSET < position.x:
+			# enemy facing right, player on left
+			if pos2d.scale.x == -1 and target_pos.x < position.x:
 				pass
 			else:
 				emit_signal("attacked", dmg)
@@ -77,11 +79,14 @@ func _on_area_2d_body_exited(body):
 		freeze_movement = false
 
 func _on_iris_damage_dealt(amount):
-	$hp.take_damage(amount)
+	if can_interact:
+		$hp.take_damage(amount)
 
 func _on_iris_knock_back(_velocity, dir, xpos):
+	# player facing right, enemy on left
 	if dir == 1 and xpos > position.x:
 		pass
+	# player facing left, enemy on right
 	elif dir == -1 and xpos < position.x:
 		pass
 	else:

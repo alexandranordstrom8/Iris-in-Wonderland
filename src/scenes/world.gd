@@ -4,8 +4,7 @@ extends Node2D
 signal interacted
 
 func _ready():
-	#pass
-	music.play()
+	pass
 
 func _process(_delta):
 	pass

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dmgjvfs6b5eut"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/animated_character.gd" id="1_tsaoo"]
-[ext_resource type="Texture2D" uid="uid://bty6vatwmphsg" path="res://Iris-in-Wonderland/assets/shopkeeper.png" id="2_ixwmw"]
+[ext_resource type="Texture2D" uid="uid://bty6vatwmphsg" path="res://Iris-in-Wonderland/assets/characters/shopkeeper.png" id="2_ixwmw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5c5fu"]
 atlas = ExtResource("2_ixwmw")

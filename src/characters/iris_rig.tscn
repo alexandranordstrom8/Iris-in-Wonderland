@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bpl25njjvqyno"]
 
-[ext_resource type="Texture2D" uid="uid://bmjq6os88ikon" path="res://Iris-in-Wonderland/assets/iris_1.png" id="1_pde5y"]
+[ext_resource type="Texture2D" uid="uid://bmjq6os88ikon" path="res://Iris-in-Wonderland/assets/characters/iris_1.png" id="1_pde5y"]
 [ext_resource type="AudioStream" uid="uid://46fnjfe3g6jo" path="res://Iris-in-Wonderland/assets/audio/jump2.mp3" id="2_c5w1y"]
 [ext_resource type="AudioStream" uid="uid://3asaeccxvber" path="res://Iris-in-Wonderland/assets/audio/zapsplat_cartoon_very_fast_whoosh_swipe_swish_air_007_80464.mp3" id="3_3b3v0"]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://by76d5bxsfi6i"
-path="res://.godot/imported/cat.png-d03a386bdcd52d807a4936f1e46cb3c1.ctex"
+path="res://.godot/imported/cat.png-7af1f17afba1ea0a77ccc7a5488fbbe7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Iris-in-Wonderland/assets/cat.png"
-dest_files=["res://.godot/imported/cat.png-d03a386bdcd52d807a4936f1e46cb3c1.ctex"]
+source_file="res://Iris-in-Wonderland/assets/characters/cat.png"
+dest_files=["res://.godot/imported/cat.png-7af1f17afba1ea0a77ccc7a5488fbbe7.ctex"]
 
 [params]
 

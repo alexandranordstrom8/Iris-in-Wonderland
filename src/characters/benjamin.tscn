@@ -1,31 +1,31 @@
 [gd_scene load_steps=13 format=3 uid="uid://c0dydbsm6epto"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/benjamin.gd" id="1_8kdg6"]
-[ext_resource type="Texture2D" uid="uid://c77yv0av6rj5k" path="res://Iris-in-Wonderland/assets/benjamin.png" id="1_f3uih"]
-[ext_resource type="Texture2D" uid="uid://bo84i7iswt2sv" path="res://Iris-in-Wonderland/assets/benjamin_sleep.png" id="2_fuchd"]
+[ext_resource type="Texture2D" uid="uid://bo84i7iswt2sv" path="res://Iris-in-Wonderland/assets/characters/benjamin_sleep.png" id="2_84dbj"]
+[ext_resource type="Texture2D" uid="uid://c77yv0av6rj5k" path="res://Iris-in-Wonderland/assets/characters/benjamin.png" id="3_e6fam"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fv0kx"]
-atlas = ExtResource("2_fuchd")
+atlas = ExtResource("2_84dbj")
 region = Rect2(0, 0, 249, 284)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gm1s6"]
-atlas = ExtResource("2_fuchd")
+atlas = ExtResource("2_84dbj")
 region = Rect2(249, 0, 249, 284)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_50v82"]
-atlas = ExtResource("2_fuchd")
+atlas = ExtResource("2_84dbj")
 region = Rect2(498, 0, 249, 284)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3egfo"]
-atlas = ExtResource("1_f3uih")
+atlas = ExtResource("3_e6fam")
 region = Rect2(0, 0, 249, 280)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqwlr"]
-atlas = ExtResource("1_f3uih")
+atlas = ExtResource("3_e6fam")
 region = Rect2(249, 0, 249, 280)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3g4n6"]
-atlas = ExtResource("1_f3uih")
+atlas = ExtResource("3_e6fam")
 region = Rect2(747, 0, 249, 280)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t3a4s"]
@@ -86,7 +86,7 @@ height = 177.636
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8rnl8"]
 radius = 117.979
-height = 306.219
+height = 391.758
 
 [node name="benjamin" type="CharacterBody2D"]
 script = ExtResource("1_8kdg6")
@@ -109,5 +109,5 @@ visible = false
 rotation = 1.59981
 shape = SubResource("CapsuleShape2D_8rnl8")
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

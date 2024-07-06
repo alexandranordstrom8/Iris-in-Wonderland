@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cnpmjhr3i3unn"]
+[gd_scene load_steps=47 format=3 uid="uid://cnpmjhr3i3unn"]
 
 [ext_resource type="PackedScene" uid="uid://bng63fw5pf27e" path="res://Iris-in-Wonderland/src/background/green_background.tscn" id="1_efq5o"]
 [ext_resource type="Texture2D" uid="uid://p6jiynjt247g" path="res://Iris-in-Wonderland/assets/background/tree1.png" id="1_gt21c"]
@@ -28,6 +28,7 @@
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/background/animated_platform.gd" id="15_56dt6"]
 [ext_resource type="Texture2D" uid="uid://b1spr21vkwkto" path="res://Iris-in-Wonderland/assets/background/mushroom1_l.png" id="16_7sq42"]
 [ext_resource type="Texture2D" uid="uid://cwg7lmm8ukgir" path="res://Iris-in-Wonderland/assets/background/mushroom2_l.png" id="17_i0k2n"]
+[ext_resource type="PackedScene" uid="uid://cgvgmi8l5dw87" path="res://Iris-in-Wonderland/src/interface/coin.tscn" id="20_2kkff"]
 [ext_resource type="AudioStream" uid="uid://cefom4cif0rk7" path="res://Iris-in-Wonderland/assets/audio/ambience_summer_night.mp3" id="29_k5ocv"]
 [ext_resource type="AudioStream" uid="uid://x8f0v888ab00" path="res://Iris-in-Wonderland/assets/audio/cat_meow_001.mp3" id="31_ba5yd"]
 [ext_resource type="AudioStream" uid="uid://dqmlp4w64t07v" path="res://Iris-in-Wonderland/assets/audio/electro_sonic_011.mp3" id="31_qho1h"]
@@ -840,6 +841,35 @@ libraries = {
 "": SubResource("AnimationLibrary_cpd2x")
 }
 
+[node name="collectibles" type="Node" parent="."]
+
+[node name="coin" parent="collectibles" instance=ExtResource("20_2kkff")]
+position = Vector2(184, 208)
+
+[node name="coin2" parent="collectibles" instance=ExtResource("20_2kkff")]
+position = Vector2(377, 208)
+
+[node name="coin3" parent="collectibles" instance=ExtResource("20_2kkff")]
+position = Vector2(1116, 109)
+
+[node name="coin4" parent="collectibles" instance=ExtResource("20_2kkff")]
+position = Vector2(770, 628)
+
+[node name="coin5" parent="collectibles" instance=ExtResource("20_2kkff")]
+position = Vector2(2052, 206)
+
+[node name="coin6" parent="collectibles" instance=ExtResource("20_2kkff")]
+position = Vector2(2301, 123)
+
+[node name="coin7" parent="collectibles" instance=ExtResource("20_2kkff")]
+position = Vector2(3430, 186)
+
+[node name="coin8" parent="collectibles" instance=ExtResource("20_2kkff")]
+position = Vector2(3430, 275)
+
+[node name="coin9" parent="collectibles" instance=ExtResource("20_2kkff")]
+position = Vector2(3430, 94)
+
 [node name="character" type="Node" parent="."]
 
 [node name="iris" parent="character" instance=ExtResource("5_1sc4e")]
@@ -934,6 +964,7 @@ region_rect = Rect2(784.305, 390.38, 562.03, 322.787)
 theme = ExtResource("7_n8l8m")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ui"]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -977,6 +1008,15 @@ volume_db = -20.0
 
 [connection signal="pan_camera" from="." to="character/iris" method="_on_boss_level_pan_camera"]
 [connection signal="pan_camera" from="." to="PanningCamera" method="_on_boss_level_pan_camera"]
+[connection signal="coin_collected" from="collectibles/coin" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin2" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin3" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin4" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin5" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin6" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin7" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin8" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin9" to="ui/Interface" method="_on_coin_coin_collected"]
 [connection signal="current_position" from="character/iris" to="character/cat" method="_on_iris_current_position"]
 [connection signal="current_position" from="character/iris" to="PanningCamera" method="_on_iris_current_position"]
 [connection signal="damage_dealt" from="character/iris" to="character/cat" method="_on_iris_damage_dealt"]
