@@ -8,7 +8,6 @@ var freeze_movement = false
 
 var _timer = ACTION_COOLDOWN
 var attacking = false
-var can_interact = false
 
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animations = $Marker2D/iris_rig/Sprite2D/AnimationPlayer
@@ -117,5 +116,6 @@ func _on_boss_level_pan_camera(_cam_target_pos):
 func _on_panning_camera_finished_panning():
 	freeze_movement = false
 
-func _on_enemy_attacked(dmg):
-	$hp.take_damage(dmg)
+func _on_enemy_attacked(amount, can_interact, _source):
+	if can_interact["iris"]:
+		$hp.take_damage(amount)
