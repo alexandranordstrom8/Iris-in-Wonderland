@@ -5,23 +5,23 @@ extends Enemy
 
 const OFFSET = 80
 
-var can_interact = false
-var freeze_movement = true
-var target_pos: Vector2
+var chase: bool
 var timer = 0
-
 var dmg = 5
 
 func _ready():
-	$hp.change_max(500)
+	set_freeze_movement(true)
+	chase = true
+	set_can_interact(false)
 
 func update_position(delta):
-	if position.x < target_pos.x - OFFSET:
-		velocity.x += SPEED * delta
-		pos2d.scale.x = -1
-	elif position.x > target_pos.x + OFFSET:
-		velocity.x -= SPEED * delta
-		pos2d.scale.x = 1
+	if chase:
+		if position.x < target_pos.x - OFFSET:
+			velocity.x += SPEED * delta
+			pos2d.scale.x = -1
+		elif position.x > target_pos.x + OFFSET:
+			velocity.x -= SPEED * delta
+			pos2d.scale.x = 1
 	else:
 		velocity.x = 0
 		
@@ -52,47 +52,54 @@ func _physics_process(delta):
 	
 	if not freeze_movement:
 		update_position(delta)
-	
-	timer_actions()
+		timer_actions()
+		
 	update_animation()
 	move_and_slide()
 
 func _on_hp_health_depleted():
-	freeze_movement = true
-	can_interact = false
+	set_freeze_movement(true)
+	set_can_interact(false)
+	emit_signal("hp_depleted")
 
-func _on_panning_camera_finished_panning():
-	freeze_movement = false
+func _on_detection_area_body_entered(body):
+	if body.get_parent().name == "character":
+		$audio_meow.play()
+		chase = true
+		target_pos = body.position
 
-func _on_iris_current_position(pos):
-	target_pos = pos
-	
-func _on_area_2d_body_entered(body):
+func _on_detection_area_body_exited(body):
+	if body.get_parent().name == "character":
+		chase = false
+
+func _on_hitbox_body_entered(body):
 	if body.name == "iris":
-		timer = ACTION_COOLDOWN
-		can_interact = true
-		freeze_movement = true
+		set_can_interact(true)
 
-func _on_area_2d_body_exited(body):
+func _on_hitbox_body_exited(body):
 	if body.name == "iris":
-		can_interact = false
-		freeze_movement = false
+		set_can_interact(false)
+		set_freeze_movement(false)
 
 func _on_iris_damage_dealt(amount):
 	if can_interact:
-		$hp.take_damage(amount)
+		super._on_iris_damage_dealt(amount)
 
 func _on_iris_knock_back(_velocity, dir, xpos):
-	# player facing right, enemy on left
-	if dir == 1 and xpos > position.x:
-		pass
-	# player facing left, enemy on right
-	elif dir == -1 and xpos < position.x:
-		pass
-	else:
-		can_interact = false
-		velocity.x = int(_velocity * 0.75)
+	if can_interact:
+		# player facing right, enemy on left
+		if dir == 1 and xpos > position.x:
+			pass
+		# player facing left, enemy on right
+		elif dir == -1 and xpos < position.x:
+			pass
+		else:
+			#set_freeze_movement(true)
+			velocity.x = int(_velocity * 0.75)
 
 func _on_iris_knock_back_stop():
-	can_interact = true
-	velocity.x = SPEED * pos2d.scale.x * -1
+	set_freeze_movement(false)
+	velocity.x = 0
+
+
+

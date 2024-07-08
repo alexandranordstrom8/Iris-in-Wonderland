@@ -1,13 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cd631r3s13cp4"]
+[gd_scene load_steps=16 format=3 uid="uid://cd631r3s13cp4"]
 
 [ext_resource type="Texture2D" uid="uid://by76d5bxsfi6i" path="res://Iris-in-Wonderland/assets/characters/cat.png" id="1_8ktdf"]
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/cat.gd" id="1_q5rhp"]
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/health.gd" id="3_dyhw3"]
 [ext_resource type="AudioStream" uid="uid://3asaeccxvber" path="res://Iris-in-Wonderland/assets/audio/zapsplat_cartoon_very_fast_whoosh_swipe_swish_air_007_80464.mp3" id="4_0j85c"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aewt5"]
-radius = 101.176
-height = 315.294
+[ext_resource type="AudioStream" uid="uid://x8f0v888ab00" path="res://Iris-in-Wonderland/assets/audio/cat_meow_001.mp3" id="5_le8rm"]
 
 [sub_resource type="Animation" id="Animation_p5dc5"]
 length = 0.001
@@ -1025,7 +1022,6 @@ tracks/19/keys = {
 
 [sub_resource type="Animation" id="Animation_xbfes"]
 resource_name = "jump"
-loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1265,6 +1261,41 @@ tracks/19/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, -0.835104, -0.835104]
+}
+tracks/20/type = "audio"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("../../audio_jump")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"clips": [],
+"times": PackedFloat32Array()
+}
+tracks/20/use_blend = true
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("../../audio_jump:volume_db")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-10.0]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("../../audio_jump:playing")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_34le2"]
@@ -1526,9 +1557,17 @@ _data = {
 radius = 87.0
 height = 208.0
 
-[node name="cat" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aewt5"]
+radius = 101.176
+height = 315.294
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p67s8"]
+radius = 602.75
+
+[node name="cat" type="CharacterBody2D" node_paths=PackedStringArray("hp")]
 scale = Vector2(0.85, 0.85)
 script = ExtResource("1_q5rhp")
+hp = NodePath("hp")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 
@@ -1592,14 +1631,6 @@ texture = ExtResource("1_8ktdf")
 region_enabled = true
 region_rect = Rect2(280, 206, 119, 189)
 
-[node name="Area2D" type="Area2D" parent="Marker2D"]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/Area2D"]
-position = Vector2(-11.7647, 4.70588)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_aewt5")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Marker2D"]
 root_node = NodePath("../Sprite2D")
 libraries = {
@@ -1615,8 +1646,33 @@ shape = SubResource("CapsuleShape2D_pquph")
 [node name="hp" type="Node" parent="."]
 script = ExtResource("3_dyhw3")
 
-[node name="audio_attack" type="AudioStreamPlayer" parent="."]
+[node name="audio_attack" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_0j85c")
 volume_db = -10.0
 
+[node name="audio_meow" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_le8rm")
+pitch_scale = 0.75
+
+[node name="audio_jump" type="AudioStreamPlayer2D" parent="."]
+volume_db = -10.0
+
+[node name="Hitbox" type="Area2D" parent="."]
+visible = false
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-11.7647, 4.70588)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_aewt5")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_p67s8")
+
 [connection signal="health_depleted" from="hp" to="." method="_on_hp_health_depleted"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

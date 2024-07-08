@@ -5,11 +5,12 @@ signal health_changed(health)
 signal max_health_changed(maximum)
 signal health_depleted
 
-var max_health = 100
+@export var max_health = 100
 @export var health = 0
 
 func _ready():
 	health = max_health
+	emit_signal("max_health_changed", max_health)
 	emit_signal("health_changed", health)
 
 func take_damage(amount):

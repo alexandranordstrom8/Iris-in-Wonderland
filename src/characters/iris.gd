@@ -55,8 +55,8 @@ func handle_input():
 		else:
 			velocity.x *= 2
 	
-		emit_signal("knock_back", velocity.x, pos2d.scale.x, position.x)
 		emit_signal("damage_dealt", dash_dmg)
+		emit_signal("knock_back", velocity.x, pos2d.scale.x, position.x)
 		
 		if Input.is_action_just_released("ui_dash") or _timer > ACTION_COOLDOWN:
 			emit_signal("knock_back_stop")
@@ -92,6 +92,9 @@ func test_health():
 	if Input.is_action_just_pressed("test_sp"):
 		$sp.take_damage(5)
 
+func set_freeze_movement(value: bool):
+	freeze_movement = value
+
 func _physics_process(delta):
 	_timer += delta
 	velocity.y += gravity * delta
@@ -107,12 +110,12 @@ func _physics_process(delta):
 func _on_hp_health_depleted():
 	emit_signal("hp_depleted")
 
-func _on_boss_level_pan_camera(_can_target_pos):
+func _on_boss_level_pan_camera(_cam_target_pos):
 	velocity.x = 0
 	freeze_movement = true
 
 func _on_panning_camera_finished_panning():
 	freeze_movement = false
 
-func _on_cat_attacked(dmg):
+func _on_enemy_attacked(dmg):
 	$hp.take_damage(dmg)
