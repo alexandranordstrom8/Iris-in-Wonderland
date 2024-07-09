@@ -1209,6 +1209,9 @@ metadata/_edit_use_anchors_ = true
 [connection signal="interacted" from="character/iris" to="character/benjamin" method="_on_iris_interacted"]
 [connection signal="interacted" from="character/iris" to="buttons/InteractButton" method="_on_iris_interacted"]
 [connection signal="health_changed" from="character/iris/hp" to="ui/Interface" method="_on_hp_health_changed"]
+[connection signal="hurt" from="character/iris/hp" to="ui/Interface" method="_on_hp_hurt"]
+[connection signal="not_hurt" from="character/iris/hp" to="ui/Interface" method="_on_hp_not_hurt"]
+[connection signal="severely_hurt" from="character/iris/hp" to="ui/Interface" method="_on_hp_severely_hurt"]
 [connection signal="health_changed" from="character/iris/sp" to="ui/Interface" method="_on_sp_health_changed"]
 
 [editable path="character/benjamin"]

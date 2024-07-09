@@ -12,7 +12,7 @@ var target_pos: Vector2
 
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-signal attacked(amount, can_interact, source)
+signal attacked(amount, can_interact)
 signal hp_depleted()
 
 func _ready():
@@ -52,8 +52,8 @@ func _on_iris_damage_dealt(amount):
 		hp.take_damage(amount)
 
 # damage from other enemies
-func _on_enemy_attacked(amount, _can_interact, source):
-	if can_interact.get(source):
+func _on_enemy_attacked(amount, _can_interact):
+	if _can_interact.get(self.name):
 		hp.take_damage(amount)
 
 func _on_iris_knock_back(_velocity, _dir, _xpos):

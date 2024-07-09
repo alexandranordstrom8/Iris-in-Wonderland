@@ -116,6 +116,6 @@ func _on_boss_level_pan_camera(_cam_target_pos):
 func _on_panning_camera_finished_panning():
 	freeze_movement = false
 
-func _on_enemy_attacked(amount, can_interact, _source):
+func _on_enemy_attacked(amount, can_interact):
 	if can_interact["iris"]:
 		$hp.take_damage(amount)

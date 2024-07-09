@@ -1,12 +1,15 @@
 class_name Health
 extends Node
 
+@export var max_health = 100
+@export var health = 0
+
 signal health_changed(health)
 signal max_health_changed(maximum)
 signal health_depleted
-
-@export var max_health = 100
-@export var health = 0
+signal not_hurt
+signal hurt
+signal severely_hurt
 
 func _ready():
 	health = max_health
@@ -19,11 +22,19 @@ func take_damage(amount):
 	emit_signal("health_changed", health)
 	if health <= 0:
 		emit_signal("health_depleted")
+	elif health < 0.3 * max_health:
+		emit_signal("severely_hurt")
+	elif health < 0.5 * max_health:
+		emit_signal("hurt")
 
 func heal(amount):
 	health += amount
 	health = min(health, max_health)
 	emit_signal("health_changed", health)
+	if health >= 0.5 * max_health:
+		emit_signal("not_hurt")
+	elif health >= 0.3 * max_health:
+		emit_signal("hurt")
 	
 func change_max(maximum):
 	max_health = maximum

@@ -538,7 +538,7 @@ tracks/22/path = NodePath("../..")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.2),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [&"attack_animated"],
@@ -1572,7 +1572,7 @@ radius = 87.0
 height = 208.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aewt5"]
-radius = 101.176
+radius = 69.4118
 height = 315.294
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p67s8"]
@@ -1652,7 +1652,6 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, 32)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_pquph")
@@ -1672,10 +1671,9 @@ pitch_scale = 0.75
 volume_db = -10.0
 
 [node name="Hitbox" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-11.7647, 4.70588)
+position = Vector2(-11.7647, 29.4118)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_aewt5")
 

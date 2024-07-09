@@ -3,10 +3,7 @@ extends Enemy
 @onready var animations = $Marker2D/AnimationPlayer
 @onready var pos2d = $Marker2D
 
-const OFFSET = 80
-
 var chase: bool
-var timer = 0
 var dmg = 5
 
 signal attack_animated
@@ -17,10 +14,10 @@ func _ready():
 
 func update_position(delta):
 	if chase:
-		if position.x < target_pos.x - OFFSET:
+		if position.x < target_pos.x:
 			velocity.x += SPEED * delta
 			pos2d.scale.x = -1
-		elif position.x > target_pos.x + OFFSET:
+		elif position.x > target_pos.x:
 			velocity.x -= SPEED * delta
 			pos2d.scale.x = 1
 	else:
@@ -38,7 +35,6 @@ func update_animation():
 		animations.play("idle")
 
 func _physics_process(delta):
-	timer += delta
 	super._process(delta)
 	
 	if not freeze_movement:
@@ -49,11 +45,12 @@ func _physics_process(delta):
 
 func _on_attack_animated():
 	print(can_interact)
-	emit_signal("attacked", dmg, can_interact, self.name)
+	emit_signal("attacked", dmg, can_interact)
 
 func _on_hp_health_depleted():
 	set_freeze_movement(true)
 	emit_signal("hp_depleted")
+	super._on_health_health_depleted()
 
 func _on_detection_area_body_entered(body):
 	if body.get_parent().name == "character" and not body == self:
@@ -82,10 +79,10 @@ func _on_iris_damage_dealt(amount):
 
 func _on_iris_knock_back(_velocity, dir, xpos):
 	if can_interact["iris"]:
-		# player facing right, enemy on left
+		# player facing right, self on left
 		if dir == 1 and xpos > position.x:
 			pass
-		# player facing left, enemy on right
+		# player facing left, self on right
 		elif dir == -1 and xpos < position.x:
 			pass
 		else:

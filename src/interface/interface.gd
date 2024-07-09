@@ -15,3 +15,15 @@ func _on_coin_coin_collected():
 
 func _on_iris_hp_depleted():
 	pass 
+
+func _on_hp_not_hurt():
+	$border_red.visible = false
+	$border_yellow.visible = false 
+
+func _on_hp_hurt():
+	$border_red.visible = false
+	$border_yellow.visible = true
+
+func _on_hp_severely_hurt():
+	$border_red.visible = true
+	$border_yellow.visible = false 

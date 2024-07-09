@@ -873,6 +873,9 @@ position = Vector2(3430, 94)
 
 [node name="character" type="Node" parent="."]
 
+[node name="Strawberry" parent="character" instance=ExtResource("23_vj1ac")]
+position = Vector2(646, 626)
+
 [node name="iris" parent="character" instance=ExtResource("5_1sc4e")]
 position = Vector2(249, 626)
 
@@ -887,15 +890,12 @@ health = 500
 rotation = 1.5708
 
 [node name="start_area" type="Area2D" parent="character"]
-position = Vector2(2191, 778)
+position = Vector2(2089, 778)
 scale = Vector2(0.85, 0.85)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="character/start_area"]
 position = Vector2(96.4705, -550.588)
 shape = SubResource("CapsuleShape2D_2l7si")
-
-[node name="Strawberry" parent="character" instance=ExtResource("23_vj1ac")]
-position = Vector2(646, 626)
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("1_efq5o")]
 
@@ -1029,14 +1029,17 @@ volume_db = -20.0
 [connection signal="coin_collected" from="collectibles/coin8" to="ui/Interface" method="_on_coin_coin_collected"]
 [connection signal="coin_collected" from="collectibles/coin9" to="ui/Interface" method="_on_coin_coin_collected"]
 [connection signal="current_position" from="character/iris" to="PanningCamera" method="_on_iris_current_position"]
-[connection signal="damage_dealt" from="character/iris" to="character/cat" method="_on_iris_damage_dealt"]
 [connection signal="damage_dealt" from="character/iris" to="character/Strawberry" method="_on_iris_damage_dealt"]
+[connection signal="damage_dealt" from="character/iris" to="character/cat" method="_on_iris_damage_dealt"]
 [connection signal="knock_back" from="character/iris" to="character/cat" method="_on_iris_knock_back"]
 [connection signal="knock_back_stop" from="character/iris" to="character/cat" method="_on_iris_knock_back_stop"]
 [connection signal="health_changed" from="character/iris/hp" to="ui/Interface" method="_on_hp_health_changed"]
+[connection signal="hurt" from="character/iris/hp" to="ui/Interface" method="_on_hp_hurt"]
+[connection signal="not_hurt" from="character/iris/hp" to="ui/Interface" method="_on_hp_not_hurt"]
+[connection signal="severely_hurt" from="character/iris/hp" to="ui/Interface" method="_on_hp_severely_hurt"]
 [connection signal="health_changed" from="character/iris/sp" to="ui/Interface" method="_on_sp_health_changed"]
-[connection signal="attacked" from="character/cat" to="character/iris" method="_on_enemy_attacked"]
 [connection signal="attacked" from="character/cat" to="character/Strawberry" method="_on_enemy_attacked"]
+[connection signal="attacked" from="character/cat" to="character/iris" method="_on_enemy_attacked"]
 [connection signal="hp_depleted" from="character/cat" to="." method="_on_cat_hp_depleted"]
 [connection signal="health_changed" from="character/cat/hp" to="ui/VBoxContainer/boss_bar" method="_on_hp_health_changed"]
 [connection signal="max_health_changed" from="character/cat/hp" to="ui/VBoxContainer/boss_bar" method="_on_hp_max_health_changed"]

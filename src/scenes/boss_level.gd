@@ -6,6 +6,7 @@ var play_music = false
 @onready var cat_pos = $character/cat.position
 @onready var player = $character/iris
 @onready var enemy = $character/cat
+@onready var enemy_hp_bar = $ui/VBoxContainer
 
 signal pan_camera(target_pos)
 
@@ -29,10 +30,11 @@ func _on_panning_camera_timer_started():
 	play_music = true
 
 func _on_panning_camera_finished_panning():
-	$ui/VBoxContainer.visible = true
+	enemy_hp_bar.visible = true
 	enemy.set_freeze_movement(false)
 	enemy.set_target_pos(player.position)
 	
 func _on_cat_hp_depleted():
 	$audio/music.stop()
 	$audio/ambience.play()
+	enemy_hp_bar.visible = false
