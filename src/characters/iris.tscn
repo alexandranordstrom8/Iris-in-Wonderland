@@ -26,10 +26,12 @@ shape = SubResource("CapsuleShape2D_4nqvm")
 
 [node name="audio_jump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_6ynxu")
+bus = &"SFX"
 
 [node name="audio_scratch" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_84xg6")
 pitch_scale = 1.5
+bus = &"SFX"
 
 [node name="hp" type="Node" parent="."]
 script = ExtResource("5_l2pe0")

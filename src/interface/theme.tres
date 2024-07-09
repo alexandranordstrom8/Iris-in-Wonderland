@@ -1,6 +1,22 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dqu1hdmh0ypou"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://dqu1hdmh0ypou"]
 
+[ext_resource type="StyleBox" uid="uid://dx5bb2h46eni5" path="res://Iris-in-Wonderland/src/interface/button_toggled.tres" id="1_h8lb6"]
+[ext_resource type="StyleBox" uid="uid://fiilulgawk8a" path="res://Iris-in-Wonderland/src/interface/button.tres" id="1_mhy2p"]
 [ext_resource type="FontFile" uid="uid://ckq0opjxkh4f1" path="res://Iris-in-Wonderland/assets/interface/Happy School.otf" id="1_vae2p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vc1s7"]
+bg_color = Color(0.990385, 0.788099, 0.811116, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.894118, 0.894118, 0.894118, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s7ryr"]
 bg_color = Color(0.65098, 0.807843, 0.882353, 1)
@@ -18,6 +34,11 @@ corner_radius_bottom_left = 5
 default_font = ExtResource("1_vae2p")
 default_font_size = 18
 BoxContainer/constants/separation = 4
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/styles/focus = ExtResource("1_h8lb6")
+Button/styles/hover = SubResource("StyleBoxFlat_vc1s7")
+Button/styles/normal = ExtResource("1_mhy2p")
+Button/styles/pressed = ExtResource("1_h8lb6")
 EditorIcons/icons/Label = null
 Label/colors/font_color = Color(1, 1, 1, 1)
 Label/colors/font_outline_color = Color(0.97943, 0.56931, 0.631873, 1)

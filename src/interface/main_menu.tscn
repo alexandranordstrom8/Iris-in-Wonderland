@@ -1,0 +1,134 @@
+[gd_scene load_steps=8 format=3 uid="uid://b8jpjtm7bbbqo"]
+
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/interface/main_menu.gd" id="1_ms1vh"]
+[ext_resource type="Texture2D" uid="uid://cpk48otbvquon" path="res://Iris-in-Wonderland/assets/interface/icon.png" id="1_yynnn"]
+[ext_resource type="Texture2D" uid="uid://d0uhb7j45xd1g" path="res://Iris-in-Wonderland/assets/background/grass.png" id="3_eeyt8"]
+[ext_resource type="PackedScene" uid="uid://bpl25njjvqyno" path="res://Iris-in-Wonderland/src/characters/iris_rig.tscn" id="3_jwfrs"]
+[ext_resource type="Texture2D" uid="uid://cbqo77367xmhg" path="res://Iris-in-Wonderland/assets/background/grass2.png" id="4_sy2y0"]
+[ext_resource type="Texture2D" uid="uid://85qyfxoryq0c" path="res://Iris-in-Wonderland/assets/interface/main_bg.png" id="6_8j7ks"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p0dfx"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ms1vh")
+
+[node name="Title" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -215.0
+offset_top = 108.0
+offset_right = 215.0
+offset_bottom = 237.0
+grow_horizontal = 2
+theme_override_constants/separation = -10
+
+[node name="Panel" type="Panel" parent="Title"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_p0dfx")
+
+[node name="TextureRect" type="TextureRect" parent="Title/Panel"]
+layout_mode = 1
+offset_right = 117.0
+offset_bottom = 118.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_yynnn")
+
+[node name="Label" type="Label" parent="Title"]
+layout_mode = 2
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 48
+text = "Iris in Wonderland"
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(118, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -64.5
+offset_right = 59.0
+offset_bottom = 64.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="play" type="Button" parent="Buttons"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../quit")
+focus_neighbor_bottom = NodePath("../options")
+theme_override_font_sizes/font_size = 24
+text = "Play"
+
+[node name="options" type="Button" parent="Buttons"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../play")
+focus_neighbor_bottom = NodePath("../quit")
+theme_override_font_sizes/font_size = 24
+text = "Options
+"
+
+[node name="quit" type="Button" parent="Buttons"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../options")
+focus_neighbor_bottom = NodePath("../play")
+theme_override_font_sizes/font_size = 24
+text = "Quit"
+
+[node name="bg" type="Node" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="bg"]
+position = Vector2(1146, 556.5)
+texture = ExtResource("4_sy2y0")
+region_enabled = true
+region_rect = Rect2(633.052, 0, 646.948, 303.974)
+
+[node name="Sprite2D3" type="Sprite2D" parent="bg"]
+position = Vector2(927, 642)
+texture = ExtResource("4_sy2y0")
+region_enabled = true
+region_rect = Rect2(633.052, 0, 646.948, 303.974)
+
+[node name="Sprite2D2" type="Sprite2D" parent="bg"]
+position = Vector2(1023, 607.5)
+texture = ExtResource("3_eeyt8")
+region_enabled = true
+region_rect = Rect2(633.052, 0, 646.948, 303.974)
+
+[node name="Marker2D" type="Marker2D" parent="bg"]
+position = Vector2(1001, 588)
+scale = Vector2(-0.75, 0.75)
+
+[node name="iris_rig" parent="bg/Marker2D" instance=ExtResource("3_jwfrs")]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(256, 128)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_repeat = 2
+texture = ExtResource("6_8j7ks")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 1280, 720)
+
+[connection signal="pressed" from="Buttons/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Buttons/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Buttons/quit" to="." method="_on_quit_pressed"]

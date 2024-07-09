@@ -1176,6 +1176,7 @@ position = Vector2(-1, -9)
 stream = ExtResource("33_6dgrg")
 volume_db = -5.0
 autoplay = true
+bus = &"Music"
 
 [node name="ui" type="CanvasLayer" parent="."]
 
