@@ -93,6 +93,7 @@ func test_health():
 
 func set_freeze_movement(value: bool):
 	freeze_movement = value
+	velocity.x = 0
 
 func _physics_process(delta):
 	_timer += delta
@@ -109,9 +110,13 @@ func _physics_process(delta):
 func _on_hp_health_depleted():
 	emit_signal("hp_depleted")
 
-func _on_panning_camera_finished_panning():
-	freeze_movement = false
-
-func _on_enemy_attacked(amount, can_interact):
+func _on_enemy_attacked(amount, can_interact, pos, dir):
 	if can_interact["iris"]:
-		$hp.take_damage(amount)
+		# enemy facing right, self on left
+		if dir == 1 and pos.x > position.x:
+			pass
+		# enemy facing left, self on right
+		if dir == -1 and pos.x < position.x:
+			pass
+		else:
+			$hp.take_damage(amount)

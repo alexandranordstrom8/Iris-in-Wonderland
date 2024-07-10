@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cnpmjhr3i3unn"]
+[gd_scene load_steps=51 format=3 uid="uid://cnpmjhr3i3unn"]
 
 [ext_resource type="PackedScene" uid="uid://bng63fw5pf27e" path="res://Iris-in-Wonderland/src/background/green_background.tscn" id="1_efq5o"]
 [ext_resource type="Texture2D" uid="uid://p6jiynjt247g" path="res://Iris-in-Wonderland/assets/background/tree1.png" id="1_gt21c"]
@@ -34,6 +34,9 @@
 [ext_resource type="AudioStream" uid="uid://x8f0v888ab00" path="res://Iris-in-Wonderland/assets/audio/cat_meow_001.mp3" id="31_ba5yd"]
 [ext_resource type="AudioStream" uid="uid://dqmlp4w64t07v" path="res://Iris-in-Wonderland/assets/audio/electro_sonic_011.mp3" id="31_qho1h"]
 [ext_resource type="PackedScene" uid="uid://dfwlix1amhelg" path="res://Iris-in-Wonderland/src/scenes/panning_camera.tscn" id="32_3jta5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o45re"]
+bg_color = Color(0.788235, 0.94902, 0.752941, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ff3g"]
 radius = 96.5
@@ -263,6 +266,13 @@ region_rect = Rect2(962.787, 382.785, 167.09, 337.977)
 [node name="bg" type="Node" parent="."]
 
 [node name="ground" type="Node" parent="bg"]
+
+[node name="Panel" type="Panel" parent="bg/ground"]
+offset_left = -504.0
+offset_top = 720.0
+offset_right = 3861.0
+offset_bottom = 1206.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_o45re")
 
 [node name="Sprite2D" type="Sprite2D" parent="bg/ground"]
 position = Vector2(0, 552)
@@ -890,8 +900,7 @@ position = Vector2(249, 626)
 position = Vector2(3159, 587)
 
 [node name="hp" parent="character/cat" index="2"]
-max_health = 500
-health = 500
+max_health = 300
 
 [node name="CollisionShape2D" parent="character/cat/DetectionArea" index="0"]
 rotation = 1.5708
@@ -1070,7 +1079,6 @@ shape = SubResource("RectangleShape2D_bx1ud")
 [connection signal="body_entered" from="camera/StopLookDown" to="camera/PanningCamera" method="_on_stop_look_down_body_entered"]
 [connection signal="body_exited" from="camera/StopLookDown" to="camera/PanningCamera" method="_on_stop_look_down_body_exited"]
 [connection signal="finished_panning" from="camera/PanningCamera" to="." method="_on_panning_camera_finished_panning"]
-[connection signal="finished_panning" from="camera/PanningCamera" to="character/iris" method="_on_panning_camera_finished_panning"]
 [connection signal="timer_started" from="camera/PanningCamera" to="." method="_on_panning_camera_timer_started"]
 
 [editable path="character/iris"]

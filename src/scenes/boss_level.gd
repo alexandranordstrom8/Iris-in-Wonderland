@@ -32,17 +32,18 @@ func _on_panning_camera_timer_started():
 func _on_panning_camera_finished_panning():
 	enemy_hp_bar.visible = true
 	enemy.set_freeze_movement(false)
+	player.set_freeze_movement(false)
 	enemy.set_target_pos(player.position)
 	
 func _on_cat_hp_depleted():
 	$audio/music.stop()
 	$audio/ambience.play()
-	enemy_hp_bar.visible = false
 
 func _on_cat_timer_timeout():
-	print("TIMEOUT")
-	if enemy.chase:
-		print("player target")
+	if enemy.dead:
+		enemy.queue_free()
+		enemy_hp_bar.visible = false
+	elif enemy.chase:
 		enemy.set_target_pos(player.position)
 	else:
 		enemy.set_target_pos(Vector2(randi_range(250, 3000), 0))

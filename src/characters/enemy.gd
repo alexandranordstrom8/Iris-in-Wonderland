@@ -12,12 +12,11 @@ var target_pos: Vector2
 
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-signal attacked(amount, can_interact)
+signal attacked(amount, can_interact, pos, dir)
 signal hp_depleted()
 
 func _ready():
 	set_freeze_movement(true)
-	#can_interact[self.name] = false
 	
 func set_can_interact(entity, value):
 	can_interact[entity] = value
@@ -52,7 +51,7 @@ func _on_iris_damage_dealt(amount):
 		hp.take_damage(amount)
 
 # damage from other enemies
-func _on_enemy_attacked(amount, _can_interact):
+func _on_enemy_attacked(amount, _can_interact, _position):
 	if _can_interact.get(self.name):
 		hp.take_damage(amount)
 
