@@ -1,0 +1,146 @@
+[gd_scene load_steps=9 format=3 uid="uid://b8aq52nyqlquw"]
+
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/interface/PauseMenu.gd" id="1_uuf11"]
+[ext_resource type="Theme" uid="uid://dqu1hdmh0ypou" path="res://Iris-in-Wonderland/src/interface/theme.tres" id="2_e5hsf"]
+[ext_resource type="Texture2D" uid="uid://85qyfxoryq0c" path="res://Iris-in-Wonderland/assets/interface/main_bg.png" id="3_77j2c"]
+[ext_resource type="Texture2D" uid="uid://cpk48otbvquon" path="res://Iris-in-Wonderland/assets/interface/icon.png" id="4_i5wj0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_72aft"]
+bg_color = Color(1, 1, 1, 0.509804)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y83l7"]
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_txtqe"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.8, 0.894118, 0.890196, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2m4ig"]
+
+[node name="DeathMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uuf11")
+
+[node name="bg" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_72aft")
+
+[node name="Panel" type="Panel" parent="."]
+clip_children = 1
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_e5hsf")
+theme_override_styles/panel = SubResource("StyleBoxFlat_y83l7")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.0
+offset_top = -215.0
+offset_right = 619.0
+offset_bottom = 633.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_77j2c")
+stretch_mode = 1
+
+[node name="Panel" type="Panel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_txtqe")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -207.0
+offset_top = -163.0
+offset_right = 207.0
+offset_bottom = 235.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 48
+text = "Uh oh :("
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Retry" type="Button" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(167, 33)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Retry"
+
+[node name="Options" type="Button" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(167, 33)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Options"
+
+[node name="Main Menu" type="Button" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(167, 33)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Main Menu"
+
+[node name="Panel" type="Panel" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2m4ig")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/Panel"]
+layout_mode = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_i5wj0")
+expand_mode = 1
+stretch_mode = 2
+
+[connection signal="pressed" from="Panel/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]

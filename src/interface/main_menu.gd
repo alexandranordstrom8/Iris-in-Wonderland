@@ -9,7 +9,7 @@ func _process(delta):
 	$ParallaxBackground.scroll_base_offset += Vector2(-100, 100) * delta
 
 func _on_play_pressed():
-	get_tree().change_scene_to_file("res://Iris-in-Wonderland/src/scenes/world.tscn")
+	get_tree().change_scene_to_file("res://Iris-in-Wonderland/src/scenes/1.tscn")
 
 func _on_options_pressed():
 	pass 

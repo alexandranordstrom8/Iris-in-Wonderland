@@ -53,6 +53,11 @@ grow_vertical = 2
 texture = ExtResource("1_3csmt")
 stretch_mode = 2
 
+[node name="Label" type="Label" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Exit"
+
 [node name="Panel2" type="Panel" parent="HBoxContainer"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
