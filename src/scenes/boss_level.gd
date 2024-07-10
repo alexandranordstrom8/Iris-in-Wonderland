@@ -38,3 +38,11 @@ func _on_cat_hp_depleted():
 	$audio/music.stop()
 	$audio/ambience.play()
 	enemy_hp_bar.visible = false
+
+func _on_cat_timer_timeout():
+	print("TIMEOUT")
+	if enemy.chase:
+		print("player target")
+		enemy.set_target_pos(player.position)
+	else:
+		enemy.set_target_pos(Vector2(randi_range(250, 3000), 0))

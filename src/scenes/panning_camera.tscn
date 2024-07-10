@@ -14,3 +14,9 @@ drag_top_margin = 1.0
 drag_right_margin = 0.5
 drag_bottom_margin = 0.0
 script = ExtResource("1_7eupe")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

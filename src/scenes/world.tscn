@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://cqasmoo2r3l6c"]
+[gd_scene load_steps=62 format=3 uid="uid://cqasmoo2r3l6c"]
 
 [ext_resource type="PackedScene" uid="uid://3lj7jr7m57ri" path="res://Iris-in-Wonderland/src/characters/iris.tscn" id="1_pv5ai"]
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/world.gd" id="1_wclp7"]
@@ -38,6 +38,9 @@
 [ext_resource type="PackedScene" uid="uid://dfwlix1amhelg" path="res://Iris-in-Wonderland/src/scenes/panning_camera.tscn" id="36_pdvhx"]
 [ext_resource type="PackedScene" uid="uid://em5hl7ux263y" path="res://Iris-in-Wonderland/src/interface/interact_button.tscn" id="36_wiwep"]
 [ext_resource type="Theme" uid="uid://dqu1hdmh0ypou" path="res://Iris-in-Wonderland/src/interface/theme.tres" id="37_k3lju"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fl8qq"]
+bg_color = Color(0.592157, 0.854902, 0.670588, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aul4g"]
 radius = 16.1245
@@ -332,14 +335,6 @@ script = ExtResource("1_wclp7")
 
 [node name="ground" type="Node" parent="bg/up"]
 
-[node name="Sprite2D6" type="Sprite2D" parent="bg/up/ground"]
-position = Vector2(1313.5, 798)
-rotation = 3.14159
-scale = Vector2(4.61703, 0.725086)
-texture = ExtResource("13_me6ou")
-region_enabled = true
-region_rect = Rect2(637.856, 0, 642.144, 291.406)
-
 [node name="hill" type="Sprite2D" parent="bg/up/ground"]
 position = Vector2(443, 638)
 scale = Vector2(1.51016, 1)
@@ -364,6 +359,13 @@ position = Vector2(298, 632)
 texture = ExtResource("5_axj4f")
 region_enabled = true
 region_rect = Rect2(137.852, 438.461, 266.766, 200.86)
+
+[node name="Panel" type="Panel" parent="bg/up/ground"]
+offset_left = -230.0
+offset_top = 717.0
+offset_right = 2567.0
+offset_bottom = 807.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_fl8qq")
 
 [node name="trees" type="Node" parent="bg/up"]
 

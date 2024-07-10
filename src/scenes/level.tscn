@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://cnpmjhr3i3unn"]
+[gd_scene load_steps=50 format=3 uid="uid://cnpmjhr3i3unn"]
 
 [ext_resource type="PackedScene" uid="uid://bng63fw5pf27e" path="res://Iris-in-Wonderland/src/background/green_background.tscn" id="1_efq5o"]
 [ext_resource type="Texture2D" uid="uid://p6jiynjt247g" path="res://Iris-in-Wonderland/assets/background/tree1.png" id="1_gt21c"]
@@ -180,9 +180,16 @@ _data = {
 "slide": SubResource("Animation_1dh88")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i8r8p"]
+radius = 200.0
+height = 2063.53
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2l7si"]
 radius = 82.353
 height = 1350.59
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bx1ud"]
+size = Vector2(3671, 158)
 
 [node name="boss_level" type="Node2D"]
 script = ExtResource("1_rcf78")
@@ -888,6 +895,9 @@ health = 500
 
 [node name="CollisionShape2D" parent="character/cat/DetectionArea" index="0"]
 rotation = 1.5708
+shape = SubResource("CapsuleShape2D_i8r8p")
+
+[node name="Timer" type="Timer" parent="character/cat"]
 
 [node name="start_area" type="Area2D" parent="character"]
 position = Vector2(2089, 778)
@@ -1018,10 +1028,19 @@ stream = ExtResource("31_qho1h")
 volume_db = -20.0
 bus = &"Music"
 
-[node name="PanningCamera" parent="." instance=ExtResource("32_3jta5")]
+[node name="camera" type="Node" parent="."]
 
-[connection signal="pan_camera" from="." to="character/iris" method="_on_boss_level_pan_camera"]
-[connection signal="pan_camera" from="." to="PanningCamera" method="_on_boss_level_pan_camera"]
+[node name="StopLookDown" type="Area2D" parent="camera"]
+visible = false
+position = Vector2(640, 360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="camera/StopLookDown"]
+position = Vector2(1198, 278)
+shape = SubResource("RectangleShape2D_bx1ud")
+
+[node name="PanningCamera" parent="camera" instance=ExtResource("32_3jta5")]
+
+[connection signal="pan_camera" from="." to="camera/PanningCamera" method="_on_boss_level_pan_camera"]
 [connection signal="coin_collected" from="collectibles/coin" to="ui/Interface" method="_on_coin_coin_collected"]
 [connection signal="coin_collected" from="collectibles/coin2" to="ui/Interface" method="_on_coin_coin_collected"]
 [connection signal="coin_collected" from="collectibles/coin3" to="ui/Interface" method="_on_coin_coin_collected"]
@@ -1031,7 +1050,7 @@ bus = &"Music"
 [connection signal="coin_collected" from="collectibles/coin7" to="ui/Interface" method="_on_coin_coin_collected"]
 [connection signal="coin_collected" from="collectibles/coin8" to="ui/Interface" method="_on_coin_coin_collected"]
 [connection signal="coin_collected" from="collectibles/coin9" to="ui/Interface" method="_on_coin_coin_collected"]
-[connection signal="current_position" from="character/iris" to="PanningCamera" method="_on_iris_current_position"]
+[connection signal="current_position" from="character/iris" to="camera/PanningCamera" method="_on_iris_current_position"]
 [connection signal="damage_dealt" from="character/iris" to="character/Strawberry" method="_on_iris_damage_dealt"]
 [connection signal="damage_dealt" from="character/iris" to="character/cat" method="_on_iris_damage_dealt"]
 [connection signal="knock_back" from="character/iris" to="character/cat" method="_on_iris_knock_back"]
@@ -1046,10 +1065,13 @@ bus = &"Music"
 [connection signal="hp_depleted" from="character/cat" to="." method="_on_cat_hp_depleted"]
 [connection signal="health_changed" from="character/cat/hp" to="ui/VBoxContainer/boss_bar" method="_on_hp_health_changed"]
 [connection signal="max_health_changed" from="character/cat/hp" to="ui/VBoxContainer/boss_bar" method="_on_hp_max_health_changed"]
+[connection signal="timeout" from="character/cat/Timer" to="." method="_on_cat_timer_timeout"]
 [connection signal="body_entered" from="character/start_area" to="." method="_on_start_area_body_entered"]
-[connection signal="finished_panning" from="PanningCamera" to="." method="_on_panning_camera_finished_panning"]
-[connection signal="finished_panning" from="PanningCamera" to="character/iris" method="_on_panning_camera_finished_panning"]
-[connection signal="timer_started" from="PanningCamera" to="." method="_on_panning_camera_timer_started"]
+[connection signal="body_entered" from="camera/StopLookDown" to="camera/PanningCamera" method="_on_stop_look_down_body_entered"]
+[connection signal="body_exited" from="camera/StopLookDown" to="camera/PanningCamera" method="_on_stop_look_down_body_exited"]
+[connection signal="finished_panning" from="camera/PanningCamera" to="." method="_on_panning_camera_finished_panning"]
+[connection signal="finished_panning" from="camera/PanningCamera" to="character/iris" method="_on_panning_camera_finished_panning"]
+[connection signal="timer_started" from="camera/PanningCamera" to="." method="_on_panning_camera_timer_started"]
 
 [editable path="character/iris"]
 [editable path="character/cat"]

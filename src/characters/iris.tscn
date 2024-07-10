@@ -12,6 +12,7 @@ height = 194.005
 
 [node name="iris" type="CharacterBody2D"]
 scale = Vector2(0.75, 0.75)
+collision_layer = 5
 script = ExtResource("1_y4332")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

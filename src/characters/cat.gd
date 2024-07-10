@@ -2,9 +2,13 @@ extends Enemy
 
 @onready var animations = $Marker2D/AnimationPlayer
 @onready var pos2d = $Marker2D
+@onready var timer = $Timer
+
+const OFFSET = 70
 
 var chase: bool
 var dmg = 5
+var detected = {} # node_name : [node_body, true/false]
 
 signal attack_animated
 
@@ -12,14 +16,22 @@ func _ready():
 	super._ready()
 	chase = true
 
+func detected_empty():
+	pass
+	for entity in detected:
+		if detected[entity][1]:
+			print("detected not empty, %s" %detected[entity][0].name)
+			target_pos = detected[entity][0].position
+			return false
+	return true
+
 func update_position(delta):
-	if chase:
-		if position.x < target_pos.x:
-			velocity.x += SPEED * delta
-			pos2d.scale.x = -1
-		elif position.x > target_pos.x:
-			velocity.x -= SPEED * delta
-			pos2d.scale.x = 1
+	if position.x < target_pos.x - OFFSET:
+		velocity.x += SPEED * delta
+		pos2d.scale.x = -1
+	elif position.x > target_pos.x + OFFSET:
+		velocity.x -= SPEED * delta
+		pos2d.scale.x = 1
 	else:
 		velocity.x = 0
 
@@ -58,20 +70,27 @@ func _on_detection_area_body_entered(body):
 		$audio_meow.play()
 		chase = true
 		target_pos = body.position
+		detected[body.name] = [body, true]
 
 func _on_detection_area_body_exited(body):
-	if body.get_parent().name == "character":
+	if body.get_parent().name == "character" and not body == self:
 		print("%s, %s exited" %[self.name, body.name])
-		chase = false
+		detected[body.name] = [body, false]
+		
+		if detected_empty():
+			chase = false
 
 func _on_hitbox_body_entered(body):
-	if body.get_parent().name == "character":
+	if body.get_parent().name == "character" and not body == self:
 		set_can_interact(body.name, true)
 
 func _on_hitbox_body_exited(body):
-	if body.get_parent().name == "character":
+	if body.get_parent().name == "character" and not body == self:
 		set_can_interact(body.name, false)
 		set_freeze_movement(false)
+		if body.name == "iris":
+			print("TIMER STARTED")
+			timer.start()
 
 func _on_iris_damage_dealt(amount):
 	if can_interact["iris"]:

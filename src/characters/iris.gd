@@ -109,10 +109,6 @@ func _physics_process(delta):
 func _on_hp_health_depleted():
 	emit_signal("hp_depleted")
 
-func _on_boss_level_pan_camera(_cam_target_pos):
-	velocity.x = 0
-	freeze_movement = true
-
 func _on_panning_camera_finished_panning():
 	freeze_movement = false
 

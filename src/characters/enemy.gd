@@ -17,7 +17,7 @@ signal hp_depleted()
 
 func _ready():
 	set_freeze_movement(true)
-	can_interact[self.name] = false
+	#can_interact[self.name] = false
 	
 func set_can_interact(entity, value):
 	can_interact[entity] = value
