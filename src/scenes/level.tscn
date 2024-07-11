@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cnpmjhr3i3unn"]
+[gd_scene load_steps=52 format=3 uid="uid://cnpmjhr3i3unn"]
 
 [ext_resource type="PackedScene" uid="uid://bng63fw5pf27e" path="res://Iris-in-Wonderland/src/background/green_background.tscn" id="1_efq5o"]
 [ext_resource type="Texture2D" uid="uid://p6jiynjt247g" path="res://Iris-in-Wonderland/assets/background/tree1.png" id="1_gt21c"]
@@ -34,6 +34,7 @@
 [ext_resource type="AudioStream" uid="uid://x8f0v888ab00" path="res://Iris-in-Wonderland/assets/audio/cat_meow_001.mp3" id="31_ba5yd"]
 [ext_resource type="AudioStream" uid="uid://dqmlp4w64t07v" path="res://Iris-in-Wonderland/assets/audio/electro_sonic_011.mp3" id="31_qho1h"]
 [ext_resource type="PackedScene" uid="uid://dfwlix1amhelg" path="res://Iris-in-Wonderland/src/scenes/panning_camera.tscn" id="32_3jta5"]
+[ext_resource type="AudioStream" uid="uid://v40cq20xhybe" path="res://Iris-in-Wonderland/assets/audio/trumpets_fanfare_end_complete_finish_109659.mp3" id="34_agaox"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o45re"]
 bg_color = Color(0.788235, 0.94902, 0.752941, 1)
@@ -1037,6 +1038,9 @@ stream = ExtResource("31_qho1h")
 volume_db = -20.0
 bus = &"Music"
 
+[node name="win" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource("34_agaox")
+
 [node name="camera" type="Node" parent="."]
 
 [node name="StopLookDown" type="Area2D" parent="camera"]
@@ -1062,6 +1066,8 @@ shape = SubResource("RectangleShape2D_bx1ud")
 [connection signal="current_position" from="character/iris" to="camera/PanningCamera" method="_on_iris_current_position"]
 [connection signal="damage_dealt" from="character/iris" to="character/Strawberry" method="_on_iris_damage_dealt"]
 [connection signal="damage_dealt" from="character/iris" to="character/cat" method="_on_iris_damage_dealt"]
+[connection signal="hp_depleted" from="character/iris" to="." method="_on_iris_hp_depleted"]
+[connection signal="hp_depleted" from="character/iris" to="ui/Interface" method="_on_iris_hp_depleted"]
 [connection signal="knock_back" from="character/iris" to="character/cat" method="_on_iris_knock_back"]
 [connection signal="knock_back_stop" from="character/iris" to="character/cat" method="_on_iris_knock_back_stop"]
 [connection signal="health_changed" from="character/iris/hp" to="ui/Interface" method="_on_hp_health_changed"]

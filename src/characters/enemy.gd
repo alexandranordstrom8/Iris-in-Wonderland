@@ -16,7 +16,7 @@ signal attacked(amount, can_interact, pos, dir)
 signal hp_depleted()
 
 func _ready():
-	set_freeze_movement(true)
+	pass
 	
 func set_can_interact(entity, value):
 	can_interact[entity] = value
@@ -26,6 +26,8 @@ func get_can_interact(entity):
 
 func set_freeze_movement(value):
 	freeze_movement = value
+	if value == true:
+		velocity.x = 0
 	
 func set_target_pos(pos):
 	target_pos = pos
@@ -39,12 +41,10 @@ func _on_health_health_depleted():
 func _on_area_2d_body_entered(body):
 	if body.get_parent().name == "character" and not body == self:
 		set_can_interact(body.name, true)
-		print("%s, %s entered" %[self.name, body.name])
 
 func _on_area_2d_body_exited(body):
 	if body.get_parent().name == "character" and not body == self:
 		set_can_interact(body.name, false)
-		print("%s, %s exited" %[self.name, body.name])
 
 func _on_iris_damage_dealt(amount):
 	if can_interact["iris"]:

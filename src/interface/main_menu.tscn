@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8jpjtm7bbbqo"]
+[gd_scene load_steps=13 format=3 uid="uid://b8jpjtm7bbbqo"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/interface/main_menu.gd" id="1_ms1vh"]
 [ext_resource type="Texture2D" uid="uid://cpk48otbvquon" path="res://Iris-in-Wonderland/assets/interface/icon.png" id="1_yynnn"]
@@ -6,8 +6,19 @@
 [ext_resource type="PackedScene" uid="uid://bpl25njjvqyno" path="res://Iris-in-Wonderland/src/characters/iris_rig.tscn" id="3_jwfrs"]
 [ext_resource type="Texture2D" uid="uid://cbqo77367xmhg" path="res://Iris-in-Wonderland/assets/background/grass2.png" id="4_sy2y0"]
 [ext_resource type="Texture2D" uid="uid://85qyfxoryq0c" path="res://Iris-in-Wonderland/assets/interface/main_bg.png" id="6_8j7ks"]
+[ext_resource type="AudioStream" uid="uid://dcwotur1g15ro" path="res://Iris-in-Wonderland/assets/audio/main_menu.mp3" id="7_cvw6r"]
+[ext_resource type="AudioStream" uid="uid://46fnjfe3g6jo" path="res://Iris-in-Wonderland/assets/audio/jump2.mp3" id="8_bbml5"]
+[ext_resource type="AudioStream" uid="uid://7385gmtmp4st" path="res://Iris-in-Wonderland/assets/audio/purring.mp3" id="9_70c0v"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p0dfx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_at83x"]
+radius = 61.3333
+height = 173.333
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ynpaw"]
+radius = 56.0
+height = 186.667
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -16,6 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_ms1vh")
 
 [node name="Title" type="VBoxContainer" parent="."]
@@ -47,7 +59,8 @@ texture = ExtResource("1_yynnn")
 layout_mode = 2
 theme_override_constants/outline_size = 15
 theme_override_font_sizes/font_size = 48
-text = "Iris in Wonderland"
+text = "Iris in Wonderland
+"
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(118, 0)
@@ -58,9 +71,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -59.0
-offset_top = -64.5
+offset_top = -95.0
 offset_right = 59.0
-offset_bottom = 64.5
+offset_bottom = 159.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -68,25 +81,33 @@ size_flags_vertical = 4
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="play" type="Button" parent="Buttons"]
+[node name="Play" type="Button" parent="Buttons"]
 layout_mode = 2
-focus_neighbor_top = NodePath("../quit")
-focus_neighbor_bottom = NodePath("../options")
+focus_neighbor_top = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../Options")
 theme_override_font_sizes/font_size = 24
 text = "Play"
 
-[node name="options" type="Button" parent="Buttons"]
+[node name="Options" type="Button" parent="Buttons"]
 layout_mode = 2
-focus_neighbor_top = NodePath("../play")
-focus_neighbor_bottom = NodePath("../quit")
+focus_neighbor_top = NodePath("../Play")
+focus_neighbor_bottom = NodePath("../Quit")
 theme_override_font_sizes/font_size = 24
 text = "Options
 "
 
-[node name="quit" type="Button" parent="Buttons"]
+[node name="Credits" type="Button" parent="Buttons"]
 layout_mode = 2
-focus_neighbor_top = NodePath("../options")
-focus_neighbor_bottom = NodePath("../play")
+focus_neighbor_top = NodePath("../Play")
+focus_neighbor_bottom = NodePath("../Quit")
+theme_override_font_sizes/font_size = 24
+text = "Credits
+"
+
+[node name="Quit" type="Button" parent="Buttons"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Options")
+focus_neighbor_bottom = NodePath("../Play")
 theme_override_font_sizes/font_size = 24
 text = "Quit"
 
@@ -116,6 +137,17 @@ scale = Vector2(-0.75, 0.75)
 
 [node name="iris_rig" parent="bg/Marker2D" instance=ExtResource("3_jwfrs")]
 
+[node name="Area2D" type="Area2D" parent="bg/Marker2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bg/Marker2D/Area2D"]
+position = Vector2(38.6667, -80)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_at83x")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="bg/Marker2D/Area2D"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ynpaw")
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -129,6 +161,23 @@ centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 1280, 720)
 
-[connection signal="pressed" from="Buttons/play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Buttons/options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="Buttons/quit" to="." method="_on_quit_pressed"]
+[node name="Audio" type="Node" parent="."]
+
+[node name="Music" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("7_cvw6r")
+autoplay = true
+bus = &"Music"
+
+[node name="Button" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("8_bbml5")
+bus = &"SFX"
+
+[node name="Purring" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("9_70c0v")
+
+[connection signal="pressed" from="Buttons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Buttons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Buttons/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Buttons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="mouse_entered" from="bg/Marker2D/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="bg/Marker2D/Area2D" to="." method="_on_area_2d_mouse_exited"]

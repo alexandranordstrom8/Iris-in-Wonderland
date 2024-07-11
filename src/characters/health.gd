@@ -16,25 +16,33 @@ func _ready():
 	emit_signal("max_health_changed", max_health)
 	emit_signal("health_changed", health)
 
-func take_damage(amount):
-	health -= amount
-	health = max(0, health)
-	emit_signal("health_changed", health)
+func init(amount):
+	if health != amount:
+		health = amount
+		emit_signal("health_changed", health)
+		check_status()
+	
+func check_status():
 	if health <= 0:
 		emit_signal("health_depleted")
 	elif health < 0.3 * max_health:
 		emit_signal("severely_hurt")
 	elif health < 0.5 * max_health:
 		emit_signal("hurt")
+	else:
+		emit_signal("not_hurt")
+
+func take_damage(amount):
+	health -= amount
+	health = max(0, health)
+	emit_signal("health_changed", health)
+	check_status()
 
 func heal(amount):
 	health += amount
 	health = min(health, max_health)
 	emit_signal("health_changed", health)
-	if health >= 0.5 * max_health:
-		emit_signal("not_hurt")
-	elif health >= 0.3 * max_health:
-		emit_signal("hurt")
+	check_status()
 	
 func change_max(maximum):
 	max_health = maximum

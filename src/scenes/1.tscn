@@ -28,9 +28,9 @@
 [ext_resource type="PackedScene" uid="uid://cgvgmi8l5dw87" path="res://Iris-in-Wonderland/src/interface/coin.tscn" id="29_du7ev"]
 [ext_resource type="PackedScene" uid="uid://c0dydbsm6epto" path="res://Iris-in-Wonderland/src/characters/benjamin.tscn" id="30_7m22a"]
 [ext_resource type="PackedScene" uid="uid://bhmj4gwta52oe" path="res://Iris-in-Wonderland/src/characters/isabell.tscn" id="31_0uyta"]
+[ext_resource type="AudioStream" uid="uid://dcj6my0rmnj8n" path="res://Iris-in-Wonderland/assets/audio/星が輝く冬.mp3" id="31_an7j8"]
 [ext_resource type="PackedScene" uid="uid://3lj7jr7m57ri" path="res://Iris-in-Wonderland/src/characters/iris.tscn" id="33_4og7s"]
 [ext_resource type="PackedScene" uid="uid://em5hl7ux263y" path="res://Iris-in-Wonderland/src/interface/interact_button.tscn" id="34_ylwc1"]
-[ext_resource type="AudioStream" uid="uid://b6rxv45eh6p66" path="res://Iris-in-Wonderland/assets/audio/audio_hero_Yellow-Cafe_SIPML_C-0361.mp3" id="35_bjqo2"]
 [ext_resource type="PackedScene" uid="uid://b3dx42g8s16rl" path="res://Iris-in-Wonderland/src/interface/interface.tscn" id="36_25me8"]
 [ext_resource type="Theme" uid="uid://dqu1hdmh0ypou" path="res://Iris-in-Wonderland/src/interface/theme.tres" id="37_leyt3"]
 [ext_resource type="PackedScene" uid="uid://dfwlix1amhelg" path="res://Iris-in-Wonderland/src/scenes/panning_camera.tscn" id="38_rx7ip"]
@@ -1018,7 +1018,7 @@ visible = true
 visible = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("35_bjqo2")
+stream = ExtResource("31_an7j8")
 volume_db = -5.0
 autoplay = true
 bus = &"Music"
@@ -1032,7 +1032,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="PanningCamera" parent="." instance=ExtResource("38_rx7ip")]
 
-[connection signal="interacted" from="." to="character/benjamin" method="_on_world_interacted"]
+[connection signal="prev_values" from="." to="ui/Interface" method="_on_world_prev_values"]
 [connection signal="coin_collected" from="collectibles/coin" to="ui/Interface" method="_on_coin_coin_collected"]
 [connection signal="coin_collected" from="collectibles/coin2" to="ui/Interface" method="_on_coin_coin_collected"]
 [connection signal="coin_collected" from="collectibles/coin3" to="ui/Interface" method="_on_coin_coin_collected"]
@@ -1059,6 +1059,7 @@ metadata/_edit_use_anchors_ = true
 [connection signal="not_hurt" from="character/iris/hp" to="ui/Interface" method="_on_hp_not_hurt"]
 [connection signal="severely_hurt" from="character/iris/hp" to="ui/Interface" method="_on_hp_severely_hurt"]
 [connection signal="health_changed" from="character/iris/sp" to="ui/Interface" method="_on_sp_health_changed"]
+[connection signal="init" from="ui/Interface" to="character/iris" method="_on_interface_init"]
 
 [editable path="character/benjamin"]
 [editable path="character/iris"]

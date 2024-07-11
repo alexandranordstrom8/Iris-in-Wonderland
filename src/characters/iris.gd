@@ -93,7 +93,8 @@ func test_health():
 
 func set_freeze_movement(value: bool):
 	freeze_movement = value
-	velocity.x = 0
+	if value == true:
+		velocity.x = 0
 
 func _physics_process(delta):
 	_timer += delta
@@ -120,3 +121,8 @@ func _on_enemy_attacked(amount, can_interact, pos, dir):
 			pass
 		else:
 			$hp.take_damage(amount)
+
+
+func _on_interface_init(_coins, hp, sp):
+	$hp.init(hp)
+	$sp.init(sp)

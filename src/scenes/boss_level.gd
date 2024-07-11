@@ -39,9 +39,13 @@ func _on_cat_hp_depleted():
 	$audio/music.stop()
 	$audio/ambience.play()
 
+func _on_iris_hp_depleted():
+	$audio/music.stop()
+
 func _on_cat_timer_timeout():
 	if enemy.dead:
 		enemy.queue_free()
+		$audio/win.play()
 		enemy_hp_bar.visible = false
 	elif enemy.chase:
 		enemy.set_target_pos(player.position)

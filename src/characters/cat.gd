@@ -14,11 +14,10 @@ var detected = {} # node_name : [node_body, true/false]
 signal attack_animated
 
 func _ready():
-	super._ready()
+	set_freeze_movement(true)
 	chase = true
 
 func detected_empty():
-	pass
 	for entity in detected:
 		if detected[entity][1]:
 			target_pos = detected[entity][0].position
@@ -71,7 +70,6 @@ func _on_hp_health_depleted():
 
 func _on_detection_area_body_entered(body):
 	if body.get_parent().name == "character" and not body == self:
-		#print("%s, %s entered" %[self.name, body.name])
 		$audio_meow.play()
 		chase = true
 		target_pos = body.position
@@ -79,7 +77,6 @@ func _on_detection_area_body_entered(body):
 
 func _on_detection_area_body_exited(body):
 	if body.get_parent().name == "character" and not body == self:
-		#print("%s, %s exited" %[self.name, body.name])
 		detected[body.name] = [body, false]
 		
 		if detected_empty():
@@ -109,7 +106,6 @@ func _on_iris_knock_back(_velocity, dir, xpos):
 		elif dir == -1 and xpos < position.x:
 			pass
 		else:
-			set_freeze_movement(true)
 			velocity.x = int(_velocity * 0.75)
 
 func _on_iris_knock_back_stop():
