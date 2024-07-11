@@ -83,13 +83,13 @@ func update_animation():
 
 func test_health():
 	if Input.is_action_just_pressed("test_heal"):
-		$hp.heal(5)
+		$hp.heal(15)
 	if Input.is_action_just_pressed("test_damage"):
-		$hp.take_damage(5)
+		$hp.take_damage(15)
 	if Input.is_action_just_pressed("test_sp_heal"):
-		$sp.heal(5)
+		$sp.heal(15)
 	if Input.is_action_just_pressed("test_sp"):
-		$sp.take_damage(5)
+		$sp.take_damage(15)
 
 func set_freeze_movement(value: bool):
 	freeze_movement = value
@@ -108,6 +108,10 @@ func _physics_process(delta):
 	test_health()
 	move_and_slide()
 
+func _on_interface_init(_coins, hp, sp):
+	$hp.init(hp)
+	$sp.init(sp)
+
 func _on_hp_health_depleted():
 	emit_signal("hp_depleted")
 
@@ -121,8 +125,3 @@ func _on_enemy_attacked(amount, can_interact, pos, dir):
 			pass
 		else:
 			$hp.take_damage(amount)
-
-
-func _on_interface_init(_coins, hp, sp):
-	$hp.init(hp)
-	$sp.init(sp)

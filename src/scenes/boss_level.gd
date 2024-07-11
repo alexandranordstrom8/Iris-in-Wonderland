@@ -1,4 +1,4 @@
-extends Node2D
+extends World
 
 var started = false
 var play_music = false
@@ -11,6 +11,7 @@ var play_music = false
 signal pan_camera(target_pos)
 
 func _ready():
+	super._ready()
 	$audio/ambience.play()
 
 func _process(_delta):

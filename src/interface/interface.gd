@@ -23,6 +23,12 @@ func show_menu(m_name):
 		Engine.time_scale = 0
 	
 	paused = not paused
+
+func save_values():
+	Save.set_variables(
+		int($Counters/HBoxContainer/coin_counter/HBoxContainer/Label.text),
+		int($Counters/HBoxContainer/Panel/VBoxContainer/hp_bar/counter/Label.text), 
+		int($Counters/HBoxContainer/Panel/VBoxContainer/sp_bar/counter/Label.text))
 	
 ### health signals
 func _on_hp_health_changed(amount):
@@ -61,10 +67,7 @@ func _on_menu_options_pressed():
 func _on_menu_main_menu_pressed():
 	button_sfx.play()
 	Engine.time_scale = 1
-	Save.set_variables(
-		int($Counters/HBoxContainer/coin_counter/HBoxContainer/Label.text),
-		int($Counters/HBoxContainer/Panel/VBoxContainer/hp_bar/counter/Label.text), 
-		int($Counters/HBoxContainer/Panel/VBoxContainer/sp_bar/counter/Label.text))
+	save_values()
 	get_tree().change_scene_to_file("res://Iris-in-Wonderland/src/interface/main_menu.tscn")
 
 func _on_menu_retry_pressed():
@@ -74,3 +77,6 @@ func _on_menu_retry_pressed():
 
 func _on_world_prev_values(coins, hp, sp):
 	emit_signal("init", coins, hp, sp)
+
+func _on_world_save_values():
+	save_values()

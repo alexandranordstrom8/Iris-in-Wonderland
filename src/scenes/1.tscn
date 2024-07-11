@@ -1033,6 +1033,7 @@ metadata/_edit_use_anchors_ = true
 [node name="PanningCamera" parent="." instance=ExtResource("38_rx7ip")]
 
 [connection signal="prev_values" from="." to="ui/Interface" method="_on_world_prev_values"]
+[connection signal="save_values" from="." to="ui/Interface" method="_on_world_save_values"]
 [connection signal="coin_collected" from="collectibles/coin" to="ui/Interface" method="_on_coin_coin_collected"]
 [connection signal="coin_collected" from="collectibles/coin2" to="ui/Interface" method="_on_coin_coin_collected"]
 [connection signal="coin_collected" from="collectibles/coin3" to="ui/Interface" method="_on_coin_coin_collected"]

@@ -1054,6 +1054,8 @@ shape = SubResource("RectangleShape2D_bx1ud")
 [node name="PanningCamera" parent="camera" instance=ExtResource("32_3jta5")]
 
 [connection signal="pan_camera" from="." to="camera/PanningCamera" method="_on_boss_level_pan_camera"]
+[connection signal="prev_values" from="." to="ui/Interface" method="_on_world_prev_values"]
+[connection signal="save_values" from="." to="ui/Interface" method="_on_world_save_values"]
 [connection signal="coin_collected" from="collectibles/coin" to="ui/Interface" method="_on_coin_coin_collected"]
 [connection signal="coin_collected" from="collectibles/coin2" to="ui/Interface" method="_on_coin_coin_collected"]
 [connection signal="coin_collected" from="collectibles/coin3" to="ui/Interface" method="_on_coin_coin_collected"]
@@ -1082,6 +1084,7 @@ shape = SubResource("RectangleShape2D_bx1ud")
 [connection signal="max_health_changed" from="character/cat/hp" to="ui/VBoxContainer/boss_bar" method="_on_hp_max_health_changed"]
 [connection signal="timeout" from="character/cat/Timer" to="." method="_on_cat_timer_timeout"]
 [connection signal="body_entered" from="character/start_area" to="." method="_on_start_area_body_entered"]
+[connection signal="init" from="ui/Interface" to="character/iris" method="_on_interface_init"]
 [connection signal="body_entered" from="camera/StopLookDown" to="camera/PanningCamera" method="_on_stop_look_down_body_entered"]
 [connection signal="body_exited" from="camera/StopLookDown" to="camera/PanningCamera" method="_on_stop_look_down_body_exited"]
 [connection signal="finished_panning" from="camera/PanningCamera" to="." method="_on_panning_camera_finished_panning"]
