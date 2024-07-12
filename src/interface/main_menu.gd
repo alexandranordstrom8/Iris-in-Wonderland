@@ -12,7 +12,7 @@ func _process(delta):
 
 func _on_play_pressed():
 	button_sfx.play()
-	get_tree().change_scene_to_file("res://Iris-in-Wonderland/src/scenes/1.tscn")
+	ScenePaths.change_scene(ScenePaths.scene_0, ScenePaths.scene_0)
 
 func _on_options_pressed():
 	button_sfx.play()

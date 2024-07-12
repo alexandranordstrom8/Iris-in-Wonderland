@@ -72,8 +72,8 @@ func _on_menu_main_menu_pressed():
 
 func _on_menu_retry_pressed():
 	button_sfx.play()
-	#Engine.time_scale = 1
-	### reload current scene
+	Engine.time_scale = 1
+	get_tree().reload_current_scene()
 
 func _on_world_prev_values(coins, hp, sp):
 	emit_signal("init", coins, hp, sp)

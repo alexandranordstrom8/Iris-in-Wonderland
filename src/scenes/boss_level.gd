@@ -7,8 +7,7 @@ var play_music = false
 @onready var player = $character/iris
 @onready var enemy = $character/cat
 @onready var enemy_hp_bar = $ui/VBoxContainer
-
-signal pan_camera(target_pos)
+@onready var camera = $camera/PanningCamera
 
 func _ready():
 	super._ready()
@@ -22,7 +21,8 @@ func _on_start_area_body_entered(body):
 	if body.name == "iris" and not started:
 		started = true
 		player.set_freeze_movement(true)
-		emit_signal("pan_camera", cat_pos)
+		camera.set_panning_target(cat_pos)
+		#emit_signal("pan_camera", cat_pos)
 
 func _on_panning_camera_timer_started():
 	$audio/meow.play()

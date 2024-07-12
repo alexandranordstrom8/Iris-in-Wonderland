@@ -103,9 +103,9 @@ func _physics_process(delta):
 	if not freeze_movement:
 		handle_input()
 		emit_signal("current_position", position)
+		test_health()
 		
 	update_animation()
-	test_health()
 	move_and_slide()
 
 func _on_interface_init(_coins, hp, sp):
@@ -113,6 +113,7 @@ func _on_interface_init(_coins, hp, sp):
 	$sp.init(sp)
 
 func _on_hp_health_depleted():
+	set_freeze_movement(true)
 	emit_signal("hp_depleted")
 
 func _on_enemy_attacked(amount, can_interact, pos, dir):

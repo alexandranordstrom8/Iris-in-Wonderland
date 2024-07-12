@@ -17,6 +17,10 @@ signal hp_depleted()
 
 func _ready():
 	pass
+
+func _process(delta):
+	velocity.y += gravity * delta
+	move_and_slide()
 	
 func set_can_interact(entity, value):
 	can_interact[entity] = value
@@ -31,9 +35,6 @@ func set_freeze_movement(value):
 	
 func set_target_pos(pos):
 	target_pos = pos
-	
-func _process(delta):
-	velocity.y += gravity * delta
 
 func _on_health_health_depleted():
 	queue_free()

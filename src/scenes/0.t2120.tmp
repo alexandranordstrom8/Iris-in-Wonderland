@@ -1,0 +1,527 @@
+[gd_scene load_steps=31 format=3 uid="uid://dno7dvdd68og0"]
+
+[ext_resource type="PackedScene" uid="uid://bah2pxas0yt5v" path="res://Iris-in-Wonderland/src/background/sky.tscn" id="1_1heit"]
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/0.gd" id="1_y7cj4"]
+[ext_resource type="Texture2D" uid="uid://bi3pnx50gmcry" path="res://Iris-in-Wonderland/assets/background/brown2.png" id="2_lawmn"]
+[ext_resource type="PackedScene" uid="uid://bng63fw5pf27e" path="res://Iris-in-Wonderland/src/background/green_background.tscn" id="3_a0ln4"]
+[ext_resource type="Texture2D" uid="uid://d0uhb7j45xd1g" path="res://Iris-in-Wonderland/assets/background/grass.png" id="3_hlsjk"]
+[ext_resource type="Texture2D" uid="uid://cbqo77367xmhg" path="res://Iris-in-Wonderland/assets/background/grass2.png" id="4_me566"]
+[ext_resource type="PackedScene" uid="uid://b8wxjqdavi135" path="res://Iris-in-Wonderland/src/background/ground.tscn" id="5_rre2w"]
+[ext_resource type="Texture2D" uid="uid://djnh45cefqrtg" path="res://Iris-in-Wonderland/assets/background/tree3.png" id="6_w1k2l"]
+[ext_resource type="Texture2D" uid="uid://bgemt3eaij6yc" path="res://Iris-in-Wonderland/assets/background/tree4.png" id="7_8irdt"]
+[ext_resource type="PackedScene" uid="uid://3lj7jr7m57ri" path="res://Iris-in-Wonderland/src/characters/iris.tscn" id="8_vcw81"]
+[ext_resource type="PackedScene" uid="uid://b3dx42g8s16rl" path="res://Iris-in-Wonderland/src/interface/interface.tscn" id="9_gmfcv"]
+[ext_resource type="PackedScene" uid="uid://bsd8hqkxtxg33" path="res://Iris-in-Wonderland/src/background/dirt_ground.tscn" id="9_oe3iu"]
+[ext_resource type="PackedScene" uid="uid://dfwlix1amhelg" path="res://Iris-in-Wonderland/src/scenes/panning_camera.tscn" id="10_0iixn"]
+[ext_resource type="Texture2D" uid="uid://duvi3sfpv6eib" path="res://Iris-in-Wonderland/assets/background/dirt2.png" id="10_4081u"]
+[ext_resource type="Texture2D" uid="uid://bhr160dgnoljc" path="res://Iris-in-Wonderland/assets/background/sign.png" id="11_bpxe0"]
+[ext_resource type="PackedScene" uid="uid://em5hl7ux263y" path="res://Iris-in-Wonderland/src/interface/interact_button.tscn" id="11_f1tdw"]
+[ext_resource type="PackedScene" uid="uid://dilfg8vmp3axa" path="res://Iris-in-Wonderland/src/background/glow.tscn" id="11_kb7wv"]
+[ext_resource type="Texture2D" uid="uid://b0ucchoxmyik8" path="res://Iris-in-Wonderland/assets/background/ground_texture.png" id="12_synn6"]
+[ext_resource type="PackedScene" uid="uid://bh4th8fe5trsh" path="res://Iris-in-Wonderland/src/characters/strawberry.tscn" id="16_6api1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fmddr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mxhx4"]
+bg_color = Color(0.592157, 0.854902, 0.670588, 1)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3qbgm"]
+radius = 123.0
+height = 594.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bedoe"]
+radius = 53.2862
+height = 219.857
+
+[sub_resource type="Theme" id="Theme_uipar"]
+Label/constants/shadow_outline_size = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gblun"]
+size = Vector2(232, 3608)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7apif"]
+size = Vector2(244, 3608)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkcxj"]
+size = Vector2(35, 996)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8582w"]
+size = Vector2(44.5, 623)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uk411"]
+size = Vector2(34.5, 1079)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cu3ol"]
+radius = 77.0
+height = 912.0
+
+[node name="world" type="Node2D"]
+script = ExtResource("1_y7cj4")
+
+[node name="sky" parent="." instance=ExtResource("1_1heit")]
+visible = false
+
+[node name="Sprite2D" parent="sky/ParallaxLayer2" index="0"]
+position = Vector2(935, 439)
+
+[node name="Sprite2D2" parent="sky/ParallaxLayer2" index="1"]
+visible = false
+
+[node name="Sprite2D4" parent="sky/ParallaxLayer2" index="3"]
+visible = false
+
+[node name="Sprite2D5" parent="sky/ParallaxLayer2" index="4"]
+visible = false
+
+[node name="Sprite2D6" parent="sky/ParallaxLayer2" index="5"]
+visible = false
+
+[node name="Sprite2D8" parent="sky/ParallaxLayer2" index="6"]
+visible = false
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("3_a0ln4")]
+
+[node name="bg" type="Node" parent="."]
+
+[node name="Panel" type="Panel" parent="bg"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_fmddr")
+
+[node name="TextureRect" type="TextureRect" parent="bg/Panel"]
+layout_mode = 0
+offset_left = -1090.0
+offset_top = 742.0
+offset_right = 2562.0
+offset_bottom = 4355.0
+texture = ExtResource("2_lawmn")
+stretch_mode = 1
+
+[node name="grass" type="Node" parent="bg"]
+
+[node name="Sprite2D5" type="Sprite2D" parent="bg/grass"]
+position = Vector2(755, 691)
+texture = ExtResource("3_hlsjk")
+region_enabled = true
+region_rect = Rect2(55.1849, 352.405, 277.218, 167.09)
+
+[node name="Sprite2D6" type="Sprite2D" parent="bg/grass"]
+position = Vector2(416.5, 639)
+texture = ExtResource("3_hlsjk")
+region_enabled = true
+region_rect = Rect2(636.203, 280.253, 334.18, 220.255)
+
+[node name="Sprite2D7" type="Sprite2D" parent="bg/grass"]
+position = Vector2(339.5, 671)
+texture = ExtResource("3_hlsjk")
+region_enabled = true
+region_rect = Rect2(55.1849, 352.405, 277.218, 167.09)
+
+[node name="Sprite2D3" type="Sprite2D" parent="bg/grass"]
+position = Vector2(116, 674)
+texture = ExtResource("4_me566")
+region_enabled = true
+region_rect = Rect2(654.677, 110.765, 625.323, 163.293)
+
+[node name="Sprite2D4" type="Sprite2D" parent="bg/grass"]
+position = Vector2(1749.5, 645.5)
+texture = ExtResource("4_me566")
+region_enabled = true
+region_rect = Rect2(654.677, 110.765, 625.323, 163.293)
+
+[node name="Sprite2D8" type="Sprite2D" parent="bg/grass"]
+position = Vector2(2282, 671)
+texture = ExtResource("4_me566")
+region_enabled = true
+region_rect = Rect2(654.677, 110.765, 625.323, 163.293)
+
+[node name="Sprite2D9" type="Sprite2D" parent="bg/grass"]
+position = Vector2(1674, 783)
+rotation = 3.14159
+texture = ExtResource("4_me566")
+region_enabled = true
+region_rect = Rect2(654.677, 110.765, 625.323, 163.293)
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/grass"]
+position = Vector2(-74, 608)
+texture = ExtResource("3_hlsjk")
+region_enabled = true
+region_rect = Rect2(654.677, 110.765, 625.323, 163.293)
+
+[node name="Sprite2D2" type="Sprite2D" parent="bg/grass"]
+position = Vector2(1522.5, 664.5)
+texture = ExtResource("3_hlsjk")
+region_enabled = true
+region_rect = Rect2(654.677, 110.765, 625.323, 163.293)
+
+[node name="Panel" type="Panel" parent="bg/grass"]
+offset_left = 1648.0
+offset_top = 716.0
+offset_right = 2568.0
+offset_bottom = 844.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mxhx4")
+
+[node name="ground" parent="bg" instance=ExtResource("5_rre2w")]
+position = Vector2(-934, 24)
+
+[node name="ground2" parent="bg" instance=ExtResource("5_rre2w")]
+position = Vector2(743, 24)
+
+[node name="Sprite2D10" type="Sprite2D" parent="bg"]
+position = Vector2(1427, 787)
+rotation = -2.58714
+texture = ExtResource("3_hlsjk")
+region_enabled = true
+region_rect = Rect2(55.1849, 352.405, 277.218, 167.09)
+
+[node name="Sprite2D11" type="Sprite2D" parent="bg"]
+position = Vector2(1771, 759)
+texture = ExtResource("3_hlsjk")
+region_enabled = true
+region_rect = Rect2(55.1849, 352.405, 277.218, 167.09)
+
+[node name="tree" type="Node" parent="bg"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="bg/tree"]
+position = Vector2(-186, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/tree/StaticBody2D"]
+position = Vector2(133, 355)
+rotation = 1.5708
+texture = ExtResource("6_w1k2l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bg/tree/StaticBody2D"]
+position = Vector2(133, 369)
+shape = SubResource("CapsuleShape2D_3qbgm")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="bg/tree/StaticBody2D"]
+position = Vector2(256, 607)
+rotation = -0.374754
+shape = SubResource("CapsuleShape2D_bedoe")
+
+[node name="Sprite2D7" type="Sprite2D" parent="bg/tree"]
+position = Vector2(875, 264)
+rotation = 1.5708
+texture = ExtResource("7_8irdt")
+region_enabled = true
+region_rect = Rect2(1122.28, 14.4275, 189.875, 702.537)
+
+[node name="Sprite2D8" type="Sprite2D" parent="bg/tree"]
+position = Vector2(369, 292)
+rotation = 1.5708
+texture = ExtResource("7_8irdt")
+region_enabled = true
+region_rect = Rect2(975.069, 14.4275, 148.103, 702.537)
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/tree"]
+position = Vector2(124, 168)
+texture = ExtResource("7_8irdt")
+region_enabled = true
+region_rect = Rect2(0, 0, 932.407, 344.81)
+
+[node name="Sprite2D2" type="Sprite2D" parent="bg/tree"]
+position = Vector2(1210, 299)
+texture = ExtResource("7_8irdt")
+region_enabled = true
+region_rect = Rect2(0, 0, 932.407, 344.81)
+
+[node name="Sprite2D3" type="Sprite2D" parent="bg/tree"]
+position = Vector2(1544, 79)
+texture = ExtResource("7_8irdt")
+region_enabled = true
+region_rect = Rect2(0, 0, 932.407, 344.81)
+
+[node name="Sprite2D4" type="Sprite2D" parent="bg/tree"]
+position = Vector2(1841, 147)
+texture = ExtResource("7_8irdt")
+region_enabled = true
+region_rect = Rect2(0, 360, 932.407, 353.167)
+
+[node name="Sprite2D5" type="Sprite2D" parent="bg/tree"]
+position = Vector2(-192, -30)
+texture = ExtResource("7_8irdt")
+region_enabled = true
+region_rect = Rect2(0, 360, 932.407, 353.167)
+
+[node name="Sprite2D9" type="Sprite2D" parent="bg/tree"]
+position = Vector2(465, 61)
+texture = ExtResource("7_8irdt")
+region_enabled = true
+region_rect = Rect2(0, 360, 932.407, 353.167)
+
+[node name="Sprite2D10" type="Sprite2D" parent="bg/tree"]
+position = Vector2(233, -97)
+texture = ExtResource("7_8irdt")
+region_enabled = true
+region_rect = Rect2(0, 360, 932.407, 353.167)
+
+[node name="Sprite2D6" type="Sprite2D" parent="bg/tree"]
+position = Vector2(1201, -3)
+texture = ExtResource("7_8irdt")
+region_enabled = true
+region_rect = Rect2(0, 360, 932.407, 353.167)
+
+[node name="down" type="Node" parent="bg"]
+
+[node name="Sprite2D5" type="Sprite2D" parent="bg/down"]
+position = Vector2(-842, 3961)
+rotation = -0.0112006
+texture = ExtResource("10_4081u")
+region_enabled = true
+region_rect = Rect2(0, 0, 674.523, 720)
+
+[node name="sign2" type="Sprite2D" parent="bg/down"]
+position = Vector2(948, 1961)
+rotation = 0.360793
+scale = Vector2(-1, -1)
+texture = ExtResource("11_bpxe0")
+region_enabled = true
+region_rect = Rect2(0, 161.154, 329.692, 150.051)
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/down/sign2"]
+position = Vector2(8.50443, 96.1908)
+scale = Vector2(1, 1)
+texture = ExtResource("11_bpxe0")
+region_enabled = true
+region_rect = Rect2(265.462, -5.24355, 72.1026, 177.333)
+
+[node name="Sprite2D6" type="Sprite2D" parent="bg/down/sign2"]
+show_behind_parent = true
+position = Vector2(-131.182, 68.7345)
+rotation = -2.54818
+scale = Vector2(1, 1)
+texture = ExtResource("12_synn6")
+region_enabled = true
+region_rect = Rect2(897.231, 73.5385, 163.692, 124.718)
+
+[node name="Sprite2D7" type="Sprite2D" parent="bg/down/sign2"]
+show_behind_parent = true
+position = Vector2(-73.104, 81.0234)
+rotation = -3.30216
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("12_synn6")
+region_enabled = true
+region_rect = Rect2(897.231, 73.5385, 163.692, 124.718)
+
+[node name="sign3" type="Sprite2D" parent="bg/down"]
+position = Vector2(768, 1482)
+rotation = -0.539149
+scale = Vector2(1, -1)
+texture = ExtResource("11_bpxe0")
+region_enabled = true
+region_rect = Rect2(0, 161.154, 329.692, 150.051)
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/down/sign3"]
+position = Vector2(8.50443, 96.1908)
+scale = Vector2(1, 1)
+texture = ExtResource("11_bpxe0")
+region_enabled = true
+region_rect = Rect2(265.462, -5.24355, 72.1026, 177.333)
+
+[node name="sign" type="Sprite2D" parent="bg/down"]
+position = Vector2(-450, 4178)
+texture = ExtResource("11_bpxe0")
+region_enabled = true
+region_rect = Rect2(345.359, 20.0898, 74.0513, 440.41)
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/down/sign"]
+position = Vector2(-6, -102)
+texture = ExtResource("11_bpxe0")
+region_enabled = true
+region_rect = Rect2(0, 161.154, 329.692, 150.051)
+
+[node name="Sprite2D2" type="Sprite2D" parent="bg/down/sign"]
+show_behind_parent = true
+position = Vector2(-134, 72)
+texture = ExtResource("12_synn6")
+region_enabled = true
+region_rect = Rect2(16.4108, 15.077, 374.154, 356.615)
+
+[node name="Sprite2D3" type="Sprite2D" parent="bg/down/sign"]
+position = Vector2(-51, -173)
+texture = ExtResource("12_synn6")
+region_enabled = true
+region_rect = Rect2(1053.13, 36.5129, 210.462, 152)
+
+[node name="Sprite2D5" type="Sprite2D" parent="bg/down/sign"]
+position = Vector2(12, 84)
+texture = ExtResource("12_synn6")
+region_enabled = true
+region_rect = Rect2(897.231, 73.5385, 163.692, 124.718)
+
+[node name="Sprite2D4" type="Sprite2D" parent="bg/down/sign"]
+position = Vector2(-2, -160)
+texture = ExtResource("12_synn6")
+region_enabled = true
+region_rect = Rect2(663.385, 379.487, 171.487, 130.564)
+
+[node name="Label" type="Label" parent="bg/down/sign"]
+offset_left = -69.0
+offset_top = -130.0
+offset_right = 109.0
+offset_bottom = -92.0
+theme = SubResource("Theme_uipar")
+theme_override_colors/font_color = Color(0.988235, 0.921569, 0.839216, 1)
+theme_override_colors/font_shadow_color = Color(0.423017, 0.12561, 0.0754114, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 30
+text = "Wonderland"
+
+[node name="dirt_ground" parent="bg/down" instance=ExtResource("9_oe3iu")]
+position = Vector2(-1087, 3639)
+
+[node name="dirt_ground2" parent="bg/down/dirt_ground" instance=ExtResource("9_oe3iu")]
+position = Vector2(1280, 0)
+
+[node name="dirt_ground3" parent="bg/down/dirt_ground" instance=ExtResource("9_oe3iu")]
+position = Vector2(2560, 0)
+
+[node name="dirt_ground4" parent="bg/down/dirt_ground" instance=ExtResource("9_oe3iu")]
+position = Vector2(718, -3005)
+
+[node name="dirt_ground5" parent="bg/down/dirt_ground" instance=ExtResource("9_oe3iu")]
+position = Vector2(1888, -2507)
+
+[node name="dirt_ground6" parent="bg/down/dirt_ground" instance=ExtResource("9_oe3iu")]
+position = Vector2(990, -2009)
+
+[node name="walls" type="StaticBody2D" parent="bg/down"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bg/down/walls"]
+position = Vector2(-963, 2546)
+shape = SubResource("RectangleShape2D_gblun")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="bg/down/walls"]
+position = Vector2(2427, 2482)
+shape = SubResource("RectangleShape2D_7apif")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="bg/down/walls"]
+position = Vector2(-82.5, 1839)
+shape = SubResource("RectangleShape2D_hkcxj")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="bg/down/walls"]
+position = Vector2(-335.75, 1026.5)
+shape = SubResource("RectangleShape2D_8582w")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="bg/down/walls"]
+position = Vector2(2028.25, 1280.5)
+shape = SubResource("RectangleShape2D_uk411")
+
+[node name="glow" type="Node" parent="bg"]
+
+[node name="Glow" parent="bg/glow" instance=ExtResource("11_kb7wv")]
+position = Vector2(539, 651)
+
+[node name="Glow3" parent="bg/glow" instance=ExtResource("11_kb7wv")]
+position = Vector2(888, 1235)
+
+[node name="Glow4" parent="bg/glow" instance=ExtResource("11_kb7wv")]
+position = Vector2(767, 1726)
+
+[node name="Glow5" parent="bg/glow" instance=ExtResource("11_kb7wv")]
+position = Vector2(1266, 2211)
+
+[node name="Glow2" parent="bg/glow" instance=ExtResource("11_kb7wv")]
+position = Vector2(-861, 4184)
+frame_progress = 0.833791
+
+[node name="character" type="Node" parent="."]
+
+[node name="iris" parent="character" instance=ExtResource("8_vcw81")]
+position = Vector2(1310, 645)
+
+[node name="Strawberry" parent="character" instance=ExtResource("16_6api1")]
+position = Vector2(140, 2288)
+
+[node name="Strawberry2" parent="character" node_paths=PackedStringArray("hp") instance=ExtResource("16_6api1")]
+position = Vector2(-323, 4271)
+hp = NodePath("../Strawberry/Health")
+
+[node name="fg" type="Node" parent="."]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="fg"]
+position = Vector2(1433, 201)
+scale = Vector2(0.75, 0.75)
+
+[node name="Sprite2D" type="Sprite2D" parent="fg/StaticBody2D2"]
+position = Vector2(133, 355)
+rotation = 1.5708
+texture = ExtResource("6_w1k2l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fg/StaticBody2D2"]
+position = Vector2(133, 369)
+shape = SubResource("CapsuleShape2D_3qbgm")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="fg/StaticBody2D2"]
+position = Vector2(18.6666, 630.667)
+rotation = 0.719118
+shape = SubResource("CapsuleShape2D_bedoe")
+
+[node name="Sprite2D9" type="Sprite2D" parent="fg"]
+position = Vector2(1665, 231.5)
+texture = ExtResource("7_8irdt")
+region_enabled = true
+region_rect = Rect2(0, 0, 932.407, 344.81)
+
+[node name="Sprite2D11" type="Sprite2D" parent="fg"]
+position = Vector2(1816, 567.5)
+texture = ExtResource("7_8irdt")
+region_enabled = true
+region_rect = Rect2(0, 0, 932.407, 344.81)
+
+[node name="Sprite2D10" type="Sprite2D" parent="fg"]
+position = Vector2(1420, 91.5)
+texture = ExtResource("7_8irdt")
+region_enabled = true
+region_rect = Rect2(0, 360, 932.407, 353.167)
+
+[node name="buttons" type="Node" parent="."]
+
+[node name="InteractButton" parent="buttons" instance=ExtResource("11_f1tdw")]
+offset_left = -800.0
+offset_top = 4118.0
+offset_right = -719.0
+offset_bottom = 4159.0
+
+[node name="Panel" parent="buttons/InteractButton/HBoxContainer" index="0"]
+visible = false
+
+[node name="Label" parent="buttons/InteractButton/HBoxContainer" index="1"]
+visible = true
+
+[node name="ui" type="CanvasLayer" parent="."]
+
+[node name="Interface" parent="ui" instance=ExtResource("9_gmfcv")]
+visible = false
+
+[node name="camera" type="Node" parent="."]
+
+[node name="PanningCamera" parent="camera" instance=ExtResource("10_0iixn")]
+position = Vector2(1302, 645)
+
+[node name="Area2D" type="Area2D" parent="camera"]
+position = Vector2(139, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="camera/Area2D"]
+position = Vector2(1067, 250)
+shape = SubResource("CapsuleShape2D_cu3ol")
+
+[node name="PanningCamera2" parent="camera" instance=ExtResource("10_0iixn")]
+position = Vector2(-426, 4156)
+
+[node name="markers" type="Node" parent="."]
+
+[node name="ref" type="Marker2D" parent="markers"]
+position = Vector2(362, 645)
+
+[node name="spawn" type="Marker2D" parent="markers"]
+position = Vector2(-700, 4259)
+
+[connection signal="current_position" from="character/iris" to="camera/PanningCamera" method="_on_iris_current_position"]
+[connection signal="current_position" from="character/iris" to="camera/PanningCamera2" method="_on_iris_current_position"]
+[connection signal="body_entered" from="buttons/InteractButton/Area2D" to="." method="_on_exit_body_entered"]
+[connection signal="body_exited" from="buttons/InteractButton/Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="camera/Area2D" to="." method="_on_area_2d_body_entered"]
+
+[editable path="sky"]
+[editable path="buttons/InteractButton"]

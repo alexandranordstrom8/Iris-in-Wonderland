@@ -1,6 +1,7 @@
 extends Camera2D
 
 const DOWN_OFFSET = 270
+const DEFAULT_SPEED = 10
 
 @onready var timer = $Timer
 
@@ -9,21 +10,20 @@ var free_movement = false
 var look_down_possible = true
 var target = Vector2(0, 0)
 var look_down_target = 0
-var move_speed = 10
+var move_speed = DEFAULT_SPEED
 
 signal timer_started
 signal finished_panning
 
 func handle_input():
-	if look_down_possible:
-		if Input.is_action_just_pressed("ui_down"):
-			free_movement = true
-			look_down_target = position.y + DOWN_OFFSET
-		if Input.is_action_pressed("ui_down") and position.y <= look_down_target:
-			position.y += DOWN_OFFSET
-		if Input.is_action_just_released("ui_down"):
-			position.y -= DOWN_OFFSET
-			free_movement = false
+	if Input.is_action_just_pressed("ui_down"):
+		free_movement = true
+		look_down_target = position.y + DOWN_OFFSET
+	if Input.is_action_pressed("ui_down") and position.y <= look_down_target:
+		position.y += DOWN_OFFSET
+	if Input.is_action_just_released("ui_down"):
+		position.y -= DOWN_OFFSET
+		free_movement = false
 
 func _process(_delta): 
 	if is_panning:
@@ -37,22 +37,24 @@ func _process(_delta):
 			position.x -= move_speed
 		else:
 			is_panning = false
-			free_movement = false
+			move_speed = DEFAULT_SPEED
 			timer.start()
 			emit_signal("timer_started")
-	else:
+	elif look_down_possible:
 		handle_input()
 	
-func _on_boss_level_pan_camera(target_pos):
+func set_panning_target(target_pos, speed = DEFAULT_SPEED):
 	is_panning = true
 	free_movement = true
 	target = target_pos
+	move_speed = speed
 
 func _on_iris_current_position(pos):
-	if not (free_movement or is_panning):
+	if not free_movement:
 		position = pos
 
 func _on_timer_timeout():
+	free_movement = false
 	emit_signal("finished_panning")
 
 func _on_stop_look_down_body_entered(body):

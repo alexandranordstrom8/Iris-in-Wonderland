@@ -326,8 +326,9 @@ size = Vector2(890.5, 704.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_86pvv"]
 size = Vector2(890.5, 547.25)
 
-[node name="world" type="Node2D"]
+[node name="world" type="Node2D" node_paths=PackedStringArray("interface")]
 script = ExtResource("1_wclp7")
+interface = NodePath("ui/Interface")
 
 [node name="bg" type="Node" parent="."]
 
@@ -1189,7 +1190,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="PanningCamera" parent="." instance=ExtResource("36_pdvhx")]
 
-[connection signal="interacted" from="." to="character/benjamin" method="_on_world_interacted"]
 [connection signal="coin_collected" from="collectibles/coin" to="ui/Interface" method="_on_coin_coin_collected"]
 [connection signal="coin_collected" from="collectibles/coin2" to="ui/Interface" method="_on_coin_coin_collected"]
 [connection signal="coin_collected" from="collectibles/coin3" to="ui/Interface" method="_on_coin_coin_collected"]

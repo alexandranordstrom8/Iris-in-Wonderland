@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://dilfg8vmp3axa"]
+
+[ext_resource type="Texture2D" uid="uid://cdp2odbx3827a" path="res://Iris-in-Wonderland/assets/background/glow.png" id="1_mafxv"]
+[ext_resource type="Texture2D" uid="uid://bcctycgcmcbmg" path="res://Iris-in-Wonderland/assets/background/glow1.png" id="2_na5jv"]
+[ext_resource type="Texture2D" uid="uid://b1e7q3c8ycqel" path="res://Iris-in-Wonderland/assets/background/glow2.png" id="3_ikco7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyfay"]
+atlas = ExtResource("1_mafxv")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ceabv"]
+atlas = ExtResource("1_mafxv")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mydq"]
+atlas = ExtResource("1_mafxv")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rgxd"]
+atlas = ExtResource("2_na5jv")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mo3r"]
+atlas = ExtResource("2_na5jv")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ee3vr"]
+atlas = ExtResource("2_na5jv")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfjdj"]
+atlas = ExtResource("3_ikco7")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ds6q"]
+atlas = ExtResource("3_ikco7")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tk47t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyfay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ceabv")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_3mydq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7rgxd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mo3r")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_ee3vr")
+}],
+"loop": true,
+"name": &"smaller_glow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_gfjdj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ds6q")
+}],
+"loop": true,
+"name": &"smallest_glow",
+"speed": 5.0
+}]
+
+[node name="Glow" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_tk47t")
+autoplay = "default"
+frame_progress = 0.198392
