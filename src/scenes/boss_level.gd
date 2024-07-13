@@ -4,7 +4,6 @@ var started = false
 var play_music = false
 
 @onready var cat_pos = $character/cat.position
-@onready var player = $character/iris
 @onready var enemy = $character/cat
 @onready var enemy_hp_bar = $ui/VBoxContainer
 @onready var camera = $camera/PanningCamera

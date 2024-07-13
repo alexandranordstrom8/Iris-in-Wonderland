@@ -65,9 +65,10 @@ size = Vector2(2348, 31)
 radius = 77.0
 height = 912.0
 
-[node name="world" type="Node2D" node_paths=PackedStringArray("interface")]
+[node name="world" type="Node2D" node_paths=PackedStringArray("interface", "player")]
 script = ExtResource("1_y7cj4")
 interface = NodePath("ui/Interface")
+player = NodePath("character/iris")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("3_a0ln4")]
 
@@ -276,7 +277,6 @@ region_rect = Rect2(0, 161.154, 329.692, 150.051)
 
 [node name="Sprite2D" type="Sprite2D" parent="bg/down/sign2"]
 position = Vector2(8.50443, 96.1908)
-scale = Vector2(1, 1)
 texture = ExtResource("11_bpxe0")
 region_enabled = true
 region_rect = Rect2(265.462, -5.24355, 72.1026, 177.333)
@@ -285,7 +285,6 @@ region_rect = Rect2(265.462, -5.24355, 72.1026, 177.333)
 show_behind_parent = true
 position = Vector2(-131.182, 68.7345)
 rotation = -2.54818
-scale = Vector2(1, 1)
 texture = ExtResource("12_synn6")
 region_enabled = true
 region_rect = Rect2(897.231, 73.5385, 163.692, 124.718)
@@ -309,7 +308,6 @@ region_rect = Rect2(0, 161.154, 329.692, 150.051)
 
 [node name="Sprite2D" type="Sprite2D" parent="bg/down/sign3"]
 position = Vector2(8.50443, 96.1908)
-scale = Vector2(1, 1)
 texture = ExtResource("11_bpxe0")
 region_enabled = true
 region_rect = Rect2(265.462, -5.24355, 72.1026, 177.333)
@@ -454,15 +452,6 @@ position = Vector2(539, 651)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bg/glow/Glow/Area2D"]
 position = Vector2(322, 638)
 shape = SubResource("RectangleShape2D_a85l4")
-
-[node name="Glow3" parent="bg/glow" instance=ExtResource("11_kb7wv")]
-position = Vector2(888, 1235)
-
-[node name="Glow4" parent="bg/glow" instance=ExtResource("11_kb7wv")]
-position = Vector2(767, 1726)
-
-[node name="Glow5" parent="bg/glow" instance=ExtResource("11_kb7wv")]
-position = Vector2(1266, 2211)
 
 [node name="Glow2" parent="bg/glow" instance=ExtResource("11_kb7wv")]
 position = Vector2(-720, 4184)
@@ -625,6 +614,11 @@ max_distance = 2500.0
 [connection signal="body_entered" from="bg/glow/Glow/Area2D" to="." method="_on_glow_body_entered"]
 [connection signal="current_position" from="character/iris" to="camera/PanningCamera" method="_on_iris_current_position"]
 [connection signal="current_position" from="character/iris" to="camera/PanningCamera2" method="_on_iris_current_position"]
+[connection signal="health_changed" from="character/iris/hp" to="ui/Interface" method="_on_hp_health_changed"]
+[connection signal="hurt" from="character/iris/hp" to="ui/Interface" method="_on_hp_hurt"]
+[connection signal="not_hurt" from="character/iris/hp" to="ui/Interface" method="_on_hp_not_hurt"]
+[connection signal="severely_hurt" from="character/iris/hp" to="ui/Interface" method="_on_hp_severely_hurt"]
+[connection signal="health_changed" from="character/iris/sp" to="ui/Interface" method="_on_sp_health_changed"]
 [connection signal="body_entered" from="buttons/InteractButton/Area2D" to="." method="_on_exit_body_entered"]
 [connection signal="body_exited" from="buttons/InteractButton/Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="camera/Area2D" to="." method="_on_area_2d_body_entered"]
@@ -636,4 +630,5 @@ max_distance = 2500.0
 [connection signal="coin_collected" from="collectibles/coin6" to="ui/Interface" method="_on_coin_coin_collected"]
 [connection signal="coin_collected" from="collectibles/coin7" to="ui/Interface" method="_on_coin_coin_collected"]
 
+[editable path="character/iris"]
 [editable path="buttons/InteractButton"]

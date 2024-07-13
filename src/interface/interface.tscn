@@ -168,7 +168,6 @@ stream = ExtResource("12_3fm00")
 
 [connection signal="coin_count_changed" from="." to="Counters/HBoxContainer/coin_counter" method="_on_interface_coin_count_changed"]
 [connection signal="hp_changed" from="." to="Counters/HBoxContainer/Panel/VBoxContainer/hp_bar" method="_on_interface_hp_changed"]
-[connection signal="init" from="." to="Counters/HBoxContainer/coin_counter" method="_on_interface_init"]
 [connection signal="sp_changed" from="." to="Counters/HBoxContainer/Panel/VBoxContainer/sp_bar" method="_on_interface_sp_changed"]
 [connection signal="continue_pressed" from="Menus/PauseMenu" to="." method="_on_menu_continue_pressed"]
 [connection signal="main_menu_pressed" from="Menus/PauseMenu" to="." method="_on_menu_main_menu_pressed"]

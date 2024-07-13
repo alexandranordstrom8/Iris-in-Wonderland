@@ -23,6 +23,10 @@ signal damage_dealt(amount)
 signal knock_back(_velocity, dir, xpos)
 signal knock_back_stop()
 
+func init(hp, sp):
+	$hp.init(hp)
+	$sp.init(sp)
+
 func handle_input():
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
@@ -107,10 +111,6 @@ func _physics_process(delta):
 		
 	update_animation()
 	move_and_slide()
-
-func _on_interface_init(_coins, hp, sp):
-	$hp.init(hp)
-	$sp.init(sp)
 
 func _on_hp_health_depleted():
 	set_freeze_movement(true)

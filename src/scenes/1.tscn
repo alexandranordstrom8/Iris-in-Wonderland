@@ -108,6 +108,33 @@ _data = {
 "slide": SubResource("Animation_4rbtp")
 }
 
+[sub_resource type="Animation" id="Animation_k3rcm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("card_platform7:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2523, 1140)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("card_platform7:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_7p5nl"]
 resource_name = "slide"
 loop_mode = 1
@@ -134,33 +161,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 0.0, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_k3rcm"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("card_platform7:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2523, 1140)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("card_platform7:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xf4dl"]
@@ -367,9 +367,10 @@ size = Vector2(890.5, 704.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1jbr"]
 size = Vector2(479, 355)
 
-[node name="world" type="Node2D" node_paths=PackedStringArray("interface")]
+[node name="world" type="Node2D" node_paths=PackedStringArray("interface", "player")]
 script = ExtResource("1_pku5t")
 interface = NodePath("ui/Interface")
+player = NodePath("character/iris")
 
 [node name="bg" type="Node" parent="."]
 
@@ -1091,8 +1092,6 @@ metadata/_edit_use_anchors_ = true
 [node name="PanningCamera" parent="." instance=ExtResource("38_rx7ip")]
 position = Vector2(2799, 1432)
 
-[connection signal="prev_values" from="." to="ui/Interface" method="_on_world_prev_values"]
-[connection signal="save_values" from="." to="ui/Interface" method="_on_world_save_values"]
 [connection signal="coin_collected" from="collectibles/coin" to="ui/Interface" method="_on_coin_coin_collected"]
 [connection signal="coin_collected" from="collectibles/coin2" to="ui/Interface" method="_on_coin_coin_collected"]
 [connection signal="coin_collected" from="collectibles/coin3" to="ui/Interface" method="_on_coin_coin_collected"]
@@ -1118,7 +1117,6 @@ position = Vector2(2799, 1432)
 [connection signal="severely_hurt" from="character/iris/hp" to="ui/Interface" method="_on_hp_severely_hurt"]
 [connection signal="health_changed" from="character/iris/sp" to="ui/Interface" method="_on_sp_health_changed"]
 [connection signal="exit_interacted" from="buttons/ExitButton" to="." method="_on_exit_button_exit_interacted"]
-[connection signal="init" from="ui/Interface" to="character/iris" method="_on_interface_init"]
 
 [editable path="character/benjamin"]
 [editable path="character/iris"]

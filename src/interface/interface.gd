@@ -1,13 +1,17 @@
 extends Control
 
 @onready var button_sfx = $Audio/Button
+@onready var coin_counter = $Counters/HBoxContainer/coin_counter
 
 var paused = false
 
-signal init(coins, hp, sp)
+#signal init(coins, hp, sp)
 signal hp_changed(amount)
 signal sp_changed(amount)
 signal coin_count_changed(amount)
+
+func init(coins):
+	coin_counter.init(coins)
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_pause"):
@@ -74,9 +78,6 @@ func _on_menu_retry_pressed():
 	button_sfx.play()
 	Engine.time_scale = 1
 	get_tree().reload_current_scene()
-
-func _on_world_prev_values(coins, hp, sp):
-	emit_signal("init", coins, hp, sp)
 
 func _on_world_save_values():
 	save_values()
