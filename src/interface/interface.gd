@@ -14,7 +14,7 @@ func init(coins):
 	coin_counter.init(coins)
 
 func _process(_delta):
-	if Input.is_action_just_pressed("ui_pause"):
+	if Input.is_action_just_pressed("ui_pause") and visible:
 		show_menu("PauseMenu")
 
 func show_menu(m_name):
