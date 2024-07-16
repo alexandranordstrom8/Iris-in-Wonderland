@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dru877c21uloj"]
+
+[ext_resource type="PackedScene" uid="uid://3lj7jr7m57ri" path="res://Iris-in-Wonderland/src/characters/iris.tscn" id="1_ayvcv"]
+[ext_resource type="PackedScene" uid="uid://b3dx42g8s16rl" path="res://Iris-in-Wonderland/src/interface/interface.tscn" id="2_ou0uv"]
+[ext_resource type="PackedScene" uid="uid://dfwlix1amhelg" path="res://Iris-in-Wonderland/src/scenes/panning_camera.tscn" id="3_pnqvp"]
+
+[node name="player" type="Node2D"]
+
+[node name="iris" parent="." instance=ExtResource("1_ayvcv")]
+
+[node name="ui" type="CanvasLayer" parent="."]
+
+[node name="Interface" parent="ui" instance=ExtResource("2_ou0uv")]
+
+[node name="DefaultCamera" parent="." instance=ExtResource("3_pnqvp")]
+position = Vector2(0, 0)
+
+[connection signal="current_position" from="iris" to="DefaultCamera" method="_on_iris_current_position"]
+[connection signal="health_status" from="iris" to="ui/Interface" method="_on_iris_health_status"]
+[connection signal="hp_changed" from="iris" to="ui/Interface" method="_on_iris_hp_changed"]
+[connection signal="hp_depleted" from="iris" to="ui/Interface" method="_on_iris_hp_depleted"]
+[connection signal="sp_changed" from="iris" to="ui/Interface" method="_on_iris_sp_changed"]

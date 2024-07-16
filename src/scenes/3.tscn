@@ -1,0 +1,628 @@
+[gd_scene load_steps=24 format=3 uid="uid://bkopqoengsrtf"]
+
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/3.gd" id="1_h8hpr"]
+[ext_resource type="PackedScene" uid="uid://bah2pxas0yt5v" path="res://Iris-in-Wonderland/src/background/sky.tscn" id="2_aacsv"]
+[ext_resource type="PackedScene" uid="uid://ttaqxg3mnnyy" path="res://Iris-in-Wonderland/src/background/hill.tscn" id="3_ncuqj"]
+[ext_resource type="Texture2D" uid="uid://d0uhb7j45xd1g" path="res://Iris-in-Wonderland/assets/background/grass.png" id="4_5wlou"]
+[ext_resource type="PackedScene" uid="uid://b8wxjqdavi135" path="res://Iris-in-Wonderland/src/background/ground.tscn" id="4_ck3he"]
+[ext_resource type="Texture2D" uid="uid://cbqo77367xmhg" path="res://Iris-in-Wonderland/assets/background/grass2.png" id="4_hyp35"]
+[ext_resource type="Texture2D" uid="uid://bvyhvs6puqlrh" path="res://Iris-in-Wonderland/assets/background/table1.png" id="5_5e6xi"]
+[ext_resource type="Texture2D" uid="uid://dh0kb7f21x26q" path="res://Iris-in-Wonderland/assets/background/table2.png" id="6_6a5b1"]
+[ext_resource type="Texture2D" uid="uid://deiug4fdhqlhy" path="res://Iris-in-Wonderland/assets/background/path1.png" id="7_45ldu"]
+[ext_resource type="Texture2D" uid="uid://dvjeoqf6aucdo" path="res://Iris-in-Wonderland/assets/background/table3.png" id="7_b1pbr"]
+[ext_resource type="Texture2D" uid="uid://b0ucchoxmyik8" path="res://Iris-in-Wonderland/assets/background/ground_texture.png" id="8_f7a06"]
+[ext_resource type="Texture2D" uid="uid://55lrm4if40a8" path="res://Iris-in-Wonderland/assets/background/chair.png" id="8_hydoy"]
+[ext_resource type="PackedScene" uid="uid://dru877c21uloj" path="res://Iris-in-Wonderland/src/characters/player.tscn" id="9_is8fu"]
+[ext_resource type="Texture2D" uid="uid://e5bmytvw5job" path="res://Iris-in-Wonderland/assets/background/cake.png" id="9_w74ye"]
+[ext_resource type="PackedScene" uid="uid://em5hl7ux263y" path="res://Iris-in-Wonderland/src/interface/interact_button.tscn" id="10_y8kul"]
+[ext_resource type="Texture2D" uid="uid://bgemt3eaij6yc" path="res://Iris-in-Wonderland/assets/background/tree4.png" id="15_svy7q"]
+[ext_resource type="AudioStream" uid="uid://dcj6my0rmnj8n" path="res://Iris-in-Wonderland/assets/audio/星が輝く冬.mp3" id="16_p65gs"]
+[ext_resource type="PackedScene" uid="uid://dfwlix1amhelg" path="res://Iris-in-Wonderland/src/scenes/panning_camera.tscn" id="18_sjkht"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0opjm"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": ExtResource("5_5e6xi")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_6a5b1")
+}, {
+"duration": 2.0,
+"texture": ExtResource("7_b1pbr")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_6a5b1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7symg"]
+size = Vector2(614, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtwn5"]
+size = Vector2(138, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0hrj"]
+size = Vector2(96, 1018)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ldmr"]
+size = Vector2(96, 1018)
+
+[node name="world" type="Node2D" node_paths=PackedStringArray("interface", "player")]
+script = ExtResource("1_h8hpr")
+interface = NodePath("character/player/ui/Interface")
+player = NodePath("character/player/iris")
+
+[node name="sky" parent="." instance=ExtResource("2_aacsv")]
+
+[node name="hill" parent="." instance=ExtResource("3_ncuqj")]
+
+[node name="bg" type="Node" parent="."]
+
+[node name="ground" type="Node" parent="bg"]
+
+[node name="Sprite2D4" type="Sprite2D" parent="bg/ground"]
+position = Vector2(-2064, 555)
+scale = Vector2(1, 1.3038)
+texture = ExtResource("4_hyp35")
+region_enabled = true
+region_rect = Rect2(661.436, 113.488, 618.564, 158.626)
+
+[node name="ColorRect" type="ColorRect" parent="bg/ground"]
+offset_left = -2719.0
+offset_top = 619.0
+offset_right = 2568.0
+offset_bottom = 1517.0
+color = Color(0.788235, 0.94902, 0.752941, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/ground"]
+position = Vector2(-743, 592)
+scale = Vector2(1.34951, 1)
+texture = ExtResource("4_5wlou")
+region_enabled = true
+region_rect = Rect2(661.436, 113.488, 618.564, 158.626)
+
+[node name="Sprite2D2" type="Sprite2D" parent="bg/ground"]
+position = Vector2(-225, 568)
+scale = Vector2(1, 1.3038)
+texture = ExtResource("4_5wlou")
+region_enabled = true
+region_rect = Rect2(661.436, 113.488, 618.564, 158.626)
+
+[node name="Sprite2D3" type="Sprite2D" parent="bg/ground"]
+position = Vector2(-1729, 593)
+scale = Vector2(1, 1.3038)
+texture = ExtResource("4_5wlou")
+region_enabled = true
+region_rect = Rect2(661.436, 113.488, 618.564, 158.626)
+
+[node name="Sprite2D5" type="Sprite2D" parent="bg/ground"]
+position = Vector2(641, 632)
+scale = Vector2(1, 0.810126)
+texture = ExtResource("4_5wlou")
+region_enabled = true
+region_rect = Rect2(661.436, 113.488, 618.564, 158.626)
+
+[node name="Sprite2D6" type="Sprite2D" parent="bg/ground"]
+position = Vector2(1197, 607)
+scale = Vector2(1, 0.810126)
+texture = ExtResource("4_5wlou")
+region_enabled = true
+region_rect = Rect2(661.436, 113.488, 618.564, 158.626)
+
+[node name="ground" parent="bg/ground" instance=ExtResource("4_ck3he")]
+
+[node name="ground2" parent="bg/ground/ground" instance=ExtResource("4_ck3he")]
+position = Vector2(1280, 0)
+
+[node name="ground3" parent="bg/ground/ground" instance=ExtResource("4_ck3he")]
+position = Vector2(-1280, 0)
+
+[node name="ground4" parent="bg/ground/ground" instance=ExtResource("4_ck3he")]
+position = Vector2(-2560, 0)
+
+[node name="path" type="Node" parent="bg/ground"]
+
+[node name="Sprite2D23" type="Sprite2D" parent="bg/ground/path"]
+position = Vector2(736, 677)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_45ldu")
+region_enabled = true
+region_rect = Rect2(509.241, 79.1903, 297.959, 222.933)
+
+[node name="Sprite2D27" type="Sprite2D" parent="bg/ground/path/Sprite2D23"]
+position = Vector2(2106, 270)
+texture = ExtResource("7_45ldu")
+region_enabled = true
+region_rect = Rect2(509.241, 79.1903, 297.959, 222.933)
+
+[node name="Sprite2D5" type="Sprite2D" parent="bg/ground/path/Sprite2D23"]
+position = Vector2(-1882, -50)
+texture = ExtResource("7_45ldu")
+region_enabled = true
+region_rect = Rect2(509.241, 79.1903, 297.959, 222.933)
+
+[node name="Sprite2D24" type="Sprite2D" parent="bg/ground/path/Sprite2D23"]
+position = Vector2(898, -72)
+texture = ExtResource("7_45ldu")
+region_enabled = true
+region_rect = Rect2(509.241, 79.1903, 297.959, 222.933)
+
+[node name="Sprite2D6" type="Sprite2D" parent="bg/ground/path/Sprite2D23"]
+position = Vector2(-3470, -50)
+texture = ExtResource("7_45ldu")
+region_enabled = true
+region_rect = Rect2(509.241, 79.1903, 297.959, 222.933)
+
+[node name="Sprite2D7" type="Sprite2D" parent="bg/ground/path/Sprite2D23"]
+position = Vector2(-4324, 418)
+rotation = 0.261799
+texture = ExtResource("7_45ldu")
+region_enabled = true
+region_rect = Rect2(509.241, 79.1903, 297.959, 222.933)
+
+[node name="Sprite2D7" type="Sprite2D" parent="bg/ground/path"]
+position = Vector2(-871, 647)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_45ldu")
+region_enabled = true
+region_rect = Rect2(52.6561, 197.088, 353.692, 244.369)
+
+[node name="Sprite2D20" type="Sprite2D" parent="bg/ground/path/Sprite2D7"]
+position = Vector2(4376, 0)
+texture = ExtResource("7_45ldu")
+region_enabled = true
+region_rect = Rect2(52.6561, 197.088, 353.692, 244.369)
+
+[node name="Sprite2D21" type="Sprite2D" parent="bg/ground/path/Sprite2D7"]
+position = Vector2(3812, 78)
+texture = ExtResource("7_45ldu")
+region_enabled = true
+region_rect = Rect2(52.6561, 197.088, 353.692, 244.369)
+
+[node name="Sprite2D22" type="Sprite2D" parent="bg/ground/path/Sprite2D7"]
+position = Vector2(2886, 20)
+texture = ExtResource("7_45ldu")
+region_enabled = true
+region_rect = Rect2(52.6561, 197.088, 353.692, 244.369)
+
+[node name="Sprite2D8" type="Sprite2D" parent="bg/ground/path/Sprite2D7"]
+position = Vector2(998, -10)
+texture = ExtResource("7_45ldu")
+region_enabled = true
+region_rect = Rect2(52.6561, 197.088, 353.692, 244.369)
+
+[node name="Sprite2D9" type="Sprite2D" parent="bg/ground/path/Sprite2D7"]
+position = Vector2(1674, 48)
+texture = ExtResource("7_45ldu")
+region_enabled = true
+region_rect = Rect2(52.6561, 197.088, 353.692, 244.369)
+
+[node name="Sprite2D10" type="Sprite2D" parent="bg/ground/path/Sprite2D7"]
+position = Vector2(5024, 296)
+texture = ExtResource("7_45ldu")
+region_enabled = true
+region_rect = Rect2(52.6561, 197.088, 353.692, 244.369)
+
+[node name="Sprite2D11" type="Sprite2D" parent="bg/ground/path/Sprite2D7"]
+position = Vector2(5212, 544)
+texture = ExtResource("7_45ldu")
+region_enabled = true
+region_rect = Rect2(52.6561, 197.088, 353.692, 244.369)
+
+[node name="Sprite2D12" type="Sprite2D" parent="bg/ground/path/Sprite2D7"]
+position = Vector2(-1380, 370)
+texture = ExtResource("7_45ldu")
+region_enabled = true
+region_rect = Rect2(52.6561, 197.088, 353.692, 244.369)
+
+[node name="Sprite2D13" type="Sprite2D" parent="bg/ground/path/Sprite2D7"]
+position = Vector2(-1056, 318)
+texture = ExtResource("7_45ldu")
+region_enabled = true
+region_rect = Rect2(52.6561, 197.088, 353.692, 244.369)
+
+[node name="Sprite2D10" type="Sprite2D" parent="bg/ground/path"]
+position = Vector2(118, 661)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_45ldu")
+region_enabled = true
+region_rect = Rect2(487.805, 381.436, 321.538, 188.636)
+
+[node name="Sprite2D11" type="Sprite2D" parent="bg/ground/path"]
+position = Vector2(-638, 675)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_45ldu")
+region_enabled = true
+region_rect = Rect2(487.805, 381.436, 321.538, 188.636)
+
+[node name="Sprite2D17" type="Sprite2D" parent="bg/ground/path/Sprite2D11"]
+position = Vector2(2096, -14)
+texture = ExtResource("7_45ldu")
+region_enabled = true
+region_rect = Rect2(487.805, 381.436, 321.538, 188.636)
+
+[node name="Sprite2D18" type="Sprite2D" parent="bg/ground/path/Sprite2D11"]
+position = Vector2(3086, -50)
+texture = ExtResource("7_45ldu")
+region_enabled = true
+region_rect = Rect2(487.805, 381.436, 321.538, 188.636)
+
+[node name="Sprite2D19" type="Sprite2D" parent="bg/ground/path/Sprite2D11"]
+position = Vector2(4120, 8)
+texture = ExtResource("7_45ldu")
+region_enabled = true
+region_rect = Rect2(487.805, 381.436, 321.538, 188.636)
+
+[node name="Sprite2D12" type="Sprite2D" parent="bg/ground/path"]
+position = Vector2(-519, 668)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_45ldu")
+region_enabled = true
+region_rect = Rect2(29.0766, 441.457, 456.585, 242.226)
+
+[node name="Sprite2D13" type="Sprite2D" parent="bg/ground/path/Sprite2D12"]
+position = Vector2(-504, 10)
+texture = ExtResource("7_45ldu")
+region_enabled = true
+region_rect = Rect2(29.0766, 441.457, 207.928, 165.056)
+
+[node name="Sprite2D14" type="Sprite2D" parent="bg/ground/path/Sprite2D12"]
+position = Vector2(1452, 36)
+texture = ExtResource("7_45ldu")
+region_enabled = true
+region_rect = Rect2(29.0766, 441.457, 207.928, 165.056)
+
+[node name="Sprite2D15" type="Sprite2D" parent="bg/ground/path/Sprite2D12"]
+position = Vector2(-1260, 18)
+texture = ExtResource("7_45ldu")
+region_enabled = true
+region_rect = Rect2(29.0766, 441.457, 207.928, 165.056)
+
+[node name="Sprite2D16" type="Sprite2D" parent="bg/ground/path/Sprite2D12"]
+position = Vector2(-1378, -16)
+texture = ExtResource("7_45ldu")
+region_enabled = true
+region_rect = Rect2(286.307, 34.1749, 214.359, 143.62)
+
+[node name="Sprite2D25" type="Sprite2D" parent="bg/ground/path/Sprite2D12"]
+position = Vector2(4178, -44)
+texture = ExtResource("7_45ldu")
+region_enabled = true
+region_rect = Rect2(286.307, 34.1749, 214.359, 143.62)
+
+[node name="Sprite2D26" type="Sprite2D" parent="bg/ground/path/Sprite2D12"]
+position = Vector2(-1598, 38)
+texture = ExtResource("7_45ldu")
+region_enabled = true
+region_rect = Rect2(841.497, 402.872, 147.908, 105.036)
+
+[node name="Sprite2D26" type="Sprite2D" parent="bg/ground/path"]
+position = Vector2(1677, 705)
+scale = Vector2(-1, 1)
+texture = ExtResource("7_45ldu")
+region_enabled = true
+region_rect = Rect2(1010.84, 351.426, 246.513, 184.349)
+
+[node name="Sprite2D27" type="Sprite2D" parent="bg/ground/path"]
+position = Vector2(-1423, 719)
+texture = ExtResource("7_45ldu")
+region_enabled = true
+region_rect = Rect2(1010.84, 351.426, 246.513, 184.349)
+
+[node name="texture" type="Node" parent="bg"]
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/texture"]
+position = Vector2(-1739, 695)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_f7a06")
+region_enabled = true
+region_rect = Rect2(63.3741, 32.0313, 325.826, 351.549)
+
+[node name="Sprite2D2" type="Sprite2D" parent="bg/texture"]
+position = Vector2(-1735, 631)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_f7a06")
+region_enabled = true
+region_rect = Rect2(140.543, 443.6, 289.385, 190.779)
+
+[node name="Sprite2D3" type="Sprite2D" parent="bg/texture"]
+position = Vector2(-1632, 631)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_w74ye")
+region_enabled = true
+region_rect = Rect2(544.769, 47.0973, 167.2, 150.051)
+
+[node name="Sprite2D4" type="Sprite2D" parent="bg/texture"]
+position = Vector2(-1662, 660)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_w74ye")
+region_enabled = true
+region_rect = Rect2(529.764, 225.99, 98.6051, 117.897)
+
+[node name="table" type="StaticBody2D" parent="bg"]
+
+[node name="table" type="AnimatedSprite2D" parent="bg/table"]
+position = Vector2(-569, 539)
+sprite_frames = SubResource("SpriteFrames_0opjm")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bg/table"]
+position = Vector2(-554, 467)
+shape = SubResource("RectangleShape2D_7symg")
+one_way_collision = true
+
+[node name="chairs" type="Sprite2D" parent="bg/table"]
+show_behind_parent = true
+position = Vector2(-701, 393)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_hydoy")
+region_enabled = true
+region_rect = Rect2(357.682, 31.0103, 182.205, 248.656)
+
+[node name="chair2" type="Sprite2D" parent="bg/table/chairs"]
+show_behind_parent = true
+position = Vector2(200, 0)
+texture = ExtResource("8_hydoy")
+region_enabled = true
+region_rect = Rect2(357.682, 31.0103, 182.205, 248.656)
+
+[node name="chair3" type="Sprite2D" parent="bg/table/chairs"]
+show_behind_parent = true
+position = Vector2(400, 0)
+texture = ExtResource("8_hydoy")
+region_enabled = true
+region_rect = Rect2(357.682, 31.0103, 182.205, 248.656)
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/table"]
+position = Vector2(-769, 422)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_w74ye")
+region_enabled = true
+region_rect = Rect2(555.487, 373.898, 190.78, 83.6)
+
+[node name="Sprite2D2" type="Sprite2D" parent="bg/table"]
+position = Vector2(-551, 401.25)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_w74ye")
+region_enabled = true
+region_rect = Rect2(68.892, 22.3493, 240.082, 229.364)
+
+[node name="Sprite2D7" type="Sprite2D" parent="bg/table"]
+position = Vector2(-683, 414)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_w74ye")
+region_enabled = true
+region_rect = Rect2(81.7535, 307.447, 135.046, 124.328)
+
+[node name="Sprite2D3" type="Sprite2D" parent="bg/table"]
+position = Vector2(-823, 411)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_w74ye")
+region_enabled = true
+region_rect = Rect2(388.287, 56.6467, 102.892, 147.908)
+
+[node name="Sprite2D5" type="Sprite2D" parent="bg/table"]
+position = Vector2(-429, 398)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_w74ye")
+region_enabled = true
+region_rect = Rect2(388.287, 56.6467, 102.892, 147.908)
+
+[node name="Sprite2D4" type="Sprite2D" parent="bg/table"]
+position = Vector2(-450, 405)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_w74ye")
+region_enabled = true
+region_rect = Rect2(388.287, 56.6467, 102.892, 147.908)
+
+[node name="Sprite2D6" type="Sprite2D" parent="bg/table"]
+position = Vector2(-285, 421)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_w74ye")
+region_enabled = true
+region_rect = Rect2(81.7535, 307.447, 135.046, 124.328)
+
+[node name="Sprite2D8" type="Sprite2D" parent="bg/table"]
+position = Vector2(-352, 402)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_w74ye")
+region_enabled = true
+region_rect = Rect2(253.241, 281.724, 231.508, 150.051)
+
+[node name="Sprite2D9" type="Sprite2D" parent="bg/table"]
+position = Vector2(-594, 422)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_w74ye")
+region_enabled = true
+region_rect = Rect2(516.902, 225.99, 130.759, 107.179)
+
+[node name="chair" type="StaticBody2D" parent="bg"]
+position = Vector2(-1013, 517)
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/chair"]
+texture = ExtResource("8_hydoy")
+region_enabled = true
+region_rect = Rect2(57.571, 16.5175, 210.816, 368.485)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bg/chair"]
+position = Vector2(4, 11)
+shape = SubResource("RectangleShape2D_mtwn5")
+one_way_collision = true
+
+[node name="chair2" type="StaticBody2D" parent="bg"]
+position = Vector2(-100, 517)
+scale = Vector2(-1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/chair2"]
+texture = ExtResource("8_hydoy")
+region_enabled = true
+region_rect = Rect2(57.571, 16.5175, 210.816, 368.485)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bg/chair2"]
+position = Vector2(4, 11)
+shape = SubResource("RectangleShape2D_mtwn5")
+one_way_collision = true
+
+[node name="walls" type="StaticBody2D" parent="bg"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bg/walls"]
+position = Vector2(1822, 217)
+shape = SubResource("RectangleShape2D_t0hrj")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="bg/walls"]
+position = Vector2(-1993, 184)
+shape = SubResource("RectangleShape2D_0ldmr")
+
+[node name="character" type="Node" parent="."]
+
+[node name="player" parent="character" instance=ExtResource("9_is8fu")]
+
+[node name="iris" parent="character/player" index="0"]
+position = Vector2(0, 623)
+
+[node name="DefaultCamera" parent="character/player" index="2"]
+enabled = false
+
+[node name="fg" type="Node" parent="."]
+
+[node name="Sprite2D2" type="Sprite2D" parent="fg"]
+position = Vector2(2178, 587)
+texture = ExtResource("15_svy7q")
+region_enabled = true
+region_rect = Rect2(-0.933594, -6.55326, 960.328, 327.969)
+
+[node name="Sprite2D10" type="Sprite2D" parent="fg"]
+position = Vector2(-2427, 558)
+texture = ExtResource("15_svy7q")
+region_enabled = true
+region_rect = Rect2(-0.933594, -6.55326, 960.328, 327.969)
+
+[node name="Sprite2D11" type="Sprite2D" parent="fg"]
+position = Vector2(-2194, 439)
+texture = ExtResource("15_svy7q")
+region_enabled = true
+region_rect = Rect2(-0.933594, -6.55326, 960.328, 327.969)
+
+[node name="Sprite2D3" type="Sprite2D" parent="fg"]
+position = Vector2(2456, 315)
+texture = ExtResource("15_svy7q")
+region_enabled = true
+region_rect = Rect2(-0.933594, -6.55326, 960.328, 327.969)
+
+[node name="Sprite2D" type="Sprite2D" parent="fg"]
+position = Vector2(2002, 475)
+texture = ExtResource("15_svy7q")
+region_enabled = true
+region_rect = Rect2(0, 379.293, 948.677, 340.707)
+
+[node name="Sprite2D12" type="Sprite2D" parent="fg"]
+position = Vector2(-2484, 461)
+texture = ExtResource("15_svy7q")
+region_enabled = true
+region_rect = Rect2(0, 379.293, 948.677, 340.707)
+
+[node name="Sprite2D13" type="Sprite2D" parent="fg"]
+position = Vector2(-2118, 304)
+texture = ExtResource("15_svy7q")
+region_enabled = true
+region_rect = Rect2(0, 379.293, 948.677, 340.707)
+
+[node name="Sprite2D4" type="Sprite2D" parent="fg"]
+position = Vector2(2194, 288)
+texture = ExtResource("15_svy7q")
+region_enabled = true
+region_rect = Rect2(0, 379.293, 948.677, 340.707)
+
+[node name="Sprite2D5" type="Sprite2D" parent="fg"]
+position = Vector2(2466, 459)
+texture = ExtResource("15_svy7q")
+region_enabled = true
+region_rect = Rect2(0, 379.293, 948.677, 340.707)
+
+[node name="Sprite2D6" type="Sprite2D" parent="fg"]
+position = Vector2(-519, -59)
+texture = ExtResource("15_svy7q")
+region_enabled = true
+region_rect = Rect2(0, 379.293, 948.677, 340.707)
+
+[node name="Sprite2D7" type="Sprite2D" parent="fg"]
+position = Vector2(-295, 123)
+rotation = 1.5708
+texture = ExtResource("15_svy7q")
+region_enabled = true
+region_rect = Rect2(970.112, 23.457, 167.2, 310.82)
+
+[node name="Sprite2D8" type="Sprite2D" parent="fg"]
+position = Vector2(-952, 64)
+rotation = 1.5708
+texture = ExtResource("15_svy7q")
+region_enabled = true
+region_rect = Rect2(970.112, 23.457, 167.2, 310.82)
+
+[node name="Sprite2D9" type="Sprite2D" parent="fg"]
+position = Vector2(1659, 320)
+rotation = 1.5708
+texture = ExtResource("15_svy7q")
+region_enabled = true
+region_rect = Rect2(970.112, 23.457, 167.2, 310.82)
+
+[node name="markers" type="Node" parent="."]
+
+[node name="Marker2D_1" type="Marker2D" parent="markers"]
+position = Vector2(1551, 626)
+
+[node name="Marker2D_4" type="Marker2D" parent="markers"]
+position = Vector2(-1366, 626)
+
+[node name="buttons" type="Node" parent="."]
+
+[node name="ExitButton" parent="buttons" instance=ExtResource("10_y8kul")]
+offset_left = 1571.0
+offset_top = 493.0
+offset_right = 1652.0
+offset_bottom = 534.0
+
+[node name="Panel" parent="buttons/ExitButton/HBoxContainer" index="0"]
+visible = false
+
+[node name="Label" parent="buttons/ExitButton/HBoxContainer" index="1"]
+visible = true
+
+[node name="ExitButton2" parent="buttons" instance=ExtResource("10_y8kul")]
+offset_left = -1402.0
+offset_top = 620.0
+offset_right = -1321.0
+offset_bottom = 661.0
+
+[node name="Panel" parent="buttons/ExitButton2/HBoxContainer" index="0"]
+visible = false
+
+[node name="Label" parent="buttons/ExitButton2/HBoxContainer" index="1"]
+visible = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_p65gs")
+volume_db = -5.0
+autoplay = true
+bus = &"Music"
+
+[node name="camera" type="Node" parent="."]
+
+[node name="cam_1" parent="camera" instance=ExtResource("18_sjkht")]
+position = Vector2(1551, 626)
+
+[node name="cam_4" parent="camera" instance=ExtResource("18_sjkht")]
+position = Vector2(-1346, 626)
+
+[connection signal="current_position" from="character/player/iris" to="camera/cam_1" method="_on_iris_current_position"]
+[connection signal="current_position" from="character/player/iris" to="camera/cam_4" method="_on_iris_current_position"]
+[connection signal="exit_interacted" from="buttons/ExitButton" to="." method="_on_exit_button_exit_interacted"]
+[connection signal="exit_interacted" from="buttons/ExitButton2" to="." method="_on_exit_button_2_exit_interacted"]
+
+[editable path="character/player"]
+[editable path="buttons/ExitButton"]
+[editable path="buttons/ExitButton2"]

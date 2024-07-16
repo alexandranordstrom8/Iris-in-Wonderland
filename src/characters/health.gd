@@ -7,9 +7,7 @@ extends Node
 signal health_changed(health)
 signal max_health_changed(maximum)
 signal health_depleted
-signal not_hurt
-signal hurt
-signal severely_hurt
+signal status(value)
 
 func _ready():
 	health = max_health
@@ -26,11 +24,11 @@ func check_status():
 	if health <= 0:
 		emit_signal("health_depleted")
 	elif health < 0.3 * max_health:
-		emit_signal("severely_hurt")
+		emit_signal("status", Save.health_status.SEVERELY_HURT)
 	elif health < 0.5 * max_health:
-		emit_signal("hurt")
+		emit_signal("status", Save.health_status.HURT)
 	else:
-		emit_signal("not_hurt")
+		emit_signal("status", Save.health_status.NOT_HURT)
 
 func take_damage(amount):
 	health -= amount

@@ -7,10 +7,7 @@ var current_hp = 100
 var current_sp = 100
 var prev_scene: String # load previous scene after game is restarted
 
-func _ready():
-	pass 
-	### läs in från en fil med tidigare spardata, 
-	### annars börja från första scenen
+enum health_status {NOT_HURT, HURT, SEVERELY_HURT}
 
 func set_variables(coins, hp, sp):
 	current_coins = coins

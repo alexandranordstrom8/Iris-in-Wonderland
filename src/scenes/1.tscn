@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://dxaievchquyu6"]
+[gd_scene load_steps=58 format=3 uid="uid://dxaievchquyu6"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/1.gd" id="1_pku5t"]
 [ext_resource type="Texture2D" uid="uid://d0uhb7j45xd1g" path="res://Iris-in-Wonderland/assets/background/grass.png" id="2_1tmdf"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b0ucchoxmyik8" path="res://Iris-in-Wonderland/assets/background/ground_texture.png" id="4_3neta"]
 [ext_resource type="Texture2D" uid="uid://eu3slbl72t25" path="res://Iris-in-Wonderland/assets/background/tree1_l.png" id="5_w6i18"]
 [ext_resource type="Texture2D" uid="uid://cuuxerwjk3wsr" path="res://Iris-in-Wonderland/assets/background/tree2.png" id="6_h3he2"]
+[ext_resource type="Texture2D" uid="uid://bgemt3eaij6yc" path="res://Iris-in-Wonderland/assets/background/tree4.png" id="8_45drd"]
+[ext_resource type="PackedScene" uid="uid://dabnyunyw0f1x" path="res://Iris-in-Wonderland/src/background/grass_texture.tscn" id="8_b1aic"]
 [ext_resource type="PackedScene" uid="uid://dv1q6s4q2mm3c" path="res://Iris-in-Wonderland/src/background/mushroom_r.tscn" id="9_g22mb"]
 [ext_resource type="PackedScene" uid="uid://dr1yrh62u5xdn" path="res://Iris-in-Wonderland/src/background/mushroom_y.tscn" id="10_dkuye"]
 [ext_resource type="PackedScene" uid="uid://dpj8w1xhqb18n" path="res://Iris-in-Wonderland/src/background/mushroom_b.tscn" id="11_wiuhq"]
@@ -24,13 +26,11 @@
 [ext_resource type="PackedScene" uid="uid://bah2pxas0yt5v" path="res://Iris-in-Wonderland/src/background/sky.tscn" id="26_jieh3"]
 [ext_resource type="PackedScene" uid="uid://ttaqxg3mnnyy" path="res://Iris-in-Wonderland/src/background/hill.tscn" id="27_ejcve"]
 [ext_resource type="PackedScene" uid="uid://cgvgmi8l5dw87" path="res://Iris-in-Wonderland/src/interface/coin.tscn" id="29_du7ev"]
+[ext_resource type="PackedScene" uid="uid://dru877c21uloj" path="res://Iris-in-Wonderland/src/characters/player.tscn" id="29_ulakm"]
 [ext_resource type="PackedScene" uid="uid://c0dydbsm6epto" path="res://Iris-in-Wonderland/src/characters/benjamin.tscn" id="30_7m22a"]
 [ext_resource type="PackedScene" uid="uid://bhmj4gwta52oe" path="res://Iris-in-Wonderland/src/characters/isabell.tscn" id="31_0uyta"]
 [ext_resource type="AudioStream" uid="uid://dcj6my0rmnj8n" path="res://Iris-in-Wonderland/assets/audio/星が輝く冬.mp3" id="31_an7j8"]
-[ext_resource type="PackedScene" uid="uid://3lj7jr7m57ri" path="res://Iris-in-Wonderland/src/characters/iris.tscn" id="33_4og7s"]
 [ext_resource type="PackedScene" uid="uid://em5hl7ux263y" path="res://Iris-in-Wonderland/src/interface/interact_button.tscn" id="34_ylwc1"]
-[ext_resource type="PackedScene" uid="uid://b3dx42g8s16rl" path="res://Iris-in-Wonderland/src/interface/interface.tscn" id="36_25me8"]
-[ext_resource type="Theme" uid="uid://dqu1hdmh0ypou" path="res://Iris-in-Wonderland/src/interface/theme.tres" id="37_leyt3"]
 [ext_resource type="PackedScene" uid="uid://dfwlix1amhelg" path="res://Iris-in-Wonderland/src/scenes/panning_camera.tscn" id="38_rx7ip"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fl8qq"]
@@ -45,6 +45,21 @@ height = 672.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_27u56"]
 radius = 58.2136
 height = 637.451
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0a42m"]
+size = Vector2(6065, 72.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ej3yq"]
+size = Vector2(234.125, 940.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8b3pv"]
+size = Vector2(890.5, 704.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iltna"]
+size = Vector2(230.25, 1269.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1jbr"]
+size = Vector2(479, 355)
 
 [sub_resource type="Animation" id="Animation_166dr"]
 length = 0.001
@@ -355,22 +370,13 @@ _data = {
 "slide": SubResource("Animation_hiino")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0a42m"]
-size = Vector2(3498, 47)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ej3yq"]
-size = Vector2(234.125, 940.25)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8b3pv"]
-size = Vector2(890.5, 704.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1jbr"]
-size = Vector2(479, 355)
+[sub_resource type="CircleShape2D" id="CircleShape2D_o7iht"]
+radius = 325.002
 
 [node name="world" type="Node2D" node_paths=PackedStringArray("interface", "player")]
 script = ExtResource("1_pku5t")
-interface = NodePath("ui/Interface")
-player = NodePath("character/iris")
+interface = NodePath("character/player/ui/Interface")
+player = NodePath("character/player/iris")
 
 [node name="bg" type="Node" parent="."]
 
@@ -392,10 +398,37 @@ texture = ExtResource("2_1tmdf")
 region_enabled = true
 region_rect = Rect2(621.17, 96.3721, 658.83, 200.859)
 
+[node name="hill3" type="Sprite2D" parent="bg/up/ground"]
+position = Vector2(-2067.92, 572.5)
+scale = Vector2(1.66845, 1.655)
+texture = ExtResource("12_y5mi2")
+region_enabled = true
+region_rect = Rect2(621.17, 96.3721, 658.83, 200.859)
+
+[node name="hill6" type="Sprite2D" parent="bg/up/ground"]
+position = Vector2(-1952.82, 578)
+scale = Vector2(0.91711, 1)
+texture = ExtResource("2_1tmdf")
+region_enabled = true
+region_rect = Rect2(650.357, 66.5571, 611.052, 214.041)
+
+[node name="hill5" type="Sprite2D" parent="bg/up/ground"]
+position = Vector2(-1780.32, 526)
+scale = Vector2(1.78311, 1.30252)
+texture = ExtResource("2_1tmdf")
+region_enabled = true
+region_rect = Rect2(156.682, 111.437, 438.439, 238.207)
+
 [node name="ground" parent="bg/up/ground" instance=ExtResource("3_kuyq6")]
 
-[node name="ground2" parent="bg/up/ground" instance=ExtResource("3_kuyq6")]
+[node name="ground2" parent="bg/up/ground/ground" instance=ExtResource("3_kuyq6")]
 position = Vector2(1280, 0)
+
+[node name="ground3" parent="bg/up/ground/ground" instance=ExtResource("3_kuyq6")]
+position = Vector2(-1280, 0)
+
+[node name="ground4" parent="bg/up/ground/ground" instance=ExtResource("3_kuyq6")]
+position = Vector2(-2560, 0)
 
 [node name="mushrooms" type="Sprite2D" parent="bg/up/ground"]
 position = Vector2(298, 632)
@@ -404,7 +437,7 @@ region_enabled = true
 region_rect = Rect2(137.852, 438.461, 266.766, 200.86)
 
 [node name="Panel" type="Panel" parent="bg/up/ground"]
-offset_left = -230.0
+offset_left = -2708.0
 offset_top = 717.0
 offset_right = 2558.0
 offset_bottom = 807.0
@@ -413,7 +446,13 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_fl8qq")
 [node name="trees" type="Node" parent="bg/up"]
 
 [node name="tree" type="StaticBody2D" parent="bg/up/trees"]
-position = Vector2(0, 15)
+position = Vector2(0, 42)
+
+[node name="sprite2" type="Sprite2D" parent="bg/up/trees/tree"]
+position = Vector2(-445, 68)
+rotation = 1.5708
+scale = Vector2(1, -1)
+texture = ExtResource("5_w6i18")
 
 [node name="sprite" type="Sprite2D" parent="bg/up/trees/tree"]
 position = Vector2(155, 72)
@@ -425,6 +464,102 @@ visible = false
 position = Vector2(155, 72)
 rotation = 1.5708
 polygon = PackedVector2Array(632, -147, 555, -79, 434, 11, 359, 51, 96, 87, -9, 111, -450, 89, -545, 87, -609, 96, -640, 103, -635, 360, 637, 351)
+disabled = true
+
+[node name="branch" type="StaticBody2D" parent="bg/up/trees/tree"]
+position = Vector2(1268, 111)
+scale = Vector2(-1, 1)
+
+[node name="sprite" type="Sprite2D" parent="bg/up/trees/tree/branch"]
+position = Vector2(1259, -177)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_h3he2")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0, 240.688, 876.031, 479.312)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bg/up/trees/tree/branch"]
+position = Vector2(1259, -159)
+rotation = 1.44837
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CapsuleShape2D_aul4g")
+
+[node name="branch2" type="StaticBody2D" parent="bg/up/trees/tree"]
+show_behind_parent = true
+position = Vector2(-1786, 425)
+
+[node name="sprite" type="Sprite2D" parent="bg/up/trees/tree/branch2"]
+position = Vector2(1259, -177)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_h3he2")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0, 240.688, 876.031, 479.312)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bg/up/trees/tree/branch2"]
+position = Vector2(1259, -159)
+rotation = 1.44837
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CapsuleShape2D_aul4g")
+
+[node name="Sprite2D6" type="Sprite2D" parent="bg/up/trees/tree"]
+position = Vector2(-233, 548.5)
+scale = Vector2(1.52959, 1.42612)
+texture = ExtResource("12_y5mi2")
+region_enabled = true
+region_rect = Rect2(637.856, 0, 642.144, 291.406)
+
+[node name="grass_texture" parent="bg/up/trees/tree/Sprite2D6" instance=ExtResource("8_b1aic")]
+position = Vector2(-124.87, -367.081)
+scale = Vector2(0.65377, 0.701205)
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/up/trees/tree"]
+position = Vector2(91, -413)
+texture = ExtResource("8_45drd")
+region_enabled = true
+region_rect = Rect2(0, 0, 961.263, 356.454)
+
+[node name="Sprite2D2" type="Sprite2D" parent="bg/up/trees/tree"]
+position = Vector2(-328, -566)
+texture = ExtResource("8_45drd")
+region_enabled = true
+region_rect = Rect2(0, 0, 961.263, 356.454)
+
+[node name="Sprite2D3" type="Sprite2D" parent="bg/up/trees/tree"]
+position = Vector2(-633, -408)
+texture = ExtResource("8_45drd")
+region_enabled = true
+region_rect = Rect2(0, 0, 961.263, 356.454)
+
+[node name="Sprite2D4" type="Sprite2D" parent="bg/up/trees/tree"]
+position = Vector2(385, -538)
+texture = ExtResource("8_45drd")
+region_enabled = true
+region_rect = Rect2(0, 0, 961.263, 356.454)
+
+[node name="Sprite2D5" type="Sprite2D" parent="bg/up/trees/tree"]
+position = Vector2(351, -634)
+texture = ExtResource("8_45drd")
+region_enabled = true
+region_rect = Rect2(0, 380.714, 961.263, 327.966)
+
+[node name="Sprite2D7" type="Sprite2D" parent="bg/up/trees/tree"]
+position = Vector2(-186, -498)
+texture = ExtResource("8_45drd")
+region_enabled = true
+region_rect = Rect2(0, 380.714, 961.263, 327.966)
+
+[node name="Sprite2D8" type="Sprite2D" parent="bg/up/trees/tree"]
+position = Vector2(-661, -628)
+texture = ExtResource("8_45drd")
+region_enabled = true
+region_rect = Rect2(0, 380.714, 961.263, 327.966)
+
+[node name="Sprite2D9" type="Sprite2D" parent="bg/up/trees/tree"]
+position = Vector2(-107, -758)
+texture = ExtResource("8_45drd")
+region_enabled = true
+region_rect = Rect2(0, 380.714, 961.263, 327.966)
 
 [node name="tree2" type="StaticBody2D" parent="bg/up/trees"]
 
@@ -467,6 +602,48 @@ position = Vector2(1259, -159)
 rotation = 1.44837
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CapsuleShape2D_aul4g")
+
+[node name="Sprite2D10" type="Sprite2D" parent="bg/up/trees/tree2"]
+position = Vector2(1060, -789)
+texture = ExtResource("8_45drd")
+region_enabled = true
+region_rect = Rect2(0, 0, 961.263, 356.454)
+
+[node name="Sprite2D11" type="Sprite2D" parent="bg/up/trees/tree2"]
+position = Vector2(1645, -885)
+texture = ExtResource("8_45drd")
+region_enabled = true
+region_rect = Rect2(0, 0, 961.263, 356.454)
+
+[node name="Sprite2D12" type="Sprite2D" parent="bg/up/trees/tree2"]
+position = Vector2(1998, -1026)
+texture = ExtResource("8_45drd")
+region_enabled = true
+region_rect = Rect2(0, 0, 961.263, 356.454)
+
+[node name="Sprite2D13" type="Sprite2D" parent="bg/up/trees/tree2"]
+position = Vector2(1218, -928)
+texture = ExtResource("8_45drd")
+region_enabled = true
+region_rect = Rect2(0, 380.714, 961.263, 327.966)
+
+[node name="Sprite2D14" type="Sprite2D" parent="bg/up/trees/tree2"]
+position = Vector2(1677, -1049)
+texture = ExtResource("8_45drd")
+region_enabled = true
+region_rect = Rect2(0, 380.714, 961.263, 327.966)
+
+[node name="Sprite2D15" type="Sprite2D" parent="bg/up/trees/tree2"]
+position = Vector2(1269, -1084)
+texture = ExtResource("8_45drd")
+region_enabled = true
+region_rect = Rect2(0, 380.714, 961.263, 327.966)
+
+[node name="Sprite2D16" type="Sprite2D" parent="bg/up/trees/tree2"]
+position = Vector2(1838, -1190)
+texture = ExtResource("8_45drd")
+region_enabled = true
+region_rect = Rect2(0, 380.714, 961.263, 327.966)
 
 [node name="tree3" type="StaticBody2D" parent="bg/up/trees"]
 position = Vector2(1759, -340)
@@ -538,29 +715,102 @@ texture = ExtResource("2_1tmdf")
 region_enabled = true
 region_rect = Rect2(974.828, 277.472, 264.09, 153.267)
 
+[node name="Sprite2D11" type="Sprite2D" parent="bg/up/path/grass"]
+position = Vector2(-443, 579)
+texture = ExtResource("2_1tmdf")
+region_enabled = true
+region_rect = Rect2(0, 362.144, 333.466, 158.626)
+
 [node name="Sprite2D" type="Sprite2D" parent="bg/up/path"]
 position = Vector2(1571, 709)
 texture = ExtResource("13_tkp68")
 region_enabled = true
 region_rect = Rect2(0, 199.092, 412.036, 250.8)
 
-[node name="Sprite2D2" type="Sprite2D" parent="bg/up/path"]
-position = Vector2(1854, 664)
+[node name="Sprite2D2" type="Sprite2D" parent="bg/up/path/Sprite2D"]
+position = Vector2(283, -45)
 texture = ExtResource("13_tkp68")
 region_enabled = true
 region_rect = Rect2(517.815, 370.718, 280.81, 188.636)
 
-[node name="Sprite2D3" type="Sprite2D" parent="bg/up/path"]
-position = Vector2(2366, 678)
+[node name="Sprite2D3" type="Sprite2D" parent="bg/up/path/Sprite2D"]
+position = Vector2(795, -31)
 texture = ExtResource("13_tkp68")
 region_enabled = true
 region_rect = Rect2(328.75, 0, 167.414, 185.512)
 
-[node name="Sprite2D4" type="Sprite2D" parent="bg/up/path"]
-position = Vector2(2542, 694)
+[node name="Sprite2D4" type="Sprite2D" parent="bg/up/path/Sprite2D"]
+position = Vector2(971, -15)
 texture = ExtResource("13_tkp68")
 region_enabled = true
 region_rect = Rect2(932.385, 110.057, 190.994, 117.897)
+
+[node name="Sprite2D5" type="Sprite2D" parent="bg/up/path"]
+position = Vector2(-1691, 662)
+scale = Vector2(0.561514, 0.43007)
+texture = ExtResource("13_tkp68")
+region_enabled = true
+region_rect = Rect2(63.4707, 166.673, 317.609, 286.539)
+
+[node name="Sprite2D6" type="Sprite2D" parent="bg/up/path/Sprite2D5"]
+position = Vector2(-71.2358, -261.585)
+scale = Vector2(1, 1)
+texture = ExtResource("13_tkp68")
+region_enabled = true
+region_rect = Rect2(484.648, 42.3912, 324.514, 269.277)
+
+[node name="Sprite2D7" type="Sprite2D" parent="bg/up/path/Sprite2D5"]
+position = Vector2(-12.4663, -384.821)
+scale = Vector2(1, 1)
+texture = ExtResource("13_tkp68")
+region_enabled = true
+region_rect = Rect2(1026.65, 353.096, 234.755, 176.066)
+
+[node name="Sprite2D8" type="Sprite2D" parent="bg/up/path/Sprite2D5"]
+position = Vector2(78.3596, -173.228)
+scale = Vector2(1, 1)
+texture = ExtResource("13_tkp68")
+region_enabled = true
+region_rect = Rect2(305.13, 21.6776, 214.041, 182.97)
+
+[node name="Sprite2D9" type="Sprite2D" parent="bg/up/path/Sprite2D5"]
+position = Vector2(-140.691, -80.2195)
+scale = Vector2(1, 1)
+texture = ExtResource("13_tkp68")
+region_enabled = true
+region_rect = Rect2(256.798, 515.353, 248.564, 179.518)
+
+[node name="Sprite2D10" type="Sprite2D" parent="bg/up/path/Sprite2D5"]
+position = Vector2(258.23, 43.0162)
+scale = Vector2(1, 1)
+texture = ExtResource("13_tkp68")
+region_enabled = true
+region_rect = Rect2(256.798, 515.353, 248.564, 179.518)
+
+[node name="Sprite2D12" type="Sprite2D" parent="bg/up/path"]
+position = Vector2(-2083, 654)
+scale = Vector2(0.561514, 0.43007)
+texture = ExtResource("13_tkp68")
+region_enabled = true
+region_rect = Rect2(484.648, 42.3912, 324.514, 269.277)
+
+[node name="Sprite2D11" type="Sprite2D" parent="bg/up/path/Sprite2D12"]
+position = Vector2(-220.831, -55.8049)
+texture = ExtResource("13_tkp68")
+region_enabled = true
+region_rect = Rect2(54.7997, 192.801, 379.415, 250.8)
+
+[node name="Sprite2D12" type="Sprite2D" parent="bg/up/path/Sprite2D12"]
+position = Vector2(-448.787, 37.2032)
+texture = ExtResource("13_tkp68")
+region_enabled = true
+region_rect = Rect2(528.533, 387.867, 240.082, 171.487)
+
+[node name="Sprite2D13" type="Sprite2D" parent="bg/up/path/Sprite2D12"]
+position = Vector2(-598.382, 102.309)
+texture = ExtResource("13_tkp68")
+region_enabled = true
+region_rect = Rect2(41.9382, 443.6, 435.149, 222.933)
 
 [node name="down" type="Node" parent="bg"]
 
@@ -571,7 +821,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_yd1uv")
 
 [node name="TextureRect" type="TextureRect" parent="bg/down/Panel"]
 layout_mode = 0
-offset_left = -898.0
+offset_left = -3277.0
 offset_top = 812.0
 offset_right = 4327.0
 offset_bottom = 2176.0
@@ -659,6 +909,12 @@ position = Vector2(1280, 0)
 [node name="dirt_ground3" parent="bg/down/ground/dirt_ground" instance=ExtResource("14_y83yd")]
 position = Vector2(-1280, 0)
 
+[node name="dirt_ground4" parent="bg/down/ground/dirt_ground" instance=ExtResource("14_y83yd")]
+position = Vector2(-2560, 0)
+
+[node name="dirt_ground5" parent="bg/down/ground/dirt_ground" instance=ExtResource("14_y83yd")]
+position = Vector2(-3840, 0)
+
 [node name="dirt_ground4" parent="bg/down/ground" instance=ExtResource("14_y83yd")]
 position = Vector2(31, 761)
 
@@ -729,7 +985,7 @@ shape = SubResource("CapsuleShape2D_27u56")
 position = Vector2(2300, -24)
 
 [node name="Sprite2D5" type="Sprite2D" parent="bg/down/texture2/StaticBody2D4"]
-position = Vector2(945, 1796)
+position = Vector2(949, 1817)
 rotation = -0.0112006
 texture = ExtResource("19_do3on")
 region_enabled = true
@@ -779,6 +1035,28 @@ rotation = 0.0722036
 texture = ExtResource("4_3neta")
 region_enabled = true
 region_rect = Rect2(427.784, 304.267, 381.559, 267.949)
+
+[node name="walls" type="StaticBody2D" parent="bg"]
+
+[node name="roof" type="CollisionShape2D" parent="bg/walls"]
+position = Vector2(271.5, -578.25)
+shape = SubResource("RectangleShape2D_0a42m")
+
+[node name="wall" type="CollisionShape2D" parent="bg/walls"]
+position = Vector2(3500.06, 997.875)
+shape = SubResource("RectangleShape2D_ej3yq")
+
+[node name="wall2" type="CollisionShape2D" parent="bg/walls"]
+position = Vector2(-361.75, 1152)
+shape = SubResource("RectangleShape2D_8b3pv")
+
+[node name="wall3" type="CollisionShape2D" parent="bg/walls"]
+position = Vector2(-2654.88, 82.625)
+shape = SubResource("RectangleShape2D_iltna")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bg/walls"]
+position = Vector2(-21.5, 980.5)
+shape = SubResource("RectangleShape2D_t1jbr")
 
 [node name="platforms" type="Node" parent="."]
 
@@ -854,24 +1132,6 @@ libraries = {
 "": SubResource("AnimationLibrary_hamyc")
 }
 
-[node name="walls" type="StaticBody2D" parent="."]
-
-[node name="roof" type="CollisionShape2D" parent="walls"]
-position = Vector2(1555, -591)
-shape = SubResource("RectangleShape2D_0a42m")
-
-[node name="wall" type="CollisionShape2D" parent="walls"]
-position = Vector2(3500.06, 997.875)
-shape = SubResource("RectangleShape2D_ej3yq")
-
-[node name="wall2" type="CollisionShape2D" parent="walls"]
-position = Vector2(-361.75, 1152)
-shape = SubResource("RectangleShape2D_8b3pv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls"]
-position = Vector2(-21.5, 980.5)
-shape = SubResource("RectangleShape2D_t1jbr")
-
 [node name="sky" parent="." instance=ExtResource("26_jieh3")]
 
 [node name="hill" parent="." instance=ExtResource("27_ejcve")]
@@ -882,43 +1142,43 @@ shape = SubResource("RectangleShape2D_t1jbr")
 position = Vector2(892, 489)
 
 [node name="coin2" parent="collectibles" instance=ExtResource("29_du7ev")]
-position = Vector2(1117, 353)
+position = Vector2(1117, 366)
 
 [node name="coin3" parent="collectibles" instance=ExtResource("29_du7ev")]
-position = Vector2(702, 239)
+position = Vector2(706, 252)
 
 [node name="coin4" parent="collectibles" instance=ExtResource("29_du7ev")]
-position = Vector2(321, 48)
+position = Vector2(303, 133)
 
 [node name="coin5" parent="collectibles" instance=ExtResource("29_du7ev")]
-position = Vector2(2253, 48)
+position = Vector2(-138, -121)
 
 [node name="coin6" parent="collectibles" instance=ExtResource("29_du7ev")]
-position = Vector2(2732, -83)
+position = Vector2(714, 1083)
 
 [node name="coin7" parent="collectibles" instance=ExtResource("29_du7ev")]
-position = Vector2(1086, 1195)
+position = Vector2(1431, 939)
 
 [node name="coin8" parent="collectibles" instance=ExtResource("29_du7ev")]
-position = Vector2(741, 1065)
+position = Vector2(1581, 939)
 
 [node name="coin9" parent="collectibles" instance=ExtResource("29_du7ev")]
-position = Vector2(1846, 933)
+position = Vector2(1731, 939)
 
 [node name="coin10" parent="collectibles" instance=ExtResource("29_du7ev")]
-position = Vector2(1976, 933)
+position = Vector2(1942, 1339)
 
 [node name="coin11" parent="collectibles" instance=ExtResource("29_du7ev")]
-position = Vector2(2106, 933)
+position = Vector2(2092, 1339)
 
 [node name="coin12" parent="collectibles" instance=ExtResource("29_du7ev")]
-position = Vector2(1647, 1340)
+position = Vector2(2242, 1339)
 
 [node name="coin13" parent="collectibles" instance=ExtResource("29_du7ev")]
-position = Vector2(1777, 1340)
+position = Vector2(2247, 52)
 
 [node name="coin14" parent="collectibles" instance=ExtResource("29_du7ev")]
-position = Vector2(1907, 1340)
+position = Vector2(2738, -65)
 
 [node name="character" type="Node" parent="."]
 
@@ -936,9 +1196,10 @@ position = Vector2(62.6667, 5.33333)
 position = Vector2(1795, -459)
 scale = Vector2(0.75, 0.75)
 
-[node name="iris" parent="character" instance=ExtResource("33_4og7s")]
-position = Vector2(3064, 1377)
-platform_on_leave = 2
+[node name="player" parent="character" instance=ExtResource("29_ulakm")]
+
+[node name="DefaultCamera" parent="character/player" index="2"]
+enabled = false
 
 [node name="fg" type="Node" parent="."]
 
@@ -964,6 +1225,30 @@ region_rect = Rect2(0, 362.144, 333.466, 158.626)
 
 [node name="Sprite2D5" type="Sprite2D" parent="fg/grass"]
 position = Vector2(278.5, 722)
+texture = ExtResource("2_1tmdf")
+region_enabled = true
+region_rect = Rect2(0, 362.144, 333.466, 158.626)
+
+[node name="Sprite2D11" type="Sprite2D" parent="fg/grass"]
+position = Vector2(-2520, 722)
+texture = ExtResource("2_1tmdf")
+region_enabled = true
+region_rect = Rect2(0, 362.144, 333.466, 158.626)
+
+[node name="Sprite2D13" type="Sprite2D" parent="fg/grass"]
+position = Vector2(-2412, 734)
+texture = ExtResource("2_1tmdf")
+region_enabled = true
+region_rect = Rect2(0, 362.144, 333.466, 158.626)
+
+[node name="Sprite2D14" type="Sprite2D" parent="fg/grass"]
+position = Vector2(-1483, 722)
+texture = ExtResource("2_1tmdf")
+region_enabled = true
+region_rect = Rect2(0, 362.144, 333.466, 158.626)
+
+[node name="Sprite2D12" type="Sprite2D" parent="fg/grass"]
+position = Vector2(-590, 636)
 texture = ExtResource("2_1tmdf")
 region_enabled = true
 region_rect = Rect2(0, 362.144, 333.466, 158.626)
@@ -1030,7 +1315,7 @@ region_enabled = true
 region_rect = Rect2(878.152, 400.085, 401.848, 247.585)
 
 [node name="Sprite2D6" type="Sprite2D" parent="fg"]
-position = Vector2(3105, 1454)
+position = Vector2(3147, 1472)
 texture = ExtResource("15_r0e3h")
 region_enabled = true
 region_rect = Rect2(0, 0, 465.207, 251.556)
@@ -1041,6 +1326,17 @@ texture = ExtResource("15_r0e3h")
 region_enabled = true
 region_rect = Rect2(0, 0, 465.207, 251.556)
 
+[node name="markers" type="Node" parent="."]
+
+[node name="Marker2D_0" type="Marker2D" parent="markers"]
+position = Vector2(3061, 1386)
+
+[node name="Marker2D_3" type="Marker2D" parent="markers"]
+position = Vector2(-1703, 626)
+
+[node name="Marker2D_4" type="Marker2D" parent="markers"]
+position = Vector2(-2410, 626)
+
 [node name="buttons" type="Node" parent="."]
 
 [node name="InteractButton2" parent="buttons" instance=ExtResource("34_ylwc1")]
@@ -1049,23 +1345,24 @@ offset_top = -454.0
 offset_right = 1774.0
 offset_bottom = -413.0
 
+[node name="CollisionShape2D" parent="buttons/InteractButton2/Area2D" index="0"]
+position = Vector2(-153, 75)
+shape = SubResource("CircleShape2D_o7iht")
+
 [node name="InteractButton" parent="buttons" instance=ExtResource("34_ylwc1")]
 offset_left = 369.0
 offset_top = 1028.0
 offset_right = 450.0
 offset_bottom = 1069.0
 
-[node name="Area2D" parent="buttons/InteractButton" index="1"]
-visible = true
-
 [node name="CollisionShape2D" parent="buttons/InteractButton/Area2D" index="0"]
 position = Vector2(-1, -9)
 
 [node name="ExitButton" parent="buttons" instance=ExtResource("34_ylwc1")]
 offset_left = 3040.0
-offset_top = 1203.0
+offset_top = 1238.0
 offset_right = 3121.0
-offset_bottom = 1244.0
+offset_bottom = 1279.0
 
 [node name="Panel" parent="buttons/ExitButton/HBoxContainer" index="0"]
 visible = false
@@ -1073,8 +1370,48 @@ visible = false
 [node name="Label" parent="buttons/ExitButton/HBoxContainer" index="1"]
 visible = true
 
-[node name="Area2D" parent="buttons/ExitButton" index="1"]
+[node name="ExitButton2" parent="buttons" instance=ExtResource("34_ylwc1")]
+offset_left = -1734.0
+offset_top = 481.0
+offset_right = -1653.0
+offset_bottom = 522.0
+
+[node name="Panel" parent="buttons/ExitButton2/HBoxContainer" index="0"]
+visible = false
+
+[node name="Label" parent="buttons/ExitButton2/HBoxContainer" index="1"]
 visible = true
+
+[node name="Label" type="Label" parent="buttons/ExitButton2"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = -32.0
+offset_right = 112.0
+offset_bottom = 23.0
+rotation = 1.5708
+theme_override_font_sizes/font_size = 40
+text = "<"
+
+[node name="ExitButton3" parent="buttons" instance=ExtResource("34_ylwc1")]
+offset_left = -2450.0
+offset_top = 573.0
+offset_right = -2369.0
+offset_bottom = 614.0
+
+[node name="Panel" parent="buttons/ExitButton3/HBoxContainer" index="0"]
+visible = false
+
+[node name="Label" parent="buttons/ExitButton3/HBoxContainer" index="1"]
+visible = true
+
+[node name="Label" type="Label" parent="buttons/ExitButton3"]
+layout_mode = 0
+offset_left = -41.0
+offset_top = -11.0
+offset_right = -1.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 40
+text = "<"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("31_an7j8")
@@ -1082,43 +1419,39 @@ volume_db = -5.0
 autoplay = true
 bus = &"Music"
 
-[node name="ui" type="CanvasLayer" parent="."]
+[node name="camera" type="Node" parent="."]
 
-[node name="Interface" parent="ui" instance=ExtResource("36_25me8")]
-size_flags_horizontal = 0
-theme = ExtResource("37_leyt3")
-metadata/_edit_use_anchors_ = true
+[node name="cam_0" parent="camera" instance=ExtResource("38_rx7ip")]
+position = Vector2(3061, 1386)
 
-[node name="PanningCamera" parent="." instance=ExtResource("38_rx7ip")]
-position = Vector2(2799, 1432)
+[node name="cam_3" parent="camera" instance=ExtResource("38_rx7ip")]
+position = Vector2(-2054, 626)
 
-[connection signal="coin_collected" from="collectibles/coin" to="ui/Interface" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="collectibles/coin2" to="ui/Interface" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="collectibles/coin3" to="ui/Interface" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="collectibles/coin4" to="ui/Interface" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="collectibles/coin5" to="ui/Interface" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="collectibles/coin6" to="ui/Interface" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="collectibles/coin7" to="ui/Interface" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="collectibles/coin8" to="ui/Interface" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="collectibles/coin9" to="ui/Interface" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="collectibles/coin10" to="ui/Interface" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="collectibles/coin11" to="ui/Interface" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="collectibles/coin12" to="ui/Interface" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="collectibles/coin13" to="ui/Interface" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="collectibles/coin14" to="ui/Interface" method="_on_coin_coin_collected"]
-[connection signal="current_position" from="character/iris" to="PanningCamera" method="_on_iris_current_position"]
-[connection signal="hp_depleted" from="character/iris" to="ui/Interface" method="_on_iris_hp_depleted"]
-[connection signal="interacted" from="character/iris" to="character/benjamin" method="_on_iris_interacted"]
-[connection signal="interacted" from="character/iris" to="buttons/InteractButton" method="_on_iris_interacted"]
-[connection signal="interacted" from="character/iris" to="buttons/ExitButton" method="_on_iris_interacted"]
-[connection signal="health_changed" from="character/iris/hp" to="ui/Interface" method="_on_hp_health_changed"]
-[connection signal="hurt" from="character/iris/hp" to="ui/Interface" method="_on_hp_hurt"]
-[connection signal="not_hurt" from="character/iris/hp" to="ui/Interface" method="_on_hp_not_hurt"]
-[connection signal="severely_hurt" from="character/iris/hp" to="ui/Interface" method="_on_hp_severely_hurt"]
-[connection signal="health_changed" from="character/iris/sp" to="ui/Interface" method="_on_sp_health_changed"]
+[connection signal="coin_collected" from="collectibles/coin" to="character/player/ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin2" to="character/player/ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin3" to="character/player/ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin4" to="character/player/ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin5" to="character/player/ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin6" to="character/player/ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin7" to="character/player/ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin8" to="character/player/ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin9" to="character/player/ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin10" to="character/player/ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin11" to="character/player/ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin12" to="character/player/ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin13" to="character/player/ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin14" to="character/player/ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="current_position" from="character/player/iris" to="camera/cam_0" method="_on_iris_current_position"]
+[connection signal="current_position" from="character/player/iris" to="camera/cam_3" method="_on_iris_current_position"]
+[connection signal="interacted" from="character/player/iris" to="character/benjamin" method="_on_iris_interacted"]
 [connection signal="exit_interacted" from="buttons/ExitButton" to="." method="_on_exit_button_exit_interacted"]
+[connection signal="exit_interacted" from="buttons/ExitButton2" to="." method="_on_exit_button_2_exit_interacted"]
+[connection signal="exit_interacted" from="buttons/ExitButton3" to="." method="_on_exit_button_3_exit_interacted"]
 
 [editable path="character/benjamin"]
-[editable path="character/iris"]
+[editable path="character/player"]
+[editable path="buttons/InteractButton2"]
 [editable path="buttons/InteractButton"]
 [editable path="buttons/ExitButton"]
+[editable path="buttons/ExitButton2"]
+[editable path="buttons/ExitButton3"]

@@ -16,6 +16,21 @@ texture = ExtResource("1_kcids")
 region_enabled = true
 region_rect = Rect2(618.031, 90.0952, 661.969, 273.043)
 
+[node name="Sprite2D9" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(-968, 511)
+rotation = -0.00475729
+texture = ExtResource("1_kcids")
+region_enabled = true
+region_rect = Rect2(618.031, 90.0952, 661.969, 273.043)
+
+[node name="Sprite2D8" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(-1379.49, 567.018)
+rotation = -0.00475729
+scale = Vector2(1.08947, 2.11059)
+texture = ExtResource("1_kcids")
+region_enabled = true
+region_rect = Rect2(618.031, 90.0952, 661.969, 273.043)
+
 [node name="Sprite2D5" type="Sprite2D" parent="ParallaxLayer2"]
 position = Vector2(1718, 627)
 rotation = -0.00475729
@@ -54,6 +69,14 @@ motion_scale = Vector2(0.5, 0.8)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
 position = Vector2(-397, 496.5)
+scale = Vector2(1.58125, 1.14444)
+texture = ExtResource("1_kcids")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 494.953, 1280, 225.047)
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(-2000, 496.5)
 scale = Vector2(1.58125, 1.14444)
 texture = ExtResource("1_kcids")
 centered = false

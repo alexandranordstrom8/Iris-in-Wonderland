@@ -18,6 +18,9 @@ var dash_dmg = 1
 
 signal current_position(pos)
 signal hp_depleted
+signal hp_changed(amount)
+signal sp_changed(amount)
+signal health_status(value)
 signal interacted
 signal damage_dealt(amount)
 signal knock_back(_velocity, dir, xpos)
@@ -115,6 +118,15 @@ func _physics_process(delta):
 func _on_hp_health_depleted():
 	set_freeze_movement(true)
 	emit_signal("hp_depleted")
+
+func _on_hp_status(value):
+	emit_signal("health_status", value)
+
+func _on_hp_health_changed(health):
+	emit_signal("hp_changed", health)
+
+func _on_sp_health_changed(health):
+	emit_signal("sp_changed", health)
 
 func _on_enemy_attacked(amount, can_interact, pos, dir):
 	if can_interact["iris"]:

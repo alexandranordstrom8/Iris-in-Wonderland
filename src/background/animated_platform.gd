@@ -1,5 +1,5 @@
 class_name AnimatedPlatform
-extends Sprite2D
+extends Node2D
 
 @onready var _animation = $AnimationPlayer
 

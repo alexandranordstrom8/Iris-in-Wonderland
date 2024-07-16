@@ -57,7 +57,6 @@ func _physics_process(delta):
 			update_position(delta)
 		
 		update_animation()
-		move_and_slide()
 
 func _on_attack_animated():
 	emit_signal("attacked", dmg, can_interact, position, (pos2d.scale.x * -1))
@@ -94,20 +93,10 @@ func _on_hitbox_body_exited(body):
 			timer.start()
 
 func _on_iris_damage_dealt(amount):
-	if can_interact["iris"]:
-		super._on_iris_damage_dealt(amount)
+	super(amount)
 
 func _on_iris_knock_back(_velocity, dir, xpos):
-	if can_interact["iris"]:
-		# player facing right, self on left
-		if dir == 1 and xpos > position.x:
-			pass
-		# player facing left, self on right
-		elif dir == -1 and xpos < position.x:
-			pass
-		else:
-			velocity.x = int(_velocity * 0.75)
+	super(_velocity, dir, xpos)
 
 func _on_iris_knock_back_stop():
-	set_freeze_movement(false)
-	velocity.x = 0
+	super()

@@ -12,11 +12,8 @@ var target_pos: Vector2
 
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-signal attacked(amount, can_interact, pos, dir)
+signal attacked(amount, can_interact_list, pos, dir)
 signal hp_depleted()
-
-func _ready():
-	pass
 
 func _process(delta):
 	velocity.y += gravity * delta
@@ -56,8 +53,17 @@ func _on_enemy_attacked(amount, _can_interact, _position):
 	if _can_interact.get(self.name):
 		hp.take_damage(amount)
 
-func _on_iris_knock_back(_velocity, _dir, _xpos):
-	pass
+func _on_iris_knock_back(_velocity, dir, xpos):
+	if can_interact["iris"]:
+		# player facing right, self on left
+		if dir == 1 and xpos > position.x:
+			pass
+		# player facing left, self on right
+		elif dir == -1 and xpos < position.x:
+			pass
+		else:
+			velocity.x = int(_velocity * 0.5)
 
 func _on_iris_knock_back_stop():
-	pass
+	set_freeze_movement(false)
+	velocity.x = 0

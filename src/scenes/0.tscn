@@ -533,19 +533,19 @@ texture = ExtResource("6_w1k2l")
 
 [node name="buttons" type="Node" parent="."]
 
-[node name="InteractButton" parent="buttons" instance=ExtResource("11_f1tdw")]
+[node name="ExitButton" parent="buttons" instance=ExtResource("11_f1tdw")]
 offset_left = -581.0
 offset_top = 4115.0
 offset_right = -500.0
 offset_bottom = 4156.0
 
-[node name="Panel" parent="buttons/InteractButton/HBoxContainer" index="0"]
+[node name="Panel" parent="buttons/ExitButton/HBoxContainer" index="0"]
 visible = false
 
-[node name="Label" parent="buttons/InteractButton/HBoxContainer" index="1"]
+[node name="Label" parent="buttons/ExitButton/HBoxContainer" index="1"]
 visible = true
 
-[node name="Area2D" parent="buttons/InteractButton" index="1"]
+[node name="Area2D" parent="buttons/ExitButton" index="1"]
 visible = true
 
 [node name="ui" type="CanvasLayer" parent="."]
@@ -614,13 +614,11 @@ max_distance = 2500.0
 [connection signal="body_entered" from="bg/glow/Glow/Area2D" to="." method="_on_glow_body_entered"]
 [connection signal="current_position" from="character/iris" to="camera/PanningCamera" method="_on_iris_current_position"]
 [connection signal="current_position" from="character/iris" to="camera/PanningCamera2" method="_on_iris_current_position"]
-[connection signal="health_changed" from="character/iris/hp" to="ui/Interface" method="_on_hp_health_changed"]
-[connection signal="hurt" from="character/iris/hp" to="ui/Interface" method="_on_hp_hurt"]
-[connection signal="not_hurt" from="character/iris/hp" to="ui/Interface" method="_on_hp_not_hurt"]
-[connection signal="severely_hurt" from="character/iris/hp" to="ui/Interface" method="_on_hp_severely_hurt"]
-[connection signal="health_changed" from="character/iris/sp" to="ui/Interface" method="_on_sp_health_changed"]
-[connection signal="body_entered" from="buttons/InteractButton/Area2D" to="." method="_on_exit_body_entered"]
-[connection signal="body_exited" from="buttons/InteractButton/Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="health_status" from="character/iris" to="ui/Interface" method="_on_iris_health_status"]
+[connection signal="hp_changed" from="character/iris" to="ui/Interface" method="_on_iris_hp_changed"]
+[connection signal="hp_depleted" from="character/iris" to="ui/Interface" method="_on_iris_hp_depleted"]
+[connection signal="sp_changed" from="character/iris" to="ui/Interface" method="_on_iris_sp_changed"]
+[connection signal="exit_interacted" from="buttons/ExitButton" to="." method="_on_exit_button_exit_interacted"]
 [connection signal="body_entered" from="camera/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="coin_collected" from="collectibles/coin" to="ui/Interface" method="_on_coin_coin_collected"]
 [connection signal="coin_collected" from="collectibles/coin2" to="ui/Interface" method="_on_coin_coin_collected"]
@@ -630,5 +628,4 @@ max_distance = 2500.0
 [connection signal="coin_collected" from="collectibles/coin6" to="ui/Interface" method="_on_coin_coin_collected"]
 [connection signal="coin_collected" from="collectibles/coin7" to="ui/Interface" method="_on_coin_coin_collected"]
 
-[editable path="character/iris"]
-[editable path="buttons/InteractButton"]
+[editable path="buttons/ExitButton"]

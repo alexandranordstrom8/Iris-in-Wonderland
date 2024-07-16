@@ -8,7 +8,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x7d67"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6fhcs"]
-radius = 180.178
+radius = 121.017
 
 [node name="InteractButton" type="Panel"]
 offset_right = 81.0
@@ -82,7 +82,6 @@ text = "E"
 horizontal_alignment = 1
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 position = Vector2(33, 18)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
