@@ -51,3 +51,6 @@ func _on_cat_timer_timeout():
 		enemy.set_target_pos(player.position)
 	else:
 		enemy.set_target_pos(Vector2(randi_range(250, 3000), 0))
+
+func _on_exit_button_exit_interacted():
+	change_scene(ScenePaths.scene_4)

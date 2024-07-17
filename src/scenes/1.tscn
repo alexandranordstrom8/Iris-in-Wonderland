@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://dxaievchquyu6"]
+[gd_scene load_steps=57 format=3 uid="uid://dxaievchquyu6"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/1.gd" id="1_pku5t"]
 [ext_resource type="Texture2D" uid="uid://d0uhb7j45xd1g" path="res://Iris-in-Wonderland/assets/background/grass.png" id="2_1tmdf"]
@@ -21,7 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://brma5q2nftysu" path="res://Iris-in-Wonderland/src/background/card_platform_1.tscn" id="21_hlg1v"]
 [ext_resource type="PackedScene" uid="uid://duenctpiba1bt" path="res://Iris-in-Wonderland/src/background/card_platform_2.tscn" id="22_odatl"]
 [ext_resource type="PackedScene" uid="uid://co5rhs1t15yqh" path="res://Iris-in-Wonderland/src/background/card_platform_3.tscn" id="23_d4c14"]
-[ext_resource type="Script" path="res://Iris-in-Wonderland/src/background/animated_platform.gd" id="24_v2im8"]
 [ext_resource type="PackedScene" uid="uid://btqp4gxdg4jpw" path="res://Iris-in-Wonderland/src/background/card_platform_4.tscn" id="25_07nri"]
 [ext_resource type="PackedScene" uid="uid://bah2pxas0yt5v" path="res://Iris-in-Wonderland/src/background/sky.tscn" id="26_jieh3"]
 [ext_resource type="PackedScene" uid="uid://ttaqxg3mnnyy" path="res://Iris-in-Wonderland/src/background/hill.tscn" id="27_ejcve"]
@@ -30,7 +29,6 @@
 [ext_resource type="PackedScene" uid="uid://c0dydbsm6epto" path="res://Iris-in-Wonderland/src/characters/benjamin.tscn" id="30_7m22a"]
 [ext_resource type="PackedScene" uid="uid://bhmj4gwta52oe" path="res://Iris-in-Wonderland/src/characters/isabell.tscn" id="31_0uyta"]
 [ext_resource type="AudioStream" uid="uid://dcj6my0rmnj8n" path="res://Iris-in-Wonderland/assets/audio/星が輝く冬.mp3" id="31_an7j8"]
-[ext_resource type="PackedScene" uid="uid://t4s21cq3bxh6" path="res://Iris-in-Wonderland/src/interface/transition_animation.tscn" id="33_hwibt"]
 [ext_resource type="PackedScene" uid="uid://em5hl7ux263y" path="res://Iris-in-Wonderland/src/interface/interact_button.tscn" id="34_ylwc1"]
 [ext_resource type="PackedScene" uid="uid://dfwlix1amhelg" path="res://Iris-in-Wonderland/src/scenes/panning_camera.tscn" id="38_rx7ip"]
 
@@ -129,7 +127,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("card_platform7:position")
+tracks/0/path = NodePath("../card_platform8:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -141,7 +139,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("card_platform7:rotation")
+tracks/1/path = NodePath("../card_platform8:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -157,7 +155,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("card_platform7:position")
+tracks/0/path = NodePath("../card_platform8:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -169,7 +167,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("card_platform7:rotation")
+tracks/1/path = NodePath("../card_platform8:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -252,7 +250,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("card_platform5:position")
+tracks/0/path = NodePath("../card_platform9:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -264,7 +262,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("card_platform5:rotation")
+tracks/1/path = NodePath("../card_platform9:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -281,7 +279,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("card_platform5:position")
+tracks/0/path = NodePath("../card_platform9:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -293,7 +291,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("card_platform5:rotation")
+tracks/1/path = NodePath("../card_platform9:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -314,7 +312,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("card_platform4:position")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -326,7 +324,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("card_platform4:rotation")
+tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -343,7 +341,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("card_platform4:position")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -355,7 +353,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("card_platform4:rotation")
+tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -374,11 +372,10 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_o7iht"]
 radius = 325.002
 
-[node name="world" type="Node2D" node_paths=PackedStringArray("interface", "player", "transition")]
+[node name="world" type="Node2D" node_paths=PackedStringArray("interface", "player")]
 script = ExtResource("1_pku5t")
 interface = NodePath("character/player/ui/Interface")
 player = NodePath("character/player/iris")
-transition = NodePath("TransitionAnimation")
 
 [node name="bg" type="Node" parent="."]
 
@@ -1072,62 +1069,51 @@ position = Vector2(2334, 116)
 [node name="card_platform6" parent="platforms" instance=ExtResource("23_d4c14")]
 position = Vector2(2142, 116)
 
-[node name="AnimatedPlatform" type="Sprite2D" parent="platforms"]
-script = ExtResource("24_v2im8")
-
-[node name="card_platform6" parent="platforms/AnimatedPlatform" instance=ExtResource("23_d4c14")]
+[node name="card_platform7" parent="platforms" instance=ExtResource("23_d4c14")]
 position = Vector2(2713, 288)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/AnimatedPlatform"]
-root_node = NodePath("../card_platform6")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/card_platform7"]
 libraries = {
 "": SubResource("AnimationLibrary_g7blk")
 }
+autoplay = "slide"
 
-[node name="AnimatedPlatform5" type="Sprite2D" parent="platforms"]
-script = ExtResource("24_v2im8")
-
-[node name="card_platform7" parent="platforms/AnimatedPlatform5" instance=ExtResource("23_d4c14")]
+[node name="card_platform8" parent="platforms" instance=ExtResource("23_d4c14")]
 position = Vector2(2523, 1140)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/AnimatedPlatform5"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/card_platform8"]
 libraries = {
 "": SubResource("AnimationLibrary_xf4dl")
 }
+autoplay = "slide"
 
-[node name="AnimatedPlatform2" type="Sprite2D" parent="platforms"]
-script = ExtResource("24_v2im8")
-
-[node name="card_platform4" parent="platforms/AnimatedPlatform2" instance=ExtResource("25_07nri")]
+[node name="card_platform4" parent="platforms" instance=ExtResource("25_07nri")]
 position = Vector2(308, 193)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/AnimatedPlatform2"]
-root_node = NodePath("../card_platform4")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/card_platform4"]
 libraries = {
 "": SubResource("AnimationLibrary_saj8e")
 }
+autoplay = "RESET"
 
-[node name="AnimatedPlatform3" type="Sprite2D" parent="platforms"]
-script = ExtResource("24_v2im8")
-
-[node name="card_platform5" parent="platforms/AnimatedPlatform3" instance=ExtResource("21_hlg1v")]
+[node name="card_platform9" parent="platforms" instance=ExtResource("21_hlg1v")]
 position = Vector2(1568, -5)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/AnimatedPlatform3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/card_platform9"]
 libraries = {
 "": SubResource("AnimationLibrary_wngl0")
 }
+autoplay = "RESET"
 
-[node name="AnimatedPlatform4" type="Sprite2D" parent="platforms"]
-script = ExtResource("24_v2im8")
-
-[node name="card_platform4" parent="platforms/AnimatedPlatform4" instance=ExtResource("21_hlg1v")]
+[node name="card_platform10" parent="platforms" instance=ExtResource("21_hlg1v")]
 position = Vector2(2018, 361)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/AnimatedPlatform4"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/card_platform10"]
+root_node = NodePath("../../card_platform10")
 libraries = {
 "": SubResource("AnimationLibrary_hamyc")
 }
+autoplay = "slide"
 
 [node name="sky" parent="." instance=ExtResource("26_jieh3")]
 
@@ -1410,12 +1396,6 @@ offset_bottom = 44.0
 theme_override_font_sizes/font_size = 40
 text = "<"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("31_an7j8")
-volume_db = -5.0
-autoplay = true
-bus = &"Music"
-
 [node name="camera" type="Node" parent="."]
 
 [node name="cam_0" parent="camera" instance=ExtResource("38_rx7ip")]
@@ -1424,7 +1404,11 @@ position = Vector2(3061, 1386)
 [node name="cam_3" parent="camera" instance=ExtResource("38_rx7ip")]
 position = Vector2(-2054, 626)
 
-[node name="TransitionAnimation" parent="." instance=ExtResource("33_hwibt")]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("31_an7j8")
+volume_db = -5.0
+autoplay = true
+bus = &"Music"
 
 [connection signal="coin_collected" from="collectibles/coin" to="character/player/ui/Interface" method="_on_coin_coin_collected"]
 [connection signal="coin_collected" from="collectibles/coin2" to="character/player/ui/Interface" method="_on_coin_coin_collected"]

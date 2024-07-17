@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://rxq1umhh6ovy"]
+[gd_scene load_steps=39 format=3 uid="uid://rxq1umhh6ovy"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/4.gd" id="1_vhhav"]
 [ext_resource type="PackedScene" uid="uid://bah2pxas0yt5v" path="res://Iris-in-Wonderland/src/background/sky.tscn" id="2_17fo3"]
@@ -15,14 +15,12 @@
 [ext_resource type="Texture2D" uid="uid://deiug4fdhqlhy" path="res://Iris-in-Wonderland/assets/background/path1.png" id="11_po1i4"]
 [ext_resource type="PackedScene" uid="uid://dfwlix1amhelg" path="res://Iris-in-Wonderland/src/scenes/panning_camera.tscn" id="12_l6ce3"]
 [ext_resource type="Texture2D" uid="uid://b0ucchoxmyik8" path="res://Iris-in-Wonderland/assets/background/ground_texture.png" id="12_mojr4"]
-[ext_resource type="Script" path="res://Iris-in-Wonderland/src/background/animated_platform.gd" id="13_28ddq"]
 [ext_resource type="PackedScene" uid="uid://em5hl7ux263y" path="res://Iris-in-Wonderland/src/interface/interact_button.tscn" id="14_ehvfi"]
 [ext_resource type="PackedScene" uid="uid://brma5q2nftysu" path="res://Iris-in-Wonderland/src/background/card_platform_1.tscn" id="14_ucblu"]
 [ext_resource type="PackedScene" uid="uid://duenctpiba1bt" path="res://Iris-in-Wonderland/src/background/card_platform_2.tscn" id="15_ew758"]
 [ext_resource type="PackedScene" uid="uid://co5rhs1t15yqh" path="res://Iris-in-Wonderland/src/background/card_platform_3.tscn" id="16_e41b7"]
 [ext_resource type="PackedScene" uid="uid://btqp4gxdg4jpw" path="res://Iris-in-Wonderland/src/background/card_platform_4.tscn" id="17_vvufv"]
 [ext_resource type="AudioStream" uid="uid://dcj6my0rmnj8n" path="res://Iris-in-Wonderland/assets/audio/星が輝く冬.mp3" id="22_rjmdx"]
-[ext_resource type="PackedScene" uid="uid://t4s21cq3bxh6" path="res://Iris-in-Wonderland/src/interface/transition_animation.tscn" id="23_llr0x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olcg7"]
 size = Vector2(54, 1181)
@@ -38,7 +36,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("card_platform1:position")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -50,7 +48,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("card_platform1:rotation")
+tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -66,7 +64,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("card_platform1:position")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -78,7 +76,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("card_platform1:rotation")
+tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -99,7 +97,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("card_platform2:position")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -111,7 +109,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("card_platform2:rotation")
+tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -127,7 +125,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("card_platform2:position")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -139,14 +137,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("card_platform2:rotation")
+tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0]
+"values": [0.0, 0.0, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lqbak"]
@@ -160,7 +158,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("card_platform3:position")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -172,7 +170,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("card_platform3:rotation")
+tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -185,11 +183,12 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_b0kbw"]
 resource_name = "slide"
 length = 1.25
+loop_mode = 1
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("card_platform3:position")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -201,7 +200,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("card_platform3:rotation")
+tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -222,7 +221,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("card_platform4:position")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -234,7 +233,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("card_platform4:rotation")
+tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -247,11 +246,12 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_evb4m"]
 resource_name = "slide"
 length = 1.25
+loop_mode = 1
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("card_platform4:position")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -263,7 +263,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("card_platform4:rotation")
+tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -287,11 +287,10 @@ height = 426.0
 radius = 127.0
 height = 394.0
 
-[node name="world" type="Node2D" node_paths=PackedStringArray("interface", "player", "transition")]
+[node name="world" type="Node2D" node_paths=PackedStringArray("interface", "player")]
 script = ExtResource("1_vhhav")
 interface = NodePath("character/player/ui/Interface")
 player = NodePath("character/player/iris")
-transition = NodePath("TransitionAnimation")
 
 [node name="sky" parent="." instance=ExtResource("2_17fo3")]
 
@@ -635,49 +634,41 @@ region_rect = Rect2(48.369, 27.7442, 340.831, 340.831)
 
 [node name="platforms" type="Node" parent="."]
 
-[node name="AnimatedPlatform" type="Node2D" parent="platforms"]
-script = ExtResource("13_28ddq")
-
-[node name="card_platform1" parent="platforms/AnimatedPlatform" instance=ExtResource("14_ucblu")]
+[node name="card_platform1" parent="platforms" instance=ExtResource("14_ucblu")]
 position = Vector2(207, 249)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/AnimatedPlatform"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/card_platform1"]
 libraries = {
 "": SubResource("AnimationLibrary_gpanp")
 }
+autoplay = "slide"
 
-[node name="AnimatedPlatform2" type="Node2D" parent="platforms"]
-script = ExtResource("13_28ddq")
-
-[node name="card_platform2" parent="platforms/AnimatedPlatform2" instance=ExtResource("15_ew758")]
+[node name="card_platform2" parent="platforms" instance=ExtResource("15_ew758")]
 position = Vector2(674, 249)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/AnimatedPlatform2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/card_platform2"]
 libraries = {
 "": SubResource("AnimationLibrary_lqbak")
 }
+autoplay = "slide"
 
-[node name="AnimatedPlatform3" type="Node2D" parent="platforms"]
-script = ExtResource("13_28ddq")
-
-[node name="card_platform3" parent="platforms/AnimatedPlatform3" instance=ExtResource("16_e41b7")]
+[node name="card_platform3" parent="platforms" instance=ExtResource("16_e41b7")]
 position = Vector2(455, 186)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/AnimatedPlatform3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/card_platform3"]
 libraries = {
 "": SubResource("AnimationLibrary_8hdx5")
 }
+autoplay = "slide"
 
-[node name="AnimatedPlatform4" type="Node2D" parent="platforms"]
-script = ExtResource("13_28ddq")
-
-[node name="card_platform4" parent="platforms/AnimatedPlatform4" instance=ExtResource("17_vvufv")]
+[node name="card_platform4" parent="platforms" instance=ExtResource("17_vvufv")]
 position = Vector2(944, 192)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/AnimatedPlatform4"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/card_platform4"]
 libraries = {
 "": SubResource("AnimationLibrary_3a16l")
 }
+autoplay = "slide"
 
 [node name="character" type="Node" parent="."]
 
@@ -792,8 +783,6 @@ stream = ExtResource("22_rjmdx")
 volume_db = -5.0
 autoplay = true
 bus = &"Music"
-
-[node name="TransitionAnimation" parent="." instance=ExtResource("23_llr0x")]
 
 [connection signal="current_position" from="character/player/iris" to="camera/cam_1" method="_on_iris_current_position"]
 [connection signal="current_position" from="character/player/iris" to="camera/cam_3" method="_on_iris_current_position"]

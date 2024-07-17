@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dno7dvdd68og0"]
+[gd_scene load_steps=37 format=3 uid="uid://dno7dvdd68og0"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/0.gd" id="1_y7cj4"]
 [ext_resource type="Texture2D" uid="uid://bi3pnx50gmcry" path="res://Iris-in-Wonderland/assets/background/brown2.png" id="2_lawmn"]
@@ -23,7 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://cgvgmi8l5dw87" path="res://Iris-in-Wonderland/src/interface/coin.tscn" id="20_46xpu"]
 [ext_resource type="AudioStream" uid="uid://cefom4cif0rk7" path="res://Iris-in-Wonderland/assets/audio/ambience_summer_night.mp3" id="22_17n7r"]
 [ext_resource type="AudioStream" uid="uid://blt7r6yubfscx" path="res://Iris-in-Wonderland/assets/audio/before_the_storm_125.mp3" id="23_qdh13"]
-[ext_resource type="PackedScene" uid="uid://t4s21cq3bxh6" path="res://Iris-in-Wonderland/src/interface/transition_animation.tscn" id="24_srg76"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fmddr"]
 
@@ -66,11 +65,10 @@ size = Vector2(2348, 31)
 radius = 77.0
 height = 912.0
 
-[node name="world" type="Node2D" node_paths=PackedStringArray("interface", "player", "transition")]
+[node name="world" type="Node2D" node_paths=PackedStringArray("interface", "player")]
 script = ExtResource("1_y7cj4")
 interface = NodePath("ui/Interface")
 player = NodePath("character/iris")
-transition = NodePath("TransitionAnimation")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("3_a0ln4")]
 
@@ -609,8 +607,6 @@ position = Vector2(875, 3559)
 stream = ExtResource("23_qdh13")
 autoplay = true
 max_distance = 2500.0
-
-[node name="TransitionAnimation" parent="." instance=ExtResource("24_srg76")]
 
 [connection signal="body_entered" from="bg/glow/Glow/Area2D" to="." method="_on_glow_body_entered"]
 [connection signal="current_position" from="character/iris" to="camera/PanningCamera" method="_on_iris_current_position"]

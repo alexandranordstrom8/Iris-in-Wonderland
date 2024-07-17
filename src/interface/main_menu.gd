@@ -14,7 +14,7 @@ func _on_play_pressed():
 	button_sfx.play()
 	match Save.current_scene:
 		"":
-			ScenePaths.change_scene(ScenePaths.scene_0, ScenePaths.scene_0)
+			ScenePaths.change_scene(ScenePaths.scene_0, ScenePaths.scene_0, false)
 		_:
 			ScenePaths.change_scene(Save.prev_scene, Save.current_scene)
 

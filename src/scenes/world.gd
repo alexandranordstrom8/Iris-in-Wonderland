@@ -3,7 +3,6 @@ extends Node2D
 
 @export var interface: Control
 @export var player: CharacterBody2D
-@export var transition: Node2D
 
 func _ready():
 	Save.current_scene = scene_file_path
