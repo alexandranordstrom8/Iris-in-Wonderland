@@ -9,8 +9,8 @@ extends World
 var started = false
 
 func _ready():
-	super()
 	if Save.prev_scene == ScenePaths.scene_1:
+		super()
 		interface.visible = true
 		camera2.make_current()
 		camera.position = spawn_marker.position
@@ -31,4 +31,4 @@ func _on_glow_body_entered(body):
 		interface.visible = true
 
 func _on_exit_button_exit_interacted():
-	change_scene(ScenePaths.scene_0, ScenePaths.scene_1)
+	change_scene(ScenePaths.scene_1)

@@ -18,7 +18,7 @@ func _ready():
 			cam4.make_current()
 
 func _on_exit_button_exit_interacted():
-	change_scene(ScenePaths.scene_3, ScenePaths.scene_1)
+	change_scene(ScenePaths.scene_1)
 
 func _on_exit_button_2_exit_interacted():
-	change_scene(ScenePaths.scene_3, ScenePaths.scene_4) 
+	change_scene(ScenePaths.scene_4) 

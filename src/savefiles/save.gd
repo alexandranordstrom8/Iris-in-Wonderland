@@ -5,7 +5,8 @@ var loaded = false
 var current_coins = 0
 var current_hp = 100
 var current_sp = 100
-var prev_scene: String # load previous scene after game is restarted
+var prev_scene : String
+var current_scene : String
 
 enum health_status {NOT_HURT, HURT, SEVERELY_HURT}
 

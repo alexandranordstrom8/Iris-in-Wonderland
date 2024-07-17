@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bkopqoengsrtf"]
+[gd_scene load_steps=25 format=3 uid="uid://bkopqoengsrtf"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/3.gd" id="1_h8hpr"]
 [ext_resource type="PackedScene" uid="uid://bah2pxas0yt5v" path="res://Iris-in-Wonderland/src/background/sky.tscn" id="2_aacsv"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bgemt3eaij6yc" path="res://Iris-in-Wonderland/assets/background/tree4.png" id="15_svy7q"]
 [ext_resource type="AudioStream" uid="uid://dcj6my0rmnj8n" path="res://Iris-in-Wonderland/assets/audio/星が輝く冬.mp3" id="16_p65gs"]
 [ext_resource type="PackedScene" uid="uid://dfwlix1amhelg" path="res://Iris-in-Wonderland/src/scenes/panning_camera.tscn" id="18_sjkht"]
+[ext_resource type="PackedScene" uid="uid://t4s21cq3bxh6" path="res://Iris-in-Wonderland/src/interface/transition_animation.tscn" id="19_22paa"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0opjm"]
 animations = [{
@@ -51,10 +52,11 @@ size = Vector2(96, 1018)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ldmr"]
 size = Vector2(96, 1018)
 
-[node name="world" type="Node2D" node_paths=PackedStringArray("interface", "player")]
+[node name="world" type="Node2D" node_paths=PackedStringArray("interface", "player", "transition")]
 script = ExtResource("1_h8hpr")
 interface = NodePath("character/player/ui/Interface")
 player = NodePath("character/player/iris")
+transition = NodePath("TransitionAnimation")
 
 [node name="sky" parent="." instance=ExtResource("2_aacsv")]
 
@@ -617,6 +619,8 @@ position = Vector2(1551, 626)
 
 [node name="cam_4" parent="camera" instance=ExtResource("18_sjkht")]
 position = Vector2(-1346, 626)
+
+[node name="TransitionAnimation" parent="." instance=ExtResource("19_22paa")]
 
 [connection signal="current_position" from="character/player/iris" to="camera/cam_1" method="_on_iris_current_position"]
 [connection signal="current_position" from="character/player/iris" to="camera/cam_4" method="_on_iris_current_position"]

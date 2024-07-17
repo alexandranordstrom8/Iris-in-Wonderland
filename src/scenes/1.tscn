@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://dxaievchquyu6"]
+[gd_scene load_steps=59 format=3 uid="uid://dxaievchquyu6"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/1.gd" id="1_pku5t"]
 [ext_resource type="Texture2D" uid="uid://d0uhb7j45xd1g" path="res://Iris-in-Wonderland/assets/background/grass.png" id="2_1tmdf"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://c0dydbsm6epto" path="res://Iris-in-Wonderland/src/characters/benjamin.tscn" id="30_7m22a"]
 [ext_resource type="PackedScene" uid="uid://bhmj4gwta52oe" path="res://Iris-in-Wonderland/src/characters/isabell.tscn" id="31_0uyta"]
 [ext_resource type="AudioStream" uid="uid://dcj6my0rmnj8n" path="res://Iris-in-Wonderland/assets/audio/星が輝く冬.mp3" id="31_an7j8"]
+[ext_resource type="PackedScene" uid="uid://t4s21cq3bxh6" path="res://Iris-in-Wonderland/src/interface/transition_animation.tscn" id="33_hwibt"]
 [ext_resource type="PackedScene" uid="uid://em5hl7ux263y" path="res://Iris-in-Wonderland/src/interface/interact_button.tscn" id="34_ylwc1"]
 [ext_resource type="PackedScene" uid="uid://dfwlix1amhelg" path="res://Iris-in-Wonderland/src/scenes/panning_camera.tscn" id="38_rx7ip"]
 
@@ -373,10 +374,11 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_o7iht"]
 radius = 325.002
 
-[node name="world" type="Node2D" node_paths=PackedStringArray("interface", "player")]
+[node name="world" type="Node2D" node_paths=PackedStringArray("interface", "player", "transition")]
 script = ExtResource("1_pku5t")
 interface = NodePath("character/player/ui/Interface")
 player = NodePath("character/player/iris")
+transition = NodePath("TransitionAnimation")
 
 [node name="bg" type="Node" parent="."]
 
@@ -754,35 +756,30 @@ region_rect = Rect2(63.4707, 166.673, 317.609, 286.539)
 
 [node name="Sprite2D6" type="Sprite2D" parent="bg/up/path/Sprite2D5"]
 position = Vector2(-71.2358, -261.585)
-scale = Vector2(1, 1)
 texture = ExtResource("13_tkp68")
 region_enabled = true
 region_rect = Rect2(484.648, 42.3912, 324.514, 269.277)
 
 [node name="Sprite2D7" type="Sprite2D" parent="bg/up/path/Sprite2D5"]
 position = Vector2(-12.4663, -384.821)
-scale = Vector2(1, 1)
 texture = ExtResource("13_tkp68")
 region_enabled = true
 region_rect = Rect2(1026.65, 353.096, 234.755, 176.066)
 
 [node name="Sprite2D8" type="Sprite2D" parent="bg/up/path/Sprite2D5"]
 position = Vector2(78.3596, -173.228)
-scale = Vector2(1, 1)
 texture = ExtResource("13_tkp68")
 region_enabled = true
 region_rect = Rect2(305.13, 21.6776, 214.041, 182.97)
 
 [node name="Sprite2D9" type="Sprite2D" parent="bg/up/path/Sprite2D5"]
 position = Vector2(-140.691, -80.2195)
-scale = Vector2(1, 1)
 texture = ExtResource("13_tkp68")
 region_enabled = true
 region_rect = Rect2(256.798, 515.353, 248.564, 179.518)
 
 [node name="Sprite2D10" type="Sprite2D" parent="bg/up/path/Sprite2D5"]
 position = Vector2(258.23, 43.0162)
-scale = Vector2(1, 1)
 texture = ExtResource("13_tkp68")
 region_enabled = true
 region_rect = Rect2(256.798, 515.353, 248.564, 179.518)
@@ -1426,6 +1423,8 @@ position = Vector2(3061, 1386)
 
 [node name="cam_3" parent="camera" instance=ExtResource("38_rx7ip")]
 position = Vector2(-2054, 626)
+
+[node name="TransitionAnimation" parent="." instance=ExtResource("33_hwibt")]
 
 [connection signal="coin_collected" from="collectibles/coin" to="character/player/ui/Interface" method="_on_coin_coin_collected"]
 [connection signal="coin_collected" from="collectibles/coin2" to="character/player/ui/Interface" method="_on_coin_coin_collected"]

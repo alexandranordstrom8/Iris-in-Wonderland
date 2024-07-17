@@ -22,10 +22,10 @@ func _ready():
 			player.get_node("Marker2D").scale.x = -1
 
 func _on_exit_button_exit_interacted():
-	change_scene(ScenePaths.scene_1, ScenePaths.scene_0)
+	change_scene(ScenePaths.scene_0)
 
 func _on_exit_button_2_exit_interacted():
-	change_scene(ScenePaths.scene_1, ScenePaths.scene_3)
+	change_scene(ScenePaths.scene_3)
 
 func _on_exit_button_3_exit_interacted():
-	change_scene(ScenePaths.scene_1, ScenePaths.scene_4)
+	change_scene(ScenePaths.scene_4)
