@@ -1,12 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://dv1q6s4q2mm3c"]
+[gd_scene load_steps=5 format=3 uid="uid://dv1q6s4q2mm3c"]
 
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/background/mushroom_platform.gd" id="1_0uskx"]
 [ext_resource type="Texture2D" uid="uid://cg5c6ne3jj4bo" path="res://Iris-in-Wonderland/assets/background/mushroom3_l.png" id="1_ciq4w"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f14ew"]
 radius = 41.6573
 height = 310.967
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qprvp"]
+radius = 10.648
+height = 132.755
+
 [node name="MushroomR" type="StaticBody2D"]
+script = ExtResource("1_0uskx")
+bounce_velocity = 800
+bounce_active = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -19,3 +27,12 @@ region_rect = Rect2(0, 0, 675.659, 720)
 position = Vector2(166, 134)
 rotation = 1.72462
 shape = SubResource("CapsuleShape2D_f14ew")
+
+[node name="BounceArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BounceArea"]
+position = Vector2(173, 94)
+rotation = 1.72462
+shape = SubResource("CapsuleShape2D_qprvp")
+
+[connection signal="body_entered" from="BounceArea" to="." method="_on_bounce_area_body_entered"]

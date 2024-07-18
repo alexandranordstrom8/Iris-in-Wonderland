@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dno7dvdd68og0"]
+[gd_scene load_steps=38 format=3 uid="uid://dno7dvdd68og0"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/0.gd" id="1_y7cj4"]
 [ext_resource type="Texture2D" uid="uid://bi3pnx50gmcry" path="res://Iris-in-Wonderland/assets/background/brown2.png" id="2_lawmn"]
@@ -44,7 +44,7 @@ Label/constants/shadow_outline_size = 5
 size = Vector2(263, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gblun"]
-size = Vector2(349, 3604)
+size = Vector2(349, 3503)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7apif"]
 size = Vector2(244, 3608)
@@ -60,6 +60,10 @@ size = Vector2(34.5, 1079)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a85l4"]
 size = Vector2(2348, 31)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_saw5d"]
+radius = 131.0
+height = 900.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cu3ol"]
 radius = 77.0
@@ -375,6 +379,9 @@ position = Vector2(-1087, 3639)
 [node name="dirt_ground2" parent="bg/down/dirt_ground" instance=ExtResource("9_oe3iu")]
 position = Vector2(1280, 0)
 
+[node name="dirt_ground7" parent="bg/down/dirt_ground" instance=ExtResource("9_oe3iu")]
+position = Vector2(-1280, 0)
+
 [node name="dirt_ground3" parent="bg/down/dirt_ground" instance=ExtResource("9_oe3iu")]
 position = Vector2(2560, 0)
 
@@ -390,7 +397,7 @@ position = Vector2(990, -2009)
 [node name="walls" type="StaticBody2D" parent="bg/down"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bg/down/walls"]
-position = Vector2(-904.5, 2544)
+position = Vector2(-904.5, 2493.5)
 shape = SubResource("RectangleShape2D_gblun")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="bg/down/walls"]
@@ -475,10 +482,15 @@ frame_progress = 0.0
 position = Vector2(1435, 647)
 
 [node name="Strawberry" parent="character" instance=ExtResource("16_6api1")]
-position = Vector2(140, 2288)
+position = Vector2(800, 2260)
+
+[node name="CollisionShape2D" parent="character/Strawberry/DetectionArea" index="0"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_saw5d")
 
 [node name="Strawberry2" parent="character" node_paths=PackedStringArray("hp") instance=ExtResource("16_6api1")]
 position = Vector2(-118, 4005)
+moving = false
 hp = NodePath("../Strawberry/Health")
 
 [node name="fg" type="Node" parent="."]
@@ -625,4 +637,5 @@ max_distance = 2500.0
 [connection signal="coin_collected" from="collectibles/coin6" to="ui/Interface" method="_on_coin_coin_collected"]
 [connection signal="coin_collected" from="collectibles/coin7" to="ui/Interface" method="_on_coin_coin_collected"]
 
+[editable path="character/Strawberry"]
 [editable path="buttons/ExitButton"]

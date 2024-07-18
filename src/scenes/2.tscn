@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cnpmjhr3i3unn"]
+[gd_scene load_steps=51 format=3 uid="uid://cnpmjhr3i3unn"]
 
 [ext_resource type="PackedScene" uid="uid://bng63fw5pf27e" path="res://Iris-in-Wonderland/src/background/green_background.tscn" id="1_efq5o"]
 [ext_resource type="Texture2D" uid="uid://p6jiynjt247g" path="res://Iris-in-Wonderland/assets/background/tree1.png" id="1_gt21c"]
@@ -191,9 +191,6 @@ height = 2063.53
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2l7si"]
 radius = 82.353
 height = 1350.59
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bx1ud"]
-size = Vector2(3671, 158)
 
 [node name="boss_level" type="Node2D" node_paths=PackedStringArray("interface", "player")]
 script = ExtResource("1_rcf78")
@@ -727,6 +724,7 @@ scale = Vector2(-1, 1)
 
 [node name="MushroomY" parent="bg/mushrooms" instance=ExtResource("8_g5hqg")]
 position = Vector2(1603, 114)
+bounce_active = false
 
 [node name="grass" type="Node" parent="bg"]
 
@@ -898,9 +896,6 @@ position = Vector2(249, 626)
 [node name="cat" parent="character" instance=ExtResource("4_g2hht")]
 position = Vector2(3159, 587)
 
-[node name="hp" parent="character/cat" index="2"]
-max_health = 300
-
 [node name="CollisionShape2D" parent="character/cat/DetectionArea" index="0"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_i8r8p")
@@ -990,7 +985,7 @@ region_rect = Rect2(784.305, 390.38, 562.03, 322.787)
 [node name="markers" type="Node" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="markers"]
-position = Vector2(248, 627)
+position = Vector2(431, 626)
 
 [node name="buttons" type="Node" parent="."]
 
@@ -1060,14 +1055,6 @@ stream = ExtResource("34_agaox")
 
 [node name="camera" type="Node" parent="."]
 
-[node name="StopLookDown" type="Area2D" parent="camera"]
-visible = false
-position = Vector2(640, 360)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="camera/StopLookDown"]
-position = Vector2(1198, 278)
-shape = SubResource("RectangleShape2D_bx1ud")
-
 [node name="PanningCamera" parent="camera" instance=ExtResource("32_3jta5")]
 
 [connection signal="coin_collected" from="collectibles/coin" to="ui/Interface" method="_on_coin_coin_collected"]
@@ -1097,8 +1084,6 @@ shape = SubResource("RectangleShape2D_bx1ud")
 [connection signal="timeout" from="character/cat/Timer" to="." method="_on_cat_timer_timeout"]
 [connection signal="body_entered" from="character/start_area" to="." method="_on_start_area_body_entered"]
 [connection signal="exit_interacted" from="buttons/ExitButton" to="." method="_on_exit_button_exit_interacted"]
-[connection signal="body_entered" from="camera/StopLookDown" to="camera/PanningCamera" method="_on_stop_look_down_body_entered"]
-[connection signal="body_exited" from="camera/StopLookDown" to="camera/PanningCamera" method="_on_stop_look_down_body_exited"]
 [connection signal="finished_panning" from="camera/PanningCamera" to="." method="_on_panning_camera_finished_panning"]
 [connection signal="timer_started" from="camera/PanningCamera" to="." method="_on_panning_camera_timer_started"]
 

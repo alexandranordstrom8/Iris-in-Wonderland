@@ -134,7 +134,7 @@ func _on_enemy_attacked(amount, can_interact, pos, dir):
 		if dir == 1 and pos.x > position.x:
 			pass
 		# enemy facing left, self on right
-		if dir == -1 and pos.x < position.x:
+		elif dir == -1 and pos.x < position.x:
 			pass
 		else:
 			$hp.take_damage(amount)

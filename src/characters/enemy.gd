@@ -49,7 +49,7 @@ func _on_iris_damage_dealt(amount):
 		hp.take_damage(amount)
 
 # damage from other enemies
-func _on_enemy_attacked(amount, _can_interact, _position):
+func _on_enemy_attacked(amount, _can_interact, _position, _dir):
 	if _can_interact.get(self.name):
 		hp.take_damage(amount)
 

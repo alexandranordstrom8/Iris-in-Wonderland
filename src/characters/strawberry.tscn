@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://bh4th8fe5trsh"]
 
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/strawberry.gd" id="1_1iwl3"]
 [ext_resource type="Texture2D" uid="uid://u7d0betrebm1" path="res://Iris-in-Wonderland/assets/characters/strawberry.png" id="1_j2y5o"]
-[ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/enemy.gd" id="1_jrbje"]
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/health.gd" id="3_gqe4m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1opep"]
@@ -88,7 +88,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_gl4ln"]
 resource_name = "roll"
-length = 0.8
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -97,7 +97,7 @@ tracks/0/path = NodePath("../Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-10, 0), Vector2(0, 0), Vector2(-10, 0), Vector2(0, 0)]
@@ -109,7 +109,7 @@ tracks/1/path = NodePath("../Sprite2D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.0, -1.5708, -3.14159, -4.71239, -6.28319]
@@ -122,13 +122,14 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ih5s"]
-radius = 17.1836
+radius = 23.0868
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mpwr6"]
-radius = 36.4006
+radius = 288.043
 
 [node name="Strawberry" type="CharacterBody2D" node_paths=PackedStringArray("hp")]
-script = ExtResource("1_jrbje")
+collision_layer = 4
+script = ExtResource("1_1iwl3")
 hp = NodePath("Health")
 
 [node name="Health" type="Node" parent="."]
@@ -148,7 +149,6 @@ region_enabled = true
 region_rect = Rect2(0, 0, 64, 64)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Marker2D/Sprite2D"]
-root_node = NodePath("../../AnimatedSprite2D")
 libraries = {
 "": SubResource("AnimationLibrary_gbxqy")
 }
@@ -158,12 +158,11 @@ position = Vector2(-1.19209e-07, 6)
 shape = SubResource("CircleShape2D_5ih5s")
 one_way_collision = true
 
-[node name="Area2D" type="Area2D" parent="."]
-visible = false
+[node name="DetectionArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_mpwr6")
 
 [connection signal="health_depleted" from="Health" to="." method="_on_health_health_depleted"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

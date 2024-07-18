@@ -1,7 +1,8 @@
 extends World
 
-var started = false
-var play_music = false
+var started : bool = false
+var won : bool = false
+var play_music : bool = false
 
 @onready var cat_pos = $character/cat.position
 @onready var enemy = $character/cat
@@ -10,6 +11,7 @@ var play_music = false
 
 func _ready():
 	super._ready()
+	player.position = $markers/Marker2D.position
 	$audio/ambience.play()
 
 func _process(_delta):
@@ -21,7 +23,6 @@ func _on_start_area_body_entered(body):
 		started = true
 		player.set_freeze_movement(true)
 		camera.set_panning_target(cat_pos)
-		#emit_signal("pan_camera", cat_pos)
 
 func _on_panning_camera_timer_started():
 	$audio/meow.play()
@@ -36,6 +37,7 @@ func _on_panning_camera_finished_panning():
 	enemy.set_target_pos(player.position)
 	
 func _on_cat_hp_depleted():
+	won = true
 	$audio/music.stop()
 	$audio/ambience.play()
 
@@ -53,4 +55,5 @@ func _on_cat_timer_timeout():
 		enemy.set_target_pos(Vector2(randi_range(250, 3000), 0))
 
 func _on_exit_button_exit_interacted():
-	change_scene(ScenePaths.scene_4)
+	if won or not started:
+		change_scene(ScenePaths.scene_4)

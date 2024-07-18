@@ -8,7 +8,7 @@ const OFFSET = 70
 
 var chase: bool
 var dmg = 5
-var dead = false
+var dead : bool = false
 var detected = {} # node_name : [node_body, true/false]
 
 signal attack_animated
@@ -47,7 +47,7 @@ func update_animation():
 
 func _physics_process(delta):
 	if dead:
-		position.y += int(JUMP_VELOCITY * delta)
+		position.y += int(JUMP_VELOCITY * 2 * delta)
 		position.x += int(SPEED * delta * pos2d.scale.x * -1)
 		animations.play("jump")
 	else:

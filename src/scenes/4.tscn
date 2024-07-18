@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://rxq1umhh6ovy"]
+[gd_scene load_steps=40 format=3 uid="uid://rxq1umhh6ovy"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/4.gd" id="1_vhhav"]
 [ext_resource type="PackedScene" uid="uid://bah2pxas0yt5v" path="res://Iris-in-Wonderland/src/background/sky.tscn" id="2_17fo3"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://duenctpiba1bt" path="res://Iris-in-Wonderland/src/background/card_platform_2.tscn" id="15_ew758"]
 [ext_resource type="PackedScene" uid="uid://co5rhs1t15yqh" path="res://Iris-in-Wonderland/src/background/card_platform_3.tscn" id="16_e41b7"]
 [ext_resource type="PackedScene" uid="uid://btqp4gxdg4jpw" path="res://Iris-in-Wonderland/src/background/card_platform_4.tscn" id="17_vvufv"]
+[ext_resource type="PackedScene" uid="uid://bh4th8fe5trsh" path="res://Iris-in-Wonderland/src/characters/strawberry.tscn" id="18_axdvm"]
 [ext_resource type="AudioStream" uid="uid://dcj6my0rmnj8n" path="res://Iris-in-Wonderland/assets/audio/星が輝く冬.mp3" id="22_rjmdx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olcg7"]
@@ -675,6 +676,10 @@ autoplay = "slide"
 [node name="shopkeeper" parent="character" instance=ExtResource("11_3x1x1")]
 position = Vector2(30, 510)
 
+[node name="Strawberry" parent="character" instance=ExtResource("18_axdvm")]
+position = Vector2(206, 191)
+moving = false
+
 [node name="player" parent="character" instance=ExtResource("10_tiipd")]
 
 [node name="DefaultCamera" parent="character/player" index="2"]
@@ -766,6 +771,9 @@ position = Vector2(940, 626)
 
 [node name="Marker2D_2" type="Marker2D" parent="markers"]
 position = Vector2(-612, 626)
+
+[node name="debug" type="Marker2D" parent="markers"]
+position = Vector2(366, 594)
 
 [node name="camera" type="Node" parent="."]
 

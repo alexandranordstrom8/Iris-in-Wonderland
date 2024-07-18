@@ -1668,6 +1668,7 @@ radius = 602.75
 
 [node name="cat" type="CharacterBody2D" node_paths=PackedStringArray("hp")]
 scale = Vector2(0.85, 0.85)
+collision_mask = 5
 script = ExtResource("1_q5rhp")
 hp = NodePath("hp")
 
@@ -1696,7 +1697,6 @@ region_rect = Rect2(0, 0, 62, 66)
 
 [node name="blink" type="Sprite2D" parent="Marker2D/Sprite2D/head"]
 visible = false
-scale = Vector2(1, 1)
 texture = ExtResource("3_he18a")
 region_enabled = true
 region_rect = Rect2(14, 111, 130, 98)
@@ -1754,6 +1754,7 @@ shape = SubResource("CapsuleShape2D_pquph")
 
 [node name="hp" type="Node" parent="."]
 script = ExtResource("3_dyhw3")
+max_health = 300
 
 [node name="audio_attack" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_0j85c")
@@ -1775,6 +1776,8 @@ stream = ExtResource("7_5u0sd")
 
 [node name="Hitbox" type="Area2D" parent="."]
 visible = false
+collision_layer = 0
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-11.7647, 29.4118)
@@ -1783,6 +1786,8 @@ shape = SubResource("CapsuleShape2D_aewt5")
 
 [node name="DetectionArea" type="Area2D" parent="."]
 visible = false
+collision_layer = 0
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_p67s8")

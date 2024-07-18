@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://dxaievchquyu6"]
+[gd_scene load_steps=54 format=3 uid="uid://dxaievchquyu6"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/1.gd" id="1_pku5t"]
 [ext_resource type="Texture2D" uid="uid://d0uhb7j45xd1g" path="res://Iris-in-Wonderland/assets/background/grass.png" id="2_1tmdf"]
@@ -120,67 +120,6 @@ tracks/1/keys = {
 _data = {
 "RESET": SubResource("Animation_166dr"),
 "slide": SubResource("Animation_4rbtp")
-}
-
-[sub_resource type="Animation" id="Animation_k3rcm"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../card_platform8:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2523, 1140)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../card_platform8:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_7p5nl"]
-resource_name = "slide"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../card_platform8:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(2523, 1140), Vector2(2523, 1218), Vector2(2523, 1140)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../card_platform8:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_xf4dl"]
-_data = {
-"RESET": SubResource("Animation_k3rcm"),
-"slide": SubResource("Animation_7p5nl")
 }
 
 [sub_resource type="Animation" id="Animation_dftqb"]
@@ -670,6 +609,7 @@ rotation = 0.20377
 
 [node name="MushroomB" parent="bg/up/mushrooms" instance=ExtResource("11_wiuhq")]
 position = Vector2(1165, 500)
+bounce_active = false
 
 [node name="path" type="Node" parent="bg/up"]
 
@@ -944,6 +884,7 @@ region_rect = Rect2(0, 0, 465.207, 251.556)
 position = Vector2(184, 1077)
 rotation = 3.03559
 scale = Vector2(0.8, -0.8)
+bounce_active = false
 
 [node name="MushroomB" parent="bg/down/mushroom_platform" instance=ExtResource("11_wiuhq")]
 position = Vector2(908, 1223)
@@ -1075,15 +1016,6 @@ position = Vector2(2713, 288)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/card_platform7"]
 libraries = {
 "": SubResource("AnimationLibrary_g7blk")
-}
-autoplay = "slide"
-
-[node name="card_platform8" parent="platforms" instance=ExtResource("23_d4c14")]
-position = Vector2(2523, 1140)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/card_platform8"]
-libraries = {
-"": SubResource("AnimationLibrary_xf4dl")
 }
 autoplay = "slide"
 
@@ -1268,6 +1200,7 @@ region_rect = Rect2(0, 362.144, 333.466, 158.626)
 
 [node name="MushroomB5" parent="fg" instance=ExtResource("11_wiuhq")]
 position = Vector2(-51, 1338)
+bounce_active = false
 
 [node name="Sprite2D7" type="Sprite2D" parent="fg"]
 position = Vector2(212, 986)
