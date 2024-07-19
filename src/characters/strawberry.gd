@@ -4,6 +4,7 @@ var run : bool = false
 var dir = -1
 
 @export var moving : bool = true
+@export var roll_speed : int = 200
 
 @onready var run_animation = $Marker2D/Sprite2D/AnimationPlayer
 @onready var anim_sprite = $Marker2D/AnimatedSprite2D
@@ -23,7 +24,7 @@ func _physics_process(delta):
 		move_and_slide()
 	
 	if run:
-		velocity.x += SPEED * dir * delta
+		velocity.x += roll_speed * dir * delta
 	else:
 		velocity.x = 0
 		anim_sprite.play("default")

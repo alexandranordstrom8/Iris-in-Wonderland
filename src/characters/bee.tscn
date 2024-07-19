@@ -1,0 +1,87 @@
+[gd_scene load_steps=11 format=3 uid="uid://bmx463ao4mn3q"]
+
+[ext_resource type="Texture2D" uid="uid://0tnmx46gwxxj" path="res://Iris-in-Wonderland/assets/characters/bee.png" id="1_hmax3"]
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/bee.gd" id="1_k3vat"]
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/health.gd" id="3_bhr53"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rea6i"]
+atlas = ExtResource("1_hmax3")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tm0r"]
+atlas = ExtResource("1_hmax3")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xy6pq"]
+atlas = ExtResource("1_hmax3")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kjavg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rea6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tm0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xy6pq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ihl2l"]
+radius = 42.0
+height = 130.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pq2wm"]
+radius = 701.006
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bmrnk"]
+radius = 110.454
+
+[node name="Bee" type="CharacterBody2D" node_paths=PackedStringArray("hp")]
+script = ExtResource("1_k3vat")
+hp = NodePath("Health")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Marker2D"]
+sprite_frames = SubResource("SpriteFrames_kjavg")
+autoplay = "default"
+frame = 2
+frame_progress = 0.477747
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7, 25)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ihl2l")
+disabled = true
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_pq2wm")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("3_bhr53")
+max_health = 50
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-6, 25)
+shape = SubResource("CircleShape2D_bmrnk")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]

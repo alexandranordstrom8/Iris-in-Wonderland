@@ -57,3 +57,11 @@ func _on_cat_timer_timeout():
 func _on_exit_button_exit_interacted():
 	if won or not started:
 		change_scene(ScenePaths.scene_4)
+
+func _on_bee_new_target():
+	$character/Bee.set_target_pos(Vector2(randi_range(250, 3000), randi_range(100, 500)))
+
+func _on_enemy_get_position(target_name, enemy_name):
+	var target = $character.get_node(String(target_name))
+	var _enemy = $character.get_node(String(enemy_name))
+	_enemy.set_target_pos(target.position)

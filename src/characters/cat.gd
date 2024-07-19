@@ -6,23 +6,13 @@ extends Enemy
 
 const OFFSET = 70
 
-var chase: bool
 var dmg = 5
 var dead : bool = false
-var detected = {} # node_name : [node_body, true/false]
 
 signal attack_animated
 
 func _ready():
 	set_freeze_movement(true)
-	chase = true
-
-func detected_empty():
-	for entity in detected:
-		if detected[entity][1]:
-			target_pos = detected[entity][0].position
-			return false
-	return true
 
 func update_position(delta):
 	if position.x < target_pos.x - OFFSET:
@@ -68,22 +58,15 @@ func _on_hp_health_depleted():
 	emit_signal("hp_depleted")
 
 func _on_detection_area_body_entered(body):
+	super(body)
 	if body.get_parent().name == "character" and not body == self:
 		$audio_meow.play()
-		chase = true
-		target_pos = body.position
-		detected[body.name] = [body, true]
 
 func _on_detection_area_body_exited(body):
-	if body.get_parent().name == "character" and not body == self:
-		detected[body.name] = [body, false]
-		
-		if detected_empty():
-			chase = false
+	super(body)
 
 func _on_hitbox_body_entered(body):
-	if body.get_parent().name == "character" and not body == self:
-		set_can_interact(body.name, true)
+	super(body)
 
 func _on_hitbox_body_exited(body):
 	if body.get_parent().name == "character" and not body == self:

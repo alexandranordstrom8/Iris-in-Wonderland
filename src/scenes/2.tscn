@@ -1078,6 +1078,7 @@ stream = ExtResource("34_agaox")
 [connection signal="sp_changed" from="character/iris" to="ui/Interface" method="_on_iris_sp_changed"]
 [connection signal="attacked" from="character/cat" to="character/Strawberry" method="_on_enemy_attacked"]
 [connection signal="attacked" from="character/cat" to="character/iris" method="_on_enemy_attacked"]
+[connection signal="get_position" from="character/cat" to="." method="_on_enemy_get_position"]
 [connection signal="hp_depleted" from="character/cat" to="." method="_on_cat_hp_depleted"]
 [connection signal="health_changed" from="character/cat/hp" to="ui/VBoxContainer/boss_bar" method="_on_hp_health_changed"]
 [connection signal="max_health_changed" from="character/cat/hp" to="ui/VBoxContainer/boss_bar" method="_on_hp_max_health_changed"]

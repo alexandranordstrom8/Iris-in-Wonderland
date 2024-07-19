@@ -59,13 +59,20 @@ region_enabled = true
 region_rect = Rect2(0, 0, 570.955, 250)
 
 [node name="Sprite2D7" type="Sprite2D" parent="ParallaxLayer2"]
-position = Vector2(2311, 532)
+position = Vector2(2312, 535)
 texture = ExtResource("1_kcids")
 region_enabled = true
 region_rect = Rect2(0, 0, 570.955, 250)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.5, 0.8)
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxLayer"]
+offset_left = -1998.0
+offset_top = 694.0
+offset_right = 2529.0
+offset_bottom = 1455.0
+color = Color(0.592157, 0.854902, 0.670588, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
 position = Vector2(-397, 496.5)
@@ -76,6 +83,14 @@ region_enabled = true
 region_rect = Rect2(0, 494.953, 1280, 225.047)
 
 [node name="Sprite2D3" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(-2000, 496.5)
+scale = Vector2(1.58125, 1.14444)
+texture = ExtResource("1_kcids")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 494.953, 1280, 225.047)
+
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxLayer"]
 position = Vector2(-2000, 496.5)
 scale = Vector2(1.58125, 1.14444)
 texture = ExtResource("1_kcids")

@@ -7,12 +7,16 @@ const ACTION_COOLDOWN = 1.6
 
 var freeze_movement: bool
 var can_interact = {"iris": false}
+var detected = {"iris": false}
 var target_pos: Vector2
+var chase : bool = false
+
 @export var hp: Health
 
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 signal attacked(amount, can_interact_list, pos, dir)
+signal get_position(target_name, enemy_name)
 signal hp_depleted()
 
 func _process(delta):
@@ -21,9 +25,6 @@ func _process(delta):
 	
 func set_can_interact(entity, value):
 	can_interact[entity] = value
-	
-func get_can_interact(entity):
-	return can_interact[entity]
 
 func set_freeze_movement(value):
 	freeze_movement = value
@@ -33,16 +34,37 @@ func set_freeze_movement(value):
 func set_target_pos(pos):
 	target_pos = pos
 
+func detected_empty():
+	for entity in detected:
+		if detected[entity]:
+			emit_signal("get_position", entity, self.name)
+			#target_pos = detected[entity][0].position
+			return false
+	return true
+
 func _on_health_health_depleted():
 	queue_free()
 	
-func _on_area_2d_body_entered(body):
+func _on_hitbox_body_entered(body):
 	if body.get_parent().name == "character" and not body == self:
 		set_can_interact(body.name, true)
 
-func _on_area_2d_body_exited(body):
+func _on_hitbox_body_exited(body):
 	if body.get_parent().name == "character" and not body == self:
 		set_can_interact(body.name, false)
+		emit_signal("get_position", body.name, self.name)
+
+func _on_detection_area_body_entered(body):
+	if body.get_parent().name == "character" and not body == self:
+		chase = true
+		target_pos = body.position
+		detected[body.name] = true
+
+func _on_detection_area_body_exited(body):
+	if body.get_parent().name == "character" and not body == self:
+		detected[body.name] = false
+		if detected_empty():
+			chase = false
 
 func _on_iris_damage_dealt(amount):
 	if can_interact["iris"]:
