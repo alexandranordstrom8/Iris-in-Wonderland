@@ -12,6 +12,7 @@ var target_pos: Vector2
 var chase : bool = false
 
 @export var hp: Health
+@export var sprite : Node2D
 
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -38,7 +39,6 @@ func detected_empty():
 	for entity in detected:
 		if detected[entity]:
 			emit_signal("get_position", entity, self.name)
-			#target_pos = detected[entity][0].position
 			return false
 	return true
 
@@ -65,6 +65,12 @@ func _on_detection_area_body_exited(body):
 		detected[body.name] = false
 		if detected_empty():
 			chase = false
+
+func _on_hp_damage_taken():
+	var tmp = sprite.self_modulate
+	var tween = get_tree().create_tween()
+	tween.tween_property(sprite, "modulate", Color.LIGHT_CORAL, 0.1)
+	tween.tween_property(sprite, "modulate", tmp, 0.1)
 
 func _on_iris_damage_dealt(amount):
 	if can_interact["iris"]:

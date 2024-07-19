@@ -1,17 +1,17 @@
 [gd_scene load_steps=16 format=3 uid="uid://t5fc2o13q0gx"]
 
-[ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/5.gd" id="1_fukc8"]
-[ext_resource type="PackedScene" uid="uid://bah2pxas0yt5v" path="res://Iris-in-Wonderland/src/background/sky.tscn" id="2_2wn2q"]
-[ext_resource type="Texture2D" uid="uid://rvyo48q01jg2" path="res://Iris-in-Wonderland/assets/background/card2.png" id="3_cwhcw"]
-[ext_resource type="PackedScene" uid="uid://brma5q2nftysu" path="res://Iris-in-Wonderland/src/background/card_platform_1.tscn" id="3_o6j8l"]
-[ext_resource type="PackedScene" uid="uid://co5rhs1t15yqh" path="res://Iris-in-Wonderland/src/background/card_platform_3.tscn" id="4_guad7"]
-[ext_resource type="Texture2D" uid="uid://ba34vy4586mq2" path="res://Iris-in-Wonderland/assets/background/card3.png" id="4_mm5gk"]
-[ext_resource type="Texture2D" uid="uid://dieianxx5samo" path="res://Iris-in-Wonderland/assets/background/card4.png" id="5_724li"]
-[ext_resource type="PackedScene" uid="uid://btqp4gxdg4jpw" path="res://Iris-in-Wonderland/src/background/card_platform_4.tscn" id="5_gy2b3"]
-[ext_resource type="Texture2D" uid="uid://kl2ifar8blmr" path="res://Iris-in-Wonderland/assets/background/card1.png" id="6_hu1bb"]
-[ext_resource type="PackedScene" uid="uid://duenctpiba1bt" path="res://Iris-in-Wonderland/src/background/card_platform_2.tscn" id="6_t7pik"]
-[ext_resource type="PackedScene" uid="uid://dru877c21uloj" path="res://Iris-in-Wonderland/src/characters/player.tscn" id="7_u8mpn"]
-[ext_resource type="PackedScene" uid="uid://dpj8w1xhqb18n" path="res://Iris-in-Wonderland/src/background/mushroom_b.tscn" id="11_y3biw"]
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/5.gd" id="1_v4506"]
+[ext_resource type="PackedScene" uid="uid://bah2pxas0yt5v" path="res://Iris-in-Wonderland/src/background/sky.tscn" id="2_mvhnf"]
+[ext_resource type="Texture2D" uid="uid://rvyo48q01jg2" path="res://Iris-in-Wonderland/assets/background/card2.png" id="3_mhbg8"]
+[ext_resource type="Texture2D" uid="uid://ba34vy4586mq2" path="res://Iris-in-Wonderland/assets/background/card3.png" id="4_scmug"]
+[ext_resource type="Texture2D" uid="uid://dieianxx5samo" path="res://Iris-in-Wonderland/assets/background/card4.png" id="5_w1bre"]
+[ext_resource type="Texture2D" uid="uid://kl2ifar8blmr" path="res://Iris-in-Wonderland/assets/background/card1.png" id="6_mekob"]
+[ext_resource type="PackedScene" uid="uid://brma5q2nftysu" path="res://Iris-in-Wonderland/src/background/card_platform_1.tscn" id="7_tw51s"]
+[ext_resource type="PackedScene" uid="uid://co5rhs1t15yqh" path="res://Iris-in-Wonderland/src/background/card_platform_3.tscn" id="8_s4xjj"]
+[ext_resource type="PackedScene" uid="uid://btqp4gxdg4jpw" path="res://Iris-in-Wonderland/src/background/card_platform_4.tscn" id="9_dg71t"]
+[ext_resource type="PackedScene" uid="uid://duenctpiba1bt" path="res://Iris-in-Wonderland/src/background/card_platform_2.tscn" id="10_ux7nl"]
+[ext_resource type="PackedScene" uid="uid://dpj8w1xhqb18n" path="res://Iris-in-Wonderland/src/background/mushroom_b.tscn" id="11_e1uxp"]
+[ext_resource type="PackedScene" uid="uid://dru877c21uloj" path="res://Iris-in-Wonderland/src/characters/player.tscn" id="12_55hhl"]
 
 [sub_resource type="Animation" id="Animation_swdvb"]
 length = 0.001
@@ -268,11 +268,11 @@ _data = {
 }
 
 [node name="world" type="Node2D" node_paths=PackedStringArray("interface", "player")]
-script = ExtResource("1_fukc8")
+script = ExtResource("1_v4506")
 interface = NodePath("character/player/ui/Interface")
 player = NodePath("character/player/iris")
 
-[node name="sky" parent="." instance=ExtResource("2_2wn2q")]
+[node name="sky" parent="." instance=ExtResource("2_mvhnf")]
 
 [node name="bg" type="Node" parent="."]
 
@@ -281,39 +281,39 @@ player = NodePath("character/player/iris")
 [node name="Sprite2D2" type="Sprite2D" parent="bg/distant_bg"]
 position = Vector2(440.5, 311)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_cwhcw")
+texture = ExtResource("3_mhbg8")
 
 [node name="Sprite2D3" type="Sprite2D" parent="bg/distant_bg"]
 position = Vector2(683, 442)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_mm5gk")
+texture = ExtResource("4_scmug")
 
 [node name="Sprite2D5" type="Sprite2D" parent="bg/distant_bg"]
 position = Vector2(538, 194)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_724li")
+texture = ExtResource("5_w1bre")
 
 [node name="Sprite2D4" type="Sprite2D" parent="bg/distant_bg"]
 position = Vector2(1002, 391)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_hu1bb")
+texture = ExtResource("6_mekob")
 
 [node name="Sprite2D" type="Sprite2D" parent="bg/distant_bg"]
 position = Vector2(-10, 371)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_hu1bb")
+texture = ExtResource("6_mekob")
 
 [node name="Sprite2D2" type="Sprite2D" parent="bg/distant_bg/Sprite2D"]
 position = Vector2(195, 0)
-texture = ExtResource("3_cwhcw")
+texture = ExtResource("3_mhbg8")
 
 [node name="Sprite2D3" type="Sprite2D" parent="bg/distant_bg/Sprite2D"]
 position = Vector2(392, 0)
-texture = ExtResource("4_mm5gk")
+texture = ExtResource("4_scmug")
 
 [node name="Sprite2D4" type="Sprite2D" parent="bg/distant_bg/Sprite2D"]
 position = Vector2(588, 0)
-texture = ExtResource("5_724li")
+texture = ExtResource("5_w1bre")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="bg/distant_bg"]
 libraries = {
@@ -325,321 +325,321 @@ autoplay = "move"
 
 [node name="Sprite2D" type="Sprite2D" parent="bg/cards"]
 position = Vector2(366, 753)
-texture = ExtResource("6_hu1bb")
+texture = ExtResource("6_mekob")
 
 [node name="Sprite2D2" type="Sprite2D" parent="bg/cards/Sprite2D"]
 position = Vector2(195, 0)
-texture = ExtResource("3_cwhcw")
+texture = ExtResource("3_mhbg8")
 
 [node name="Sprite2D3" type="Sprite2D" parent="bg/cards/Sprite2D"]
 position = Vector2(392, 0)
-texture = ExtResource("4_mm5gk")
+texture = ExtResource("4_scmug")
 
 [node name="Sprite2D4" type="Sprite2D" parent="bg/cards/Sprite2D"]
 position = Vector2(588, 0)
-texture = ExtResource("5_724li")
+texture = ExtResource("5_w1bre")
 
 [node name="Sprite2D5" type="Sprite2D" parent="bg/cards/Sprite2D"]
 position = Vector2(353, 71)
-texture = ExtResource("6_hu1bb")
+texture = ExtResource("6_mekob")
 
 [node name="Sprite2D2" type="Sprite2D" parent="bg/cards/Sprite2D/Sprite2D5"]
 position = Vector2(195, 0)
-texture = ExtResource("4_mm5gk")
+texture = ExtResource("4_scmug")
 
 [node name="Sprite2D3" type="Sprite2D" parent="bg/cards/Sprite2D/Sprite2D5"]
 position = Vector2(392, 0)
-texture = ExtResource("5_724li")
+texture = ExtResource("5_w1bre")
 
 [node name="Sprite2D4" type="Sprite2D" parent="bg/cards/Sprite2D/Sprite2D5"]
 position = Vector2(588, 0)
-texture = ExtResource("3_cwhcw")
+texture = ExtResource("3_mhbg8")
 
 [node name="Sprite2D6" type="Sprite2D" parent="bg/cards/Sprite2D"]
 position = Vector2(781, 1)
-texture = ExtResource("6_hu1bb")
+texture = ExtResource("6_mekob")
 
 [node name="Sprite2D2" type="Sprite2D" parent="bg/cards/Sprite2D/Sprite2D6"]
 position = Vector2(195, 0)
-texture = ExtResource("4_mm5gk")
+texture = ExtResource("4_scmug")
 
 [node name="Sprite2D3" type="Sprite2D" parent="bg/cards/Sprite2D/Sprite2D6"]
 position = Vector2(392, 0)
-texture = ExtResource("4_mm5gk")
+texture = ExtResource("4_scmug")
 
 [node name="Sprite2D4" type="Sprite2D" parent="bg/cards/Sprite2D/Sprite2D6"]
 position = Vector2(588, 0)
-texture = ExtResource("3_cwhcw")
+texture = ExtResource("3_mhbg8")
 
 [node name="Sprite2D2" type="Sprite2D" parent="bg/cards"]
 position = Vector2(-717, 1177)
-texture = ExtResource("6_hu1bb")
+texture = ExtResource("6_mekob")
 
 [node name="Sprite2D2" type="Sprite2D" parent="bg/cards/Sprite2D2"]
 position = Vector2(195, 0)
-texture = ExtResource("3_cwhcw")
+texture = ExtResource("3_mhbg8")
 
 [node name="Sprite2D3" type="Sprite2D" parent="bg/cards/Sprite2D2"]
 position = Vector2(392, 0)
-texture = ExtResource("4_mm5gk")
+texture = ExtResource("4_scmug")
 
 [node name="Sprite2D4" type="Sprite2D" parent="bg/cards/Sprite2D2"]
 position = Vector2(588, 0)
-texture = ExtResource("5_724li")
+texture = ExtResource("5_w1bre")
 
 [node name="Sprite2D5" type="Sprite2D" parent="bg/cards/Sprite2D2"]
 position = Vector2(353, 71)
-texture = ExtResource("6_hu1bb")
+texture = ExtResource("6_mekob")
 
 [node name="Sprite2D2" type="Sprite2D" parent="bg/cards/Sprite2D2/Sprite2D5"]
 position = Vector2(195, 0)
-texture = ExtResource("4_mm5gk")
+texture = ExtResource("4_scmug")
 
 [node name="Sprite2D3" type="Sprite2D" parent="bg/cards/Sprite2D2/Sprite2D5"]
 position = Vector2(392, 0)
-texture = ExtResource("5_724li")
+texture = ExtResource("5_w1bre")
 
 [node name="Sprite2D4" type="Sprite2D" parent="bg/cards/Sprite2D2/Sprite2D5"]
 position = Vector2(588, 0)
-texture = ExtResource("3_cwhcw")
+texture = ExtResource("3_mhbg8")
 
 [node name="Sprite2D6" type="Sprite2D" parent="bg/cards/Sprite2D2"]
 position = Vector2(-431, 69)
-texture = ExtResource("6_hu1bb")
+texture = ExtResource("6_mekob")
 
 [node name="Sprite2D2" type="Sprite2D" parent="bg/cards/Sprite2D2/Sprite2D6"]
 position = Vector2(195, 0)
-texture = ExtResource("4_mm5gk")
+texture = ExtResource("4_scmug")
 
 [node name="Sprite2D3" type="Sprite2D" parent="bg/cards/Sprite2D2/Sprite2D6"]
 position = Vector2(392, 0)
-texture = ExtResource("4_mm5gk")
+texture = ExtResource("4_scmug")
 
 [node name="Sprite2D4" type="Sprite2D" parent="bg/cards/Sprite2D2/Sprite2D6"]
 position = Vector2(588, 0)
-texture = ExtResource("3_cwhcw")
+texture = ExtResource("3_mhbg8")
 
 [node name="Sprite2D3" type="Sprite2D" parent="bg/cards"]
 position = Vector2(-61, 1387)
-texture = ExtResource("6_hu1bb")
+texture = ExtResource("6_mekob")
 
 [node name="Sprite2D2" type="Sprite2D" parent="bg/cards/Sprite2D3"]
 position = Vector2(195, 0)
-texture = ExtResource("3_cwhcw")
+texture = ExtResource("3_mhbg8")
 
 [node name="Sprite2D3" type="Sprite2D" parent="bg/cards/Sprite2D3"]
 position = Vector2(392, 0)
-texture = ExtResource("4_mm5gk")
+texture = ExtResource("4_scmug")
 
 [node name="Sprite2D4" type="Sprite2D" parent="bg/cards/Sprite2D3"]
 position = Vector2(588, 0)
-texture = ExtResource("5_724li")
+texture = ExtResource("5_w1bre")
 
 [node name="Sprite2D5" type="Sprite2D" parent="bg/cards/Sprite2D3"]
 position = Vector2(353, 71)
-texture = ExtResource("6_hu1bb")
+texture = ExtResource("6_mekob")
 
 [node name="Sprite2D2" type="Sprite2D" parent="bg/cards/Sprite2D3/Sprite2D5"]
 position = Vector2(195, 0)
-texture = ExtResource("4_mm5gk")
+texture = ExtResource("4_scmug")
 
 [node name="Sprite2D3" type="Sprite2D" parent="bg/cards/Sprite2D3/Sprite2D5"]
 position = Vector2(392, 0)
-texture = ExtResource("5_724li")
+texture = ExtResource("5_w1bre")
 
 [node name="Sprite2D4" type="Sprite2D" parent="bg/cards/Sprite2D3/Sprite2D5"]
 position = Vector2(588, 0)
-texture = ExtResource("3_cwhcw")
+texture = ExtResource("3_mhbg8")
 
 [node name="Sprite2D6" type="Sprite2D" parent="bg/cards/Sprite2D3"]
 position = Vector2(-431, 69)
-texture = ExtResource("6_hu1bb")
+texture = ExtResource("6_mekob")
 
 [node name="Sprite2D2" type="Sprite2D" parent="bg/cards/Sprite2D3/Sprite2D6"]
 position = Vector2(195, 0)
-texture = ExtResource("4_mm5gk")
+texture = ExtResource("4_scmug")
 
 [node name="Sprite2D3" type="Sprite2D" parent="bg/cards/Sprite2D3/Sprite2D6"]
 position = Vector2(392, 0)
-texture = ExtResource("4_mm5gk")
+texture = ExtResource("4_scmug")
 
 [node name="Sprite2D4" type="Sprite2D" parent="bg/cards/Sprite2D3/Sprite2D6"]
 position = Vector2(588, 0)
-texture = ExtResource("3_cwhcw")
+texture = ExtResource("3_mhbg8")
 
 [node name="Sprite2D4" type="Sprite2D" parent="bg/cards"]
 position = Vector2(1103, 1814)
-texture = ExtResource("6_hu1bb")
+texture = ExtResource("6_mekob")
 
 [node name="Sprite2D2" type="Sprite2D" parent="bg/cards/Sprite2D4"]
 position = Vector2(195, 0)
-texture = ExtResource("3_cwhcw")
+texture = ExtResource("3_mhbg8")
 
 [node name="Sprite2D3" type="Sprite2D" parent="bg/cards/Sprite2D4"]
 position = Vector2(392, 0)
-texture = ExtResource("4_mm5gk")
+texture = ExtResource("4_scmug")
 
 [node name="Sprite2D4" type="Sprite2D" parent="bg/cards/Sprite2D4"]
 position = Vector2(588, 0)
-texture = ExtResource("5_724li")
+texture = ExtResource("5_w1bre")
 
 [node name="Sprite2D5" type="Sprite2D" parent="bg/cards/Sprite2D4"]
 position = Vector2(-785, 0)
-texture = ExtResource("6_hu1bb")
+texture = ExtResource("6_mekob")
 
 [node name="Sprite2D2" type="Sprite2D" parent="bg/cards/Sprite2D4/Sprite2D5"]
 position = Vector2(195, 0)
-texture = ExtResource("4_mm5gk")
+texture = ExtResource("4_scmug")
 
 [node name="Sprite2D3" type="Sprite2D" parent="bg/cards/Sprite2D4/Sprite2D5"]
 position = Vector2(392, 0)
-texture = ExtResource("5_724li")
+texture = ExtResource("5_w1bre")
 
 [node name="Sprite2D4" type="Sprite2D" parent="bg/cards/Sprite2D4/Sprite2D5"]
 position = Vector2(588, 0)
-texture = ExtResource("3_cwhcw")
+texture = ExtResource("3_mhbg8")
 
 [node name="Sprite2D6" type="Sprite2D" parent="bg/cards/Sprite2D4"]
 position = Vector2(-431, 69)
-texture = ExtResource("6_hu1bb")
+texture = ExtResource("6_mekob")
 
 [node name="Sprite2D2" type="Sprite2D" parent="bg/cards/Sprite2D4/Sprite2D6"]
 position = Vector2(195, 0)
-texture = ExtResource("4_mm5gk")
+texture = ExtResource("4_scmug")
 
 [node name="Sprite2D3" type="Sprite2D" parent="bg/cards/Sprite2D4/Sprite2D6"]
 position = Vector2(392, 0)
-texture = ExtResource("4_mm5gk")
+texture = ExtResource("4_scmug")
 
 [node name="Sprite2D4" type="Sprite2D" parent="bg/cards/Sprite2D4/Sprite2D6"]
 position = Vector2(588, 0)
-texture = ExtResource("3_cwhcw")
+texture = ExtResource("3_mhbg8")
 
 [node name="platforms" type="Node" parent="."]
 
-[node name="card_platform1" parent="platforms" instance=ExtResource("3_o6j8l")]
+[node name="card_platform1" parent="platforms" instance=ExtResource("7_tw51s")]
 position = Vector2(25, 680)
 
-[node name="card_platform3" parent="platforms/card_platform1" instance=ExtResource("4_guad7")]
+[node name="card_platform3" parent="platforms/card_platform1" instance=ExtResource("8_s4xjj")]
 position = Vector2(194, 0)
 
-[node name="card_platform4" parent="platforms/card_platform1" instance=ExtResource("5_gy2b3")]
+[node name="card_platform4" parent="platforms/card_platform1" instance=ExtResource("9_dg71t")]
 position = Vector2(582, 0)
 
-[node name="card_platform2" parent="platforms/card_platform1" instance=ExtResource("6_t7pik")]
+[node name="card_platform2" parent="platforms/card_platform1" instance=ExtResource("10_ux7nl")]
 position = Vector2(388, 0)
 
-[node name="card_platform5" parent="platforms/card_platform1" instance=ExtResource("3_o6j8l")]
+[node name="card_platform5" parent="platforms/card_platform1" instance=ExtResource("7_tw51s")]
 position = Vector2(778, 0)
 
-[node name="card_platform3" parent="platforms/card_platform1/card_platform5" instance=ExtResource("4_guad7")]
+[node name="card_platform3" parent="platforms/card_platform1/card_platform5" instance=ExtResource("8_s4xjj")]
 position = Vector2(194, 0)
 
-[node name="card_platform4" parent="platforms/card_platform1/card_platform5" instance=ExtResource("5_gy2b3")]
+[node name="card_platform4" parent="platforms/card_platform1/card_platform5" instance=ExtResource("9_dg71t")]
 position = Vector2(582, 0)
 
-[node name="card_platform2" parent="platforms/card_platform1/card_platform5" instance=ExtResource("6_t7pik")]
+[node name="card_platform2" parent="platforms/card_platform1/card_platform5" instance=ExtResource("10_ux7nl")]
 position = Vector2(388, 0)
 
-[node name="card_platform6" parent="platforms/card_platform1" instance=ExtResource("3_o6j8l")]
+[node name="card_platform6" parent="platforms/card_platform1" instance=ExtResource("7_tw51s")]
 position = Vector2(1556, 0)
 
-[node name="card_platform3" parent="platforms/card_platform1/card_platform6" instance=ExtResource("4_guad7")]
+[node name="card_platform3" parent="platforms/card_platform1/card_platform6" instance=ExtResource("8_s4xjj")]
 position = Vector2(194, 0)
 
-[node name="card_platform4" parent="platforms/card_platform1/card_platform6" instance=ExtResource("5_gy2b3")]
+[node name="card_platform4" parent="platforms/card_platform1/card_platform6" instance=ExtResource("9_dg71t")]
 position = Vector2(582, 0)
 
-[node name="card_platform2" parent="platforms/card_platform1/card_platform6" instance=ExtResource("6_t7pik")]
+[node name="card_platform2" parent="platforms/card_platform1/card_platform6" instance=ExtResource("10_ux7nl")]
 position = Vector2(388, 0)
 
-[node name="card_platform2" parent="platforms" instance=ExtResource("3_o6j8l")]
+[node name="card_platform2" parent="platforms" instance=ExtResource("7_tw51s")]
 position = Vector2(-987, 1314)
 
-[node name="card_platform3" parent="platforms/card_platform2" instance=ExtResource("4_guad7")]
+[node name="card_platform3" parent="platforms/card_platform2" instance=ExtResource("8_s4xjj")]
 position = Vector2(194, 0)
 
-[node name="card_platform4" parent="platforms/card_platform2" instance=ExtResource("5_gy2b3")]
+[node name="card_platform4" parent="platforms/card_platform2" instance=ExtResource("9_dg71t")]
 position = Vector2(582, 0)
 
-[node name="card_platform2" parent="platforms/card_platform2" instance=ExtResource("6_t7pik")]
+[node name="card_platform2" parent="platforms/card_platform2" instance=ExtResource("10_ux7nl")]
 position = Vector2(388, 0)
 
-[node name="card_platform5" parent="platforms/card_platform2" instance=ExtResource("3_o6j8l")]
+[node name="card_platform5" parent="platforms/card_platform2" instance=ExtResource("7_tw51s")]
 position = Vector2(778, 0)
 
-[node name="card_platform3" parent="platforms/card_platform2/card_platform5" instance=ExtResource("4_guad7")]
+[node name="card_platform3" parent="platforms/card_platform2/card_platform5" instance=ExtResource("8_s4xjj")]
 position = Vector2(194, 0)
 
-[node name="card_platform4" parent="platforms/card_platform2/card_platform5" instance=ExtResource("5_gy2b3")]
+[node name="card_platform4" parent="platforms/card_platform2/card_platform5" instance=ExtResource("9_dg71t")]
 position = Vector2(582, 0)
 
-[node name="card_platform2" parent="platforms/card_platform2/card_platform5" instance=ExtResource("6_t7pik")]
+[node name="card_platform2" parent="platforms/card_platform2/card_platform5" instance=ExtResource("10_ux7nl")]
 position = Vector2(388, 0)
 
-[node name="card_platform6" parent="platforms/card_platform2" instance=ExtResource("3_o6j8l")]
+[node name="card_platform6" parent="platforms/card_platform2" instance=ExtResource("7_tw51s")]
 position = Vector2(1556, 0)
 
-[node name="card_platform3" parent="platforms/card_platform2/card_platform6" instance=ExtResource("4_guad7")]
+[node name="card_platform3" parent="platforms/card_platform2/card_platform6" instance=ExtResource("8_s4xjj")]
 position = Vector2(194, 0)
 
-[node name="card_platform7" parent="platforms" instance=ExtResource("3_o6j8l")]
+[node name="card_platform7" parent="platforms" instance=ExtResource("7_tw51s")]
 position = Vector2(369, 1742)
 
-[node name="card_platform3" parent="platforms/card_platform7" instance=ExtResource("4_guad7")]
+[node name="card_platform3" parent="platforms/card_platform7" instance=ExtResource("8_s4xjj")]
 position = Vector2(194, 0)
 
-[node name="card_platform4" parent="platforms/card_platform7" instance=ExtResource("5_gy2b3")]
+[node name="card_platform4" parent="platforms/card_platform7" instance=ExtResource("9_dg71t")]
 position = Vector2(582, 0)
 
-[node name="card_platform2" parent="platforms/card_platform7" instance=ExtResource("6_t7pik")]
+[node name="card_platform2" parent="platforms/card_platform7" instance=ExtResource("10_ux7nl")]
 position = Vector2(388, 0)
 
-[node name="card_platform5" parent="platforms/card_platform7" instance=ExtResource("3_o6j8l")]
+[node name="card_platform5" parent="platforms/card_platform7" instance=ExtResource("7_tw51s")]
 position = Vector2(778, 0)
 
-[node name="card_platform3" parent="platforms/card_platform7/card_platform5" instance=ExtResource("4_guad7")]
+[node name="card_platform3" parent="platforms/card_platform7/card_platform5" instance=ExtResource("8_s4xjj")]
 position = Vector2(194, 0)
 
-[node name="card_platform4" parent="platforms/card_platform7/card_platform5" instance=ExtResource("5_gy2b3")]
+[node name="card_platform4" parent="platforms/card_platform7/card_platform5" instance=ExtResource("9_dg71t")]
 position = Vector2(582, 0)
 
-[node name="card_platform2" parent="platforms/card_platform7/card_platform5" instance=ExtResource("6_t7pik")]
+[node name="card_platform2" parent="platforms/card_platform7/card_platform5" instance=ExtResource("10_ux7nl")]
 position = Vector2(388, 0)
 
-[node name="card_platform6" parent="platforms/card_platform7" instance=ExtResource("3_o6j8l")]
+[node name="card_platform6" parent="platforms/card_platform7" instance=ExtResource("7_tw51s")]
 position = Vector2(1556, 0)
 
-[node name="card_platform6" parent="platforms" instance=ExtResource("6_t7pik")]
+[node name="card_platform6" parent="platforms" instance=ExtResource("10_ux7nl")]
 position = Vector2(-350, 881)
 
-[node name="card_platform5" parent="platforms" instance=ExtResource("5_gy2b3")]
+[node name="card_platform5" parent="platforms" instance=ExtResource("9_dg71t")]
 position = Vector2(-164, 784)
 
-[node name="card_platform4" parent="platforms" instance=ExtResource("5_gy2b3")]
+[node name="card_platform4" parent="platforms" instance=ExtResource("9_dg71t")]
 position = Vector2(1276, 1435)
 
-[node name="card_platform3" parent="platforms" instance=ExtResource("6_t7pik")]
+[node name="card_platform3" parent="platforms" instance=ExtResource("10_ux7nl")]
 position = Vector2(1028, 1360)
 
-[node name="card_platform8" parent="platforms" instance=ExtResource("4_guad7")]
+[node name="card_platform8" parent="platforms" instance=ExtResource("8_s4xjj")]
 position = Vector2(67, 1819)
 
-[node name="card_platform9" parent="platforms" instance=ExtResource("6_t7pik")]
+[node name="card_platform9" parent="platforms" instance=ExtResource("10_ux7nl")]
 position = Vector2(-160, 1932)
 
-[node name="card_platform10" parent="platforms" instance=ExtResource("5_gy2b3")]
+[node name="card_platform10" parent="platforms" instance=ExtResource("9_dg71t")]
 position = Vector2(-387, 2049)
 
-[node name="MushroomB" parent="platforms" instance=ExtResource("11_y3biw")]
+[node name="MushroomB" parent="platforms" instance=ExtResource("11_e1uxp")]
 position = Vector2(-848, 1094)
 
-[node name="MushroomB2" parent="platforms" instance=ExtResource("11_y3biw")]
+[node name="MushroomB2" parent="platforms" instance=ExtResource("11_e1uxp")]
 position = Vector2(1778, 1613)
 scale = Vector2(-1, 1)
 
 [node name="character" type="Node" parent="."]
 
-[node name="player" parent="character" instance=ExtResource("7_u8mpn")]
+[node name="player" parent="character" instance=ExtResource("12_55hhl")]
 
 [editable path="character/player"]

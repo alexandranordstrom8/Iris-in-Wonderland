@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp671r6nivhj"]
+
+[ext_resource type="StyleBox" uid="uid://b4ohi7you0n08" path="res://Iris-in-Wonderland/src/interface/ui_bg.tres" id="1_xl2jo"]
+[ext_resource type="Theme" uid="uid://dqu1hdmh0ypou" path="res://Iris-in-Wonderland/src/interface/theme.tres" id="2_hf8r4"]
+
+[node name="PickUpLabel" type="Panel"]
+custom_minimum_size = Vector2(120, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = ExtResource("1_xl2jo")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -20.0
+offset_right = 37.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Pick up"
+
+[node name="Panel2" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_hf8r4")
+
+[node name="Label" type="Label" parent="HBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "F"
+horizontal_alignment = 1

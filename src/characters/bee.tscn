@@ -43,9 +43,10 @@ radius = 701.006
 [sub_resource type="CircleShape2D" id="CircleShape2D_bmrnk"]
 radius = 110.454
 
-[node name="Bee" type="CharacterBody2D" node_paths=PackedStringArray("hp")]
+[node name="Bee" type="CharacterBody2D" node_paths=PackedStringArray("hp", "sprite")]
 script = ExtResource("1_k3vat")
 hp = NodePath("Health")
+sprite = NodePath("Marker2D/AnimatedSprite2D")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 
@@ -83,5 +84,7 @@ shape = SubResource("CircleShape2D_bmrnk")
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="damage_taken" from="Health" to="." method="_on_hp_damage_taken"]
+[connection signal="health_depleted" from="Health" to="." method="_on_health_health_depleted"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]

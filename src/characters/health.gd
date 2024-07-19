@@ -8,6 +8,7 @@ signal health_changed(health)
 signal max_health_changed(maximum)
 signal health_depleted
 signal status(value)
+signal damage_taken
 
 func _ready():
 	health = max_health
@@ -34,6 +35,7 @@ func take_damage(amount):
 	health -= amount
 	health = max(0, health)
 	emit_signal("health_changed", health)
+	emit_signal("damage_taken")
 	check_status()
 
 func heal(amount):

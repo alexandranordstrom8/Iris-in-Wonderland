@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://bh4th8fe5trsh"]
+[gd_scene load_steps=17 format=3 uid="uid://bh4th8fe5trsh"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/strawberry.gd" id="1_1iwl3"]
 [ext_resource type="Texture2D" uid="uid://u7d0betrebm1" path="res://Iris-in-Wonderland/assets/characters/strawberry.png" id="1_j2y5o"]
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/health.gd" id="3_gqe4m"]
+[ext_resource type="PackedScene" uid="uid://dp671r6nivhj" path="res://Iris-in-Wonderland/src/interface/pick_up_label.tscn" id="4_1l86d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1opep"]
 atlas = ExtResource("1_j2y5o")
@@ -130,10 +131,11 @@ radius = 288.043
 [sub_resource type="CircleShape2D" id="CircleShape2D_nn7e8"]
 radius = 66.0303
 
-[node name="Strawberry" type="CharacterBody2D" node_paths=PackedStringArray("hp")]
+[node name="Strawberry" type="CharacterBody2D" node_paths=PackedStringArray("hp", "sprite")]
 collision_layer = 4
 script = ExtResource("1_1iwl3")
 hp = NodePath("Health")
+sprite = NodePath("Marker2D/AnimatedSprite2D")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("3_gqe4m")
@@ -171,6 +173,13 @@ shape = SubResource("CircleShape2D_mpwr6")
 position = Vector2(-1.19209e-07, 6)
 shape = SubResource("CircleShape2D_nn7e8")
 
+[node name="Panel" parent="Hitbox" instance=ExtResource("4_1l86d")]
+offset_left = 12.0
+offset_top = -59.0
+offset_right = 132.0
+offset_bottom = -19.0
+
+[connection signal="damage_taken" from="Health" to="." method="_on_hp_damage_taken"]
 [connection signal="health_depleted" from="Health" to="." method="_on_health_health_depleted"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

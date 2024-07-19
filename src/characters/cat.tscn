@@ -1666,11 +1666,12 @@ height = 315.294
 [sub_resource type="CircleShape2D" id="CircleShape2D_p67s8"]
 radius = 602.75
 
-[node name="cat" type="CharacterBody2D" node_paths=PackedStringArray("hp")]
+[node name="cat" type="CharacterBody2D" node_paths=PackedStringArray("hp", "sprite")]
 scale = Vector2(0.85, 0.85)
 collision_mask = 5
 script = ExtResource("1_q5rhp")
 hp = NodePath("hp")
+sprite = NodePath("Marker2D/Sprite2D")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 
@@ -1793,6 +1794,7 @@ collision_mask = 5
 shape = SubResource("CircleShape2D_p67s8")
 
 [connection signal="attack_animated" from="." to="." method="_on_attack_animated"]
+[connection signal="damage_taken" from="hp" to="." method="_on_hp_damage_taken"]
 [connection signal="health_depleted" from="hp" to="." method="_on_hp_health_depleted"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]

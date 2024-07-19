@@ -12,6 +12,7 @@ var attacking = false
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animations = $Marker2D/iris_rig/Sprite2D/AnimationPlayer
 @onready var pos2d = $Marker2D
+@onready var sprite = $Marker2D/iris_rig/Sprite2D
 
 var scratch_dmg = 10
 var dash_dmg = 1
@@ -124,6 +125,12 @@ func _on_hp_status(value):
 
 func _on_hp_health_changed(health):
 	emit_signal("hp_changed", health)
+
+func _on_hp_damage_taken():
+	var tmp = sprite.self_modulate
+	var tween = get_tree().create_tween()
+	tween.tween_property(sprite, "modulate", Color.LIGHT_CORAL, 0.1)
+	tween.tween_property(sprite, "modulate", tmp, 0.1)
 
 func _on_sp_health_changed(health):
 	emit_signal("sp_changed", health)
