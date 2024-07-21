@@ -1,20 +1,26 @@
-[gd_scene load_steps=40 format=3 uid="uid://rxq1umhh6ovy"]
+[gd_scene load_steps=51 format=3 uid="uid://rxq1umhh6ovy"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/4.gd" id="1_vhhav"]
 [ext_resource type="PackedScene" uid="uid://bah2pxas0yt5v" path="res://Iris-in-Wonderland/src/background/sky.tscn" id="2_17fo3"]
 [ext_resource type="PackedScene" uid="uid://bng63fw5pf27e" path="res://Iris-in-Wonderland/src/background/green_background.tscn" id="3_li05a"]
 [ext_resource type="Texture2D" uid="uid://p6jiynjt247g" path="res://Iris-in-Wonderland/assets/background/tree1.png" id="4_wcuog"]
+[ext_resource type="Texture2D" uid="uid://kl2ifar8blmr" path="res://Iris-in-Wonderland/assets/background/card1.png" id="4_y2wge"]
+[ext_resource type="Texture2D" uid="uid://rvyo48q01jg2" path="res://Iris-in-Wonderland/assets/background/card2.png" id="5_nn3bu"]
 [ext_resource type="PackedScene" uid="uid://b8wxjqdavi135" path="res://Iris-in-Wonderland/src/background/ground.tscn" id="5_pc5ig"]
+[ext_resource type="Texture2D" uid="uid://ba34vy4586mq2" path="res://Iris-in-Wonderland/assets/background/card3.png" id="6_3l8bh"]
 [ext_resource type="Texture2D" uid="uid://cbqo77367xmhg" path="res://Iris-in-Wonderland/assets/background/grass2.png" id="6_53urb"]
 [ext_resource type="Texture2D" uid="uid://d0uhb7j45xd1g" path="res://Iris-in-Wonderland/assets/background/grass.png" id="7_6ijp5"]
+[ext_resource type="Texture2D" uid="uid://dieianxx5samo" path="res://Iris-in-Wonderland/assets/background/card4.png" id="7_gu3l2"]
 [ext_resource type="Texture2D" uid="uid://bgemt3eaij6yc" path="res://Iris-in-Wonderland/assets/background/tree4.png" id="8_aeyu0"]
 [ext_resource type="Texture2D" uid="uid://djnh45cefqrtg" path="res://Iris-in-Wonderland/assets/background/tree3.png" id="9_mf1bi"]
 [ext_resource type="Texture2D" uid="uid://cc0kuu0c3c2m0" path="res://Iris-in-Wonderland/assets/background/path2.png" id="10_re4hc"]
 [ext_resource type="PackedScene" uid="uid://dru877c21uloj" path="res://Iris-in-Wonderland/src/characters/player.tscn" id="10_tiipd"]
 [ext_resource type="PackedScene" uid="uid://dmgjvfs6b5eut" path="res://Iris-in-Wonderland/src/characters/shopkeeper.tscn" id="11_3x1x1"]
 [ext_resource type="Texture2D" uid="uid://deiug4fdhqlhy" path="res://Iris-in-Wonderland/assets/background/path1.png" id="11_po1i4"]
+[ext_resource type="PackedScene" uid="uid://dv1q6s4q2mm3c" path="res://Iris-in-Wonderland/src/background/mushroom_r.tscn" id="12_hr6or"]
 [ext_resource type="PackedScene" uid="uid://dfwlix1amhelg" path="res://Iris-in-Wonderland/src/scenes/panning_camera.tscn" id="12_l6ce3"]
 [ext_resource type="Texture2D" uid="uid://b0ucchoxmyik8" path="res://Iris-in-Wonderland/assets/background/ground_texture.png" id="12_mojr4"]
+[ext_resource type="PackedScene" uid="uid://dpj8w1xhqb18n" path="res://Iris-in-Wonderland/src/background/mushroom_b.tscn" id="13_kdc5l"]
 [ext_resource type="PackedScene" uid="uid://em5hl7ux263y" path="res://Iris-in-Wonderland/src/interface/interact_button.tscn" id="14_ehvfi"]
 [ext_resource type="PackedScene" uid="uid://brma5q2nftysu" path="res://Iris-in-Wonderland/src/background/card_platform_1.tscn" id="14_ucblu"]
 [ext_resource type="PackedScene" uid="uid://duenctpiba1bt" path="res://Iris-in-Wonderland/src/background/card_platform_2.tscn" id="15_ew758"]
@@ -22,15 +28,21 @@
 [ext_resource type="PackedScene" uid="uid://btqp4gxdg4jpw" path="res://Iris-in-Wonderland/src/background/card_platform_4.tscn" id="17_vvufv"]
 [ext_resource type="PackedScene" uid="uid://bh4th8fe5trsh" path="res://Iris-in-Wonderland/src/characters/strawberry.tscn" id="18_axdvm"]
 [ext_resource type="AudioStream" uid="uid://dcj6my0rmnj8n" path="res://Iris-in-Wonderland/assets/audio/星が輝く冬.mp3" id="22_rjmdx"]
+[ext_resource type="PackedScene" uid="uid://csqxtf1r8n1qv" path="res://Iris-in-Wonderland/src/background/card_platform_5.tscn" id="23_j2q0k"]
+[ext_resource type="Texture2D" uid="uid://bytewvlk1fd33" path="res://Iris-in-Wonderland/assets/background/card5.png" id="24_5buwj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olcg7"]
-size = Vector2(54, 1181)
+size = Vector2(66, 2492)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p77bf"]
 size = Vector2(3615, 91)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cuykb"]
-size = Vector2(473, 1062)
+size = Vector2(473, 2410)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7evfu"]
+radius = 3.0
+height = 100.0
 
 [sub_resource type="Animation" id="Animation_ci44f"]
 length = 0.001
@@ -280,6 +292,12 @@ _data = {
 "slide": SubResource("Animation_evb4m")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjcfh"]
+size = Vector2(177, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ofqwi"]
+size = Vector2(1106, 17)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7q8ks"]
 radius = 169.0
 height = 426.0
@@ -299,6 +317,160 @@ player = NodePath("character/player/iris")
 visible = false
 
 [node name="bg" type="Node" parent="."]
+
+[node name="cards" type="Node" parent="bg"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="bg/cards"]
+position = Vector2(-101, -531)
+texture = ExtResource("4_y2wge")
+
+[node name="Sprite2D2" type="Sprite2D" parent="bg/cards/Sprite2D2"]
+position = Vector2(195, 0)
+texture = ExtResource("5_nn3bu")
+
+[node name="Sprite2D3" type="Sprite2D" parent="bg/cards/Sprite2D2"]
+position = Vector2(392, 0)
+texture = ExtResource("6_3l8bh")
+
+[node name="Sprite2D4" type="Sprite2D" parent="bg/cards/Sprite2D2"]
+position = Vector2(588, 0)
+texture = ExtResource("7_gu3l2")
+
+[node name="Sprite2D5" type="Sprite2D" parent="bg/cards/Sprite2D2"]
+position = Vector2(353, 71)
+texture = ExtResource("4_y2wge")
+
+[node name="Sprite2D2" type="Sprite2D" parent="bg/cards/Sprite2D2/Sprite2D5"]
+position = Vector2(195, 0)
+texture = ExtResource("6_3l8bh")
+
+[node name="Sprite2D3" type="Sprite2D" parent="bg/cards/Sprite2D2/Sprite2D5"]
+position = Vector2(392, 0)
+texture = ExtResource("7_gu3l2")
+
+[node name="Sprite2D4" type="Sprite2D" parent="bg/cards/Sprite2D2/Sprite2D5"]
+position = Vector2(588, 0)
+texture = ExtResource("5_nn3bu")
+
+[node name="Sprite2D6" type="Sprite2D" parent="bg/cards/Sprite2D2"]
+position = Vector2(-431, 69)
+texture = ExtResource("4_y2wge")
+
+[node name="Sprite2D2" type="Sprite2D" parent="bg/cards/Sprite2D2/Sprite2D6"]
+position = Vector2(195, 0)
+texture = ExtResource("6_3l8bh")
+
+[node name="Sprite2D3" type="Sprite2D" parent="bg/cards/Sprite2D2/Sprite2D6"]
+position = Vector2(392, 0)
+texture = ExtResource("6_3l8bh")
+
+[node name="Sprite2D4" type="Sprite2D" parent="bg/cards/Sprite2D2/Sprite2D6"]
+position = Vector2(588, 0)
+texture = ExtResource("5_nn3bu")
+
+[node name="Sprite2D3" type="Sprite2D" parent="bg/cards"]
+position = Vector2(1416, -1048)
+texture = ExtResource("4_y2wge")
+
+[node name="Sprite2D2" type="Sprite2D" parent="bg/cards/Sprite2D3"]
+position = Vector2(195, 0)
+texture = ExtResource("5_nn3bu")
+
+[node name="Sprite2D3" type="Sprite2D" parent="bg/cards/Sprite2D3"]
+position = Vector2(392, 0)
+texture = ExtResource("6_3l8bh")
+
+[node name="Sprite2D4" type="Sprite2D" parent="bg/cards/Sprite2D3"]
+position = Vector2(588, 0)
+texture = ExtResource("7_gu3l2")
+
+[node name="Sprite2D5" type="Sprite2D" parent="bg/cards/Sprite2D3"]
+position = Vector2(353, 71)
+texture = ExtResource("4_y2wge")
+
+[node name="Sprite2D2" type="Sprite2D" parent="bg/cards/Sprite2D3/Sprite2D5"]
+position = Vector2(195, 0)
+texture = ExtResource("6_3l8bh")
+
+[node name="Sprite2D3" type="Sprite2D" parent="bg/cards/Sprite2D3/Sprite2D5"]
+position = Vector2(392, 0)
+texture = ExtResource("7_gu3l2")
+
+[node name="Sprite2D4" type="Sprite2D" parent="bg/cards/Sprite2D3/Sprite2D5"]
+position = Vector2(588, 0)
+texture = ExtResource("5_nn3bu")
+
+[node name="Sprite2D6" type="Sprite2D" parent="bg/cards/Sprite2D3"]
+position = Vector2(-431, 69)
+texture = ExtResource("4_y2wge")
+
+[node name="Sprite2D2" type="Sprite2D" parent="bg/cards/Sprite2D3/Sprite2D6"]
+position = Vector2(195, 0)
+texture = ExtResource("6_3l8bh")
+
+[node name="Sprite2D3" type="Sprite2D" parent="bg/cards/Sprite2D3/Sprite2D6"]
+position = Vector2(392, 0)
+texture = ExtResource("6_3l8bh")
+
+[node name="Sprite2D4" type="Sprite2D" parent="bg/cards/Sprite2D3/Sprite2D6"]
+position = Vector2(588, 0)
+texture = ExtResource("5_nn3bu")
+
+[node name="Sprite2D7" type="Sprite2D" parent="bg/cards/Sprite2D3"]
+position = Vector2(656, 210)
+texture = ExtResource("4_y2wge")
+
+[node name="Sprite2D2" type="Sprite2D" parent="bg/cards/Sprite2D3/Sprite2D7"]
+position = Vector2(195, 0)
+texture = ExtResource("5_nn3bu")
+
+[node name="Sprite2D3" type="Sprite2D" parent="bg/cards/Sprite2D3/Sprite2D7"]
+position = Vector2(392, 0)
+texture = ExtResource("6_3l8bh")
+
+[node name="Sprite2D4" type="Sprite2D" parent="bg/cards/Sprite2D3/Sprite2D7"]
+position = Vector2(588, 0)
+texture = ExtResource("7_gu3l2")
+
+[node name="Sprite2D5" type="Sprite2D" parent="bg/cards/Sprite2D3/Sprite2D7"]
+position = Vector2(353, 71)
+texture = ExtResource("4_y2wge")
+
+[node name="Sprite2D2" type="Sprite2D" parent="bg/cards/Sprite2D3/Sprite2D7/Sprite2D5"]
+position = Vector2(195, 0)
+texture = ExtResource("6_3l8bh")
+
+[node name="Sprite2D3" type="Sprite2D" parent="bg/cards/Sprite2D3/Sprite2D7/Sprite2D5"]
+position = Vector2(392, 0)
+texture = ExtResource("7_gu3l2")
+
+[node name="Sprite2D4" type="Sprite2D" parent="bg/cards/Sprite2D3/Sprite2D7/Sprite2D5"]
+position = Vector2(588, 0)
+texture = ExtResource("5_nn3bu")
+
+[node name="Sprite2D6" type="Sprite2D" parent="bg/cards/Sprite2D3/Sprite2D7"]
+position = Vector2(-431, 69)
+texture = ExtResource("4_y2wge")
+
+[node name="Sprite2D2" type="Sprite2D" parent="bg/cards/Sprite2D3/Sprite2D7/Sprite2D6"]
+position = Vector2(195, 0)
+texture = ExtResource("6_3l8bh")
+
+[node name="Sprite2D3" type="Sprite2D" parent="bg/cards/Sprite2D3/Sprite2D7/Sprite2D6"]
+position = Vector2(392, 0)
+texture = ExtResource("6_3l8bh")
+
+[node name="Sprite2D4" type="Sprite2D" parent="bg/cards/Sprite2D3/Sprite2D7/Sprite2D6"]
+position = Vector2(588, 0)
+texture = ExtResource("5_nn3bu")
+
+[node name="Sprite2D8" type="Sprite2D" parent="bg/cards/Sprite2D3/Sprite2D7/Sprite2D6"]
+position = Vector2(-154, -70)
+texture = ExtResource("6_3l8bh")
+
+[node name="Sprite2D5" type="Sprite2D" parent="bg/cards/Sprite2D3/Sprite2D7/Sprite2D6"]
+position = Vector2(-348, -68)
+texture = ExtResource("5_nn3bu")
 
 [node name="tree" type="Sprite2D" parent="bg"]
 position = Vector2(-1025, 225)
@@ -475,24 +647,18 @@ texture = ExtResource("8_aeyu0")
 region_enabled = true
 region_rect = Rect2(3.35358, 375.006, 956.041, 336.544)
 
-[node name="Sprite2D8" type="Sprite2D" parent="bg/trees/Sprite2D/Sprite2D3"]
-position = Vector2(773, -210)
-texture = ExtResource("8_aeyu0")
-region_enabled = true
-region_rect = Rect2(3.35358, 375.006, 956.041, 336.544)
-
 [node name="walls" type="StaticBody2D" parent="bg"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bg/walls"]
-position = Vector2(2085, 144.5)
+position = Vector2(2079, -511)
 shape = SubResource("RectangleShape2D_olcg7")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="bg/walls"]
-position = Vector2(352.5, -400.5)
+position = Vector2(345, -1736)
 shape = SubResource("RectangleShape2D_p77bf")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="bg/walls"]
-position = Vector2(-1212.5, 170)
+position = Vector2(-1212.5, -504)
 shape = SubResource("RectangleShape2D_cuykb")
 
 [node name="path" type="Node" parent="bg"]
@@ -565,7 +731,49 @@ texture = ExtResource("11_po1i4")
 region_enabled = true
 region_rect = Rect2(44.0818, 182.083, 377.272, 263.661)
 
+[node name="mushrooms" type="Node" parent="bg"]
+
+[node name="MushroomR" parent="bg/mushrooms" instance=ExtResource("12_hr6or")]
+position = Vector2(2099, 211)
+rotation = -3.14159
+scale = Vector2(1, -1)
+bounce_velocity = 1300
+
+[node name="CollisionShape2D" parent="bg/mushrooms/MushroomR" index="1"]
+disabled = true
+
+[node name="MushroomB" parent="bg/mushrooms" instance=ExtResource("13_kdc5l")]
+position = Vector2(1588, 432)
+bounce_velocity = 800
+
+[node name="CollisionShape2D" parent="bg/mushrooms/MushroomB" index="1"]
+disabled = true
+one_way_collision = true
+
+[node name="CollisionShape2D" parent="bg/mushrooms/MushroomB/BounceArea" index="0"]
+position = Vector2(134, 96)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7evfu")
+
 [node name="texture" type="Node" parent="bg"]
+
+[node name="Sprite2D6" type="Sprite2D" parent="bg/texture"]
+position = Vector2(-1051, 640)
+texture = ExtResource("7_6ijp5")
+region_enabled = true
+region_rect = Rect2(77.2798, 363.453, 231.302, 158.805)
+
+[node name="Sprite2D7" type="Sprite2D" parent="bg/texture"]
+position = Vector2(1996, 546)
+texture = ExtResource("7_6ijp5")
+region_enabled = true
+region_rect = Rect2(77.2798, 363.453, 231.302, 158.805)
+
+[node name="Sprite2D8" type="Sprite2D" parent="bg/texture"]
+position = Vector2(-239, 584)
+texture = ExtResource("7_6ijp5")
+region_enabled = true
+region_rect = Rect2(77.2798, 363.453, 231.302, 158.805)
 
 [node name="Sprite2D" type="Sprite2D" parent="bg/texture"]
 position = Vector2(-1051, 640)
@@ -635,41 +843,152 @@ region_rect = Rect2(48.369, 27.7442, 340.831, 340.831)
 
 [node name="platforms" type="Node" parent="."]
 
-[node name="card_platform1" parent="platforms" instance=ExtResource("14_ucblu")]
+[node name="shop" type="Node" parent="platforms"]
+
+[node name="card_platform1" parent="platforms/shop" instance=ExtResource("14_ucblu")]
 position = Vector2(207, 249)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/card_platform1"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/shop/card_platform1"]
 libraries = {
 "": SubResource("AnimationLibrary_gpanp")
 }
 autoplay = "slide"
 
-[node name="card_platform2" parent="platforms" instance=ExtResource("15_ew758")]
+[node name="card_platform2" parent="platforms/shop" instance=ExtResource("15_ew758")]
 position = Vector2(674, 249)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/card_platform2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/shop/card_platform2"]
 libraries = {
 "": SubResource("AnimationLibrary_lqbak")
 }
 autoplay = "slide"
 
-[node name="card_platform3" parent="platforms" instance=ExtResource("16_e41b7")]
+[node name="card_platform3" parent="platforms/shop" instance=ExtResource("16_e41b7")]
 position = Vector2(455, 186)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/card_platform3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/shop/card_platform3"]
 libraries = {
 "": SubResource("AnimationLibrary_8hdx5")
 }
 autoplay = "slide"
 
-[node name="card_platform4" parent="platforms" instance=ExtResource("17_vvufv")]
+[node name="card_platform4" parent="platforms/shop" instance=ExtResource("17_vvufv")]
 position = Vector2(944, 192)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/card_platform4"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/shop/card_platform4"]
 libraries = {
 "": SubResource("AnimationLibrary_3a16l")
 }
 autoplay = "slide"
+
+[node name="card_platform1" parent="platforms" instance=ExtResource("14_ucblu")]
+position = Vector2(-567, -397)
+
+[node name="card_platform3" parent="platforms/card_platform1" instance=ExtResource("16_e41b7")]
+position = Vector2(194, 0)
+
+[node name="card_platform4" parent="platforms/card_platform1" instance=ExtResource("17_vvufv")]
+position = Vector2(775, 0)
+
+[node name="card_platform2" parent="platforms/card_platform1" instance=ExtResource("15_ew758")]
+position = Vector2(388, 0)
+
+[node name="card_platform6" parent="platforms/card_platform1" instance=ExtResource("14_ucblu")]
+position = Vector2(1556, 0)
+
+[node name="card_platform3" parent="platforms/card_platform1/card_platform6" instance=ExtResource("16_e41b7")]
+position = Vector2(194, 0)
+
+[node name="card_platform4" parent="platforms/card_platform1/card_platform6" instance=ExtResource("17_vvufv")]
+position = Vector2(582, 0)
+
+[node name="card_platform2" parent="platforms/card_platform1/card_platform6" instance=ExtResource("15_ew758")]
+position = Vector2(388, 0)
+
+[node name="card_platform7" parent="platforms/card_platform1" instance=ExtResource("16_e41b7")]
+position = Vector2(972, 0)
+
+[node name="card_platform8" parent="platforms/card_platform1" instance=ExtResource("17_vvufv")]
+position = Vector2(1360, 0)
+
+[node name="card_platform9" parent="platforms/card_platform1" instance=ExtResource("15_ew758")]
+position = Vector2(1166, 0)
+
+[node name="card_platform" parent="platforms/card_platform1" instance=ExtResource("23_j2q0k")]
+position = Vector2(579, 0)
+bounce_velocity = 1200
+
+[node name="card_platform2" parent="platforms" instance=ExtResource("14_ucblu")]
+position = Vector2(478, -911)
+
+[node name="card_platform3" parent="platforms/card_platform2" instance=ExtResource("16_e41b7")]
+position = Vector2(194, 0)
+
+[node name="card_platform4" parent="platforms/card_platform2" instance=ExtResource("17_vvufv")]
+position = Vector2(582, 0)
+
+[node name="card_platform2" parent="platforms/card_platform2" instance=ExtResource("15_ew758")]
+position = Vector2(388, 0)
+
+[node name="card_platform5" parent="platforms/card_platform2" instance=ExtResource("14_ucblu")]
+position = Vector2(778, 0)
+
+[node name="card_platform3" parent="platforms/card_platform2/card_platform5" instance=ExtResource("16_e41b7")]
+position = Vector2(194, 0)
+
+[node name="card_platform4" parent="platforms/card_platform2/card_platform5" instance=ExtResource("17_vvufv")]
+position = Vector2(582, 0)
+
+[node name="card_platform2" parent="platforms/card_platform2/card_platform5" instance=ExtResource("15_ew758")]
+position = Vector2(388, 0)
+
+[node name="card_platform6" parent="platforms/card_platform2" instance=ExtResource("14_ucblu")]
+position = Vector2(1556, 0)
+
+[node name="card_platform3" parent="platforms/card_platform2/card_platform6" instance=ExtResource("16_e41b7")]
+position = Vector2(194, 0)
+
+[node name="card_platform4" parent="platforms/card_platform2/card_platform6" instance=ExtResource("17_vvufv")]
+position = Vector2(582, 0)
+
+[node name="card_platform2" parent="platforms/card_platform2/card_platform6" instance=ExtResource("15_ew758")]
+position = Vector2(388, 0)
+
+[node name="button" type="Sprite2D" parent="platforms/card_platform2"]
+position = Vector2(779, 0)
+texture = ExtResource("24_5buwj")
+region_enabled = true
+region_rect = Rect2(0, 168, 241, 72.9999)
+
+[node name="spring" type="Sprite2D" parent="platforms/card_platform2/button"]
+position = Vector2(0, -4)
+texture = ExtResource("24_5buwj")
+region_enabled = true
+region_rect = Rect2(0.499756, 89.4999, 240, 68)
+
+[node name="ButtonArea" type="Area2D" parent="platforms/card_platform2/button"]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platforms/card_platform2/button/ButtonArea"]
+position = Vector2(0.5, 4.5)
+shape = SubResource("RectangleShape2D_jjcfh")
+
+[node name="wall" parent="platforms" instance=ExtResource("16_e41b7")]
+show_behind_parent = true
+position = Vector2(912, -1311)
+rotation = -1.5708
+
+[node name="card_platform7" parent="platforms/wall" instance=ExtResource("17_vvufv")]
+position = Vector2(388, -6.10352e-05)
+
+[node name="card_platform8" parent="platforms/wall" instance=ExtResource("15_ew758")]
+position = Vector2(194, -6.10352e-05)
+
+[node name="card_platform6" parent="platforms/wall" instance=ExtResource("14_ucblu")]
+position = Vector2(-194, -6.10352e-05)
+
+[node name="CollisionPolygon2D" parent="platforms/wall/card_platform6" index="1"]
+polygon = PackedVector2Array(-104, -28.6847, 99, -11.6525, 74, 34, -101, 37.0111)
 
 [node name="character" type="Node" parent="."]
 
@@ -679,11 +998,55 @@ position = Vector2(30, 510)
 [node name="Strawberry" parent="character" instance=ExtResource("18_axdvm")]
 position = Vector2(206, 191)
 moving = false
+can_pick_up = false
+
+[node name="Strawberry2" parent="character" groups=["character"] instance=ExtResource("18_axdvm")]
+position = Vector2(834, -990)
 
 [node name="player" parent="character" instance=ExtResource("10_tiipd")]
 
+[node name="iris" parent="character/player" index="0" groups=["character"]]
+
 [node name="DefaultCamera" parent="character/player" index="2"]
 enabled = false
+
+[node name="fg" type="Node" parent="."]
+
+[node name="Sprite2D8" type="Sprite2D" parent="fg"]
+position = Vector2(-311.999, -294.003)
+texture = ExtResource("8_aeyu0")
+region_enabled = true
+region_rect = Rect2(3.35358, 375.006, 956.041, 336.544)
+
+[node name="wall" parent="fg" instance=ExtResource("14_ucblu")]
+position = Vector2(980, -1265)
+rotation = -1.5708
+
+[node name="card_platform5" parent="fg/wall" instance=ExtResource("14_ucblu")]
+position = Vector2(778, -6.10352e-05)
+
+[node name="card_platform3" parent="fg/wall" instance=ExtResource("16_e41b7")]
+position = Vector2(194, 0)
+
+[node name="card_platform4" parent="fg/wall" instance=ExtResource("17_vvufv")]
+position = Vector2(582, 0)
+
+[node name="card_platform2" parent="fg/wall" instance=ExtResource("15_ew758")]
+position = Vector2(388, 0)
+
+[node name="card_platform6" parent="fg/wall" instance=ExtResource("17_vvufv")]
+position = Vector2(-184, 1)
+
+[node name="Sprite2D" parent="fg/wall/card_platform6" index="0"]
+position = Vector2(-10, 0)
+
+[node name="CollisionPolygon2D" parent="fg/wall/card_platform6" index="1"]
+polygon = PackedVector2Array(-63.0001, -51.7999, 107, -53.0164, 61, 29.7115, -113, 28.495)
+one_way_collision = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fg/wall"]
+position = Vector2(306, 22.5)
+shape = SubResource("RectangleShape2D_ofqwi")
 
 [node name="buttons" type="Node" parent="."]
 
@@ -773,7 +1136,19 @@ position = Vector2(940, 626)
 position = Vector2(-612, 626)
 
 [node name="debug" type="Marker2D" parent="markers"]
-position = Vector2(366, 594)
+position = Vector2(-22, -476)
+
+[node name="wall_front_pos1" type="Marker2D" parent="markers"]
+position = Vector2(980, -1265)
+
+[node name="wall_front_pos2" type="Marker2D" parent="markers"]
+position = Vector2(980, -1600)
+
+[node name="wall_back_pos1" type="Marker2D" parent="markers"]
+position = Vector2(912, -1311)
+
+[node name="wall_back_pos2" type="Marker2D" parent="markers"]
+position = Vector2(912, -1646)
 
 [node name="camera" type="Node" parent="."]
 
@@ -792,6 +1167,10 @@ volume_db = -5.0
 autoplay = true
 bus = &"Music"
 
+[node name="Node" type="Node" parent="."]
+
+[connection signal="body_entered" from="platforms/card_platform2/button/ButtonArea" to="." method="_on_button_area_body_entered"]
+[connection signal="body_exited" from="platforms/card_platform2/button/ButtonArea" to="." method="_on_button_area_body_exited"]
 [connection signal="current_position" from="character/player/iris" to="camera/cam_1" method="_on_iris_current_position"]
 [connection signal="current_position" from="character/player/iris" to="camera/cam_3" method="_on_iris_current_position"]
 [connection signal="current_position" from="character/player/iris" to="camera/cam_2" method="_on_iris_current_position"]
@@ -799,7 +1178,11 @@ bus = &"Music"
 [connection signal="exit_interacted" from="buttons/ExitButton3" to="." method="_on_exit_button_3_exit_interacted"]
 [connection signal="exit_interacted" from="buttons/ExitButton2" to="." method="_on_exit_button_2_exit_interacted"]
 
+[editable path="bg/mushrooms/MushroomR"]
+[editable path="bg/mushrooms/MushroomB"]
+[editable path="platforms/wall/card_platform6"]
 [editable path="character/player"]
+[editable path="fg/wall/card_platform6"]
 [editable path="buttons/InteractButton"]
 [editable path="buttons/ExitButton"]
 [editable path="buttons/ExitButton3"]

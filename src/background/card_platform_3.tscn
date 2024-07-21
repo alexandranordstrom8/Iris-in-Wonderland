@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ba34vy4586mq2" path="res://Iris-in-Wonderland/assets/background/card3.png" id="1_kig8s"]
 
 [node name="card_platform1" type="CharacterBody2D"]
+collision_layer = 5
 collision_mask = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

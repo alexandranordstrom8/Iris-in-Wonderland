@@ -5,6 +5,7 @@ var dir = -1
 
 @export var moving : bool = true
 @export var roll_speed : int = 200
+@export var can_pick_up : bool = true
 
 @onready var run_animation = $Marker2D/Sprite2D/AnimationPlayer
 @onready var anim_sprite = $Marker2D/AnimatedSprite2D
@@ -15,6 +16,7 @@ var dir = -1
 signal itemized
 
 func _ready():
+	super()
 	label.visible = false
 
 func update_position(delta):
@@ -44,16 +46,16 @@ func _physics_process(delta):
 
 func _on_hitbox_body_entered(body):
 	super(body)
-	if body.name == "iris":
+	if body.name == "iris" and can_pick_up:
 		label.visible = true
 
 func _on_hitbox_body_exited(body):
 	super(body)
-	if body.name == "iris":
+	if body.name == "iris" and can_pick_up:
 		label.visible = false
 
 func _on_detection_area_body_entered(body):
-	if body.get_parent().name == "character" and moving:
+	if body.is_in_group("character") and moving:
 		run = true
 		anim_sprite.visible = false
 		_sprite.visible = true
@@ -63,7 +65,7 @@ func _on_detection_area_body_entered(body):
 			dir = -1
 
 func _on_detection_area_body_exited(body):
-	if body.get_parent().name == "character" and moving:
+	if body.is_in_group("character") and moving:
 		run = false
 		anim_sprite.visible = true
 		_sprite.visible = false

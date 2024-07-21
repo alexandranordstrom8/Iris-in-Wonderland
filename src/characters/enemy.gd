@@ -20,6 +20,9 @@ signal attacked(amount, can_interact_list, pos, dir)
 signal get_position(target_name, enemy_name)
 signal hp_depleted()
 
+func _ready():
+	add_to_group("character")
+
 func _process(delta):
 	velocity.y += gravity * delta
 	move_and_slide()
@@ -46,22 +49,22 @@ func _on_health_health_depleted():
 	queue_free()
 	
 func _on_hitbox_body_entered(body):
-	if body.get_parent().name == "character" and not body == self:
+	if body.is_in_group("character") and not body == self:
 		set_can_interact(body.name, true)
 
 func _on_hitbox_body_exited(body):
-	if body.get_parent().name == "character" and not body == self:
+	if body.is_in_group("character") and not body == self:
 		set_can_interact(body.name, false)
 		emit_signal("get_position", body.name, self.name)
 
 func _on_detection_area_body_entered(body):
-	if body.get_parent().name == "character" and not body == self:
+	if body.is_in_group("character") and not body == self:
 		chase = true
 		target_pos = body.position
 		detected[body.name] = true
 
 func _on_detection_area_body_exited(body):
-	if body.get_parent().name == "character" and not body == self:
+	if body.is_in_group("character") and not body == self:
 		detected[body.name] = false
 		if detected_empty():
 			chase = false

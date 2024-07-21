@@ -185,8 +185,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i8r8p"]
-radius = 200.0
-height = 2063.53
+radius = 154.118
+height = 1080.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2l7si"]
 radius = 82.353
@@ -268,9 +268,9 @@ region_rect = Rect2(962.787, 382.785, 167.09, 337.977)
 [node name="ground" type="Node" parent="bg"]
 
 [node name="Panel" type="Panel" parent="bg/ground"]
-offset_left = -504.0
+offset_left = -942.0
 offset_top = 720.0
-offset_right = 3861.0
+offset_right = 4854.0
 offset_bottom = 1206.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_o45re")
 
@@ -449,6 +449,11 @@ region_rect = Rect2(791.9, 246.075, 208.863, 288.61)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="bg/trees"]
 
+[node name="Sprite2D3" type="Sprite2D" parent="bg/trees/StaticBody2D"]
+position = Vector2(4072, 80)
+rotation = 1.5708
+texture = ExtResource("4_6mcpg")
+
 [node name="Sprite2D" type="Sprite2D" parent="bg/trees/StaticBody2D"]
 position = Vector2(3487, 82)
 rotation = 1.5708
@@ -467,6 +472,12 @@ shape = SubResource("CapsuleShape2D_jnbpu")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="bg/trees"]
 position = Vector2(-3778, 1)
+
+[node name="Sprite2D2" type="Sprite2D" parent="bg/trees/StaticBody2D3"]
+position = Vector2(3122, 82)
+rotation = 1.5708
+scale = Vector2(1, -1)
+texture = ExtResource("4_6mcpg")
 
 [node name="Sprite2D" type="Sprite2D" parent="bg/trees/StaticBody2D3"]
 position = Vector2(3743, 82)
@@ -650,6 +661,24 @@ region_rect = Rect2(0, 0, 951.348, 315.37)
 
 [node name="Sprite2D19" type="Sprite2D" parent="bg/trees/leaves"]
 position = Vector2(-101.5, -380)
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(0, 0, 951.348, 315.37)
+
+[node name="Sprite2D31" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(-387, -544)
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(0, 0, 951.348, 315.37)
+
+[node name="Sprite2D32" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(4003, -451)
+texture = ExtResource("7_r0w0i")
+region_enabled = true
+region_rect = Rect2(0, 0, 951.348, 315.37)
+
+[node name="Sprite2D33" type="Sprite2D" parent="bg/trees/leaves"]
+position = Vector2(3882, -643)
 texture = ExtResource("7_r0w0i")
 region_enabled = true
 region_rect = Rect2(0, 0, 951.348, 315.37)
@@ -899,8 +928,6 @@ position = Vector2(3159, 587)
 [node name="CollisionShape2D" parent="character/cat/DetectionArea" index="0"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_i8r8p")
-
-[node name="Timer" type="Timer" parent="character/cat"]
 
 [node name="start_area" type="Area2D" parent="character"]
 position = Vector2(2089, 778)

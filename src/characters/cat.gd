@@ -12,6 +12,7 @@ var dead : bool = false
 signal attack_animated
 
 func _ready():
+	super()
 	set_freeze_movement(true)
 
 func update_position(delta):
@@ -59,7 +60,7 @@ func _on_hp_health_depleted():
 
 func _on_detection_area_body_entered(body):
 	super(body)
-	if body.get_parent().name == "character" and not body == self:
+	if body.is_in_group("character") and not body == self:
 		$audio_meow.play()
 
 func _on_detection_area_body_exited(body):
@@ -69,11 +70,10 @@ func _on_hitbox_body_entered(body):
 	super(body)
 
 func _on_hitbox_body_exited(body):
-	if body.get_parent().name == "character" and not body == self:
+	if body.is_in_group("character") and not body == self:
 		set_can_interact(body.name, false)
 		set_freeze_movement(false)
-		if body.name == "iris":
-			timer.start()
+		timer.start()
 
 func _on_iris_damage_dealt(amount):
 	super(amount)

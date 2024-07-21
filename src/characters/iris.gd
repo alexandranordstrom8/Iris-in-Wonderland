@@ -27,6 +27,9 @@ signal damage_dealt(amount)
 signal knock_back(_velocity, dir, xpos)
 signal knock_back_stop()
 
+func _ready():
+	add_to_group("character")
+
 func init(hp, sp):
 	$hp.init(hp)
 	$sp.init(sp)
@@ -41,11 +44,14 @@ func handle_input():
 	if Input.is_action_just_pressed("ui_jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	
-	# attacking or interacting
+	# interacting
+	if Input.is_action_just_pressed("ui_accept"):
+		emit_signal("interacted")
+	
+	# attacking
 	if Input.is_action_just_pressed("ui_attack") and _timer >= ACTION_COOLDOWN:
 		_timer = 0
 		attacking = true
-		emit_signal("interacted")
 		emit_signal("damage_dealt", scratch_dmg)
 	
 	if animations.is_playing() and animations.current_animation == "scratch":

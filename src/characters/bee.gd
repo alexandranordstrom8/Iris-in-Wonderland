@@ -8,6 +8,7 @@ const FLY_SPEED = 10
 signal new_target
 
 func _ready():
+	super()
 	gravity = 0
 	set_target_pos(position)
 

@@ -826,9 +826,11 @@ bounce_active = false
 
 [node name="MushroomB" parent="bg/down/mushroom_platform" instance=ExtResource("11_wiuhq")]
 position = Vector2(908, 1223)
+bounce_velocity = 800
 
 [node name="MushroomB2" parent="bg/down/mushroom_platform" instance=ExtResource("11_wiuhq")]
 position = Vector2(2460, 1233)
+bounce_velocity = 1200
 
 [node name="texture2" type="Node" parent="bg/down"]
 

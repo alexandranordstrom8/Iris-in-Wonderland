@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://csqxtf1r8n1qv"]
+
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/background/card_platform.gd" id="1_j0jvp"]
+[ext_resource type="Texture2D" uid="uid://bytewvlk1fd33" path="res://Iris-in-Wonderland/assets/background/card5.png" id="2_ufxdr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1i0y"]
+size = Vector2(140, 14)
+
+[node name="card_platform" type="StaticBody2D"]
+script = ExtResource("1_j0jvp")
+bounce_velocity = 1000
+
+[node name="base" type="Sprite2D" parent="."]
+texture = ExtResource("2_ufxdr")
+region_enabled = true
+region_rect = Rect2(0, 168, 241, 72.9999)
+
+[node name="spring" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+texture = ExtResource("2_ufxdr")
+region_enabled = true
+region_rect = Rect2(0.499756, 89.4999, 240, 68)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-1.52588e-05, 9.57803)
+scale = Vector2(1, 0.82197)
+polygon = PackedVector2Array(-95, -11.6525, 99, -11.6525, 74, 34, -119, 34)
+one_way_collision = true
+
+[node name="BounceArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BounceArea"]
+position = Vector2(-2, 3)
+shape = SubResource("RectangleShape2D_k1i0y")
+
+[connection signal="body_entered" from="BounceArea" to="." method="_on_bounce_area_body_entered"]

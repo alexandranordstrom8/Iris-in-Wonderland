@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bkopqoengsrtf"]
+[gd_scene load_steps=25 format=3 uid="uid://bkopqoengsrtf"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/3.gd" id="1_h8hpr"]
 [ext_resource type="PackedScene" uid="uid://bah2pxas0yt5v" path="res://Iris-in-Wonderland/src/background/sky.tscn" id="2_aacsv"]
@@ -22,21 +22,24 @@
 [sub_resource type="SpriteFrames" id="SpriteFrames_0opjm"]
 animations = [{
 "frames": [{
-"duration": 5.0,
+"duration": 10.0,
 "texture": ExtResource("5_5e6xi")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": ExtResource("6_6a5b1")
 }, {
-"duration": 2.0,
+"duration": 5.0,
 "texture": ExtResource("7_b1pbr")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": ExtResource("6_6a5b1")
+}, {
+"duration": 5.0,
+"texture": ExtResource("5_5e6xi")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7symg"]
@@ -50,6 +53,9 @@ size = Vector2(96, 1018)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ldmr"]
 size = Vector2(96, 1018)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8k0c3"]
+radius = 70.0643
 
 [node name="world" type="Node2D" node_paths=PackedStringArray("interface", "player")]
 script = ExtResource("1_h8hpr")
@@ -349,6 +355,7 @@ region_rect = Rect2(529.764, 225.99, 98.6051, 117.897)
 position = Vector2(-569, 539)
 sprite_frames = SubResource("SpriteFrames_0opjm")
 autoplay = "default"
+frame_progress = 0.112607
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bg/table"]
 position = Vector2(-554, 467)
@@ -481,9 +488,6 @@ shape = SubResource("RectangleShape2D_0ldmr")
 
 [node name="player" parent="character" instance=ExtResource("9_is8fu")]
 
-[node name="iris" parent="character/player" index="0"]
-position = Vector2(0, 623)
-
 [node name="DefaultCamera" parent="character/player" index="2"]
 enabled = false
 
@@ -604,6 +608,15 @@ visible = false
 [node name="Label" parent="buttons/ExitButton2/HBoxContainer" index="1"]
 visible = true
 
+[node name="InteractButton" parent="buttons" instance=ExtResource("10_y8kul")]
+offset_left = -595.0
+offset_top = 599.0
+offset_right = -514.0
+offset_bottom = 640.0
+
+[node name="CollisionShape2D" parent="buttons/InteractButton/Area2D" index="0"]
+shape = SubResource("CircleShape2D_8k0c3")
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_p65gs")
 volume_db = -5.0
@@ -626,3 +639,4 @@ position = Vector2(-1346, 626)
 [editable path="character/player"]
 [editable path="buttons/ExitButton"]
 [editable path="buttons/ExitButton2"]
+[editable path="buttons/InteractButton"]
