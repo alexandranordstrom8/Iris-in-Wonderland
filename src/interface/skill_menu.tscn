@@ -6,8 +6,8 @@
 [ext_resource type="Theme" uid="uid://dqu1hdmh0ypou" path="res://Iris-in-Wonderland/src/interface/theme.tres" id="3_o58l2"]
 [ext_resource type="StyleBox" uid="uid://b4ohi7you0n08" path="res://Iris-in-Wonderland/src/interface/ui_bg.tres" id="4_ublyl"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gshn2"]
-bg_color = Color(1, 1, 1, 0.509804)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lk1r3"]
+bg_color = Color(1, 1, 1, 0.254902)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_etpb2"]
 color = Color(0.8, 0.894118, 0.890196, 1)
@@ -31,7 +31,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_gshn2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_lk1r3")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1

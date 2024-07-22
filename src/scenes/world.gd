@@ -6,8 +6,8 @@ extends Node2D
 
 func _ready():
 	Save.current_scene = scene_file_path
-	print("loaded coins %s hp %s sp %s" % [Save.current_coins, Save.current_hp, Save.current_sp])
 	init_values()
+	$character/player.strawberry_used.connect(_on_player_strawberry_used)
 
 func change_scene(new):
 	call_deferred("_change_scene_deferred", new)
@@ -31,3 +31,11 @@ func _on_enemy_get_position(target_name, enemy_name):
 
 func _on_item_itemized(item_name, quantity):
 	interface.itemize(item_name, quantity)
+	
+func _on_player_strawberry_used(pos, dir):
+	var _strawberry = load("res://Iris-in-Wonderland/src/characters/strawberry.tscn").instantiate()
+	$character.add_child(_strawberry)
+	_strawberry.dir = dir * 2
+	_strawberry.position = pos
+	_strawberry.velocity.y = -500
+	_strawberry.itemized.connect(_on_item_itemized)

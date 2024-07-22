@@ -17,6 +17,10 @@ script = ExtResource("1_bfuhl")
 [node name="DefaultCamera" parent="." instance=ExtResource("3_pnqvp")]
 position = Vector2(0, 0)
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="current_position" from="iris" to="DefaultCamera" method="_on_iris_current_position"]
 [connection signal="health_status" from="iris" to="ui/Interface" method="_on_iris_health_status"]
 [connection signal="hp_changed" from="iris" to="ui/Interface" method="_on_iris_hp_changed"]
@@ -26,3 +30,4 @@ position = Vector2(0, 0)
 [connection signal="menu_change_sp" from="ui/Interface" to="." method="_on_interface_menu_change_sp"]
 [connection signal="menu_raise_attack" from="ui/Interface" to="." method="_on_interface_menu_raise_attack"]
 [connection signal="menu_strawberry" from="ui/Interface" to="." method="_on_interface_menu_strawberry"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

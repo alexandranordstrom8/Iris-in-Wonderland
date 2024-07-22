@@ -20,7 +20,7 @@ func _ready():
 	label.visible = false
 
 func update_position(delta):
-	if dir == -1:
+	if dir < 0:
 		pos2d.scale.x = 1
 	else:
 		pos2d.scale.x = -1
@@ -64,10 +64,13 @@ func _on_detection_area_body_entered(body):
 		run = true
 		anim_sprite.visible = false
 		_sprite.visible = true
-		if body.position.x < position.x:
-			dir = 1
+		if abs(dir) > 1:
+			pass
 		else:
-			dir = -1
+			if body.position.x < position.x:
+				dir = 1
+			else:
+				dir = -1
 
 func _on_detection_area_body_exited(body):
 	if body.is_in_group("character") and moving:

@@ -1000,10 +1000,6 @@ position = Vector2(206, 191)
 moving = false
 can_pick_up = false
 
-[node name="Strawberry2" parent="character" groups=["character"] instance=ExtResource("18_axdvm")]
-position = Vector2(834, -990)
-moving = false
-
 [node name="player" parent="character" instance=ExtResource("10_tiipd")]
 
 [node name="iris" parent="character/player" index="0" groups=["character"]]
@@ -1172,7 +1168,6 @@ bus = &"Music"
 
 [connection signal="body_entered" from="platforms/card_platform2/button/ButtonArea" to="." method="_on_button_area_body_entered"]
 [connection signal="body_exited" from="platforms/card_platform2/button/ButtonArea" to="." method="_on_button_area_body_exited"]
-[connection signal="itemized" from="character/Strawberry2" to="." method="_on_item_itemized"]
 [connection signal="current_position" from="character/player/iris" to="camera/cam_1" method="_on_iris_current_position"]
 [connection signal="current_position" from="character/player/iris" to="camera/cam_3" method="_on_iris_current_position"]
 [connection signal="current_position" from="character/player/iris" to="camera/cam_2" method="_on_iris_current_position"]

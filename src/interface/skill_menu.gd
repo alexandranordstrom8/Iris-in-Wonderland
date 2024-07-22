@@ -4,6 +4,7 @@ const button = "res://Iris-in-Wonderland/src/interface/skill_menu_button.tscn"
 
 var _current_sp : int = 100
 var _current_hp : int = 100
+var timer_locked : bool = false
 
 @onready var cost_label = $Panel/VBoxContainer2/Cost
 @onready var desc_label = $Panel/VBoxContainer2/Description
@@ -19,17 +20,12 @@ signal raise_attack
 enum {_NUMBER, _TYPE, _DESCRIPTION, _AVAILABLE, _BUTTON, _HP, _SP}
 enum {SKILL, ITEM}
 
-var item_list = {
-	"Strawberry" : [0, ITEM, "Rolling strawberry, deals damage when its health is depleted", true, null, 0, 0],
-	"Raise Attack" : [20, SKILL, "Raises attack damage for 3 seconds", true, null, 0, -20],
-	"Purr" : [5, SKILL, "Recover 5 hp", true, null, 5, -5],
-	"Cake" : [2, ITEM, "Heals 10 sp", true, null, 0, 10],
-	"Apple" : [2, ITEM, "Heals 10 hp", true, null, 10, 0],
-}
+var item_list : Dictionary
 
 var special = ["Strawberry", "Raise Attack"]
 
 func _ready():
+	item_list = Save.item_list
 	for item in item_list:
 		if item_list[item][_AVAILABLE]:
 			var _button = load(button).instantiate()
@@ -58,6 +54,9 @@ func disable_buttons():
 			item_list[item][_BUTTON].disabled = true
 		else:
 			item_list[item][_BUTTON].disabled = false
+	
+	if timer_locked:
+		item_list["Raise Attack"][_BUTTON].disabled = true
 
 func close_window():
 	cost_label.text = " "
@@ -74,7 +73,7 @@ func _on_button_focus(_button, item_name):
 	get_description(item_name)
 
 func use_special_item(item_name):
-	if item_name == "Strawberry":
+	if item_name == "Strawberry" and item_list["Strawberry"][_NUMBER] > 0:
 		emit_signal("strawberry")
 	if item_name == "Raise Attack":
 		emit_signal("raise_attack")

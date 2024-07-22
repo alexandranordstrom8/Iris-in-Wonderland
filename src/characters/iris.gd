@@ -4,9 +4,12 @@ const SPEED = 500.0
 const JUMP_VELOCITY = -600.0
 const ACTION_COOLDOWN = 0.8
 
-var freeze_movement = false
+const SCRATCH_DMG = 10
+const DASH_DMG = 1
+var dmg_multiplier = 1
 
 var _timer = ACTION_COOLDOWN
+var freeze_movement = false
 var attacking = false
 
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -14,8 +17,6 @@ var attacking = false
 @onready var pos2d = $Marker2D
 @onready var sprite = $Marker2D/iris_rig/Sprite2D
 
-var scratch_dmg = 10
-var dash_dmg = 1
 
 signal current_position(pos)
 signal hp_depleted
@@ -52,7 +53,7 @@ func handle_input():
 	if Input.is_action_just_pressed("ui_attack") and _timer >= ACTION_COOLDOWN:
 		_timer = 0
 		attacking = true
-		emit_signal("damage_dealt", scratch_dmg)
+		emit_signal("damage_dealt", SCRATCH_DMG * dmg_multiplier)
 	
 	if animations.is_playing() and animations.current_animation == "scratch":
 		velocity.x = 0
@@ -68,7 +69,7 @@ func handle_input():
 		else:
 			velocity.x *= 2
 	
-		emit_signal("damage_dealt", dash_dmg)
+		emit_signal("damage_dealt", DASH_DMG * dmg_multiplier)
 		emit_signal("knock_back", velocity.x, pos2d.scale.x, position.x)
 		
 		if Input.is_action_just_released("ui_dash") or _timer > ACTION_COOLDOWN:
