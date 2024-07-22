@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b3dx42g8s16rl"]
+[gd_scene load_steps=16 format=3 uid="uid://b3dx42g8s16rl"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/interface/interface.gd" id="1_3717i"]
 [ext_resource type="PackedScene" uid="uid://d1tkqows1e84o" path="res://Iris-in-Wonderland/src/interface/bar_hp.tscn" id="1_e16j3"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dkb0t7gvvm3xm" path="res://Iris-in-Wonderland/src/interface/pause_menu.tscn" id="9_62maj"]
 [ext_resource type="PackedScene" uid="uid://b8aq52nyqlquw" path="res://Iris-in-Wonderland/src/interface/death_menu.tscn" id="10_8t40c"]
 [ext_resource type="AudioStream" uid="uid://46fnjfe3g6jo" path="res://Iris-in-Wonderland/assets/audio/jump2.mp3" id="11_7a3xm"]
+[ext_resource type="PackedScene" uid="uid://drhfvbff26v3t" path="res://Iris-in-Wonderland/src/interface/skill_menu.tscn" id="11_tf8h7"]
 [ext_resource type="AudioStream" uid="uid://dkfed7c401atm" path="res://Iris-in-Wonderland/assets/audio/sad_guitar_resolve_107023.mp3" id="12_3fm00"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_838t8"]
@@ -157,6 +158,10 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
+[node name="SkillMenu" parent="Menus" instance=ExtResource("11_tf8h7")]
+visible = false
+layout_mode = 1
+
 [node name="Audio" type="Node" parent="."]
 
 [node name="Button" type="AudioStreamPlayer" parent="Audio"]
@@ -175,3 +180,7 @@ stream = ExtResource("12_3fm00")
 [connection signal="main_menu_pressed" from="Menus/DeathMenu" to="." method="_on_menu_main_menu_pressed"]
 [connection signal="options_pressed" from="Menus/DeathMenu" to="." method="_on_menu_options_pressed"]
 [connection signal="retry_pressed" from="Menus/DeathMenu" to="." method="_on_menu_retry_pressed"]
+[connection signal="change_hp" from="Menus/SkillMenu" to="." method="_on_skill_menu_change_hp"]
+[connection signal="change_sp" from="Menus/SkillMenu" to="." method="_on_skill_menu_change_sp"]
+[connection signal="raise_attack" from="Menus/SkillMenu" to="." method="_on_skill_menu_raise_attack"]
+[connection signal="strawberry" from="Menus/SkillMenu" to="." method="_on_skill_menu_strawberry"]

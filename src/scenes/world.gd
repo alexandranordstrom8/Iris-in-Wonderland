@@ -23,6 +23,11 @@ func init_values():
 func _on_enemy_get_position(target_name, enemy_name):
 	if target_name == String("iris"):
 		target_name = "player/iris"
+	else:
+		target_name = String(target_name)
 	var target = $character.get_node(target_name)
 	var _enemy = $character.get_node(String(enemy_name))
 	_enemy.set_target_pos(target.position)
+
+func _on_item_itemized(item_name, quantity):
+	interface.itemize(item_name, quantity)

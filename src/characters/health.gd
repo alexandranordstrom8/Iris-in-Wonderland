@@ -8,7 +8,7 @@ signal health_changed(health)
 signal max_health_changed(maximum)
 signal health_depleted
 signal status(value)
-signal damage_taken
+signal damage_taken 	# damage animation
 
 func _ready():
 	health = max_health

@@ -11,9 +11,9 @@ var dir = -1
 @onready var anim_sprite = $Marker2D/AnimatedSprite2D
 @onready var _sprite = $Marker2D/Sprite2D
 @onready var pos2d = $Marker2D
-@onready var label = $Hitbox/Panel
+@onready var label = $Hitbox/Button
 
-signal itemized
+signal itemized(item_name, quantity)
 
 func _ready():
 	super()
@@ -42,7 +42,12 @@ func _physics_process(delta):
 	update_position(delta)
 	
 	if label.visible and Input.is_action_just_pressed("ui_take_item"):
-		emit_signal("itemized")
+		emit_signal("itemized", "Strawberry", 1)
+		queue_free()
+
+func _on_health_health_depleted():
+	emit_signal("attacked", damage, can_interact, position, dir)
+	queue_free()
 
 func _on_hitbox_body_entered(body):
 	super(body)

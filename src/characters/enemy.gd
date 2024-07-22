@@ -12,6 +12,7 @@ var target_pos: Vector2
 var chase : bool = false
 
 @export var hp: Health
+@export var damage : int
 @export var sprite : Node2D
 
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")

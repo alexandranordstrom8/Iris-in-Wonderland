@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dr0f86sovxg5q"]
+
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/interface/skill_menu_button.gd" id="1_ghr7a"]
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(295, 40)
+focus_mode = 1
+text = "skill name"
+text_overrun_behavior = 1
+clip_text = true
+script = ExtResource("1_ghr7a")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

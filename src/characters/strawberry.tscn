@@ -135,11 +135,12 @@ radius = 66.0303
 collision_layer = 4
 script = ExtResource("1_1iwl3")
 hp = NodePath("Health")
+damage = 30
 sprite = NodePath("Marker2D/AnimatedSprite2D")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("3_gqe4m")
-max_health = 10
+max_health = 30
 
 [node name="Marker2D" type="Marker2D" parent="."]
 
@@ -173,7 +174,7 @@ shape = SubResource("CircleShape2D_mpwr6")
 position = Vector2(-1.19209e-07, 6)
 shape = SubResource("CircleShape2D_nn7e8")
 
-[node name="Panel" parent="Hitbox" instance=ExtResource("4_1l86d")]
+[node name="Button" parent="Hitbox" instance=ExtResource("4_1l86d")]
 offset_left = 12.0
 offset_top = -59.0
 offset_right = 132.0

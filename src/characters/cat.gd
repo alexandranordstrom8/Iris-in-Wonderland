@@ -6,7 +6,6 @@ extends Enemy
 
 const OFFSET = 70
 
-var dmg = 5
 var dead : bool = false
 
 signal attack_animated
@@ -50,7 +49,7 @@ func _physics_process(delta):
 		update_animation()
 
 func _on_attack_animated():
-	emit_signal("attacked", dmg, can_interact, position, (pos2d.scale.x * -1))
+	emit_signal("attacked", damage, can_interact, position, (pos2d.scale.x * -1))
 
 func _on_hp_health_depleted():
 	set_freeze_movement(true)

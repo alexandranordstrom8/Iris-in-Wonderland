@@ -46,6 +46,7 @@ radius = 110.454
 [node name="Bee" type="CharacterBody2D" node_paths=PackedStringArray("hp", "sprite")]
 script = ExtResource("1_k3vat")
 hp = NodePath("Health")
+damage = 10
 sprite = NodePath("Marker2D/AnimatedSprite2D")
 
 [node name="Marker2D" type="Marker2D" parent="."]

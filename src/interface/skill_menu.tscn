@@ -1,6 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://drhfvbff26v3t"]
+[gd_scene load_steps=8 format=3 uid="uid://drhfvbff26v3t"]
 
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/interface/skill_menu.gd" id="1_cvleu"]
 [ext_resource type="StyleBox" uid="uid://khbxj7u6gatf" path="res://Iris-in-Wonderland/src/interface/panel.tres" id="1_rhpp3"]
+[ext_resource type="PackedScene" uid="uid://dr0f86sovxg5q" path="res://Iris-in-Wonderland/src/interface/skill_menu_button.tscn" id="3_6ilbf"]
+[ext_resource type="Theme" uid="uid://dqu1hdmh0ypou" path="res://Iris-in-Wonderland/src/interface/theme.tres" id="3_o58l2"]
+[ext_resource type="StyleBox" uid="uid://b4ohi7you0n08" path="res://Iris-in-Wonderland/src/interface/ui_bg.tres" id="4_ublyl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gshn2"]
+bg_color = Color(1, 1, 1, 0.509804)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_etpb2"]
 color = Color(0.8, 0.894118, 0.890196, 1)
@@ -15,6 +22,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_cvleu")
+
+[node name="bg" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gshn2")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -61,35 +78,10 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Button" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(295, 40)
+[node name="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_6ilbf")]
+visible = false
 layout_mode = 2
-text = "skill name"
-
-[node name="Button2" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(295, 40)
-layout_mode = 2
-text = "skill name"
-
-[node name="Button3" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(295, 40)
-layout_mode = 2
-text = "skill name"
-
-[node name="Button4" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(295, 40)
-layout_mode = 2
-text = "skill name"
-
-[node name="Button5" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(295, 40)
-layout_mode = 2
-text = "skill name"
-
-[node name="Button6" type="Button" parent="Panel/VBoxContainer/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(295, 40)
-layout_mode = 2
-text = "skill name"
+text = "Strawberry"
 
 [node name="HSeparator" type="HSeparator" parent="Panel/VBoxContainer"]
 layout_mode = 2
@@ -97,6 +89,7 @@ theme_override_constants/separation = 20
 theme_override_styles/separator = SubResource("StyleBoxLine_etpb2")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Panel"]
+clip_contents = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 1
 anchors_preset = 7
@@ -112,13 +105,30 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 10
 
-[node name="Cost" type="Label" parent="Panel/VBoxContainer2"]
+[node name="Cost" type="RichTextLabel" parent="Panel/VBoxContainer2"]
+custom_minimum_size = Vector2(300, 31)
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Cost/quantity"
+theme = ExtResource("3_o58l2")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = " "
+
+[node name="Panel2" type="Panel" parent="Panel/VBoxContainer2/Cost"]
+show_behind_parent = true
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("4_ublyl")
 
 [node name="Description" type="Label" parent="Panel/VBoxContainer2"]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
-text = "Description
+text = " 
 "
+autowrap_mode = 2
+
+[connection signal="focus" from="Panel/VBoxContainer/ScrollContainer/VBoxContainer/Button" to="." method="_on_button_focus"]
