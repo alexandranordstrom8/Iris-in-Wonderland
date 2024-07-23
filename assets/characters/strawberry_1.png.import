@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmpmu1t86dxk"
-path="res://.godot/imported/paw1.png-29bea99f110656e7073d3460ebd80833.ctex"
+uid="uid://b71kmfoumdgjd"
+path="res://.godot/imported/strawberry_1.png-8ed08038ea6b12be1c562f405211bf34.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Iris-in-Wonderland/assets/interface/paw1.png"
-dest_files=["res://.godot/imported/paw1.png-29bea99f110656e7073d3460ebd80833.ctex"]
+source_file="res://Iris-in-Wonderland/assets/characters/strawberry_1.png"
+dest_files=["res://.godot/imported/strawberry_1.png-8ed08038ea6b12be1c562f405211bf34.ctex"]
 
 [params]
 

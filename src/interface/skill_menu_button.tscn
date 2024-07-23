@@ -4,7 +4,7 @@
 
 [node name="Button" type="Button"]
 custom_minimum_size = Vector2(295, 40)
-focus_mode = 1
+focus_mode = 0
 text = "skill name"
 text_overrun_behavior = 1
 clip_text = true

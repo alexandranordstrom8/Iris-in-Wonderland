@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://cijpnucngt0re"]
+[gd_scene load_steps=51 format=3 uid="uid://cnpmjhr3i3unn"]
 
 [ext_resource type="PackedScene" uid="uid://bng63fw5pf27e" path="res://Iris-in-Wonderland/src/background/green_background.tscn" id="1_efq5o"]
 [ext_resource type="Texture2D" uid="uid://p6jiynjt247g" path="res://Iris-in-Wonderland/assets/background/tree1.png" id="1_gt21c"]
@@ -10,8 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://eu3slbl72t25" path="res://Iris-in-Wonderland/assets/background/tree1_l.png" id="4_6mcpg"]
 [ext_resource type="PackedScene" uid="uid://cd631r3s13cp4" path="res://Iris-in-Wonderland/src/characters/cat.tscn" id="4_g2hht"]
 [ext_resource type="Texture2D" uid="uid://cc0kuu0c3c2m0" path="res://Iris-in-Wonderland/assets/background/path2.png" id="4_xs5ne"]
+[ext_resource type="PackedScene" uid="uid://3lj7jr7m57ri" path="res://Iris-in-Wonderland/src/characters/iris.tscn" id="5_1sc4e"]
 [ext_resource type="Texture2D" uid="uid://djnh45cefqrtg" path="res://Iris-in-Wonderland/assets/background/tree3.png" id="5_2lo61"]
+[ext_resource type="PackedScene" uid="uid://b3dx42g8s16rl" path="res://Iris-in-Wonderland/src/interface/interface.tscn" id="6_h21cj"]
 [ext_resource type="Texture2D" uid="uid://cuuxerwjk3wsr" path="res://Iris-in-Wonderland/assets/background/tree2.png" id="6_mdp28"]
+[ext_resource type="Theme" uid="uid://dqu1hdmh0ypou" path="res://Iris-in-Wonderland/src/interface/theme.tres" id="7_n8l8m"]
 [ext_resource type="Texture2D" uid="uid://bgemt3eaij6yc" path="res://Iris-in-Wonderland/assets/background/tree4.png" id="7_r0w0i"]
 [ext_resource type="PackedScene" uid="uid://dv1q6s4q2mm3c" path="res://Iris-in-Wonderland/src/background/mushroom_r.tscn" id="7_ut1y5"]
 [ext_resource type="Theme" uid="uid://bscjj8hb4a3ex" path="res://Iris-in-Wonderland/src/interface/boss_theme.tres" id="7_wy7p4"]
@@ -25,11 +28,12 @@
 [ext_resource type="Texture2D" uid="uid://b1spr21vkwkto" path="res://Iris-in-Wonderland/assets/background/mushroom1_l.png" id="16_7sq42"]
 [ext_resource type="Texture2D" uid="uid://cwg7lmm8ukgir" path="res://Iris-in-Wonderland/assets/background/mushroom2_l.png" id="17_i0k2n"]
 [ext_resource type="PackedScene" uid="uid://cgvgmi8l5dw87" path="res://Iris-in-Wonderland/src/interface/coin.tscn" id="20_2kkff"]
-[ext_resource type="PackedScene" uid="uid://dru877c21uloj" path="res://Iris-in-Wonderland/src/characters/player.tscn" id="20_kqcb8"]
+[ext_resource type="PackedScene" uid="uid://bh4th8fe5trsh" path="res://Iris-in-Wonderland/src/characters/strawberry.tscn" id="23_vj1ac"]
 [ext_resource type="PackedScene" uid="uid://em5hl7ux263y" path="res://Iris-in-Wonderland/src/interface/interact_button.tscn" id="26_rqjhx"]
 [ext_resource type="AudioStream" uid="uid://cefom4cif0rk7" path="res://Iris-in-Wonderland/assets/audio/ambience_summer_night.mp3" id="29_k5ocv"]
 [ext_resource type="AudioStream" uid="uid://x8f0v888ab00" path="res://Iris-in-Wonderland/assets/audio/cat_meow_001.mp3" id="31_ba5yd"]
 [ext_resource type="AudioStream" uid="uid://dqmlp4w64t07v" path="res://Iris-in-Wonderland/assets/audio/electro_sonic_011.mp3" id="31_qho1h"]
+[ext_resource type="PackedScene" uid="uid://dfwlix1amhelg" path="res://Iris-in-Wonderland/src/scenes/panning_camera.tscn" id="32_3jta5"]
 [ext_resource type="AudioStream" uid="uid://v40cq20xhybe" path="res://Iris-in-Wonderland/assets/audio/trumpets_fanfare_end_complete_finish_109659.mp3" id="34_agaox"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o45re"]
@@ -190,8 +194,8 @@ height = 1350.59
 
 [node name="boss_level" type="Node2D" node_paths=PackedStringArray("interface", "player")]
 script = ExtResource("1_rcf78")
-interface = NodePath("character/player/ui/Interface")
-player = NodePath("character/player/iris")
+interface = NodePath("ui/Interface")
+player = NodePath("character/iris")
 
 [node name="distant_bg" type="Node" parent="."]
 
@@ -912,35 +916,11 @@ position = Vector2(3430, 94)
 
 [node name="character" type="Node" parent="."]
 
-[node name="player" parent="character" instance=ExtResource("20_kqcb8")]
+[node name="Strawberry" parent="character" instance=ExtResource("23_vj1ac")]
+position = Vector2(646, 626)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="character/player/ui" index="0"]
-
-[node name="VBoxContainer" type="VBoxContainer" parent="character/player/ui/CanvasLayer"]
-visible = false
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -640.5
-offset_right = 640.5
-offset_bottom = 161.0
-grow_horizontal = 2
-size_flags_horizontal = 4
-
-[node name="MarginContainer" type="MarginContainer" parent="character/player/ui/CanvasLayer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/margin_top = 50
-
-[node name="Label" type="Label" parent="character/player/ui/CanvasLayer/VBoxContainer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme = ExtResource("7_wy7p4")
-text = "Neighborhood Cat"
-
-[node name="boss_bar" parent="character/player/ui/CanvasLayer/VBoxContainer" instance=ExtResource("8_ak7h7")]
-layout_mode = 2
-size_flags_horizontal = 4
+[node name="iris" parent="character" instance=ExtResource("5_1sc4e")]
+position = Vector2(249, 626)
 
 [node name="cat" parent="character" instance=ExtResource("4_g2hht")]
 position = Vector2(3159, 587)
@@ -948,9 +928,6 @@ position = Vector2(3159, 587)
 [node name="CollisionShape2D" parent="character/cat/DetectionArea" index="0"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_i8r8p")
-
-[node name="Timer" parent="character/cat" index="9"]
-autostart = true
 
 [node name="start_area" type="Area2D" parent="character"]
 position = Vector2(2089, 778)
@@ -1051,6 +1028,37 @@ visible = false
 [node name="Label" parent="buttons/ExitButton/HBoxContainer" index="1"]
 visible = true
 
+[node name="ui" type="CanvasLayer" parent="."]
+
+[node name="Interface" parent="ui" instance=ExtResource("6_h21cj")]
+theme = ExtResource("7_n8l8m")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ui"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -640.5
+offset_right = 640.5
+offset_bottom = 161.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="ui/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_top = 50
+
+[node name="Label" type="Label" parent="ui/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("7_wy7p4")
+text = "Neighborhood Cat"
+
+[node name="boss_bar" parent="ui/VBoxContainer" instance=ExtResource("8_ak7h7")]
+layout_mode = 2
+size_flags_horizontal = 4
+
 [node name="audio" type="Node" parent="."]
 
 [node name="ambience" type="AudioStreamPlayer" parent="audio"]
@@ -1072,21 +1080,40 @@ bus = &"Music"
 [node name="win" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource("34_agaox")
 
-[connection signal="damage_dealt" from="character/player/iris" to="character/cat" method="_on_iris_damage_dealt"]
-[connection signal="hp_depleted" from="character/player/iris" to="." method="_on_iris_hp_depleted"]
-[connection signal="knock_back" from="character/player/iris" to="character/cat" method="_on_iris_knock_back"]
-[connection signal="knock_back_stop" from="character/player/iris" to="character/cat" method="_on_iris_knock_back_stop"]
-[connection signal="finished_panning" from="character/player/DefaultCamera" to="." method="_on_panning_camera_finished_panning"]
-[connection signal="timer_started" from="character/player/DefaultCamera" to="." method="_on_panning_camera_timer_started"]
-[connection signal="attacked" from="character/cat" to="character/player/iris" method="_on_enemy_attacked"]
+[node name="camera" type="Node" parent="."]
+
+[node name="PanningCamera" parent="camera" instance=ExtResource("32_3jta5")]
+
+[connection signal="coin_collected" from="collectibles/coin" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin2" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin3" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin4" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin5" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin6" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin7" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin8" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin9" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="current_position" from="character/iris" to="camera/PanningCamera" method="_on_iris_current_position"]
+[connection signal="damage_dealt" from="character/iris" to="character/Strawberry" method="_on_iris_damage_dealt"]
+[connection signal="damage_dealt" from="character/iris" to="character/cat" method="_on_iris_damage_dealt"]
+[connection signal="health_status" from="character/iris" to="ui/Interface" method="_on_iris_health_status"]
+[connection signal="hp_changed" from="character/iris" to="ui/Interface" method="_on_iris_hp_changed"]
+[connection signal="hp_depleted" from="character/iris" to="." method="_on_iris_hp_depleted"]
+[connection signal="hp_depleted" from="character/iris" to="ui/Interface" method="_on_iris_hp_depleted"]
+[connection signal="knock_back" from="character/iris" to="character/cat" method="_on_iris_knock_back"]
+[connection signal="knock_back_stop" from="character/iris" to="character/cat" method="_on_iris_knock_back_stop"]
+[connection signal="sp_changed" from="character/iris" to="ui/Interface" method="_on_iris_sp_changed"]
+[connection signal="attacked" from="character/cat" to="character/Strawberry" method="_on_enemy_attacked"]
+[connection signal="attacked" from="character/cat" to="character/iris" method="_on_enemy_attacked"]
 [connection signal="get_position" from="character/cat" to="." method="_on_enemy_get_position"]
 [connection signal="hp_depleted" from="character/cat" to="." method="_on_cat_hp_depleted"]
-[connection signal="health_changed" from="character/cat/hp" to="character/player/ui/CanvasLayer/VBoxContainer/boss_bar" method="_on_hp_health_changed"]
-[connection signal="max_health_changed" from="character/cat/hp" to="character/player/ui/CanvasLayer/VBoxContainer/boss_bar" method="_on_hp_max_health_changed"]
+[connection signal="health_changed" from="character/cat/hp" to="ui/VBoxContainer/boss_bar" method="_on_hp_health_changed"]
+[connection signal="max_health_changed" from="character/cat/hp" to="ui/VBoxContainer/boss_bar" method="_on_hp_max_health_changed"]
 [connection signal="timeout" from="character/cat/Timer" to="." method="_on_cat_timer_timeout"]
 [connection signal="body_entered" from="character/start_area" to="." method="_on_start_area_body_entered"]
 [connection signal="exit_interacted" from="buttons/ExitButton" to="." method="_on_exit_button_exit_interacted"]
+[connection signal="finished_panning" from="camera/PanningCamera" to="." method="_on_panning_camera_finished_panning"]
+[connection signal="timer_started" from="camera/PanningCamera" to="." method="_on_panning_camera_timer_started"]
 
-[editable path="character/player"]
 [editable path="character/cat"]
 [editable path="buttons/ExitButton"]

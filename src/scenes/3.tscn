@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bkopqoengsrtf"]
+[gd_scene load_steps=28 format=3 uid="uid://bkopqoengsrtf"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/3.gd" id="1_h8hpr"]
 [ext_resource type="PackedScene" uid="uid://bah2pxas0yt5v" path="res://Iris-in-Wonderland/src/background/sky.tscn" id="2_aacsv"]
@@ -15,7 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://dru877c21uloj" path="res://Iris-in-Wonderland/src/characters/player.tscn" id="9_is8fu"]
 [ext_resource type="Texture2D" uid="uid://e5bmytvw5job" path="res://Iris-in-Wonderland/assets/background/cake.png" id="9_w74ye"]
 [ext_resource type="PackedScene" uid="uid://em5hl7ux263y" path="res://Iris-in-Wonderland/src/interface/interact_button.tscn" id="10_y8kul"]
+[ext_resource type="PackedScene" uid="uid://dqvr137rnmwfm" path="res://Iris-in-Wonderland/src/background/collectible_big_cake.tscn" id="14_gxpvs"]
+[ext_resource type="PackedScene" uid="uid://bfwrq188wp06o" path="res://Iris-in-Wonderland/src/background/collectible_cake.tscn" id="15_3fw4n"]
 [ext_resource type="Texture2D" uid="uid://bgemt3eaij6yc" path="res://Iris-in-Wonderland/assets/background/tree4.png" id="15_svy7q"]
+[ext_resource type="PackedScene" uid="uid://rgd0x5rf8glb" path="res://Iris-in-Wonderland/src/background/collectible_apple.tscn" id="16_4iyj2"]
 [ext_resource type="AudioStream" uid="uid://dcj6my0rmnj8n" path="res://Iris-in-Wonderland/assets/audio/星が輝く冬.mp3" id="16_p65gs"]
 [ext_resource type="PackedScene" uid="uid://dfwlix1amhelg" path="res://Iris-in-Wonderland/src/scenes/panning_camera.tscn" id="18_sjkht"]
 
@@ -335,20 +338,6 @@ texture = ExtResource("8_f7a06")
 region_enabled = true
 region_rect = Rect2(140.543, 443.6, 289.385, 190.779)
 
-[node name="Sprite2D3" type="Sprite2D" parent="bg/texture"]
-position = Vector2(-1632, 631)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("9_w74ye")
-region_enabled = true
-region_rect = Rect2(544.769, 47.0973, 167.2, 150.051)
-
-[node name="Sprite2D4" type="Sprite2D" parent="bg/texture"]
-position = Vector2(-1662, 660)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("9_w74ye")
-region_enabled = true
-region_rect = Rect2(529.764, 225.99, 98.6051, 117.897)
-
 [node name="table" type="StaticBody2D" parent="bg"]
 
 [node name="table" type="AnimatedSprite2D" parent="bg/table"]
@@ -390,13 +379,6 @@ scale = Vector2(0.75, 0.75)
 texture = ExtResource("9_w74ye")
 region_enabled = true
 region_rect = Rect2(555.487, 373.898, 190.78, 83.6)
-
-[node name="Sprite2D2" type="Sprite2D" parent="bg/table"]
-position = Vector2(-551, 401.25)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("9_w74ye")
-region_enabled = true
-region_rect = Rect2(68.892, 22.3493, 240.082, 229.364)
 
 [node name="Sprite2D7" type="Sprite2D" parent="bg/table"]
 position = Vector2(-683, 414)
@@ -440,12 +422,14 @@ texture = ExtResource("9_w74ye")
 region_enabled = true
 region_rect = Rect2(253.241, 281.724, 231.508, 150.051)
 
-[node name="Sprite2D9" type="Sprite2D" parent="bg/table"]
-position = Vector2(-594, 422)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("9_w74ye")
-region_enabled = true
-region_rect = Rect2(516.902, 225.99, 130.759, 107.179)
+[node name="collectibles" type="Node" parent="bg/table"]
+
+[node name="CollectibleBigCake" parent="bg/table/collectibles" instance=ExtResource("14_gxpvs")]
+position = Vector2(-549, 403)
+
+[node name="CollectibleApple" parent="bg/table/collectibles" instance=ExtResource("16_4iyj2")]
+position = Vector2(-593, 426)
+scale = Vector2(0.75, 0.75)
 
 [node name="chair" type="StaticBody2D" parent="bg"]
 position = Vector2(-1013, 517)
@@ -490,6 +474,14 @@ shape = SubResource("RectangleShape2D_0ldmr")
 
 [node name="DefaultCamera" parent="character/player" index="2"]
 enabled = false
+
+[node name="collectibles" type="Node" parent="."]
+
+[node name="CollectibleCake" parent="collectibles" instance=ExtResource("15_3fw4n")]
+position = Vector2(-1632, 631)
+
+[node name="CollectibleApple" parent="collectibles" instance=ExtResource("16_4iyj2")]
+position = Vector2(-1672, 664)
 
 [node name="fg" type="Node" parent="."]
 

@@ -1,0 +1,279 @@
+[gd_scene load_steps=12 format=3 uid="uid://bdnxj34q52lym"]
+
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/interface/shop_menu.gd" id="1_0yo2g"]
+[ext_resource type="StyleBox" uid="uid://khbxj7u6gatf" path="res://Iris-in-Wonderland/src/interface/panel.tres" id="2_j4fce"]
+[ext_resource type="StyleBox" uid="uid://b4ohi7you0n08" path="res://Iris-in-Wonderland/src/interface/ui_bg.tres" id="3_5qlco"]
+[ext_resource type="PackedScene" uid="uid://dn854fyru4use" path="res://Iris-in-Wonderland/src/interface/shop_panel.tscn" id="3_k6nmd"]
+[ext_resource type="Texture2D" uid="uid://bly7hh38jkbfr" path="res://Iris-in-Wonderland/assets/interface/label_hp.png" id="4_in5sf"]
+[ext_resource type="Texture2D" uid="uid://bfrexgkbcbk1q" path="res://Iris-in-Wonderland/assets/interface/coin.png" id="4_spuq2"]
+[ext_resource type="Texture2D" uid="uid://c8vaqtnee8qif" path="res://Iris-in-Wonderland/assets/interface/label_sp.png" id="5_1nir5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_etsli"]
+bg_color = Color(1, 1, 1, 0.509804)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b70st"]
+bg_color = Color(0.990385, 0.788099, 0.811116, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.894922, 0.894922, 0.894922, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j2ohs"]
+bg_color = Color(0.990385, 0.788099, 0.811116, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.894922, 0.894922, 0.894922, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hkor4"]
+bg_color = Color(0.990385, 0.788099, 0.811116, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.894922, 0.894922, 0.894922, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[node name="shop_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0yo2g")
+
+[node name="bg" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_etsli")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(720, 350)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -200.0
+offset_right = 360.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_j4fce")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+custom_minimum_size = Vector2(600, 200)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 32.0
+offset_right = 300.0
+offset_bottom = 232.0
+grow_horizontal = 2
+horizontal_scroll_mode = 0
+
+[node name="items" type="FlowContainer" parent="Panel/ScrollContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(600, 200)
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+
+[node name="Strawberry" parent="Panel/ScrollContainer/items" instance=ExtResource("3_k6nmd")]
+layout_mode = 2
+item_name = "Strawberry"
+
+[node name="Heart" parent="Panel/ScrollContainer/items" instance=ExtResource("3_k6nmd")]
+layout_mode = 2
+item_name = "Pink Heart"
+
+[node name="TextureRect" parent="Panel/ScrollContainer/items/Heart" index="0"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 16.0
+offset_right = 20.0
+offset_bottom = 56.0
+grow_horizontal = 2
+texture = ExtResource("4_in5sf")
+
+[node name="Heart2" parent="Panel/ScrollContainer/items" instance=ExtResource("3_k6nmd")]
+layout_mode = 2
+item_name = "Blue Heart"
+
+[node name="TextureRect" parent="Panel/ScrollContainer/items/Heart2" index="0"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 16.0
+offset_right = 20.0
+offset_bottom = 56.0
+grow_horizontal = 2
+texture = ExtResource("5_1nir5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -232.0
+offset_top = -151.0
+offset_right = 168.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Description" type="Label" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 2
+autowrap_mode = 2
+text_overrun_behavior = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="subtract" type="Button" parent="Panel/VBoxContainer/HBoxContainer/HBoxContainer" groups=["button"]]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxFlat_b70st")
+disabled = true
+text = "-"
+
+[node name="amount" type="Label" parent="Panel/VBoxContainer/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="add" type="Button" parent="Panel/VBoxContainer/HBoxContainer/HBoxContainer" groups=["button"]]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxFlat_j2ohs")
+disabled = true
+text = "+"
+
+[node name="Panel" type="Panel" parent="Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = ExtResource("3_5qlco")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/HBoxContainer/Panel"]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 5.0
+offset_right = 40.0
+offset_bottom = 35.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_spuq2")
+expand_mode = 1
+
+[node name="cost" type="Label" parent="Panel/VBoxContainer/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -15.0
+offset_right = -10.0
+offset_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 24
+text = "0
+"
+horizontal_alignment = 2
+
+[node name="buy" type="Button" parent="Panel/VBoxContainer/HBoxContainer" groups=["button"]]
+custom_minimum_size = Vector2(70, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 28
+theme_override_styles/hover = SubResource("StyleBoxFlat_hkor4")
+disabled = true
+text = "Buy"
+
+[node name="ExitButton" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 14.0
+offset_right = 64.0
+offset_bottom = 50.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 32
+text = "x"
+clip_text = true
+
+[connection signal="description" from="Panel/ScrollContainer/items/Strawberry" to="." method="_on_shop_panel_description"]
+[connection signal="description" from="Panel/ScrollContainer/items/Heart" to="." method="_on_shop_panel_description"]
+[connection signal="description" from="Panel/ScrollContainer/items/Heart2" to="." method="_on_shop_panel_description"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/HBoxContainer/subtract" to="." method="_on_subtract_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/HBoxContainer/add" to="." method="_on_add_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/buy" to="." method="_on_buy_pressed"]
+[connection signal="pressed" from="Panel/ExitButton" to="." method="_on_exit_button_pressed"]
+
+[editable path="Panel/ScrollContainer/items/Heart"]
+[editable path="Panel/ScrollContainer/items/Heart2"]

@@ -1,6 +1,6 @@
-[gd_scene load_steps=51 format=3 uid="uid://rxq1umhh6ovy"]
+[gd_scene load_steps=52 format=3 uid="uid://rxq1umhh6ovy"]
 
-[ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/4.gd" id="1_vhhav"]
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/4_shop.gd" id="1_vhhav"]
 [ext_resource type="PackedScene" uid="uid://bah2pxas0yt5v" path="res://Iris-in-Wonderland/src/background/sky.tscn" id="2_17fo3"]
 [ext_resource type="PackedScene" uid="uid://bng63fw5pf27e" path="res://Iris-in-Wonderland/src/background/green_background.tscn" id="3_li05a"]
 [ext_resource type="Texture2D" uid="uid://p6jiynjt247g" path="res://Iris-in-Wonderland/assets/background/tree1.png" id="4_wcuog"]
@@ -30,6 +30,7 @@
 [ext_resource type="AudioStream" uid="uid://dcj6my0rmnj8n" path="res://Iris-in-Wonderland/assets/audio/星が輝く冬.mp3" id="22_rjmdx"]
 [ext_resource type="PackedScene" uid="uid://csqxtf1r8n1qv" path="res://Iris-in-Wonderland/src/background/card_platform_5.tscn" id="23_j2q0k"]
 [ext_resource type="Texture2D" uid="uid://bytewvlk1fd33" path="res://Iris-in-Wonderland/assets/background/card5.png" id="24_5buwj"]
+[ext_resource type="PackedScene" uid="uid://bdnxj34q52lym" path="res://Iris-in-Wonderland/src/interface/shop_menu.tscn" id="31_t8hlq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olcg7"]
 size = Vector2(66, 2492)
@@ -1133,7 +1134,7 @@ position = Vector2(940, 626)
 position = Vector2(-612, 626)
 
 [node name="debug" type="Marker2D" parent="markers"]
-position = Vector2(-22, -476)
+position = Vector2(480, 586)
 
 [node name="wall_front_pos1" type="Marker2D" parent="markers"]
 position = Vector2(980, -1265)
@@ -1166,14 +1167,21 @@ bus = &"Music"
 
 [node name="Node" type="Node" parent="."]
 
+[node name="ShopUI" type="CanvasLayer" parent="."]
+
+[node name="shop_menu" parent="ShopUI" instance=ExtResource("31_t8hlq")]
+
 [connection signal="body_entered" from="platforms/card_platform2/button/ButtonArea" to="." method="_on_button_area_body_entered"]
 [connection signal="body_exited" from="platforms/card_platform2/button/ButtonArea" to="." method="_on_button_area_body_exited"]
+[connection signal="shop_opened" from="character/shopkeeper" to="." method="_on_shopkeeper_shop_opened"]
 [connection signal="current_position" from="character/player/iris" to="camera/cam_1" method="_on_iris_current_position"]
 [connection signal="current_position" from="character/player/iris" to="camera/cam_3" method="_on_iris_current_position"]
 [connection signal="current_position" from="character/player/iris" to="camera/cam_2" method="_on_iris_current_position"]
 [connection signal="exit_interacted" from="buttons/ExitButton" to="." method="_on_exit_button_exit_interacted"]
 [connection signal="exit_interacted" from="buttons/ExitButton3" to="." method="_on_exit_button_3_exit_interacted"]
 [connection signal="exit_interacted" from="buttons/ExitButton2" to="." method="_on_exit_button_2_exit_interacted"]
+[connection signal="item_bought" from="ShopUI/shop_menu" to="." method="_on_shop_menu_item_bought"]
+[connection signal="shop_closed" from="ShopUI/shop_menu" to="." method="_on_shop_menu_shop_closed"]
 
 [editable path="bg/mushrooms/MushroomR"]
 [editable path="bg/mushrooms/MushroomB"]

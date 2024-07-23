@@ -4,6 +4,8 @@ extends Node2D
 @export var interface: Control
 @export var player: CharacterBody2D
 
+@onready var enemies = get_tree().get_nodes_in_group("enemy")
+
 func _ready():
 	Save.current_scene = scene_file_path
 	init_values()
@@ -21,7 +23,7 @@ func init_values():
 	interface.init(Save.current_coins)
 	
 func _on_enemy_get_position(target_name, enemy_name):
-	if target_name == String("iris"):
+	if String(target_name) == "iris":
 		target_name = "player/iris"
 	else:
 		target_name = String(target_name)
@@ -31,11 +33,10 @@ func _on_enemy_get_position(target_name, enemy_name):
 
 func _on_item_itemized(item_name, quantity):
 	interface.itemize(item_name, quantity)
-	
+
 func _on_player_strawberry_used(pos, dir):
 	var _strawberry = load("res://Iris-in-Wonderland/src/characters/strawberry.tscn").instantiate()
 	$character.add_child(_strawberry)
 	_strawberry.dir = dir * 2
 	_strawberry.position = pos
 	_strawberry.velocity.y = -500
-	_strawberry.itemized.connect(_on_item_itemized)

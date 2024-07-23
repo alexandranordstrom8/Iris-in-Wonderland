@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dmgjvfs6b5eut"]
 
-[ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/animated_character.gd" id="1_tsaoo"]
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/shopkeeper.gd" id="1_nnwe5"]
 [ext_resource type="Texture2D" uid="uid://bty6vatwmphsg" path="res://Iris-in-Wonderland/assets/characters/shopkeeper.png" id="2_ixwmw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5c5fu"]
@@ -47,7 +47,7 @@ radius = 169.0
 height = 426.0
 
 [node name="shopkeeper" type="CharacterBody2D"]
-script = ExtResource("1_tsaoo")
+script = ExtResource("1_nnwe5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tlstg")
@@ -65,3 +65,6 @@ position = Vector2(121, -2)
 position = Vector2(-85, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ikpdb")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

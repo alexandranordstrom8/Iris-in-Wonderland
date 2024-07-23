@@ -2,7 +2,6 @@ extends Enemy
 
 @onready var animations = $Marker2D/AnimationPlayer
 @onready var pos2d = $Marker2D
-@onready var timer = $Timer
 
 const OFFSET = 70
 
@@ -72,7 +71,6 @@ func _on_hitbox_body_exited(body):
 	if body.is_in_group("character") and not body == self:
 		set_can_interact(body.name, false)
 		set_freeze_movement(false)
-		timer.start()
 
 func _on_iris_damage_dealt(amount):
 	super(amount)

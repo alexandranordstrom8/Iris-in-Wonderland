@@ -134,10 +134,9 @@ func _on_hp_health_changed(health):
 	emit_signal("hp_changed", health)
 
 func _on_hp_damage_taken():
-	var tmp = sprite.self_modulate
 	var tween = get_tree().create_tween()
 	tween.tween_property(sprite, "modulate", Color.LIGHT_CORAL, 0.1)
-	tween.tween_property(sprite, "modulate", tmp, 0.1)
+	tween.tween_property(sprite, "modulate", Color.WHITE, 0.1)
 
 func _on_sp_health_changed(health):
 	emit_signal("sp_changed", health)

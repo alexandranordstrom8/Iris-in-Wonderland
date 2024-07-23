@@ -15,6 +15,7 @@ signal change_sp(amount)
 signal change_hp(amount)
 signal strawberry
 signal raise_attack
+signal special_used
 
 # list indexes
 enum {_NUMBER, _TYPE, _DESCRIPTION, _AVAILABLE, _BUTTON, _HP, _SP}
@@ -77,6 +78,7 @@ func use_special_item(item_name):
 		emit_signal("strawberry")
 	if item_name == "Raise Attack":
 		emit_signal("raise_attack")
+	emit_signal("special_used")
 
 func _on_button_pressed(_button, item_name):
 	if item_name in special:

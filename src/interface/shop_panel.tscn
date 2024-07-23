@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://dn854fyru4use"]
+
+[ext_resource type="StyleBox" uid="uid://b4ohi7you0n08" path="res://Iris-in-Wonderland/src/interface/ui_bg.tres" id="1_j00yw"]
+[ext_resource type="Texture2D" uid="uid://b71kmfoumdgjd" path="res://Iris-in-Wonderland/assets/characters/strawberry_1.png" id="2_6tqdq"]
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/interface/shop_panel.gd" id="2_ao5jl"]
+[ext_resource type="Texture2D" uid="uid://bfrexgkbcbk1q" path="res://Iris-in-Wonderland/assets/interface/coin.png" id="3_xpad3"]
+
+[node name="Panel" type="Panel"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 100)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = ExtResource("1_j00yw")
+script = ExtResource("2_ao5jl")
+cost = 10
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 18.0
+offset_top = 3.0
+offset_right = 82.0
+offset_bottom = 67.0
+texture = ExtResource("2_6tqdq")
+stretch_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -21.0
+offset_top = -28.0
+offset_right = 21.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 5
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "10"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_xpad3")
+expand_mode = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

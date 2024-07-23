@@ -3,11 +3,12 @@ extends World
 var started : bool = false
 var won : bool = false
 var play_music : bool = false
+var coin_spawn_pos : Vector2
 
 @onready var cat_pos = $character/cat.position
 @onready var enemy = $character/cat
-@onready var enemy_hp_bar = $ui/VBoxContainer
-@onready var camera = $camera/PanningCamera
+@onready var enemy_hp_bar = $character/player/ui/CanvasLayer/VBoxContainer
+@onready var camera = $character/player/DefaultCamera
 
 func _ready():
 	super._ready()
@@ -38,6 +39,7 @@ func _on_panning_camera_finished_panning():
 	
 func _on_cat_hp_depleted():
 	won = true
+	coin_spawn_pos = enemy.position
 	$audio/music.stop()
 	$audio/ambience.play()
 
@@ -49,6 +51,12 @@ func _on_cat_timer_timeout():
 		enemy.queue_free()
 		$audio/win.play()
 		enemy_hp_bar.visible = false
+		
+		var _coin = load("res://Iris-in-Wonderland/src/interface/coin.tscn").instantiate()
+		$collectibles.add_child(_coin)
+		_coin.position = coin_spawn_pos
+		_coin.scale *= 2
+		_coin.value = 50
 	elif enemy.chase:
 		enemy.set_target_pos(player.position)
 	else:
@@ -60,8 +68,3 @@ func _on_exit_button_exit_interacted():
 
 func _on_bee_new_target():
 	$character/Bee.set_target_pos(Vector2(randi_range(250, 3000), randi_range(100, 500)))
-
-func _on_enemy_get_position(target_name, enemy_name):
-	var target = $character.get_node(String(target_name))
-	var _enemy = $character.get_node(String(enemy_name))
-	_enemy.set_target_pos(target.position)

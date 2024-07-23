@@ -13,7 +13,6 @@ var chase : bool = false
 
 @export var hp: Health
 @export var damage : int
-@export var sprite : Node2D
 
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -23,6 +22,7 @@ signal hp_depleted()
 
 func _ready():
 	add_to_group("character")
+	add_to_group("enemy")
 
 func _process(delta):
 	velocity.y += gravity * delta
@@ -71,10 +71,9 @@ func _on_detection_area_body_exited(body):
 			chase = false
 
 func _on_hp_damage_taken():
-	var tmp = sprite.self_modulate
 	var tween = get_tree().create_tween()
-	tween.tween_property(sprite, "modulate", Color.LIGHT_CORAL, 0.1)
-	tween.tween_property(sprite, "modulate", tmp, 0.1)
+	tween.tween_property(self, "modulate", Color.LIGHT_CORAL, 0.1)
+	tween.tween_property(self, "modulate", Color.WHITE, 0.1)
 
 func _on_iris_damage_dealt(amount):
 	if can_interact["iris"]:

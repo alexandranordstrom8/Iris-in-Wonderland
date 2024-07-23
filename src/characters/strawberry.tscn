@@ -131,12 +131,11 @@ radius = 288.043
 [sub_resource type="CircleShape2D" id="CircleShape2D_nn7e8"]
 radius = 66.0303
 
-[node name="Strawberry" type="CharacterBody2D" node_paths=PackedStringArray("hp", "sprite")]
+[node name="Strawberry" type="CharacterBody2D" node_paths=PackedStringArray("hp")]
 collision_layer = 4
 script = ExtResource("1_1iwl3")
 hp = NodePath("Health")
 damage = 30
-sprite = NodePath("Marker2D/AnimatedSprite2D")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("3_gqe4m")

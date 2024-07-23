@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://rgd0x5rf8glb"]
+
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/background/collectible.gd" id="1_lane3"]
+[ext_resource type="Texture2D" uid="uid://e5bmytvw5job" path="res://Iris-in-Wonderland/assets/background/cake.png" id="1_t2g8o"]
+[ext_resource type="PackedScene" uid="uid://dp671r6nivhj" path="res://Iris-in-Wonderland/src/interface/pick_up_label.tscn" id="2_owo1r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tqo2y"]
+radius = 44.5533
+
+[node name="CollectibleApple" type="Node2D"]
+script = ExtResource("1_lane3")
+item_name = "Apple"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_t2g8o")
+region_enabled = true
+region_rect = Rect2(529.764, 225.99, 98.6051, 117.897)
+
+[node name="PickUpLabel" parent="." instance=ExtResource("2_owo1r")]
+offset_left = -51.0
+offset_top = -97.0
+offset_right = 69.0
+offset_bottom = -57.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_tqo2y")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
