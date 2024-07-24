@@ -28,13 +28,14 @@ var special = ["Strawberry", "Raise Attack"]
 func _ready():
 	item_list = Save.item_list
 	for item in item_list:
-		if item_list[item][_AVAILABLE]:
-			var _button = load(button).instantiate()
-			button_container.add_child(_button)
-			_button.text = item
-			_button.focus.connect(_on_button_focus)
-			_button._button_pressed.connect(_on_button_pressed)
-			item_list[item][_BUTTON] = _button
+		var _button = load(button).instantiate()
+		button_container.add_child(_button)
+		_button.text = item
+		_button.focus.connect(_on_button_focus)
+		_button._button_pressed.connect(_on_button_pressed)
+		item_list[item][_BUTTON] = _button
+		if not item_list[item][_AVAILABLE]:
+			_button.hide()
 
 func _process(_delta):
 	disable_buttons()
@@ -69,6 +70,9 @@ func get_health_values(hp, sp):
 
 func increase_quantity(item_name, quantity):
 	item_list[item_name][_NUMBER] += quantity
+	if not item_list[item_name][_AVAILABLE]:
+		item_list[item_name][_AVAILABLE] = true
+		item_list[item_name][_BUTTON].show()
 
 func _on_button_focus(_button, item_name):
 	get_description(item_name)

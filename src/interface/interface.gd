@@ -49,13 +49,13 @@ func itemize(item_name, quantity):
 
 func save_values():
 	Save.set_variables(
-		int($Counters/HBoxContainer/coin_counter/HBoxContainer/Label.text),
+		int($Counters/HBoxContainer/coin_counter/Label.text),
 		int($Counters/HBoxContainer/Panel/VBoxContainer/hp_bar/counter/Label.text), 
 		int($Counters/HBoxContainer/Panel/VBoxContainer/sp_bar/counter/Label.text),
 		skill_menu.item_list)
 
 func get_coins():
-	return int($Counters/HBoxContainer/coin_counter/HBoxContainer/Label.text)
+	return int($Counters/HBoxContainer/coin_counter/Label.text)
 
 ### health signals
 func _on_iris_hp_changed(amount):

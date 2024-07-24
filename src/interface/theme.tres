@@ -90,6 +90,7 @@ default_font = ExtResource("1_vae2p")
 default_font_size = 18
 BoxContainer/constants/separation = 10
 Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_disabled_color = Color(0.956863, 0.956863, 0.956863, 0.619608)
 Button/colors/font_focus_color = Color(1, 1, 1, 1)
 Button/styles/disabled = SubResource("StyleBoxFlat_2kpq0")
 Button/styles/focus = SubResource("StyleBoxEmpty_kbtq5")

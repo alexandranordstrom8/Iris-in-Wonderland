@@ -7,6 +7,8 @@ var scene_1 = "res://Iris-in-Wonderland/src/scenes/1.tscn"
 var scene_2 = "res://Iris-in-Wonderland/src/scenes/2.tscn"
 var scene_3 = "res://Iris-in-Wonderland/src/scenes/3.tscn"
 var scene_4 = "res://Iris-in-Wonderland/src/scenes/4.tscn"
+var scene_5 = "res://Iris-in-Wonderland/src/scenes/5.tscn"
+var scene_6 = "res://Iris-in-Wonderland/src/scenes/6.tscn"
 
 func change_scene(prev, new, show_loading_screen=true):
 	Save.prev_scene = prev

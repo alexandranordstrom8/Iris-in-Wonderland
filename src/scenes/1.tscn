@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://dxaievchquyu6"]
+[gd_scene load_steps=52 format=3 uid="uid://dxaievchquyu6"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/1.gd" id="1_pku5t"]
 [ext_resource type="Texture2D" uid="uid://d0uhb7j45xd1g" path="res://Iris-in-Wonderland/assets/background/grass.png" id="2_1tmdf"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dpj8w1xhqb18n" path="res://Iris-in-Wonderland/src/background/mushroom_b.tscn" id="11_wiuhq"]
 [ext_resource type="Texture2D" uid="uid://cbqo77367xmhg" path="res://Iris-in-Wonderland/assets/background/grass2.png" id="12_y5mi2"]
 [ext_resource type="Texture2D" uid="uid://deiug4fdhqlhy" path="res://Iris-in-Wonderland/assets/background/path1.png" id="13_tkp68"]
+[ext_resource type="PackedScene" uid="uid://nlkid0y1e5vb" path="res://Iris-in-Wonderland/src/background/house.tscn" id="14_g1fbk"]
 [ext_resource type="Texture2D" uid="uid://bi3pnx50gmcry" path="res://Iris-in-Wonderland/assets/background/brown2.png" id="14_w4v8c"]
 [ext_resource type="PackedScene" uid="uid://bsd8hqkxtxg33" path="res://Iris-in-Wonderland/src/background/dirt_ground.tscn" id="14_y83yd"]
 [ext_resource type="Texture2D" uid="uid://cd7ky2ec07inu" path="res://Iris-in-Wonderland/assets/background/dirt.png" id="15_r0e3h"]
@@ -684,6 +685,21 @@ texture = ExtResource("13_tkp68")
 region_enabled = true
 region_rect = Rect2(41.9382, 443.6, 435.149, 222.933)
 
+[node name="House" parent="bg/up" instance=ExtResource("14_g1fbk")]
+position = Vector2(-990, 543)
+
+[node name="Sprite2D15" type="Sprite2D" parent="bg/up/House"]
+position = Vector2(151, 65)
+texture = ExtResource("2_1tmdf")
+region_enabled = true
+region_rect = Rect2(0, 362.144, 333.466, 158.626)
+
+[node name="Sprite2D16" type="Sprite2D" parent="bg/up/House"]
+position = Vector2(-228, 96)
+texture = ExtResource("2_1tmdf")
+region_enabled = true
+region_rect = Rect2(0, 362.144, 333.466, 158.626)
+
 [node name="down" type="Node" parent="bg"]
 
 [node name="Panel" type="Panel" parent="bg/down"]
@@ -1097,7 +1113,7 @@ region_enabled = true
 region_rect = Rect2(0, 362.144, 333.466, 158.626)
 
 [node name="Sprite2D12" type="Sprite2D" parent="fg/grass"]
-position = Vector2(-590, 636)
+position = Vector2(-607, 687)
 texture = ExtResource("2_1tmdf")
 region_enabled = true
 region_rect = Rect2(0, 362.144, 333.466, 158.626)
@@ -1186,6 +1202,9 @@ position = Vector2(-1703, 626)
 
 [node name="Marker2D_4" type="Marker2D" parent="markers"]
 position = Vector2(-2410, 626)
+
+[node name="debug" type="Marker2D" parent="markers"]
+position = Vector2(-636, 532)
 
 [node name="buttons" type="Node" parent="."]
 
@@ -1277,20 +1296,7 @@ volume_db = -5.0
 autoplay = true
 bus = &"Music"
 
-[connection signal="coin_collected" from="collectibles/coin" to="character/player/ui/Interface" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="collectibles/coin2" to="character/player/ui/Interface" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="collectibles/coin3" to="character/player/ui/Interface" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="collectibles/coin4" to="character/player/ui/Interface" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="collectibles/coin5" to="character/player/ui/Interface" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="collectibles/coin6" to="character/player/ui/Interface" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="collectibles/coin7" to="character/player/ui/Interface" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="collectibles/coin8" to="character/player/ui/Interface" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="collectibles/coin9" to="character/player/ui/Interface" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="collectibles/coin10" to="character/player/ui/Interface" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="collectibles/coin11" to="character/player/ui/Interface" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="collectibles/coin12" to="character/player/ui/Interface" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="collectibles/coin13" to="character/player/ui/Interface" method="_on_coin_coin_collected"]
-[connection signal="coin_collected" from="collectibles/coin14" to="character/player/ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="house_entered" from="bg/up/House" to="." method="_on_house_house_entered"]
 [connection signal="current_position" from="character/player/iris" to="camera/cam_0" method="_on_iris_current_position"]
 [connection signal="current_position" from="character/player/iris" to="camera/cam_3" method="_on_iris_current_position"]
 [connection signal="interacted" from="character/player/iris" to="character/benjamin" method="_on_iris_interacted"]

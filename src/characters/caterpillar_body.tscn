@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://djsujrkpe6glk"]
+
+[ext_resource type="Texture2D" uid="uid://cpkamkcv0fvc0" path="res://Iris-in-Wonderland/assets/characters/caterpillar.png" id="1_lgmp4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6eml7"]
+radius = 73.3894
+
+[node name="CaterpillarBody" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_lgmp4")
+region_enabled = true
+region_rect = Rect2(31.6154, 28.7704, 171.841, 168.298)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+show_behind_parent = true
+position = Vector2(-30, 58)
+texture = ExtResource("1_lgmp4")
+region_enabled = true
+region_rect = Rect2(270.776, 89.0035, 74.4056, 72.634)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+show_behind_parent = true
+position = Vector2(35, 58)
+texture = ExtResource("1_lgmp4")
+region_enabled = true
+region_rect = Rect2(270.776, 89.0035, 74.4056, 72.634)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_6eml7")

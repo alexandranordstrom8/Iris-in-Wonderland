@@ -17,9 +17,8 @@ func _ready():
 			player.position = $markers/Marker2D_4.position
 			cam3.make_current()
 		_:
-			player.position = $markers/Marker2D_0.position
-			cam0.make_current()
-			player.get_node("Marker2D").scale.x = -1
+			player.position = $markers/debug.position
+			cam3.make_current()
 
 func _on_exit_button_exit_interacted():
 	change_scene(ScenePaths.scene_0)
@@ -29,3 +28,6 @@ func _on_exit_button_2_exit_interacted():
 
 func _on_exit_button_3_exit_interacted():
 	change_scene(ScenePaths.scene_4)
+
+func _on_house_house_entered():
+	change_scene(ScenePaths.scene_6)

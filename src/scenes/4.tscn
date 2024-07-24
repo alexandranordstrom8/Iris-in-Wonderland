@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://rxq1umhh6ovy"]
+[gd_scene load_steps=64 format=3 uid="uid://rxq1umhh6ovy"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/4_shop.gd" id="1_vhhav"]
 [ext_resource type="PackedScene" uid="uid://bah2pxas0yt5v" path="res://Iris-in-Wonderland/src/background/sky.tscn" id="2_17fo3"]
@@ -26,11 +26,17 @@
 [ext_resource type="PackedScene" uid="uid://duenctpiba1bt" path="res://Iris-in-Wonderland/src/background/card_platform_2.tscn" id="15_ew758"]
 [ext_resource type="PackedScene" uid="uid://co5rhs1t15yqh" path="res://Iris-in-Wonderland/src/background/card_platform_3.tscn" id="16_e41b7"]
 [ext_resource type="PackedScene" uid="uid://btqp4gxdg4jpw" path="res://Iris-in-Wonderland/src/background/card_platform_4.tscn" id="17_vvufv"]
-[ext_resource type="PackedScene" uid="uid://bh4th8fe5trsh" path="res://Iris-in-Wonderland/src/characters/strawberry.tscn" id="18_axdvm"]
+[ext_resource type="Texture2D" uid="uid://bhr160dgnoljc" path="res://Iris-in-Wonderland/assets/background/sign.png" id="19_1quds"]
 [ext_resource type="AudioStream" uid="uid://dcj6my0rmnj8n" path="res://Iris-in-Wonderland/assets/audio/星が輝く冬.mp3" id="22_rjmdx"]
+[ext_resource type="Texture2D" uid="uid://bly7hh38jkbfr" path="res://Iris-in-Wonderland/assets/interface/label_hp.png" id="22_v1vst"]
 [ext_resource type="PackedScene" uid="uid://csqxtf1r8n1qv" path="res://Iris-in-Wonderland/src/background/card_platform_5.tscn" id="23_j2q0k"]
+[ext_resource type="Texture2D" uid="uid://bq4d642113u00" path="res://Iris-in-Wonderland/assets/background/key.png" id="23_ku5b8"]
 [ext_resource type="Texture2D" uid="uid://bytewvlk1fd33" path="res://Iris-in-Wonderland/assets/background/card5.png" id="24_5buwj"]
+[ext_resource type="PackedScene" uid="uid://dilfg8vmp3axa" path="res://Iris-in-Wonderland/src/background/glow.tscn" id="24_8hevl"]
+[ext_resource type="Texture2D" uid="uid://c8vaqtnee8qif" path="res://Iris-in-Wonderland/assets/interface/label_sp.png" id="27_cxp6g"]
+[ext_resource type="Texture2D" uid="uid://u7d0betrebm1" path="res://Iris-in-Wonderland/assets/characters/strawberry.png" id="27_ijg8l"]
 [ext_resource type="PackedScene" uid="uid://bdnxj34q52lym" path="res://Iris-in-Wonderland/src/interface/shop_menu.tscn" id="31_t8hlq"]
+[ext_resource type="PackedScene" uid="uid://cgvgmi8l5dw87" path="res://Iris-in-Wonderland/src/interface/coin.tscn" id="33_uhwbk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olcg7"]
 size = Vector2(66, 2492)
@@ -105,6 +111,61 @@ _data = {
 "RESET": SubResource("Animation_ci44f"),
 "slide": SubResource("Animation_nxnso")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1opep"]
+atlas = ExtResource("27_ijg8l")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1we8"]
+atlas = ExtResource("27_ijg8l")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohfy4"]
+atlas = ExtResource("27_ijg8l")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4x1i"]
+atlas = ExtResource("27_ijg8l")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x05s0"]
+atlas = ExtResource("27_ijg8l")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j8g3g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1opep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1we8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohfy4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1we8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1opep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4x1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x05s0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohfy4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1opep")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_thp6c"]
 length = 0.001
@@ -842,6 +903,36 @@ texture = ExtResource("12_mojr4")
 region_enabled = true
 region_rect = Rect2(48.369, 27.7442, 340.831, 340.831)
 
+[node name="sign" type="Sprite2D" parent="bg"]
+position = Vector2(312, 494)
+texture = ExtResource("19_1quds")
+region_enabled = true
+region_rect = Rect2(0, 0, 270.237, 130.303)
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/sign"]
+show_behind_parent = true
+position = Vector2(-64, 59)
+texture = ExtResource("19_1quds")
+region_enabled = true
+region_rect = Rect2(267.233, 3.96852, 74.4056, 159.44)
+
+[node name="Sprite2D2" type="Sprite2D" parent="bg/sign"]
+show_behind_parent = true
+position = Vector2(80, 64)
+texture = ExtResource("19_1quds")
+region_enabled = true
+region_rect = Rect2(267.233, 3.96852, 74.4056, 159.44)
+
+[node name="Label" type="Label" parent="bg/sign"]
+offset_left = -39.0
+offset_top = -12.0
+offset_right = 51.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.607843, 0.407843, 0.352941, 1)
+theme_override_colors/font_outline_color = Color(0.278431, 0, 0, 0.882353)
+theme_override_font_sizes/font_size = 36
+text = "Shop"
+
 [node name="platforms" type="Node" parent="."]
 
 [node name="shop" type="Node" parent="platforms"]
@@ -855,6 +946,11 @@ libraries = {
 }
 autoplay = "slide"
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="platforms/shop/card_platform1"]
+position = Vector2(0, -23)
+sprite_frames = SubResource("SpriteFrames_j8g3g")
+autoplay = "default"
+
 [node name="card_platform2" parent="platforms/shop" instance=ExtResource("15_ew758")]
 position = Vector2(674, 249)
 
@@ -863,6 +959,11 @@ libraries = {
 "": SubResource("AnimationLibrary_lqbak")
 }
 autoplay = "slide"
+
+[node name="Sprite2D2" type="Sprite2D" parent="platforms/shop/card_platform2"]
+position = Vector2(3, -43)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("22_v1vst")
 
 [node name="card_platform3" parent="platforms/shop" instance=ExtResource("16_e41b7")]
 position = Vector2(455, 186)
@@ -873,6 +974,19 @@ libraries = {
 }
 autoplay = "slide"
 
+[node name="Sprite2D2" type="Sprite2D" parent="platforms/shop/card_platform3"]
+position = Vector2(5, -37)
+texture = ExtResource("23_ku5b8")
+
+[node name="Glow" parent="platforms/shop/card_platform3/Sprite2D2" instance=ExtResource("24_8hevl")]
+show_behind_parent = true
+position = Vector2(11, -23)
+scale = Vector2(0.5, 0.5)
+animation = &"smaller_glow"
+autoplay = "smaller_glow"
+frame = 1
+frame_progress = 0.279533
+
 [node name="card_platform4" parent="platforms/shop" instance=ExtResource("17_vvufv")]
 position = Vector2(944, 192)
 
@@ -881,6 +995,11 @@ libraries = {
 "": SubResource("AnimationLibrary_3a16l")
 }
 autoplay = "slide"
+
+[node name="Sprite2D2" type="Sprite2D" parent="platforms/shop/card_platform4"]
+position = Vector2(3, -43)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("27_cxp6g")
 
 [node name="card_platform1" parent="platforms" instance=ExtResource("14_ucblu")]
 position = Vector2(-567, -397)
@@ -996,17 +1115,50 @@ polygon = PackedVector2Array(-104, -28.6847, 99, -11.6525, 74, 34, -101, 37.0111
 [node name="shopkeeper" parent="character" instance=ExtResource("11_3x1x1")]
 position = Vector2(30, 510)
 
-[node name="Strawberry" parent="character" instance=ExtResource("18_axdvm")]
-position = Vector2(206, 191)
-moving = false
-can_pick_up = false
-
 [node name="player" parent="character" instance=ExtResource("10_tiipd")]
 
 [node name="iris" parent="character/player" index="0" groups=["character"]]
 
 [node name="DefaultCamera" parent="character/player" index="2"]
 enabled = false
+
+[node name="collectibles" type="Node" parent="."]
+
+[node name="coin" parent="collectibles" instance=ExtResource("33_uhwbk")]
+position = Vector2(1902, 186)
+
+[node name="coin2" parent="collectibles" instance=ExtResource("33_uhwbk")]
+position = Vector2(1902, 53)
+
+[node name="coin3" parent="collectibles" instance=ExtResource("33_uhwbk")]
+position = Vector2(1907, -85)
+
+[node name="coin4" parent="collectibles" instance=ExtResource("33_uhwbk")]
+position = Vector2(630, -954)
+
+[node name="coin5" parent="collectibles" instance=ExtResource("33_uhwbk")]
+position = Vector2(763, -954)
+
+[node name="coin6" parent="collectibles" instance=ExtResource("33_uhwbk")]
+position = Vector2(896, -954)
+
+[node name="coin7" parent="collectibles" instance=ExtResource("33_uhwbk")]
+position = Vector2(1262, -954)
+
+[node name="coin8" parent="collectibles" instance=ExtResource("33_uhwbk")]
+position = Vector2(1470, -962)
+scale = Vector2(1.5, 1.5)
+value = 10
+
+[node name="coin9" parent="collectibles" instance=ExtResource("33_uhwbk")]
+position = Vector2(1638, -965)
+scale = Vector2(1.7, 1.7)
+value = 20
+
+[node name="coin10" parent="collectibles" instance=ExtResource("33_uhwbk")]
+position = Vector2(1812, -968)
+scale = Vector2(2, 2)
+value = 30
 
 [node name="fg" type="Node" parent="."]
 
@@ -1165,11 +1317,10 @@ volume_db = -5.0
 autoplay = true
 bus = &"Music"
 
-[node name="Node" type="Node" parent="."]
-
 [node name="ShopUI" type="CanvasLayer" parent="."]
 
 [node name="shop_menu" parent="ShopUI" instance=ExtResource("31_t8hlq")]
+visible = false
 
 [connection signal="body_entered" from="platforms/card_platform2/button/ButtonArea" to="." method="_on_button_area_body_entered"]
 [connection signal="body_exited" from="platforms/card_platform2/button/ButtonArea" to="." method="_on_button_area_body_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bdnxj34q52lym"]
+[gd_scene load_steps=13 format=3 uid="uid://bdnxj34q52lym"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/interface/shop_menu.gd" id="1_0yo2g"]
 [ext_resource type="StyleBox" uid="uid://khbxj7u6gatf" path="res://Iris-in-Wonderland/src/interface/panel.tres" id="2_j4fce"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bly7hh38jkbfr" path="res://Iris-in-Wonderland/assets/interface/label_hp.png" id="4_in5sf"]
 [ext_resource type="Texture2D" uid="uid://bfrexgkbcbk1q" path="res://Iris-in-Wonderland/assets/interface/coin.png" id="4_spuq2"]
 [ext_resource type="Texture2D" uid="uid://c8vaqtnee8qif" path="res://Iris-in-Wonderland/assets/interface/label_sp.png" id="5_1nir5"]
+[ext_resource type="Texture2D" uid="uid://bq4d642113u00" path="res://Iris-in-Wonderland/assets/background/key.png" id="6_q4jvp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_etsli"]
 bg_color = Color(1, 1, 1, 0.509804)
@@ -149,6 +150,25 @@ offset_bottom = 56.0
 grow_horizontal = 2
 texture = ExtResource("5_1nir5")
 
+[node name="Key" parent="Panel/ScrollContainer/items" instance=ExtResource("3_k6nmd")]
+layout_mode = 2
+item_name = "Golden Key"
+cost = 100
+
+[node name="TextureRect" parent="Panel/ScrollContainer/items/Key" index="0"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -84.0
+offset_top = 0.0
+offset_right = -14.0
+offset_bottom = 73.0
+grow_horizontal = 0
+texture = ExtResource("6_q4jvp")
+expand_mode = 1
+stretch_mode = 0
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 7
@@ -207,7 +227,7 @@ disabled = true
 text = "+"
 
 [node name="Panel" type="Panel" parent="Panel/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(120, 40)
+custom_minimum_size = Vector2(130, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -215,9 +235,9 @@ theme_override_styles/panel = ExtResource("3_5qlco")
 
 [node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/HBoxContainer/Panel"]
 layout_mode = 1
-offset_left = 10.0
+offset_left = 8.0
 offset_top = 5.0
-offset_right = 40.0
+offset_right = 38.0
 offset_bottom = 35.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -231,9 +251,9 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -75.0
+offset_left = -79.0
 offset_top = -15.0
-offset_right = -10.0
+offset_right = -6.0
 offset_bottom = 16.0
 grow_horizontal = 0
 grow_vertical = 2
@@ -270,6 +290,7 @@ clip_text = true
 [connection signal="description" from="Panel/ScrollContainer/items/Strawberry" to="." method="_on_shop_panel_description"]
 [connection signal="description" from="Panel/ScrollContainer/items/Heart" to="." method="_on_shop_panel_description"]
 [connection signal="description" from="Panel/ScrollContainer/items/Heart2" to="." method="_on_shop_panel_description"]
+[connection signal="description" from="Panel/ScrollContainer/items/Key" to="." method="_on_shop_panel_description"]
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/HBoxContainer/subtract" to="." method="_on_subtract_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/HBoxContainer/add" to="." method="_on_add_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/buy" to="." method="_on_buy_pressed"]
@@ -277,3 +298,4 @@ clip_text = true
 
 [editable path="Panel/ScrollContainer/items/Heart"]
 [editable path="Panel/ScrollContainer/items/Heart2"]
+[editable path="Panel/ScrollContainer/items/Key"]

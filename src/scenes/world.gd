@@ -5,11 +5,15 @@ extends Node2D
 @export var player: CharacterBody2D
 
 @onready var enemies = get_tree().get_nodes_in_group("enemy")
+@onready var coins = get_tree().get_nodes_in_group("coins")
 
 func _ready():
 	Save.current_scene = scene_file_path
 	init_values()
 	$character/player.strawberry_used.connect(_on_player_strawberry_used)
+	
+	for coin in coins:
+		coin.coin_collected.connect(interface._on_coin_coin_collected)
 
 func change_scene(new):
 	call_deferred("_change_scene_deferred", new)

@@ -1,0 +1,83 @@
+[gd_scene load_steps=5 format=3 uid="uid://coukdhlnol1fl"]
+
+[ext_resource type="Texture2D" uid="uid://cpkamkcv0fvc0" path="res://Iris-in-Wonderland/assets/characters/caterpillar.png" id="1_5gs2i"]
+[ext_resource type="PackedScene" uid="uid://djsujrkpe6glk" path="res://Iris-in-Wonderland/src/characters/caterpillar_body.tscn" id="2_srvbe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7s706"]
+radius = 79.0253
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_04r8b"]
+size = Vector2(2320, 20)
+
+[node name="Caterpillar" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(310, 122)
+
+[node name="Marker2D" type="Marker2D" parent="CharacterBody2D"]
+
+[node name="CaterpillarBody5" parent="CharacterBody2D/Marker2D" instance=ExtResource("2_srvbe")]
+show_behind_parent = true
+position = Vector2(430, 49)
+
+[node name="CaterpillarBody4" parent="CharacterBody2D/Marker2D" instance=ExtResource("2_srvbe")]
+show_behind_parent = true
+position = Vector2(330, 46)
+
+[node name="CaterpillarBody3" parent="CharacterBody2D/Marker2D" instance=ExtResource("2_srvbe")]
+show_behind_parent = true
+position = Vector2(239, 48)
+
+[node name="CaterpillarBody2" parent="CharacterBody2D/Marker2D" instance=ExtResource("2_srvbe")]
+show_behind_parent = true
+position = Vector2(152, 51)
+
+[node name="CaterpillarBody" parent="CharacterBody2D/Marker2D" instance=ExtResource("2_srvbe")]
+show_behind_parent = true
+position = Vector2(62, 52)
+freeze = true
+
+[node name="head" type="Sprite2D" parent="CharacterBody2D/Marker2D/CaterpillarBody"]
+position = Vector2(-62, -52)
+texture = ExtResource("1_5gs2i")
+region_enabled = true
+region_rect = Rect2(169.797, 220.099, 205.501, 193.1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_7s706")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="CharacterBody2D"]
+position = Vector2(112, 52)
+rotation = -1.5708
+node_a = NodePath("../Marker2D/CaterpillarBody")
+node_b = NodePath("../Marker2D/CaterpillarBody2")
+bias = 0.9
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="CharacterBody2D"]
+position = Vector2(212, 50)
+rotation = -1.5708
+node_a = NodePath("../Marker2D/CaterpillarBody2")
+node_b = NodePath("../Marker2D/CaterpillarBody3")
+bias = 0.9
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="CharacterBody2D"]
+position = Vector2(290, 50)
+rotation = -1.5708
+node_a = NodePath("../Marker2D/CaterpillarBody3")
+node_b = NodePath("../Marker2D/CaterpillarBody4")
+bias = 0.9
+
+[node name="PinJoint2D4" type="PinJoint2D" parent="CharacterBody2D"]
+position = Vector2(393, 50)
+rotation = -1.5708
+node_a = NodePath("../Marker2D/CaterpillarBody4")
+node_b = NodePath("../Marker2D/CaterpillarBody5")
+bias = 0.9
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(819, 359)
+shape = SubResource("RectangleShape2D_04r8b")
+disabled = true
