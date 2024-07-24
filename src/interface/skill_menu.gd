@@ -5,6 +5,7 @@ const button = "res://Iris-in-Wonderland/src/interface/skill_menu_button.tscn"
 var _current_sp : int = 100
 var _current_hp : int = 100
 var timer_locked : bool = false
+var focused_item : String = ""
 
 @onready var cost_label = $Panel/VBoxContainer2/Cost
 @onready var desc_label = $Panel/VBoxContainer2/Description
@@ -28,17 +29,20 @@ var special = ["Strawberry", "Raise Attack"]
 func _ready():
 	item_list = Save.item_list
 	for item in item_list:
-		var _button = load(button).instantiate()
+		var _button = preload(button).instantiate()
 		button_container.add_child(_button)
 		_button.text = item
 		_button.focus.connect(_on_button_focus)
 		_button._button_pressed.connect(_on_button_pressed)
 		item_list[item][_BUTTON] = _button
+		
 		if not item_list[item][_AVAILABLE]:
 			_button.hide()
 
 func _process(_delta):
 	disable_buttons()
+	if focused_item != "":
+		get_description(focused_item)
 
 func get_description(item):
 	if item_list[item][_TYPE] == SKILL:
@@ -61,8 +65,9 @@ func disable_buttons():
 		item_list["Raise Attack"][_BUTTON].disabled = true
 
 func close_window():
-	cost_label.text = " "
-	desc_label.text = " "
+	cost_label.text = ""
+	desc_label.text = ""
+	focused_item = ""
 
 func get_health_values(hp, sp):
 	_current_hp = hp
@@ -74,8 +79,9 @@ func increase_quantity(item_name, quantity):
 		item_list[item_name][_AVAILABLE] = true
 		item_list[item_name][_BUTTON].show()
 
-func _on_button_focus(_button, item_name):
-	get_description(item_name)
+func _on_button_focus(item_name):
+	#get_description(item_name)
+	focused_item = item_name
 
 func use_special_item(item_name):
 	if item_name == "Strawberry" and item_list["Strawberry"][_NUMBER] > 0:
@@ -84,7 +90,7 @@ func use_special_item(item_name):
 		emit_signal("raise_attack")
 	emit_signal("special_used")
 
-func _on_button_pressed(_button, item_name):
+func _on_button_pressed(item_name):
 	if item_name in special:
 		use_special_item(item_name)
 	

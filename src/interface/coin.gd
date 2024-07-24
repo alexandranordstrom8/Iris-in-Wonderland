@@ -5,7 +5,8 @@ extends Node2D
 signal coin_collected(value)
 
 func _ready():
-	add_to_group("coins")
+	var world = get_tree().current_scene
+	coin_collected.connect(world.interface._on_coin_coin_collected)
 	$Area2D/AnimationPlayer.play("float")
 
 func _on_area_2d_body_entered(body):

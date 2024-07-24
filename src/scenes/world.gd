@@ -11,9 +11,6 @@ func _ready():
 	Save.current_scene = scene_file_path
 	init_values()
 	$character/player.strawberry_used.connect(_on_player_strawberry_used)
-	
-	for coin in coins:
-		coin.coin_collected.connect(interface._on_coin_coin_collected)
 
 func change_scene(new):
 	call_deferred("_change_scene_deferred", new)
@@ -39,7 +36,7 @@ func _on_item_itemized(item_name, quantity):
 	interface.itemize(item_name, quantity)
 
 func _on_player_strawberry_used(pos, dir):
-	var _strawberry = load("res://Iris-in-Wonderland/src/characters/strawberry.tscn").instantiate()
+	var _strawberry = preload("res://Iris-in-Wonderland/src/characters/strawberry.tscn").instantiate()
 	$character.add_child(_strawberry)
 	_strawberry.dir = dir * 2
 	_strawberry.position = pos

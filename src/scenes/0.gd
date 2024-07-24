@@ -3,8 +3,9 @@ extends World
 @onready var camera = $camera/PanningCamera
 @onready var camera2 = $camera/PanningCamera2
 @onready var ref_marker = $markers/ref
-@onready var player_marker = $character/iris/Marker2D
 @onready var spawn_marker = $markers/spawn
+@onready var default_marker = $markers/default
+@onready var pos2d = player.get_node("Marker2D")
 
 var started = false
 
@@ -18,7 +19,9 @@ func _ready():
 	else:
 		interface.visible = false
 		camera.make_current()
-		player_marker.scale.x = -1
+		player.position = default_marker.position
+		pos2d.scale.x = -1
+		$character/player.strawberry_used.connect(_on_player_strawberry_used)
 	camera.look_down_possible = false
 
 func _on_area_2d_body_entered(body):

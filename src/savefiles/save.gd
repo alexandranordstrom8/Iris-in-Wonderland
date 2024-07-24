@@ -16,10 +16,10 @@ var item_list = {
 	"Raise Attack" : [20, SKILL, "Raises attack damage for 5 seconds", true, null, 0, -20],
 	"Purr" : [5, SKILL, "Recover 5 hp", true, null, 5, -5],
 	"Golden Key" : [0, ITEM, "Can open any door", false, null, 0, 0],
-	"Cake" : [0, ITEM, "Heals 10 sp", false, null, 0, 10],
-	"Apple" : [0, ITEM, "Heals 10 hp", false, null, 10, 0],
-	"Pink Heart" : [0, ITEM, "Heals 5 hp", false, null, 5, 0],
-	"Blue Heart" : [0, ITEM, "Heals 5 sp", false, null, 0, 5],
+	"Cake" : [0, ITEM, "Heals 10 sp", true, null, 0, 10],
+	"Apple" : [0, ITEM, "Heals 10 hp", true, null, 10, 0],
+	"Pink Heart" : [0, ITEM, "Heals 5 hp", true, null, 5, 0],
+	"Blue Heart" : [0, ITEM, "Heals 5 sp", true, null, 0, 5],
 }
 
 func set_variables(coins, hp, sp, items):

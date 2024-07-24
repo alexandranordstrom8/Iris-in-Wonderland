@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://qi0mpgnl1ag3"]
+[gd_scene load_steps=38 format=3 uid="uid://dno7dvdd68og0"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/0.gd" id="1_y7cj4"]
 [ext_resource type="Texture2D" uid="uid://bi3pnx50gmcry" path="res://Iris-in-Wonderland/assets/background/brown2.png" id="2_lawmn"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://b8wxjqdavi135" path="res://Iris-in-Wonderland/src/background/ground.tscn" id="5_rre2w"]
 [ext_resource type="Texture2D" uid="uid://djnh45cefqrtg" path="res://Iris-in-Wonderland/assets/background/tree3.png" id="6_w1k2l"]
 [ext_resource type="Texture2D" uid="uid://bgemt3eaij6yc" path="res://Iris-in-Wonderland/assets/background/tree4.png" id="7_8irdt"]
+[ext_resource type="PackedScene" uid="uid://3lj7jr7m57ri" path="res://Iris-in-Wonderland/src/characters/iris.tscn" id="8_vcw81"]
+[ext_resource type="PackedScene" uid="uid://b3dx42g8s16rl" path="res://Iris-in-Wonderland/src/interface/interface.tscn" id="9_gmfcv"]
 [ext_resource type="PackedScene" uid="uid://bsd8hqkxtxg33" path="res://Iris-in-Wonderland/src/background/dirt_ground.tscn" id="9_oe3iu"]
 [ext_resource type="PackedScene" uid="uid://dfwlix1amhelg" path="res://Iris-in-Wonderland/src/scenes/panning_camera.tscn" id="10_0iixn"]
 [ext_resource type="Texture2D" uid="uid://duvi3sfpv6eib" path="res://Iris-in-Wonderland/assets/background/dirt2.png" id="10_4081u"]
@@ -18,7 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://b0ucchoxmyik8" path="res://Iris-in-Wonderland/assets/background/ground_texture.png" id="12_synn6"]
 [ext_resource type="Texture2D" uid="uid://bqdgm4e6it73k" path="res://Iris-in-Wonderland/assets/background/brown1.png" id="14_8yus0"]
 [ext_resource type="PackedScene" uid="uid://bh4th8fe5trsh" path="res://Iris-in-Wonderland/src/characters/strawberry.tscn" id="16_6api1"]
-[ext_resource type="PackedScene" uid="uid://dru877c21uloj" path="res://Iris-in-Wonderland/src/characters/player.tscn" id="17_qlwcq"]
 [ext_resource type="PackedScene" uid="uid://cgvgmi8l5dw87" path="res://Iris-in-Wonderland/src/interface/coin.tscn" id="20_46xpu"]
 [ext_resource type="AudioStream" uid="uid://cefom4cif0rk7" path="res://Iris-in-Wonderland/assets/audio/ambience_summer_night.mp3" id="22_17n7r"]
 [ext_resource type="AudioStream" uid="uid://blt7r6yubfscx" path="res://Iris-in-Wonderland/assets/audio/before_the_storm_125.mp3" id="23_qdh13"]
@@ -70,8 +71,8 @@ height = 912.0
 
 [node name="world" type="Node2D" node_paths=PackedStringArray("interface", "player")]
 script = ExtResource("1_y7cj4")
-interface = NodePath("character/player/ui/Interface")
-player = NodePath("character/player/iris")
+interface = NodePath("ui/Interface")
+player = NodePath("character/iris")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("3_a0ln4")]
 
@@ -477,6 +478,9 @@ frame_progress = 0.0
 
 [node name="character" type="Node" parent="."]
 
+[node name="iris" parent="character" instance=ExtResource("8_vcw81")]
+position = Vector2(1435, 647)
+
 [node name="Strawberry" parent="character" instance=ExtResource("16_6api1")]
 position = Vector2(800, 2260)
 
@@ -488,11 +492,6 @@ shape = SubResource("CapsuleShape2D_saw5d")
 position = Vector2(-118, 4005)
 moving = false
 hp = NodePath("../Strawberry/Health")
-
-[node name="player" parent="character" instance=ExtResource("17_qlwcq")]
-
-[node name="DefaultCamera" parent="character/player" index="2"]
-enabled = false
 
 [node name="fg" type="Node" parent="."]
 
@@ -558,6 +557,10 @@ visible = false
 [node name="Label" parent="buttons/ExitButton/HBoxContainer" index="1"]
 visible = true
 
+[node name="ui" type="CanvasLayer" parent="."]
+
+[node name="Interface" parent="ui" instance=ExtResource("9_gmfcv")]
+
 [node name="camera" type="Node" parent="."]
 
 [node name="PanningCamera" parent="camera" instance=ExtResource("10_0iixn")]
@@ -574,9 +577,6 @@ shape = SubResource("CapsuleShape2D_cu3ol")
 position = Vector2(-426, 4156)
 
 [node name="markers" type="Node" parent="."]
-
-[node name="default" type="Marker2D" parent="markers"]
-position = Vector2(1434, 647)
 
 [node name="ref" type="Marker2D" parent="markers"]
 position = Vector2(362, 645)
@@ -621,11 +621,21 @@ autoplay = true
 max_distance = 2500.0
 
 [connection signal="body_entered" from="bg/glow/Glow/Area2D" to="." method="_on_glow_body_entered"]
-[connection signal="current_position" from="character/player/iris" to="camera/PanningCamera" method="_on_iris_current_position"]
-[connection signal="current_position" from="character/player/iris" to="camera/PanningCamera2" method="_on_iris_current_position"]
+[connection signal="current_position" from="character/iris" to="camera/PanningCamera" method="_on_iris_current_position"]
+[connection signal="current_position" from="character/iris" to="camera/PanningCamera2" method="_on_iris_current_position"]
+[connection signal="health_status" from="character/iris" to="ui/Interface" method="_on_iris_health_status"]
+[connection signal="hp_changed" from="character/iris" to="ui/Interface" method="_on_iris_hp_changed"]
+[connection signal="hp_depleted" from="character/iris" to="ui/Interface" method="_on_iris_hp_depleted"]
+[connection signal="sp_changed" from="character/iris" to="ui/Interface" method="_on_iris_sp_changed"]
 [connection signal="exit_interacted" from="buttons/ExitButton" to="." method="_on_exit_button_exit_interacted"]
 [connection signal="body_entered" from="camera/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="coin_collected" from="collectibles/coin" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin2" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin3" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin4" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin5" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin6" to="ui/Interface" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="collectibles/coin7" to="ui/Interface" method="_on_coin_coin_collected"]
 
 [editable path="character/Strawberry"]
-[editable path="character/player"]
 [editable path="buttons/ExitButton"]
