@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=12 format=3 uid="uid://dqu1hdmh0ypou"]
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://dqu1hdmh0ypou"]
 
 [ext_resource type="StyleBox" uid="uid://fiilulgawk8a" path="res://Iris-in-Wonderland/src/interface/button.tres" id="1_mhy2p"]
 [ext_resource type="FontFile" uid="uid://ckq0opjxkh4f1" path="res://Iris-in-Wonderland/assets/interface/Happy School.otf" id="1_vae2p"]
@@ -38,6 +38,20 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0.894922, 0.894922, 0.894922, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jrv4"]
+bg_color = Color(0.97943, 0.56931, 0.631873, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d1xxy"]
+bg_color = Color(0.990385, 0.788099, 0.811116, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -98,6 +112,8 @@ Button/styles/hover = SubResource("StyleBoxFlat_vc1s7")
 Button/styles/normal = ExtResource("1_mhy2p")
 Button/styles/pressed = SubResource("StyleBoxFlat_55iw8")
 EditorIcons/icons/Label = null
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_7jrv4")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_d1xxy")
 Label/colors/font_color = Color(1, 1, 1, 1)
 Label/colors/font_outline_color = Color(0.97943, 0.56931, 0.631873, 1)
 Label/constants/outline_size = 5

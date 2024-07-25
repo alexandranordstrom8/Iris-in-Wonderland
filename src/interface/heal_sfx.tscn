@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0tjkiq24e4b4"]
+
+[ext_resource type="AudioStream" uid="uid://c53r4t5qtalhi" path="res://Iris-in-Wonderland/assets/audio/heal_sfx.mp3" id="1_r3q2p"]
+
+[node name="HealSFX" type="AudioStreamPlayer"]
+stream = ExtResource("1_r3q2p")
+volume_db = -10.0
+pitch_scale = 0.85
+bus = &"SFX"

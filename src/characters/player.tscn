@@ -28,6 +28,8 @@ one_shot = true
 [connection signal="sp_changed" from="iris" to="ui/Interface" method="_on_iris_sp_changed"]
 [connection signal="menu_change_hp" from="ui/Interface" to="." method="_on_interface_menu_change_hp"]
 [connection signal="menu_change_sp" from="ui/Interface" to="." method="_on_interface_menu_change_sp"]
+[connection signal="menu_grow" from="ui/Interface" to="." method="_on_interface_menu_grow"]
 [connection signal="menu_raise_attack" from="ui/Interface" to="." method="_on_interface_menu_raise_attack"]
+[connection signal="menu_shrink" from="ui/Interface" to="." method="_on_interface_menu_shrink"]
 [connection signal="menu_strawberry" from="ui/Interface" to="." method="_on_interface_menu_strawberry"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

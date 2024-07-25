@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://dqu1hdmh0ypou" path="res://Iris-in-Wonderland/src/interface/theme.tres" id="2_hf8r4"]
 
 [node name="PickUpLabel" type="Panel"]
+z_index = 100
 custom_minimum_size = Vector2(120, 0)
 offset_right = 40.0
 offset_bottom = 40.0

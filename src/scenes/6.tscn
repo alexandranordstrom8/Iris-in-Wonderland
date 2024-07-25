@@ -1,0 +1,313 @@
+[gd_scene load_steps=23 format=3 uid="uid://dxtv7x6vhqofw"]
+
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/6.gd" id="1_iou1r"]
+[ext_resource type="Texture2D" uid="uid://b0awm4ubvp6a0" path="res://Iris-in-Wonderland/assets/background/plank.png" id="2_rwee0"]
+[ext_resource type="Texture2D" uid="uid://bi3pnx50gmcry" path="res://Iris-in-Wonderland/assets/background/brown2.png" id="3_4vwr2"]
+[ext_resource type="Texture2D" uid="uid://rc04oen3ygq8" path="res://Iris-in-Wonderland/assets/background/green2.png" id="3_plcjx"]
+[ext_resource type="PackedScene" uid="uid://dru877c21uloj" path="res://Iris-in-Wonderland/src/characters/player.tscn" id="4_6sgnk"]
+[ext_resource type="Texture2D" uid="uid://d0uhb7j45xd1g" path="res://Iris-in-Wonderland/assets/background/grass.png" id="4_cjetv"]
+[ext_resource type="PackedScene" uid="uid://dr1yrh62u5xdn" path="res://Iris-in-Wonderland/src/background/mushroom_y.tscn" id="4_e4v63"]
+[ext_resource type="PackedScene" uid="uid://dpj8w1xhqb18n" path="res://Iris-in-Wonderland/src/background/mushroom_b.tscn" id="4_mxyeq"]
+[ext_resource type="Texture2D" uid="uid://55lrm4if40a8" path="res://Iris-in-Wonderland/assets/background/chair.png" id="6_1s5n8"]
+[ext_resource type="PackedScene" uid="uid://dilfg8vmp3axa" path="res://Iris-in-Wonderland/src/background/glow.tscn" id="6_52ytb"]
+[ext_resource type="Texture2D" uid="uid://b1spr21vkwkto" path="res://Iris-in-Wonderland/assets/background/mushroom1_l.png" id="7_34pih"]
+[ext_resource type="Texture2D" uid="uid://bvyhvs6puqlrh" path="res://Iris-in-Wonderland/assets/background/table1.png" id="7_h3ekv"]
+[ext_resource type="PackedScene" uid="uid://coukdhlnol1fl" path="res://Iris-in-Wonderland/src/characters/caterpillar.tscn" id="7_s46tn"]
+[ext_resource type="Texture2D" uid="uid://dh0kb7f21x26q" path="res://Iris-in-Wonderland/assets/background/table2.png" id="8_ecqs3"]
+[ext_resource type="Texture2D" uid="uid://dvjeoqf6aucdo" path="res://Iris-in-Wonderland/assets/background/table3.png" id="9_0fngd"]
+[ext_resource type="Texture2D" uid="uid://e5bmytvw5job" path="res://Iris-in-Wonderland/assets/background/cake.png" id="10_46oo4"]
+[ext_resource type="Texture2D" uid="uid://b0ucchoxmyik8" path="res://Iris-in-Wonderland/assets/background/ground_texture.png" id="11_htnem"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2qds"]
+size = Vector2(3484, 20)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1f4be"]
+bg_color = Color(0.462745, 0.321569, 0.290196, 1)
+corner_radius_top_left = 150
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_edvlt"]
+size = Vector2(138, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t8nlp"]
+animations = [{
+"frames": [{
+"duration": 10.0,
+"texture": ExtResource("7_h3ekv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ecqs3")
+}, {
+"duration": 5.0,
+"texture": ExtResource("9_0fngd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ecqs3")
+}, {
+"duration": 5.0,
+"texture": ExtResource("7_h3ekv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ewojb"]
+size = Vector2(614, 27)
+
+[node name="world" type="Node2D" node_paths=PackedStringArray("interface", "player")]
+script = ExtResource("1_iou1r")
+interface = NodePath("character/player/ui/Interface")
+player = NodePath("character/player/iris")
+
+[node name="bg" type="Node" parent="."]
+
+[node name="wall" type="TextureRect" parent="bg"]
+offset_left = -808.0
+offset_top = -1077.0
+offset_right = 2663.0
+offset_bottom = 715.0
+texture = ExtResource("2_rwee0")
+stretch_mode = 1
+
+[node name="floor" type="StaticBody2D" parent="bg"]
+position = Vector2(-788, 655)
+
+[node name="TextureRect" type="TextureRect" parent="bg/floor"]
+offset_right = 3453.0
+offset_bottom = 543.0
+texture = ExtResource("3_plcjx")
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bg/floor"]
+position = Vector2(1735, 43)
+shape = SubResource("RectangleShape2D_d2qds")
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/floor"]
+position = Vector2(610, -42)
+texture = ExtResource("4_cjetv")
+region_enabled = true
+region_rect = Rect2(63.4707, 360, 286.539, 155.352)
+
+[node name="Sprite2D5" type="Sprite2D" parent="bg/floor/Sprite2D"]
+position = Vector2(-128, 8)
+texture = ExtResource("4_cjetv")
+region_enabled = true
+region_rect = Rect2(1040.46, 280.598, 131.186, 138.091)
+
+[node name="Sprite2D2" type="Sprite2D" parent="bg/floor"]
+position = Vector2(1445, -42)
+texture = ExtResource("4_cjetv")
+region_enabled = true
+region_rect = Rect2(63.4707, 360, 286.539, 155.352)
+
+[node name="Sprite2D3" type="Sprite2D" parent="bg/floor/Sprite2D2"]
+position = Vector2(-153, 8)
+texture = ExtResource("4_cjetv")
+region_enabled = true
+region_rect = Rect2(450.125, 346.191, 207.136, 148.448)
+
+[node name="Sprite2D4" type="Sprite2D" parent="bg/floor/Sprite2D2"]
+position = Vector2(122, 21)
+texture = ExtResource("4_cjetv")
+region_enabled = true
+region_rect = Rect2(1040.46, 280.598, 131.186, 138.091)
+
+[node name="floor2" type="StaticBody2D" parent="bg"]
+position = Vector2(-108, -51)
+
+[node name="Panel" type="Panel" parent="bg/floor2"]
+clip_contents = true
+offset_left = -65.0
+offset_top = -48.0
+offset_right = 96.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1f4be")
+
+[node name="TextureRect" type="TextureRect" parent="bg/floor2/Panel"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 1.0
+offset_right = 285.0
+offset_bottom = 113.0
+scale = Vector2(-1, 1)
+texture = ExtResource("3_4vwr2")
+stretch_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="bg/floor2"]
+offset_left = 63.0
+offset_top = -48.0
+offset_right = 3453.0
+offset_bottom = 64.0
+texture = ExtResource("3_4vwr2")
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bg/floor2"]
+position = Vector2(1735, 43)
+shape = SubResource("RectangleShape2D_d2qds")
+
+[node name="lamp" type="Node2D" parent="bg"]
+
+[node name="Glow" parent="bg/lamp" instance=ExtResource("6_52ytb")]
+position = Vector2(1462, -400)
+animation = &"smallest_glow"
+autoplay = "smallest_glow"
+frame = 1
+frame_progress = 0.0791828
+
+[node name="Sprite2D4" type="Sprite2D" parent="bg/lamp"]
+position = Vector2(1477, -279)
+rotation = 1.5708
+texture = ExtResource("7_34pih")
+region_enabled = true
+region_rect = Rect2(884.369, 383.58, 394.421, 270.092)
+
+[node name="lamp2" type="Node2D" parent="bg"]
+position = Vector2(-114, 683)
+
+[node name="Glow" parent="bg/lamp2" instance=ExtResource("6_52ytb")]
+position = Vector2(66, -328)
+animation = &"smallest_glow"
+autoplay = "smallest_glow"
+frame = 1
+frame_progress = 0.0791828
+
+[node name="Sprite2D4" type="Sprite2D" parent="bg/lamp2"]
+position = Vector2(81, -207)
+rotation = 1.5708
+texture = ExtResource("7_34pih")
+region_enabled = true
+region_rect = Rect2(884.369, 383.58, 394.421, 270.092)
+
+[node name="texture" type="Node" parent="bg"]
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/texture"]
+position = Vector2(-90, -107)
+texture = ExtResource("11_htnem")
+region_enabled = true
+region_rect = Rect2(412.15, 304.764, 120.83, 141.543)
+
+[node name="Sprite2D2" type="Sprite2D" parent="bg/texture"]
+position = Vector2(-37, -91)
+texture = ExtResource("11_htnem")
+region_enabled = true
+region_rect = Rect2(681.427, 370.357, 138.091, 127.734)
+
+[node name="Sprite2D3" type="Sprite2D" parent="bg/texture"]
+position = Vector2(-389, 609)
+texture = ExtResource("11_htnem")
+region_enabled = true
+region_rect = Rect2(138.677, 443.185, 270.092, 190.779)
+
+[node name="platforms" type="Node" parent="bg"]
+
+[node name="MushroomY" parent="bg/platforms" instance=ExtResource("4_e4v63")]
+position = Vector2(-459, 146)
+
+[node name="MushroomB" parent="bg/platforms" instance=ExtResource("4_mxyeq")]
+position = Vector2(-741, 489)
+bounce_velocity = 800
+
+[node name="chair" type="StaticBody2D" parent="bg/platforms"]
+position = Vector2(1748, -191)
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/platforms/chair"]
+texture = ExtResource("6_1s5n8")
+region_enabled = true
+region_rect = Rect2(57.571, 16.5175, 210.816, 368.485)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bg/platforms/chair"]
+position = Vector2(4, 11)
+shape = SubResource("RectangleShape2D_edvlt")
+one_way_collision = true
+
+[node name="table" type="StaticBody2D" parent="bg/platforms"]
+position = Vector2(2750, -709)
+
+[node name="table" type="AnimatedSprite2D" parent="bg/platforms/table"]
+position = Vector2(-569, 539)
+sprite_frames = SubResource("SpriteFrames_t8nlp")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bg/platforms/table"]
+position = Vector2(-554, 467)
+shape = SubResource("RectangleShape2D_ewojb")
+one_way_collision = true
+
+[node name="Sprite2D7" type="Sprite2D" parent="bg/platforms/table"]
+position = Vector2(-732, 393)
+texture = ExtResource("10_46oo4")
+region_enabled = true
+region_rect = Rect2(81.7535, 307.447, 135.046, 124.328)
+
+[node name="Sprite2D8" type="Sprite2D" parent="bg/platforms/table"]
+position = Vector2(-533, 377)
+texture = ExtResource("10_46oo4")
+region_enabled = true
+region_rect = Rect2(253.241, 281.724, 231.508, 150.051)
+
+[node name="character" type="Node" parent="."]
+
+[node name="Caterpillar" parent="character" instance=ExtResource("7_s46tn")]
+position = Vector2(2452, -150)
+
+[node name="player" parent="character" instance=ExtResource("4_6sgnk")]
+
+[node name="fg" type="Node" parent="."]
+
+[node name="lamp3" type="Node2D" parent="fg"]
+position = Vector2(2211, 815)
+
+[node name="Glow" parent="fg/lamp3" instance=ExtResource("6_52ytb")]
+position = Vector2(66, -328)
+animation = &"smallest_glow"
+autoplay = "smallest_glow"
+frame = 1
+frame_progress = 0.0791828
+
+[node name="Sprite2D4" type="Sprite2D" parent="fg/lamp3"]
+position = Vector2(81, -207)
+rotation = 1.5708
+texture = ExtResource("7_34pih")
+region_enabled = true
+region_rect = Rect2(884.369, 383.58, 394.421, 270.092)
+
+[node name="lamp4" type="Node2D" parent="fg"]
+position = Vector2(-510, 1037)
+
+[node name="Glow" parent="fg/lamp4" instance=ExtResource("6_52ytb")]
+position = Vector2(66, -328)
+animation = &"smallest_glow"
+autoplay = "smallest_glow"
+frame = 1
+frame_progress = 0.0791828
+
+[node name="Sprite2D4" type="Sprite2D" parent="fg/lamp4"]
+position = Vector2(81, -207)
+rotation = 1.5708
+texture = ExtResource("7_34pih")
+region_enabled = true
+region_rect = Rect2(884.369, 383.58, 394.421, 270.092)
+
+[node name="lamp5" type="Node2D" parent="fg"]
+position = Vector2(221, 893)
+
+[node name="Glow" parent="fg/lamp5" instance=ExtResource("6_52ytb")]
+position = Vector2(66, -328)
+animation = &"smallest_glow"
+autoplay = "smallest_glow"
+frame = 1
+frame_progress = 0.0791828
+
+[node name="Sprite2D4" type="Sprite2D" parent="fg/lamp5"]
+position = Vector2(81, -207)
+rotation = 1.5708
+texture = ExtResource("7_34pih")
+region_enabled = true
+region_rect = Rect2(884.369, 383.58, 394.421, 270.092)
+
+[node name="markers" type="Node" parent="."]
+
+[node name="default" type="Marker2D" parent="markers"]
+position = Vector2(1444, 455)
+
+[editable path="character/player"]

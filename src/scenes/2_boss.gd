@@ -42,22 +42,22 @@ func _on_cat_hp_depleted():
 	coin_spawn_pos = enemy.position
 	$audio/music.stop()
 	$audio/ambience.play()
+	
+	await get_tree().create_timer(1.5).timeout
+	enemy.queue_free()
+	$audio/win.play()
+	enemy_hp_bar.visible = false
+	var _coin = load("res://Iris-in-Wonderland/src/interface/coin.tscn").instantiate()
+	$collectibles.add_child(_coin)
+	_coin.position = coin_spawn_pos
+	_coin.scale *= 2
+	_coin.value = 50
 
 func _on_iris_hp_depleted():
 	$audio/music.stop()
 
 func _on_cat_timer_timeout():
-	if enemy.dead:
-		enemy.queue_free()
-		$audio/win.play()
-		enemy_hp_bar.visible = false
-		
-		var _coin = load("res://Iris-in-Wonderland/src/interface/coin.tscn").instantiate()
-		$collectibles.add_child(_coin)
-		_coin.position = coin_spawn_pos
-		_coin.scale *= 2
-		_coin.value = 50
-	elif enemy.chase:
+	if enemy.chase:
 		enemy.set_target_pos(player.position)
 	else:
 		enemy.set_target_pos(Vector2(randi_range(250, 3000), 0))

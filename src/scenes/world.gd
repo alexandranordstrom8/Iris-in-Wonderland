@@ -7,10 +7,16 @@ extends Node2D
 @onready var enemies = get_tree().get_nodes_in_group("enemy")
 @onready var coins = get_tree().get_nodes_in_group("coins")
 
+const item_sfx_path = "res://Iris-in-Wonderland/src/interface/item_sfx.tscn"
+var item_sfx : AudioStreamPlayer
+
 func _ready():
 	Save.current_scene = scene_file_path
 	init_values()
 	$character/player.strawberry_used.connect(_on_player_strawberry_used)
+	
+	item_sfx = preload(item_sfx_path).instantiate()
+	get_tree().current_scene.add_child(item_sfx)
 
 func change_scene(new):
 	call_deferred("_change_scene_deferred", new)
@@ -33,6 +39,7 @@ func _on_enemy_get_position(target_name, enemy_name):
 	_enemy.set_target_pos(target.position)
 
 func _on_item_itemized(item_name, quantity):
+	item_sfx.play()
 	interface.itemize(item_name, quantity)
 
 func _on_player_strawberry_used(pos, dir):

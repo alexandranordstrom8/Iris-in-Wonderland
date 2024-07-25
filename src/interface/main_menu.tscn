@@ -1,16 +1,26 @@
-[gd_scene load_steps=13 format=3 uid="uid://b8jpjtm7bbbqo"]
+[gd_scene load_steps=17 format=3 uid="uid://b8jpjtm7bbbqo"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/interface/main_menu.gd" id="1_ms1vh"]
 [ext_resource type="Texture2D" uid="uid://cpk48otbvquon" path="res://Iris-in-Wonderland/assets/interface/icon.png" id="1_yynnn"]
 [ext_resource type="Texture2D" uid="uid://d0uhb7j45xd1g" path="res://Iris-in-Wonderland/assets/background/grass.png" id="3_eeyt8"]
 [ext_resource type="PackedScene" uid="uid://bpl25njjvqyno" path="res://Iris-in-Wonderland/src/characters/iris_rig.tscn" id="3_jwfrs"]
+[ext_resource type="PackedScene" uid="uid://cii8dmnv30gpm" path="res://Iris-in-Wonderland/src/interface/options.tscn" id="4_nv55k"]
 [ext_resource type="Texture2D" uid="uid://cbqo77367xmhg" path="res://Iris-in-Wonderland/assets/background/grass2.png" id="4_sy2y0"]
+[ext_resource type="StyleBox" uid="uid://b6v6nc31m0tob" path="res://Iris-in-Wonderland/src/interface/menu_popup_bg.tres" id="5_374qo"]
 [ext_resource type="Texture2D" uid="uid://85qyfxoryq0c" path="res://Iris-in-Wonderland/assets/interface/main_bg.png" id="6_8j7ks"]
 [ext_resource type="AudioStream" uid="uid://dcwotur1g15ro" path="res://Iris-in-Wonderland/assets/audio/main_menu.mp3" id="7_cvw6r"]
 [ext_resource type="AudioStream" uid="uid://46fnjfe3g6jo" path="res://Iris-in-Wonderland/assets/audio/jump2.mp3" id="8_bbml5"]
 [ext_resource type="AudioStream" uid="uid://7385gmtmp4st" path="res://Iris-in-Wonderland/assets/audio/purring.mp3" id="9_70c0v"]
+[ext_resource type="PackedScene" uid="uid://bdufxsgq5kvll" path="res://Iris-in-Wonderland/src/interface/credits.tscn" id="10_8tjvb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p0dfx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvmrt"]
+bg_color = Color(0.940905, 0.409831, 0.341695, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_at83x"]
 radius = 61.3333
@@ -30,39 +40,44 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_ms1vh")
 
-[node name="Title" type="VBoxContainer" parent="."]
+[node name="Main" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="VBoxContainer" parent="Main"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -215.0
+offset_left = 405.0
 offset_top = 108.0
-offset_right = 215.0
+offset_right = 835.0
 offset_bottom = 237.0
 grow_horizontal = 2
 theme_override_constants/separation = -10
 
-[node name="Panel" type="Panel" parent="Title"]
+[node name="Panel" type="Panel" parent="Main/Title"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/panel = SubResource("StyleBoxEmpty_p0dfx")
 
-[node name="TextureRect" type="TextureRect" parent="Title/Panel"]
+[node name="TextureRect" type="TextureRect" parent="Main/Title/Panel"]
 layout_mode = 1
 offset_right = 117.0
 offset_bottom = 118.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_yynnn")
 
-[node name="Label" type="Label" parent="Title"]
+[node name="Label" type="Label" parent="Main/Title"]
 layout_mode = 2
 theme_override_constants/outline_size = 15
 theme_override_font_sizes/font_size = 48
 text = "Iris in Wonderland
 "
 
-[node name="Buttons" type="VBoxContainer" parent="."]
+[node name="Buttons" type="VBoxContainer" parent="Main"]
 custom_minimum_size = Vector2(118, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -70,10 +85,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -59.0
-offset_top = -95.0
-offset_right = 59.0
-offset_bottom = 159.0
+offset_left = 561.0
+offset_top = 245.0
+offset_right = 679.0
+offset_bottom = 499.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -81,7 +96,7 @@ size_flags_vertical = 4
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Play" type="Button" parent="Buttons"]
+[node name="Play" type="Button" parent="Main/Buttons"]
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
 focus_neighbor_top = NodePath("../Quit")
@@ -89,7 +104,7 @@ focus_neighbor_bottom = NodePath("../Options")
 theme_override_font_sizes/font_size = 24
 text = "Play"
 
-[node name="Options" type="Button" parent="Buttons"]
+[node name="Options" type="Button" parent="Main/Buttons"]
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
 focus_neighbor_top = NodePath("../Play")
@@ -98,7 +113,7 @@ theme_override_font_sizes/font_size = 24
 text = "Options
 "
 
-[node name="Credits" type="Button" parent="Buttons"]
+[node name="Credits" type="Button" parent="Main/Buttons"]
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
 focus_neighbor_top = NodePath("../Play")
@@ -107,13 +122,90 @@ theme_override_font_sizes/font_size = 24
 text = "Credits
 "
 
-[node name="Quit" type="Button" parent="Buttons"]
+[node name="Quit" type="Button" parent="Main/Buttons"]
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
 focus_neighbor_top = NodePath("../Options")
 focus_neighbor_bottom = NodePath("../Play")
 theme_override_font_sizes/font_size = 24
 text = "Quit"
+
+[node name="Credits" parent="." instance=ExtResource("10_8tjvb")]
+visible = false
+layout_mode = 1
+
+[node name="Options" parent="." instance=ExtResource("4_nv55k")]
+visible = false
+layout_mode = 1
+mouse_filter = 2
+
+[node name="Panel2" type="Panel" parent="Options"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 128.0
+offset_top = -92.0
+offset_right = 422.0
+offset_bottom = 92.0
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("5_374qo")
+
+[node name="Button" type="Button" parent="Options/Panel2"]
+custom_minimum_size = Vector2(170, 35)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.5
+offset_top = -48.5
+offset_right = 79.5
+offset_bottom = -15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Delete save data"
+
+[node name="confirm" type="VBoxContainer" parent="Options/Panel2"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -88.0
+offset_right = 43.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Options/Panel2/confirm"]
+layout_mode = 2
+text = "Confirm?"
+
+[node name="DeleteButton" type="Button" parent="Options/Panel2/confirm"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_pvmrt")
+text = "Delete"
+
+[node name="DeletionMessage" type="Label" parent="Options/Panel2"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -82.5
+offset_top = -71.0
+offset_right = 82.5
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Save data deleted"
 
 [node name="bg" type="Node" parent="."]
 
@@ -179,9 +271,16 @@ bus = &"SFX"
 [node name="Purring" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("9_70c0v")
 
-[connection signal="pressed" from="Buttons/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Buttons/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="Buttons/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="Buttons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Main/Buttons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Main/Buttons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Main/Buttons/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Main/Buttons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Credits/Panel/Button" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="Options/Panel/Button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="Options/Panel2/Button" to="." method="_on_delete_menu_button_pressed"]
+[connection signal="pressed" from="Options/Panel2/confirm/DeleteButton" to="." method="_on_delete_button_pressed"]
 [connection signal="mouse_entered" from="bg/Marker2D/Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="bg/Marker2D/Area2D" to="." method="_on_area_2d_mouse_exited"]
+
+[editable path="Credits"]
+[editable path="Options"]

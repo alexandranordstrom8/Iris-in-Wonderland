@@ -12,6 +12,7 @@ signal attack_animated
 func _ready():
 	super()
 	set_freeze_movement(true)
+	chase = true
 
 func update_position(delta):
 	if position.x < target_pos.x - OFFSET:

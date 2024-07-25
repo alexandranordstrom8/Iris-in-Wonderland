@@ -1,10 +1,19 @@
 extends Node2D
 
+const SCALE_DEFAULT = Vector2(0.75, 0.75)
+const SCALE_SMALL = Vector2(0.25, 0.25)
+
 @onready var interface = $ui/Interface
 @onready var skillmenu = $ui/Interface/Menus/SkillMenu
 @onready var iris = $iris
 
 signal strawberry_used(pos, dir)
+
+func _ready():
+	if Save.is_small:
+		iris.scale = SCALE_SMALL
+	else:
+		iris.scale = SCALE_DEFAULT
 
 func _on_interface_menu_change_hp(amount):
 	iris.get_node("hp").heal(amount)
@@ -26,3 +35,13 @@ func _on_interface_menu_strawberry():
 func _on_timer_timeout():
 	skillmenu.timer_locked = false
 	iris.dmg_multiplier = 1
+
+func _on_interface_menu_shrink():
+	Save.is_small = true
+	var tween = get_tree().create_tween()
+	tween.tween_property(iris, "scale", SCALE_SMALL, 0.5)
+
+func _on_interface_menu_grow():
+	Save.is_small = false
+	var tween = get_tree().create_tween()
+	tween.tween_property(iris, "scale", SCALE_DEFAULT, 0.5)

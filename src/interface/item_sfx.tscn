@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctnlys3yfptua"]
+
+[ext_resource type="AudioStream" uid="uid://c4wc2bbsgikd8" path="res://Iris-in-Wonderland/assets/audio/item_sfx.mp3" id="1_c37qs"]
+
+[node name="ItemSFX" type="AudioStreamPlayer"]
+stream = ExtResource("1_c37qs")
+bus = &"SFX"

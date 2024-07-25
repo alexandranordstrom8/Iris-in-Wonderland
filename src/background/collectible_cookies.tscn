@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://blhtreralqbqb"]
+
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/background/collectible_cookies.gd" id="1_3dxqf"]
+[ext_resource type="Texture2D" uid="uid://e5bmytvw5job" path="res://Iris-in-Wonderland/assets/background/cake.png" id="1_ox4m8"]
+[ext_resource type="PackedScene" uid="uid://dp671r6nivhj" path="res://Iris-in-Wonderland/src/interface/pick_up_label.tscn" id="2_x7dmr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_huero"]
+radius = 60.0083
+
+[node name="cookies" type="Node2D"]
+script = ExtResource("1_3dxqf")
+item_name = "Small Cookie"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_ox4m8")
+region_enabled = true
+region_rect = Rect2(555.487, 373.898, 190.78, 83.6)
+
+[node name="PickUpLabel" parent="." instance=ExtResource("2_x7dmr")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -97.0
+offset_right = 60.0
+offset_bottom = -57.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" parent="PickUpLabel/HBoxContainer" index="0"]
+text = "Take 1 "
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -14)
+shape = SubResource("CircleShape2D_huero")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+
+[editable path="PickUpLabel"]

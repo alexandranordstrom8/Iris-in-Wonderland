@@ -4,16 +4,22 @@ extends Node
 @export var max_health = 100
 @export var health = 0
 
+const heal_sfx_path = "res://Iris-in-Wonderland/src/interface/heal_sfx.tscn"
+var heal_sfx : AudioStreamPlayer
+
 signal health_changed(health)
 signal max_health_changed(maximum)
 signal health_depleted
 signal status(value)
-signal damage_taken 	# damage animation
+signal damage_taken # damage animation
 
 func _ready():
 	health = max_health
 	emit_signal("max_health_changed", max_health)
 	emit_signal("health_changed", health)
+	
+	heal_sfx = preload(heal_sfx_path).instantiate()
+	self.add_child(heal_sfx)
 
 func init(amount):
 	if health != amount:
@@ -41,6 +47,7 @@ func take_damage(amount):
 func heal(amount):
 	health += amount
 	health = min(health, max_health)
+	heal_sfx.play()
 	emit_signal("health_changed", health)
 	check_status()
 	

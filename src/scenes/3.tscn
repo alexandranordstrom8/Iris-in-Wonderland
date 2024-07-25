@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bkopqoengsrtf"]
+[gd_scene load_steps=29 format=3 uid="uid://bkopqoengsrtf"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/3.gd" id="1_h8hpr"]
 [ext_resource type="PackedScene" uid="uid://bah2pxas0yt5v" path="res://Iris-in-Wonderland/src/background/sky.tscn" id="2_aacsv"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://em5hl7ux263y" path="res://Iris-in-Wonderland/src/interface/interact_button.tscn" id="10_y8kul"]
 [ext_resource type="PackedScene" uid="uid://dqvr137rnmwfm" path="res://Iris-in-Wonderland/src/background/collectible_big_cake.tscn" id="14_gxpvs"]
 [ext_resource type="PackedScene" uid="uid://bfwrq188wp06o" path="res://Iris-in-Wonderland/src/background/collectible_cake.tscn" id="15_3fw4n"]
+[ext_resource type="PackedScene" uid="uid://blhtreralqbqb" path="res://Iris-in-Wonderland/src/background/collectible_cookies.tscn" id="15_kw3o1"]
 [ext_resource type="Texture2D" uid="uid://bgemt3eaij6yc" path="res://Iris-in-Wonderland/assets/background/tree4.png" id="15_svy7q"]
 [ext_resource type="PackedScene" uid="uid://rgd0x5rf8glb" path="res://Iris-in-Wonderland/src/background/collectible_apple.tscn" id="16_4iyj2"]
 [ext_resource type="AudioStream" uid="uid://dcj6my0rmnj8n" path="res://Iris-in-Wonderland/assets/audio/星が輝く冬.mp3" id="16_p65gs"]
@@ -373,55 +374,6 @@ texture = ExtResource("8_hydoy")
 region_enabled = true
 region_rect = Rect2(357.682, 31.0103, 182.205, 248.656)
 
-[node name="Sprite2D" type="Sprite2D" parent="bg/table"]
-position = Vector2(-769, 422)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("9_w74ye")
-region_enabled = true
-region_rect = Rect2(555.487, 373.898, 190.78, 83.6)
-
-[node name="Sprite2D7" type="Sprite2D" parent="bg/table"]
-position = Vector2(-683, 414)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("9_w74ye")
-region_enabled = true
-region_rect = Rect2(81.7535, 307.447, 135.046, 124.328)
-
-[node name="Sprite2D3" type="Sprite2D" parent="bg/table"]
-position = Vector2(-823, 411)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("9_w74ye")
-region_enabled = true
-region_rect = Rect2(388.287, 56.6467, 102.892, 147.908)
-
-[node name="Sprite2D5" type="Sprite2D" parent="bg/table"]
-position = Vector2(-429, 398)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("9_w74ye")
-region_enabled = true
-region_rect = Rect2(388.287, 56.6467, 102.892, 147.908)
-
-[node name="Sprite2D4" type="Sprite2D" parent="bg/table"]
-position = Vector2(-450, 405)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("9_w74ye")
-region_enabled = true
-region_rect = Rect2(388.287, 56.6467, 102.892, 147.908)
-
-[node name="Sprite2D6" type="Sprite2D" parent="bg/table"]
-position = Vector2(-285, 421)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("9_w74ye")
-region_enabled = true
-region_rect = Rect2(81.7535, 307.447, 135.046, 124.328)
-
-[node name="Sprite2D8" type="Sprite2D" parent="bg/table"]
-position = Vector2(-352, 402)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("9_w74ye")
-region_enabled = true
-region_rect = Rect2(253.241, 281.724, 231.508, 150.051)
-
 [node name="collectibles" type="Node" parent="bg/table"]
 
 [node name="CollectibleBigCake" parent="bg/table/collectibles" instance=ExtResource("14_gxpvs")]
@@ -430,6 +382,53 @@ position = Vector2(-549, 403)
 [node name="CollectibleApple" parent="bg/table/collectibles" instance=ExtResource("16_4iyj2")]
 position = Vector2(-593, 426)
 scale = Vector2(0.75, 0.75)
+
+[node name="cookies" parent="bg/table/collectibles" instance=ExtResource("15_kw3o1")]
+position = Vector2(-770, 422)
+
+[node name="deco" type="Node" parent="bg/table"]
+
+[node name="Sprite2D7" type="Sprite2D" parent="bg/table/deco"]
+position = Vector2(-683, 414)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_w74ye")
+region_enabled = true
+region_rect = Rect2(81.7535, 307.447, 135.046, 124.328)
+
+[node name="Sprite2D5" type="Sprite2D" parent="bg/table/deco"]
+position = Vector2(-429, 398)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_w74ye")
+region_enabled = true
+region_rect = Rect2(388.287, 56.6467, 102.892, 147.908)
+
+[node name="Sprite2D4" type="Sprite2D" parent="bg/table/deco"]
+position = Vector2(-450, 405)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_w74ye")
+region_enabled = true
+region_rect = Rect2(388.287, 56.6467, 102.892, 147.908)
+
+[node name="Sprite2D6" type="Sprite2D" parent="bg/table/deco"]
+position = Vector2(-285, 421)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_w74ye")
+region_enabled = true
+region_rect = Rect2(81.7535, 307.447, 135.046, 124.328)
+
+[node name="Sprite2D8" type="Sprite2D" parent="bg/table/deco"]
+position = Vector2(-352, 402)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_w74ye")
+region_enabled = true
+region_rect = Rect2(253.241, 281.724, 231.508, 150.051)
+
+[node name="Sprite2D3" type="Sprite2D" parent="bg/table/deco"]
+position = Vector2(-823, 411)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_w74ye")
+region_enabled = true
+region_rect = Rect2(388.287, 56.6467, 102.892, 147.908)
 
 [node name="chair" type="StaticBody2D" parent="bg"]
 position = Vector2(-1013, 517)

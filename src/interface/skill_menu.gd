@@ -16,6 +16,8 @@ signal change_sp(amount)
 signal change_hp(amount)
 signal strawberry
 signal raise_attack
+signal shrink
+signal grow
 signal special_used
 
 # list indexes
@@ -24,7 +26,7 @@ enum {SKILL, ITEM}
 
 var item_list : Dictionary
 
-var special = ["Strawberry", "Raise Attack"]
+var special = ["Strawberry", "Raise Attack", "Small Cookie", "Caterpillar Tea"]
 
 func _ready():
 	item_list = Save.item_list
@@ -52,12 +54,21 @@ func get_description(item):
 	desc_label.text = "%s" % item_list[item][_DESCRIPTION]
 
 func disable_buttons():
+	if Save.is_small:
+		item_list["Small Cookie"][_BUTTON].disabled = true
+		item_list["Caterpillar Tea"][_BUTTON].disabled = false
+	else:
+		item_list["Small Cookie"][_BUTTON].disabled = false
+		item_list["Caterpillar Tea"][_BUTTON].disabled = true
+	
 	for item in item_list:
 		if (item_list[item][_TYPE] == SKILL and _current_sp < item_list[item][_NUMBER])\
 		or (item_list[item][_TYPE] == ITEM and item_list[item][_NUMBER] == 0)\
 		or (item_list[item][_HP] > 0 and _current_hp == 100)\
 		or (item_list[item][_SP] > 0 and _current_sp == 100):
 			item_list[item][_BUTTON].disabled = true
+		elif item == "Small Cookie" or item == "Caterpillar Tea":
+			pass
 		else:
 			item_list[item][_BUTTON].disabled = false
 	
@@ -80,14 +91,18 @@ func increase_quantity(item_name, quantity):
 		item_list[item_name][_BUTTON].show()
 
 func _on_button_focus(item_name):
-	#get_description(item_name)
 	focused_item = item_name
 
 func use_special_item(item_name):
-	if item_name == "Strawberry" and item_list["Strawberry"][_NUMBER] > 0:
-		emit_signal("strawberry")
-	if item_name == "Raise Attack":
-		emit_signal("raise_attack")
+	match item_name:
+		"Strawberry":
+			emit_signal("strawberry")
+		"Raise Attack":
+			emit_signal("raise_attack")
+		"Small Cookie":
+			emit_signal("shrink")
+		"Caterpillar Tea":
+			emit_signal("grow")
 	emit_signal("special_used")
 
 func _on_button_pressed(item_name):

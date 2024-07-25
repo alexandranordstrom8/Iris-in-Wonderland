@@ -11,6 +11,7 @@
 radius = 121.017
 
 [node name="InteractButton" type="Panel"]
+z_index = 100
 offset_right = 81.0
 offset_bottom = 41.0
 theme_override_styles/panel = ExtResource("1_vwwih")

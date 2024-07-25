@@ -15,6 +15,8 @@ signal menu_change_sp(amount)
 signal menu_change_hp(amount)
 signal menu_strawberry
 signal menu_raise_attack
+signal menu_shrink
+signal menu_grow
 
 func init(coins):
 	coin_counter.init(coins)
@@ -26,11 +28,11 @@ func _process(_delta):
 	if visible and not $Menus/DeathMenu.visible:
 		if skill_menu.visible:
 			if Input.is_action_just_pressed("ui_pause") or Input.is_action_just_pressed("ui_ability"):
-				skill_menu.hide()
 				skill_menu.close_window()
+				skill_menu.hide()
 		elif Input.is_action_just_pressed("ui_pause"):
 			show_menu("PauseMenu")
-		elif Input.is_action_just_pressed("ui_ability") and not $Menus/PauseMenu.visible:
+		elif Input.is_action_just_pressed("ui_ability"):
 			skill_menu.show()
 
 func show_menu(m_name):
@@ -82,7 +84,7 @@ func _on_iris_health_status(value):
 		$Counters/border_red.visible = true
 		$Counters/border_yellow.visible = false 
 
-### menu buttons
+### pause menu buttons
 func _on_menu_continue_pressed():
 	button_sfx.play()
 	show_menu("PauseMenu")
@@ -108,6 +110,12 @@ func _on_skill_menu_strawberry():
 func _on_skill_menu_raise_attack():
 	emit_signal("menu_raise_attack")
 
+func _on_skill_menu_shrink():
+	emit_signal("menu_shrink")
+
+func _on_skill_menu_grow():
+	emit_signal("menu_grow")
+
 func _on_skill_menu_change_sp(amount):
 	if amount != 0:
 		emit_signal("menu_change_sp", amount)
@@ -119,3 +127,4 @@ func _on_skill_menu_change_hp(amount):
 func _on_skill_menu_special_used():
 	skill_menu.close_window()
 	skill_menu.hide()
+

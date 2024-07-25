@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cpkamkcv0fvc0" path="res://Iris-in-Wonderland/assets/characters/caterpillar.png" id="1_lgmp4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6eml7"]
-radius = 73.3894
+radius = 52.2398
 
 [node name="CaterpillarBody" type="RigidBody2D"]
 
@@ -27,5 +27,5 @@ region_enabled = true
 region_rect = Rect2(270.776, 89.0035, 74.4056, 72.634)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+position = Vector2(-1, 20)
 shape = SubResource("CircleShape2D_6eml7")
