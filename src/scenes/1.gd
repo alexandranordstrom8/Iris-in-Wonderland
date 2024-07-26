@@ -16,6 +16,9 @@ func _ready():
 		ScenePaths.scene_4:
 			player.position = $markers/Marker2D_4.position
 			cam3.make_current()
+		ScenePaths.scene_6:
+			player.position = $markers/Marker2D_6.position
+			cam3.make_current()
 		_:
 			player.position = $markers/debug.position
 			cam3.make_current()

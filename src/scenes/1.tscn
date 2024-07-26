@@ -700,6 +700,13 @@ texture = ExtResource("2_1tmdf")
 region_enabled = true
 region_rect = Rect2(0, 362.144, 333.466, 158.626)
 
+[node name="Sprite2D14" type="Sprite2D" parent="bg/up/House"]
+position = Vector2(-11.0001, 134)
+scale = Vector2(0.561514, 0.43007)
+texture = ExtResource("13_tkp68")
+region_enabled = true
+region_rect = Rect2(1026.7, 369.432, 212.215, 150.909)
+
 [node name="down" type="Node" parent="bg"]
 
 [node name="Panel" type="Panel" parent="bg/down"]
@@ -1202,6 +1209,9 @@ position = Vector2(-1703, 626)
 
 [node name="Marker2D_4" type="Marker2D" parent="markers"]
 position = Vector2(-2410, 626)
+
+[node name="Marker2D_6" type="Marker2D" parent="markers"]
+position = Vector2(-890, 626)
 
 [node name="debug" type="Marker2D" parent="markers"]
 position = Vector2(-636, 532)

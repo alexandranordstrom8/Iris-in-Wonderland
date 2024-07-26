@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://drhfvbff26v3t"]
+[gd_scene load_steps=9 format=3 uid="uid://drhfvbff26v3t"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/interface/skill_menu.gd" id="1_cvleu"]
 [ext_resource type="StyleBox" uid="uid://khbxj7u6gatf" path="res://Iris-in-Wonderland/src/interface/panel.tres" id="1_rhpp3"]
 [ext_resource type="PackedScene" uid="uid://dr0f86sovxg5q" path="res://Iris-in-Wonderland/src/interface/skill_menu_button.tscn" id="3_6ilbf"]
 [ext_resource type="Theme" uid="uid://dqu1hdmh0ypou" path="res://Iris-in-Wonderland/src/interface/theme.tres" id="3_o58l2"]
 [ext_resource type="StyleBox" uid="uid://b4ohi7you0n08" path="res://Iris-in-Wonderland/src/interface/ui_bg.tres" id="4_ublyl"]
+[ext_resource type="PackedScene" uid="uid://bm55ulctuoxy1" path="res://Iris-in-Wonderland/src/interface/tea_popup.tscn" id="6_cnl6h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lk1r3"]
 bg_color = Color(1, 1, 1, 0.254902)
@@ -130,5 +131,14 @@ layout_mode = 2
 text = " 
 "
 autowrap_mode = 2
+
+[node name="popup" parent="." instance=ExtResource("6_cnl6h")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 
 [connection signal="focus" from="Panel/VBoxContainer/ScrollContainer/VBoxContainer/Button" to="." method="_on_button_focus"]

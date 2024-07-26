@@ -7,13 +7,17 @@ const SCALE_SMALL = Vector2(0.25, 0.25)
 @onready var skillmenu = $ui/Interface/Menus/SkillMenu
 @onready var iris = $iris
 
+@export var ignore_scale : bool = false
+
 signal strawberry_used(pos, dir)
 
 func _ready():
-	if Save.is_small:
+	if Save.is_small and not ignore_scale:
 		iris.scale = SCALE_SMALL
 	else:
 		iris.scale = SCALE_DEFAULT
+	if ignore_scale:
+		interface.skill_menu.in_enclosed_space = true
 
 func _on_interface_menu_change_hp(amount):
 	iris.get_node("hp").heal(amount)
@@ -42,6 +46,9 @@ func _on_interface_menu_shrink():
 	tween.tween_property(iris, "scale", SCALE_SMALL, 0.5)
 
 func _on_interface_menu_grow():
-	Save.is_small = false
-	var tween = get_tree().create_tween()
-	tween.tween_property(iris, "scale", SCALE_DEFAULT, 0.5)
+	if ignore_scale:
+		pass
+	else:
+		Save.is_small = false
+		var tween = get_tree().create_tween()
+		tween.tween_property(iris, "scale", SCALE_DEFAULT, 0.5)

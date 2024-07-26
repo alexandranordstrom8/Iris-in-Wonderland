@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://jiio4wyo8pt1"]
+
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/caterpillar.gd" id="1_c2o7s"]
+[ext_resource type="PackedScene" uid="uid://coukdhlnol1fl" path="res://Iris-in-Wonderland/src/characters/caterpillar_rig.tscn" id="1_dvk7k"]
+[ext_resource type="PackedScene" uid="uid://em5hl7ux263y" path="res://Iris-in-Wonderland/src/interface/interact_button.tscn" id="4_cxwlo"]
+
+[node name="Caterpillar" type="Node2D"]
+script = ExtResource("1_c2o7s")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Caterpillar" parent="Marker2D" instance=ExtResource("1_dvk7k")]
+
+[node name="InteractButton" parent="." instance=ExtResource("4_cxwlo")]
+offset_left = -88.0
+offset_top = -5.0
+offset_right = -7.0
+offset_bottom = 36.0
+
+[node name="StartWalking" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true

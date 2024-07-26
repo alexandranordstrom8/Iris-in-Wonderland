@@ -1,233 +1,46 @@
-[gd_scene load_steps=8 format=3 uid="uid://coukdhlnol1fl"]
+[gd_scene load_steps=5 format=3 uid="uid://jiio4wyo8pt1"]
 
-[ext_resource type="Texture2D" uid="uid://cpkamkcv0fvc0" path="res://Iris-in-Wonderland/assets/characters/caterpillar.png" id="1_5gs2i"]
-[ext_resource type="PackedScene" uid="uid://djsujrkpe6glk" path="res://Iris-in-Wonderland/src/characters/caterpillar_body.tscn" id="2_srvbe"]
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/caterpillar.gd" id="1_c2o7s"]
+[ext_resource type="PackedScene" uid="uid://coukdhlnol1fl" path="res://Iris-in-Wonderland/src/characters/caterpillar_rig.tscn" id="1_dvk7k"]
+[ext_resource type="PackedScene" uid="uid://em5hl7ux263y" path="res://Iris-in-Wonderland/src/interface/interact_button.tscn" id="4_cxwlo"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_04r8b"]
-size = Vector2(2320, 20)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_h6v3s"]
-radius = 67.1863
-
-[sub_resource type="Animation" id="Animation_tlpyr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Marker2D/head/head:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-62, -52)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Marker2D/head/head:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Marker2D/head/CollisionShape2D2:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-72, -36)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Marker2D/head/CollisionShape2D2:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Marker2D/head:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(72, 37)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Marker2D/head:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_4lbde"]
-resource_name = "idle"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Marker2D/head/head:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-62, -52), Vector2(-62, -55), Vector2(-62, -52)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Marker2D/head/head:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Marker2D/head/CollisionShape2D2:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-72, -36), Vector2(-72, -39), Vector2(-72, -36)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Marker2D/head/CollisionShape2D2:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_jllmh"]
-_data = {
-"RESET": SubResource("Animation_tlpyr"),
-"idle": SubResource("Animation_4lbde")
-}
+[sub_resource type="CircleShape2D" id="CircleShape2D_sl76p"]
 
 [node name="Caterpillar" type="Node2D"]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(819, 359)
-shape = SubResource("RectangleShape2D_04r8b")
-disabled = true
+script = ExtResource("1_c2o7s")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 
-[node name="CaterpillarBody5" parent="Marker2D" instance=ExtResource("2_srvbe")]
-show_behind_parent = true
-position = Vector2(430, 49)
+[node name="Caterpillar" parent="Marker2D" instance=ExtResource("1_dvk7k")]
 
-[node name="CaterpillarBody4" parent="Marker2D" instance=ExtResource("2_srvbe")]
-show_behind_parent = true
-position = Vector2(330, 46)
+[node name="InteractButton" parent="." instance=ExtResource("4_cxwlo")]
+offset_left = -88.0
+offset_top = -5.0
+offset_right = -7.0
+offset_bottom = 36.0
 
-[node name="CaterpillarBody3" parent="Marker2D" instance=ExtResource("2_srvbe")]
-show_behind_parent = true
-position = Vector2(239, 48)
+[node name="StartWalking" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
 
-[node name="CaterpillarBody2" parent="Marker2D" instance=ExtResource("2_srvbe")]
-show_behind_parent = true
-position = Vector2(152, 51)
+[node name="markers" type="Node" parent="."]
 
-[node name="CaterpillarBody" parent="Marker2D" instance=ExtResource("2_srvbe")]
-show_behind_parent = true
-position = Vector2(62, 52)
+[node name="Marker2D" type="Marker2D" parent="markers"]
 
-[node name="head" type="RigidBody2D" parent="Marker2D"]
-position = Vector2(72, 37)
-mass = 0.1
+[node name="Area2D" type="Area2D" parent="markers/Marker2D"]
 
-[node name="head" type="Sprite2D" parent="Marker2D/head"]
-position = Vector2(-62, -52)
-texture = ExtResource("1_5gs2i")
-region_enabled = true
-region_rect = Rect2(169.797, 220.099, 205.501, 193.1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="markers/Marker2D/Area2D"]
+shape = SubResource("CircleShape2D_sl76p")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Marker2D/head"]
-position = Vector2(-72, -36)
-shape = SubResource("CircleShape2D_h6v3s")
+[node name="Marker2D2" type="Marker2D" parent="markers"]
 
-[node name="joints" type="Node2D" parent="."]
+[node name="Area2D" type="Area2D" parent="markers/Marker2D2"]
 
-[node name="head" type="PinJoint2D" parent="joints"]
-position = Vector2(7, 54)
-node_a = NodePath("../../Marker2D/head")
-node_b = NodePath("../../Marker2D/CaterpillarBody")
-bias = 0.9
+[node name="CollisionShape2D" type="CollisionShape2D" parent="markers/Marker2D2/Area2D"]
+shape = SubResource("CircleShape2D_sl76p")
 
-[node name="head2" type="PinJoint2D" parent="joints"]
-position = Vector2(71, 10)
-node_a = NodePath("../../Marker2D/head")
-node_b = NodePath("../../Marker2D/CaterpillarBody")
-bias = 0.9
-
-[node name="PinJoint2D" type="PinJoint2D" parent="joints"]
-position = Vector2(112, 52)
-node_a = NodePath("../../Marker2D/CaterpillarBody")
-node_b = NodePath("../../Marker2D/CaterpillarBody2")
-bias = 0.9
-
-[node name="PinJoint2D2" type="PinJoint2D" parent="joints"]
-position = Vector2(212, 50)
-node_a = NodePath("../../Marker2D/CaterpillarBody2")
-node_b = NodePath("../../Marker2D/CaterpillarBody3")
-bias = 0.9
-
-[node name="PinJoint2D3" type="PinJoint2D" parent="joints"]
-position = Vector2(290, 50)
-node_a = NodePath("../../Marker2D/CaterpillarBody3")
-node_b = NodePath("../../Marker2D/CaterpillarBody4")
-bias = 0.9
-
-[node name="PinJoint2D4" type="PinJoint2D" parent="joints"]
-position = Vector2(393, 50)
-node_a = NodePath("../../Marker2D/CaterpillarBody4")
-node_b = NodePath("../../Marker2D/CaterpillarBody5")
-bias = 0.9
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_jllmh")
-}
-autoplay = "idle"
+[connection signal="on_floor" from="Marker2D/Caterpillar" to="." method="_on_caterpillar_on_floor"]
+[connection signal="standing_up" from="Marker2D/Caterpillar" to="." method="_on_caterpillar_standing_up"]
+[connection signal="timeout" from="StartWalking" to="." method="_on_start_walking_timeout"]
+[connection signal="body_entered" from="markers/Marker2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="markers/Marker2D2/Area2D" to="." method="_on_area_2d_body_entered"]

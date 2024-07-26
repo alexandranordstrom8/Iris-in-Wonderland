@@ -6,6 +6,7 @@ var _current_sp : int = 100
 var _current_hp : int = 100
 var timer_locked : bool = false
 var focused_item : String = ""
+var in_enclosed_space : bool = false
 
 @onready var cost_label = $Panel/VBoxContainer2/Cost
 @onready var desc_label = $Panel/VBoxContainer2/Description
@@ -56,7 +57,10 @@ func get_description(item):
 func disable_buttons():
 	if Save.is_small:
 		item_list["Small Cookie"][_BUTTON].disabled = true
-		item_list["Caterpillar Tea"][_BUTTON].disabled = false
+		if in_enclosed_space:
+			item_list["Caterpillar Tea"][_BUTTON].disabled = true
+		else: 
+			item_list["Caterpillar Tea"][_BUTTON].disabled = false
 	else:
 		item_list["Small Cookie"][_BUTTON].disabled = false
 		item_list["Caterpillar Tea"][_BUTTON].disabled = true
@@ -92,6 +96,10 @@ func increase_quantity(item_name, quantity):
 
 func _on_button_focus(item_name):
 	focused_item = item_name
+	if item_name == "Caterpillar Tea" and in_enclosed_space:
+		$popup.show()
+	else:
+		$popup.hide()
 
 func use_special_item(item_name):
 	match item_name:

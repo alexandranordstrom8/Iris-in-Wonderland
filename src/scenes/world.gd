@@ -18,12 +18,12 @@ func _ready():
 	item_sfx = preload(item_sfx_path).instantiate()
 	get_tree().current_scene.add_child(item_sfx)
 
-func change_scene(new):
-	call_deferred("_change_scene_deferred", new)
+func change_scene(new, show_loading_screen=true):
+	call_deferred("_change_scene_deferred", new, show_loading_screen)
 
-func _change_scene_deferred(new):
+func _change_scene_deferred(new, show_loading_screen=true):
 	interface.save_values()
-	ScenePaths.change_scene(scene_file_path, new)
+	ScenePaths.change_scene(scene_file_path, new, show_loading_screen)
 	
 func init_values():
 	player.init(Save.current_hp, Save.current_sp)

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://fr42bstpmcmp"]
+
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/background/collectible.gd" id="1_giovf"]
+[ext_resource type="Texture2D" uid="uid://e5bmytvw5job" path="res://Iris-in-Wonderland/assets/background/cake.png" id="2_x6y4t"]
+[ext_resource type="PackedScene" uid="uid://dp671r6nivhj" path="res://Iris-in-Wonderland/src/interface/pick_up_label.tscn" id="3_lg0j6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6bux6"]
+radius = 91.351
+
+[node name="Tea" type="Node2D"]
+script = ExtResource("1_giovf")
+item_name = "Caterpillar Tea"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_x6y4t")
+region_enabled = true
+region_rect = Rect2(81.7535, 307.447, 135.046, 124.328)
+
+[node name="PickUpLabel" parent="." instance=ExtResource("3_lg0j6")]
+offset_left = -51.0
+offset_top = -94.0
+offset_right = 69.0
+offset_bottom = -54.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -18)
+shape = SubResource("CircleShape2D_6bux6")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
