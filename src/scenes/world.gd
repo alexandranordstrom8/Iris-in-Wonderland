@@ -39,7 +39,8 @@ func _on_enemy_get_position(target_name, enemy_name):
 	_enemy.set_target_pos(target.position)
 
 func _on_item_itemized(item_name, quantity):
-	item_sfx.play()
+	if item_sfx:
+		item_sfx.play()
 	interface.itemize(item_name, quantity)
 
 func _on_player_strawberry_used(pos, dir):
