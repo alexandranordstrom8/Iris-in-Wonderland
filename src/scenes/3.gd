@@ -5,6 +5,7 @@ extends World
 
 func _ready():
 	super()
+	Save.table_empty = false
 	match Save.prev_scene:
 		ScenePaths.scene_1:
 			player.position = $markers/Marker2D_1.position
@@ -13,8 +14,12 @@ func _ready():
 		ScenePaths.scene_4:
 			player.position = $markers/Marker2D_4.position
 			cam4.make_current()
+		ScenePaths.scene_3_table:
+			Save.table_empty = true
+			player.position = $markers/Table.position
+			cam4.make_current()
 		_:
-			player.position = $markers/Marker2D_4.position
+			player.position = $markers/Table.position
 			cam4.make_current()
 
 func _on_exit_button_exit_interacted():
@@ -22,3 +27,9 @@ func _on_exit_button_exit_interacted():
 
 func _on_exit_button_2_exit_interacted():
 	change_scene(ScenePaths.scene_4) 
+
+func _on_exit_button_table_exit_interacted():
+	change_scene(ScenePaths.scene_3_table, false)
+
+func _on_bee_timer_timeout():
+	add_bee($markers/BeeSpawnPoint.position)

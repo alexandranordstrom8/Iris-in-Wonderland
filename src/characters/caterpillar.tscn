@@ -41,6 +41,10 @@ shape = SubResource("CircleShape2D_sl76p")
 
 [connection signal="on_floor" from="Marker2D/Caterpillar" to="." method="_on_caterpillar_on_floor"]
 [connection signal="standing_up" from="Marker2D/Caterpillar" to="." method="_on_caterpillar_standing_up"]
+[connection signal="body_entered" from="InteractButton/Area2D" to="." method="_on_interact_button_body_entered"]
+[connection signal="body_exited" from="InteractButton/Area2D" to="." method="_on_interact_button_body_exited"]
 [connection signal="timeout" from="StartWalking" to="." method="_on_start_walking_timeout"]
 [connection signal="body_entered" from="markers/Marker2D/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="markers/Marker2D2/Area2D" to="." method="_on_area_2d_body_entered"]
+
+[editable path="InteractButton"]

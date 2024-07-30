@@ -44,6 +44,7 @@ func handle_input():
 		
 	if Input.is_action_just_pressed("ui_jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		emit_signal("knock_back", velocity.x, pos2d.scale.x, position.x)
 	
 	# interacting
 	if Input.is_action_just_pressed("ui_accept"):
@@ -54,9 +55,6 @@ func handle_input():
 		_timer = 0
 		attacking = true
 		emit_signal("damage_dealt", SCRATCH_DMG * dmg_multiplier)
-	
-	if animations.is_playing() and animations.current_animation == "scratch":
-		velocity.x = 0
 		
 	# dash
 	if Input.is_action_just_pressed("ui_dash") and _timer >= ACTION_COOLDOWN:
@@ -82,15 +80,15 @@ func handle_input():
 		pos2d.scale.x = 1
 
 func update_animation():
-	if not is_on_floor():
+	if attacking and _timer < ACTION_COOLDOWN:
+		animations.play("scratch")
+	elif not is_on_floor():
 		if velocity.y < 0:
 			animations.play("jump")
 		else:
 			animations.play("fall")
 	elif Input.is_action_pressed("ui_dash") and _timer < ACTION_COOLDOWN:
 		animations.play("dash")
-	elif attacking and _timer < ACTION_COOLDOWN:
-		animations.play("scratch")
 	elif velocity.x:
 		animations.play("walk")
 	else:

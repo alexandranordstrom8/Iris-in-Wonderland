@@ -23,6 +23,17 @@ signal hp_depleted()
 func _ready():
 	add_to_group("character")
 	add_to_group("enemy")
+	var world = get_tree().current_scene
+	var enemies = world.get_tree().get_nodes_in_group("enemy")
+	world.player.damage_dealt.connect(_on_iris_damage_dealt)
+	world.player.knock_back.connect(_on_iris_knock_back)
+	world.player.knock_back_stop.connect(_on_iris_knock_back_stop)
+	self.attacked.connect(world.player._on_enemy_attacked)
+	self.get_position.connect(world._on_enemy_get_position)
+	for enemy in enemies:
+		if enemy != self:
+			enemy.attacked.connect(_on_enemy_attacked)
+			self.attacked.connect(enemy._on_enemy_attacked)
 
 func _process(delta):
 	velocity.y += gravity * delta

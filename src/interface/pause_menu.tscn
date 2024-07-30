@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://dkb0t7gvvm3xm"]
+[gd_scene load_steps=12 format=3 uid="uid://dkb0t7gvvm3xm"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/interface/PauseMenu.gd" id="1_83xqv"]
 [ext_resource type="Theme" uid="uid://dqu1hdmh0ypou" path="res://Iris-in-Wonderland/src/interface/theme.tres" id="2_a2ios"]
 [ext_resource type="Texture2D" uid="uid://85qyfxoryq0c" path="res://Iris-in-Wonderland/assets/interface/main_bg.png" id="2_ghjbe"]
 [ext_resource type="Texture2D" uid="uid://cpk48otbvquon" path="res://Iris-in-Wonderland/assets/interface/icon.png" id="3_atcw2"]
 [ext_resource type="PackedScene" uid="uid://cii8dmnv30gpm" path="res://Iris-in-Wonderland/src/interface/options.tscn" id="5_es61y"]
+[ext_resource type="PackedScene" uid="uid://cjf75c4mff5vv" path="res://Iris-in-Wonderland/src/interface/character_album.tscn" id="6_ryrbf"]
+[ext_resource type="AudioStream" uid="uid://46fnjfe3g6jo" path="res://Iris-in-Wonderland/assets/audio/jump2.mp3" id="7_2io11"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_72aft"]
 bg_color = Color(1, 1, 1, 0.509804)
@@ -113,6 +115,11 @@ custom_minimum_size = Vector2(0, 36)
 layout_mode = 2
 text = "Continue"
 
+[node name="Album" type="Button" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+text = "Album"
+
 [node name="Options" type="Button" parent="Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 36)
 layout_mode = 2
@@ -124,6 +131,7 @@ layout_mode = 2
 text = "Main Menu"
 
 [node name="Panel" type="Panel" parent="Panel/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -140,9 +148,20 @@ stretch_mode = 2
 visible = false
 layout_mode = 1
 
+[node name="character_album" parent="." instance=ExtResource("6_ryrbf")]
+visible = false
+layout_mode = 1
+
+[node name="Button" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_2io11")
+bus = &"SFX"
+
 [connection signal="pressed" from="Panel/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Album" to="." method="_on_album_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="Options/Panel/Button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="character_album/Panel/Button" to="." method="_on_album_button_pressed"]
 
 [editable path="Options"]
+[editable path="character_album"]

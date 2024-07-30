@@ -1072,14 +1072,9 @@ bus = &"Music"
 [node name="win" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource("34_agaox")
 
-[connection signal="damage_dealt" from="character/player/iris" to="character/cat" method="_on_iris_damage_dealt"]
 [connection signal="hp_depleted" from="character/player/iris" to="." method="_on_iris_hp_depleted"]
-[connection signal="knock_back" from="character/player/iris" to="character/cat" method="_on_iris_knock_back"]
-[connection signal="knock_back_stop" from="character/player/iris" to="character/cat" method="_on_iris_knock_back_stop"]
 [connection signal="finished_panning" from="character/player/DefaultCamera" to="." method="_on_panning_camera_finished_panning"]
 [connection signal="timer_started" from="character/player/DefaultCamera" to="." method="_on_panning_camera_timer_started"]
-[connection signal="attacked" from="character/cat" to="character/player/iris" method="_on_enemy_attacked"]
-[connection signal="get_position" from="character/cat" to="." method="_on_enemy_get_position"]
 [connection signal="hp_depleted" from="character/cat" to="." method="_on_cat_hp_depleted"]
 [connection signal="health_changed" from="character/cat/hp" to="character/player/ui/CanvasLayer/VBoxContainer/boss_bar" method="_on_hp_health_changed"]
 [connection signal="max_health_changed" from="character/cat/hp" to="character/player/ui/CanvasLayer/VBoxContainer/boss_bar" method="_on_hp_max_health_changed"]

@@ -18,11 +18,7 @@ signal itemized(item_name, quantity)
 func _ready():
 	super()
 	var world = get_tree().current_scene
-	var enemies = world.get_tree().get_nodes_in_group("enemy")
 	itemized.connect(world._on_item_itemized)
-	world.player.damage_dealt.connect(_on_iris_damage_dealt)
-	for enemy in enemies:
-		enemy.attacked.connect(_on_enemy_attacked)
 	label.visible = false
 
 func update_position(delta):
@@ -45,7 +41,13 @@ func _physics_process(delta):
 	super._process(delta)
 	update_position(delta)
 	
+	if Save.item_list["Strawberry"][0] >= Save.item_max:
+		can_pick_up = false
+	else: 
+		can_pick_up = true
+	
 	if label.visible and Input.is_action_just_pressed("ui_take_item"):
+		Save._save.unlocked_characters.characters["Strawberry"] = true
 		emit_signal("itemized", "Strawberry", 1)
 		queue_free()
 

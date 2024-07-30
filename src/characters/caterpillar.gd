@@ -6,6 +6,7 @@ var target_pos : Vector2
 var target_reached : bool = false
 var direction : int
 var offset = SPEED
+var can_interact : bool = false
 
 @onready var walk_timer = $StartWalking
 @onready var pos2d = $Marker2D
@@ -52,3 +53,15 @@ func _on_caterpillar_standing_up():
 func _on_caterpillar_on_floor():
 	animations.play("idle")
 	walk_timer.start()
+
+func _on_interact_button_body_entered(body):
+	if body.name == "iris":
+		can_interact = true
+
+func _on_interact_button_body_exited(body):
+	if body.name == "iris":
+		can_interact = false
+
+func _on_iris_interacted():
+	if can_interact:
+		Save._save.unlocked_characters.characters["Caterpillar"] = true

@@ -52,3 +52,9 @@ func _on_interface_menu_grow():
 		Save.is_small = false
 		var tween = get_tree().create_tween()
 		tween.tween_property(iris, "scale", SCALE_DEFAULT, 0.5)
+
+func _on_interface_paused(value):
+	if value:
+		iris.set_freeze_movement(true)
+	else:
+		iris.set_freeze_movement(false)

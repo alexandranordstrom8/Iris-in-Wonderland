@@ -36,6 +36,7 @@ func _on_panning_camera_finished_panning():
 	enemy.set_freeze_movement(false)
 	player.set_freeze_movement(false)
 	enemy.set_target_pos(player.position)
+	Save._save.unlocked_characters.characters["Cat"] = true
 	
 func _on_cat_hp_depleted():
 	won = true
@@ -66,5 +67,3 @@ func _on_exit_button_exit_interacted():
 	if won or not started:
 		change_scene(ScenePaths.scene_4)
 
-func _on_bee_new_target():
-	$character/Bee.set_target_pos(Vector2(randi_range(250, 3000), randi_range(100, 500)))

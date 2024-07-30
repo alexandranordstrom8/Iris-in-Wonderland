@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cwd7w3s8ahx1k"]
+[gd_resource type="Resource" script_class="PlayerValues" load_steps=2 format=3 uid="uid://cwd7w3s8ahx1k"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/savefiles/player_values.gd" id="1_jbaxw"]
 
@@ -7,6 +7,8 @@ script = ExtResource("1_jbaxw")
 current_coins = 0
 current_hp = 100
 current_sp = 100
+coin_max = 50
+item_max = 10
 prev_scene = ""
 current_scene = ""
 is_small = false

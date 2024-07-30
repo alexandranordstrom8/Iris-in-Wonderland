@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dxtv7x6vhqofw"]
+[gd_scene load_steps=42 format=3 uid="uid://dxtv7x6vhqofw"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/6.gd" id="1_iou1r"]
 [ext_resource type="Texture2D" uid="uid://b0awm4ubvp6a0" path="res://Iris-in-Wonderland/assets/background/plank.png" id="2_rwee0"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://fr42bstpmcmp" path="res://Iris-in-Wonderland/src/background/collectible_tea.tscn" id="16_tpr4a"]
 [ext_resource type="PackedScene" uid="uid://bah2pxas0yt5v" path="res://Iris-in-Wonderland/src/background/sky.tscn" id="17_vrh87"]
 [ext_resource type="PackedScene" uid="uid://em5hl7ux263y" path="res://Iris-in-Wonderland/src/interface/interact_button.tscn" id="24_r6e6n"]
+[ext_resource type="AudioStream" uid="uid://dcj6my0rmnj8n" path="res://Iris-in-Wonderland/assets/audio/星が輝く冬.mp3" id="25_ssiku"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_du802"]
 bg_color = Color(0.447059, 0.678431, 0.517647, 1)
@@ -619,14 +620,27 @@ position = Vector2(-554, 467)
 shape = SubResource("RectangleShape2D_ewojb")
 one_way_collision = true
 
-[node name="Sprite2D8" type="Sprite2D" parent="bg/platforms/table"]
-position = Vector2(-533, 377)
+[node name="Tea" parent="bg/platforms/table" instance=ExtResource("16_tpr4a")]
+position = Vector2(-732, 393)
+
+[node name="Tea2" parent="bg/platforms/table" instance=ExtResource("16_tpr4a")]
+position = Vector2(-508, 397)
+quantity = 3
+
+[node name="Sprite2D" parent="bg/platforms/table/Tea2" index="0"]
+visible = false
+
+[node name="PickUpLabel" parent="bg/platforms/table/Tea2" index="1"]
+offset_left = -39.0
+offset_top = -125.0
+offset_right = 81.0
+offset_bottom = -85.0
+
+[node name="Sprite2D8" type="Sprite2D" parent="bg/platforms/table/Tea2"]
+position = Vector2(-7, -20)
 texture = ExtResource("10_46oo4")
 region_enabled = true
 region_rect = Rect2(253.241, 281.724, 231.508, 150.051)
-
-[node name="Tea" parent="bg/platforms/table" instance=ExtResource("16_tpr4a")]
-position = Vector2(-732, 393)
 
 [node name="sky" parent="bg" instance=ExtResource("17_vrh87")]
 
@@ -746,11 +760,20 @@ position = Vector2(85, 102)
 [node name="markers" type="Node" parent="."]
 
 [node name="default" type="Marker2D" parent="markers"]
-position = Vector2(1406, -171)
+position = Vector2(2525, 626)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("25_ssiku")
+volume_db = -5.0
+autoplay = true
+bus = &"Music"
 
 [connection signal="body_entered" from="bg/ExitArea" to="." method="_on_exit_area_body_entered"]
+[connection signal="interacted" from="character/player/iris" to="character/Caterpillar" method="_on_iris_interacted"]
 [connection signal="exit_interacted" from="buttons/ExitButton" to="." method="_on_exit_button_exit_interacted"]
 
+[editable path="bg/platforms/table/Tea2"]
 [editable path="character/Caterpillar"]
+[editable path="character/Caterpillar/InteractButton"]
 [editable path="character/player"]
 [editable path="buttons/ExitButton"]

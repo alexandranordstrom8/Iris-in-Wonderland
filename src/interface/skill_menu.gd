@@ -7,6 +7,7 @@ var _current_hp : int = 100
 var timer_locked : bool = false
 var focused_item : String = ""
 var in_enclosed_space : bool = false
+var next_to_door : bool = false
 
 @onready var cost_label = $Panel/VBoxContainer2/Cost
 @onready var desc_label = $Panel/VBoxContainer2/Description
@@ -19,6 +20,7 @@ signal strawberry
 signal raise_attack
 signal shrink
 signal grow
+signal benjamin
 signal special_used
 
 # list indexes
@@ -27,7 +29,8 @@ enum {SKILL, ITEM}
 
 var item_list : Dictionary
 
-var special = ["Strawberry", "Raise Attack", "Small Cookie", "Caterpillar Tea"]
+var special = ["Strawberry", "Raise Attack", "Small Cookie", "Caterpillar Tea", "Golden Key",
+"Benjamin's Blessing"]
 
 func _ready():
 	item_list = Save.item_list
@@ -65,13 +68,18 @@ func disable_buttons():
 		item_list["Small Cookie"][_BUTTON].disabled = false
 		item_list["Caterpillar Tea"][_BUTTON].disabled = true
 	
+	if next_to_door:
+		item_list["Golden Key"][_BUTTON].disabled = false
+	else:
+		item_list["Golden Key"][_BUTTON].disabled = true
+	
 	for item in item_list:
 		if (item_list[item][_TYPE] == SKILL and _current_sp < item_list[item][_NUMBER])\
 		or (item_list[item][_TYPE] == ITEM and item_list[item][_NUMBER] == 0)\
 		or (item_list[item][_HP] > 0 and _current_hp == 100)\
 		or (item_list[item][_SP] > 0 and _current_sp == 100):
 			item_list[item][_BUTTON].disabled = true
-		elif item == "Small Cookie" or item == "Caterpillar Tea":
+		elif item in special and item_list[item][_TYPE] == ITEM:
 			pass
 		else:
 			item_list[item][_BUTTON].disabled = false
@@ -100,6 +108,13 @@ func _on_button_focus(item_name):
 		$popup.show()
 	else:
 		$popup.hide()
+	if item_name == "Benjamin's Blessing":
+		$popup2/Panel/Label2.text = "Current max:
+Coins %s 
+Items %s" % [Save.coin_max, Save.item_max]
+		$popup2.show()
+	else:
+		$popup2.hide()
 
 func use_special_item(item_name):
 	match item_name:
@@ -111,6 +126,13 @@ func use_special_item(item_name):
 			emit_signal("shrink")
 		"Caterpillar Tea":
 			emit_signal("grow")
+		"Benjamin's Blessing":
+			Save.coin_max *= 2
+			Save.item_max *= 2
+			$popup2/Panel/Label2.text = "Current max:
+Coins %s 
+Items %s" % [Save.coin_max, Save.item_max]
+			emit_signal("benjamin")
 	emit_signal("special_used")
 
 func _on_button_pressed(item_name):

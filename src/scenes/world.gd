@@ -10,6 +10,9 @@ extends Node2D
 const item_sfx_path = "res://Iris-in-Wonderland/src/interface/item_sfx.tscn"
 var item_sfx : AudioStreamPlayer
 
+const strawberry_path = "res://Iris-in-Wonderland/src/characters/strawberry.tscn"
+const bee_path = "res://Iris-in-Wonderland/src/characters/bee.tscn"
+
 func _ready():
 	Save.current_scene = scene_file_path
 	init_values()
@@ -44,8 +47,18 @@ func _on_item_itemized(item_name, quantity):
 	interface.itemize(item_name, quantity)
 
 func _on_player_strawberry_used(pos, dir):
-	var _strawberry = preload("res://Iris-in-Wonderland/src/characters/strawberry.tscn").instantiate()
+	var _strawberry = preload(strawberry_path).instantiate()
 	$character.add_child(_strawberry)
 	_strawberry.dir = dir * 2
 	_strawberry.position = pos
 	_strawberry.velocity.y = -500
+
+func add_bee(pos):
+	var _bee = preload(bee_path).instantiate()
+	$character.add_child(_bee)
+	_bee.position = pos
+
+func _on_bee_new_target(bee):
+	var spawn = $markers/BeeSpawnPoint.position
+	var boundary = $markers/BeeBoundary.position
+	bee.target_pos = Vector2(randi_range(spawn.x, boundary.x), randi_range(spawn.y, 600))

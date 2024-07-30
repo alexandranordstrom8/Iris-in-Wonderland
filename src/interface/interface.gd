@@ -4,11 +4,12 @@ extends Control
 @onready var coin_counter = $Counters/HBoxContainer/coin_counter
 @onready var skill_menu = $Menus/SkillMenu
 
-var paused = false
+var _paused = false
 
 signal hp_changed(amount)
 signal sp_changed(amount)
 signal coin_count_changed(amount)
+signal paused(value)
 
 # item menu
 signal menu_change_sp(amount)
@@ -33,18 +34,20 @@ func _process(_delta):
 		elif Input.is_action_just_pressed("ui_pause"):
 			show_menu("PauseMenu")
 		elif Input.is_action_just_pressed("ui_ability"):
+			Save.get_skills()
 			skill_menu.show()
 
 func show_menu(m_name):
 	var menu = $Menus.get_node(m_name)
-	if paused:
+	if _paused:
 		menu.hide()
 		Engine.time_scale = 1
 	else:
 		menu.show()
 		Engine.time_scale = 0
 	
-	paused = not paused
+	_paused = not _paused
+	emit_signal("paused", _paused)
 
 func itemize(item_name, quantity):
 	skill_menu.increase_quantity(item_name, quantity)
@@ -89,9 +92,6 @@ func _on_menu_continue_pressed():
 	button_sfx.play()
 	show_menu("PauseMenu")
 
-func _on_menu_options_pressed():
-	button_sfx.play()
-
 func _on_menu_main_menu_pressed():
 	button_sfx.play()
 	Engine.time_scale = 1
@@ -102,6 +102,11 @@ func _on_menu_retry_pressed():
 	button_sfx.play()
 	Engine.time_scale = 1
 	get_tree().reload_current_scene()
+
+func _on_death_menu_main_menu_pressed():
+	button_sfx.play()
+	Engine.time_scale = 1
+	get_tree().change_scene_to_file("res://Iris-in-Wonderland/src/interface/main_menu.tscn")
 
 ### skill/item menu
 func _on_skill_menu_strawberry():
@@ -115,6 +120,9 @@ func _on_skill_menu_shrink():
 
 func _on_skill_menu_grow():
 	emit_signal("menu_grow")
+
+func _on_skill_menu_benjamin():
+	coin_counter.check_max()
 
 func _on_skill_menu_change_sp(amount):
 	if amount != 0:

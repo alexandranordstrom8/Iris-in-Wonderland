@@ -34,3 +34,6 @@ func _on_exit_button_3_exit_interacted():
 
 func _on_house_house_entered():
 	change_scene(ScenePaths.scene_6)
+
+func _on_bee_timer_timeout():
+	add_bee($markers/BeeSpawnPoint.position)

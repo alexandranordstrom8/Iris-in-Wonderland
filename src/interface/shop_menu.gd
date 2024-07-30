@@ -26,6 +26,7 @@ func _process(_delta):
 		cost_label.set("theme_override_colors/font_outline_color", Color.RED)
 	else:
 		buy_button.disabled = false
+		add_button.disabled = false
 		cost_label.set("theme_override_colors/font_color", Color.WHITE)
 		cost_label.set("theme_override_colors/font_outline_color", null)
 	if amount == 0:

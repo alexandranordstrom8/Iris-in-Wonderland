@@ -43,11 +43,12 @@ radius = 701.006
 [sub_resource type="CircleShape2D" id="CircleShape2D_bmrnk"]
 radius = 110.454
 
-[node name="Bee" type="CharacterBody2D" node_paths=PackedStringArray("hp", "sprite")]
+[node name="Bee" type="CharacterBody2D" node_paths=PackedStringArray("hp")]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_k3vat")
 hp = NodePath("Health")
 damage = 10
-sprite = NodePath("Marker2D/AnimatedSprite2D")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 
@@ -61,9 +62,10 @@ frame_progress = 0.477747
 position = Vector2(-7, 25)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ihl2l")
-disabled = true
 
 [node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_pq2wm")
@@ -77,10 +79,16 @@ script = ExtResource("3_bhr53")
 max_health = 50
 
 [node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-6, 25)
 shape = SubResource("CircleShape2D_bmrnk")
+
+[node name="FreeTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

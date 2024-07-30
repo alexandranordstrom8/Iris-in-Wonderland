@@ -573,15 +573,6 @@ position = Vector2(1551, 626)
 [node name="Marker2D_4" type="Marker2D" parent="markers"]
 position = Vector2(-1366, 626)
 
-[node name="Table" type="Marker2D" parent="markers"]
-position = Vector2(-476, 626)
-
-[node name="BeeSpawnPoint" type="Marker2D" parent="markers"]
-position = Vector2(-1045, 283)
-
-[node name="BeeBoundary" type="Marker2D" parent="markers"]
-position = Vector2(1608, -33)
-
 [node name="buttons" type="Node" parent="."]
 
 [node name="ExitButton" parent="buttons" instance=ExtResource("10_y8kul")]
@@ -608,13 +599,13 @@ visible = false
 [node name="Label" parent="buttons/ExitButton2/HBoxContainer" index="1"]
 visible = true
 
-[node name="ExitButton3" parent="buttons" instance=ExtResource("10_y8kul")]
+[node name="InteractButton" parent="buttons" instance=ExtResource("10_y8kul")]
 offset_left = -595.0
 offset_top = 599.0
 offset_right = -514.0
 offset_bottom = 640.0
 
-[node name="CollisionShape2D" parent="buttons/ExitButton3/Area2D" index="0"]
+[node name="CollisionShape2D" parent="buttons/InteractButton/Area2D" index="0"]
 shape = SubResource("CircleShape2D_8k0c3")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -631,18 +622,12 @@ position = Vector2(1551, 626)
 [node name="cam_4" parent="camera" instance=ExtResource("18_sjkht")]
 position = Vector2(-1346, 626)
 
-[node name="BeeTimer" type="Timer" parent="."]
-wait_time = 30.0
-autostart = true
-
 [connection signal="current_position" from="character/player/iris" to="camera/cam_1" method="_on_iris_current_position"]
 [connection signal="current_position" from="character/player/iris" to="camera/cam_4" method="_on_iris_current_position"]
 [connection signal="exit_interacted" from="buttons/ExitButton" to="." method="_on_exit_button_exit_interacted"]
 [connection signal="exit_interacted" from="buttons/ExitButton2" to="." method="_on_exit_button_2_exit_interacted"]
-[connection signal="exit_interacted" from="buttons/ExitButton3" to="." method="_on_exit_button_table_exit_interacted"]
-[connection signal="timeout" from="BeeTimer" to="." method="_on_bee_timer_timeout"]
 
 [editable path="character/player"]
 [editable path="buttons/ExitButton"]
 [editable path="buttons/ExitButton2"]
-[editable path="buttons/ExitButton3"]
+[editable path="buttons/InteractButton"]

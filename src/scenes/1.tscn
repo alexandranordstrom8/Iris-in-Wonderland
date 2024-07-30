@@ -1216,6 +1216,12 @@ position = Vector2(-890, 626)
 [node name="debug" type="Marker2D" parent="markers"]
 position = Vector2(-636, 532)
 
+[node name="BeeSpawnPoint" type="Marker2D" parent="markers"]
+position = Vector2(-2221, -283)
+
+[node name="BeeBoundary" type="Marker2D" parent="markers"]
+position = Vector2(822, -288)
+
 [node name="buttons" type="Node" parent="."]
 
 [node name="InteractButton2" parent="buttons" instance=ExtResource("34_ylwc1")]
@@ -1306,13 +1312,19 @@ volume_db = -5.0
 autoplay = true
 bus = &"Music"
 
+[node name="BeeTimer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
 [connection signal="house_entered" from="bg/up/House" to="." method="_on_house_house_entered"]
 [connection signal="current_position" from="character/player/iris" to="camera/cam_0" method="_on_iris_current_position"]
 [connection signal="current_position" from="character/player/iris" to="camera/cam_3" method="_on_iris_current_position"]
 [connection signal="interacted" from="character/player/iris" to="character/benjamin" method="_on_iris_interacted"]
+[connection signal="interacted" from="character/player/iris" to="character/isabell" method="_on_iris_interacted"]
 [connection signal="exit_interacted" from="buttons/ExitButton" to="." method="_on_exit_button_exit_interacted"]
 [connection signal="exit_interacted" from="buttons/ExitButton2" to="." method="_on_exit_button_2_exit_interacted"]
 [connection signal="exit_interacted" from="buttons/ExitButton3" to="." method="_on_exit_button_3_exit_interacted"]
+[connection signal="timeout" from="BeeTimer" to="." method="_on_bee_timer_timeout"]
 
 [editable path="character/benjamin"]
 [editable path="character/player"]

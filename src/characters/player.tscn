@@ -32,4 +32,5 @@ one_shot = true
 [connection signal="menu_raise_attack" from="ui/Interface" to="." method="_on_interface_menu_raise_attack"]
 [connection signal="menu_shrink" from="ui/Interface" to="." method="_on_interface_menu_shrink"]
 [connection signal="menu_strawberry" from="ui/Interface" to="." method="_on_interface_menu_strawberry"]
+[connection signal="paused" from="ui/Interface" to="." method="_on_interface_paused"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

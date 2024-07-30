@@ -7,6 +7,7 @@ const ITEM_LIST_PATH = "res://Iris-in-Wonderland/src/savefiles/inventory.tres"
 
 @export var player_values : Resource = PlayerValues.new()
 @export var inventory : Resource = Inventory.new()
+@export var unlocked_characters : Resource = UnlockedCharacters.new()
 
 static func exists() -> bool:
 	return ResourceLoader.exists(SAVE_FILE_PATH)

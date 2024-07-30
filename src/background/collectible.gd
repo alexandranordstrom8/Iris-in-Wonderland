@@ -11,13 +11,15 @@ func _ready():
 	$PickUpLabel.visible = false
 
 func _process(_delta):
+	if Save.item_list[item_name][0] >= Save.item_max:
+		$PickUpLabel.visible = false
 	if $PickUpLabel.visible and Input.is_action_just_pressed("ui_accept"):
 		emit_signal("itemized", item_name, quantity)
 		queue_free()
 
 func _on_area_2d_body_entered(body):
-	if body.name == "iris":
-		$PickUpLabel.visible = true
+	if body.name == "iris" and Save.item_list[item_name][0] < Save.item_max:
+			$PickUpLabel.visible = true
 
 func _on_area_2d_body_exited(body):
 	if body.name == "iris":

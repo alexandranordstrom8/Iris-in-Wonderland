@@ -6,6 +6,7 @@ func _ready():
 	super()
 	$character/player.ignore_scale = true
 	player.position = default_marker.position
+	player.get_node("Marker2D").scale.x = -1
 	$character/player/DefaultCamera.position = default_marker.position
 
 func _process(_delta):

@@ -1,0 +1,208 @@
+[gd_scene load_steps=10 format=3 uid="uid://ca65krls4ifx"]
+
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/3_table.gd" id="1_2a7y7"]
+[ext_resource type="PackedScene" uid="uid://b8wxjqdavi135" path="res://Iris-in-Wonderland/src/background/ground.tscn" id="1_xyrqt"]
+[ext_resource type="PackedScene" uid="uid://bh4th8fe5trsh" path="res://Iris-in-Wonderland/src/characters/strawberry.tscn" id="5_e8ygi"]
+[ext_resource type="PackedScene" uid="uid://em5hl7ux263y" path="res://Iris-in-Wonderland/src/interface/interact_button.tscn" id="5_ikubx"]
+[ext_resource type="PackedScene" uid="uid://dru877c21uloj" path="res://Iris-in-Wonderland/src/characters/player.tscn" id="7_57qde"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_encd8"]
+size = Vector2(1303, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipiyv"]
+size = Vector2(19, 786)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xynbo"]
+size = Vector2(52, 2.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vexyg"]
+radius = 95.0053
+
+[node name="world" type="Node2D" node_paths=PackedStringArray("interface", "player")]
+script = ExtResource("1_2a7y7")
+interface = NodePath("character/player/ui/Interface")
+player = NodePath("character/player/iris")
+
+[node name="bg" type="Node" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="bg"]
+offset_left = -147.0
+offset_top = -225.0
+offset_right = 1367.0
+offset_bottom = 478.0
+color = Color(0.642766, 0.72006, 0.655692, 1)
+
+[node name="ground" parent="bg" instance=ExtResource("1_xyrqt")]
+position = Vector2(0, -225)
+
+[node name="ColorRect" type="ColorRect" parent="bg/ground"]
+show_behind_parent = true
+offset_left = -7.0
+offset_top = 578.0
+offset_right = 1343.0
+offset_bottom = 711.0
+color = Color(0.592157, 0.854902, 0.670588, 1)
+
+[node name="walls" type="StaticBody2D" parent="bg"]
+position = Vector2(-4, -225)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bg/walls"]
+position = Vector2(642, 370)
+shape = SubResource("RectangleShape2D_encd8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="bg/walls"]
+position = Vector2(-0.5, 383)
+shape = SubResource("RectangleShape2D_ipiyv")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="bg/walls"]
+position = Vector2(1284, 366)
+shape = SubResource("RectangleShape2D_ipiyv")
+
+[node name="character" type="Node" parent="."]
+
+[node name="floor" type="StaticBody2D" parent="character"]
+position = Vector2(109, 400)
+collision_layer = 5
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="character/floor"]
+position = Vector2(1, 32)
+shape = SubResource("RectangleShape2D_xynbo")
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="character/floor"]
+position = Vector2(103, -11)
+shape = SubResource("RectangleShape2D_xynbo")
+one_way_collision = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="character/floor"]
+position = Vector2(211, 9)
+shape = SubResource("RectangleShape2D_xynbo")
+one_way_collision = true
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="character/floor"]
+position = Vector2(961, -19)
+shape = SubResource("RectangleShape2D_xynbo")
+one_way_collision = true
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="character/floor"]
+position = Vector2(1040, 32)
+shape = SubResource("RectangleShape2D_xynbo")
+one_way_collision = true
+
+[node name="Strawberry" parent="character" node_paths=PackedStringArray("hp") instance=ExtResource("5_e8ygi")]
+position = Vector2(109, 400)
+moving = false
+hp = NodePath("../player/iris/sp")
+
+[node name="CollisionShape2D" parent="character/Strawberry/DetectionArea" index="0"]
+shape = SubResource("CircleShape2D_vexyg")
+
+[node name="Strawberry2" parent="character" instance=ExtResource("5_e8ygi")]
+position = Vector2(209, 356)
+moving = false
+
+[node name="CollisionShape2D" parent="character/Strawberry2/DetectionArea" index="0"]
+shape = SubResource("CircleShape2D_vexyg")
+
+[node name="Strawberry3" parent="character" instance=ExtResource("5_e8ygi")]
+position = Vector2(318, 376)
+moving = false
+
+[node name="CollisionShape2D" parent="character/Strawberry3/DetectionArea" index="0"]
+shape = SubResource("CircleShape2D_vexyg")
+
+[node name="Strawberry4" parent="character" instance=ExtResource("5_e8ygi")]
+position = Vector2(1070, 347)
+moving = false
+
+[node name="CollisionShape2D" parent="character/Strawberry4/DetectionArea" index="0"]
+shape = SubResource("CircleShape2D_vexyg")
+
+[node name="Strawberry5" parent="character" instance=ExtResource("5_e8ygi")]
+position = Vector2(1146, 397)
+moving = false
+
+[node name="CollisionShape2D" parent="character/Strawberry5/DetectionArea" index="0"]
+shape = SubResource("CircleShape2D_vexyg")
+
+[node name="player" parent="character" instance=ExtResource("7_57qde")]
+
+[node name="iris" parent="character/player" index="0"]
+position = Vector2(615, 398)
+
+[node name="DefaultCamera" parent="character/player" index="2"]
+enabled = false
+
+[node name="fg" type="Node" parent="."]
+
+[node name="ColorRect6" type="ColorRect" parent="fg"]
+offset_left = -12.0
+offset_top = 50.0
+offset_right = 157.0
+offset_bottom = 474.0
+rotation = 0.367607
+color = Color(0.798636, 0.852019, 0.806249, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="fg"]
+offset_left = 1132.0
+offset_top = 108.0
+offset_right = 1301.0
+offset_bottom = 532.0
+rotation = -0.368264
+color = Color(0.798636, 0.852019, 0.806249, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="fg"]
+offset_left = -335.0
+offset_top = -232.0
+offset_right = 1593.0
+offset_bottom = 136.0
+color = Color(0.111197, 0.111197, 0.111197, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="fg"]
+offset_left = -328.0
+offset_top = 138.0
+offset_right = -1.0
+offset_bottom = 506.0
+color = Color(0.109804, 0.109804, 0.109804, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="fg"]
+offset_left = 1280.0
+offset_top = 138.0
+offset_right = 1607.0
+offset_bottom = 506.0
+color = Color(0.109804, 0.109804, 0.109804, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="fg"]
+offset_left = -335.0
+offset_top = 490.0
+offset_right = 1593.0
+offset_bottom = 858.0
+color = Color(0.111197, 0.111197, 0.111197, 1)
+
+[node name="buttons" type="Node" parent="."]
+
+[node name="ExitButton" parent="buttons" instance=ExtResource("5_ikubx")]
+offset_left = 556.0
+offset_top = 520.0
+offset_right = 637.0
+offset_bottom = 561.0
+
+[node name="Panel" parent="buttons/ExitButton/HBoxContainer" index="0"]
+visible = false
+
+[node name="Label" parent="buttons/ExitButton/HBoxContainer" index="1"]
+visible = true
+
+[node name="Area2D" parent="buttons/ExitButton" index="1"]
+position = Vector2(31, 40)
+
+[connection signal="exit_interacted" from="buttons/ExitButton" to="." method="_on_interact_button_exit_interacted"]
+
+[editable path="character/Strawberry"]
+[editable path="character/Strawberry2"]
+[editable path="character/Strawberry3"]
+[editable path="character/Strawberry4"]
+[editable path="character/Strawberry5"]
+[editable path="character/player"]
+[editable path="buttons/ExitButton"]
