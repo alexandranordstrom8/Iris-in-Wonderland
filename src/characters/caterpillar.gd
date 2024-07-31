@@ -7,7 +7,6 @@ var target_reached : bool = false
 var direction : int
 var offset = SPEED
 var can_interact : bool = false
-var freeze_movement : bool = false
 
 @onready var walk_timer = $StartWalking
 @onready var pos2d = $Marker2D
@@ -15,7 +14,7 @@ var freeze_movement : bool = false
 @onready var pos_ref2 = $markers/Marker2D2
 @onready var animations = $Marker2D/Caterpillar/AnimationPlayer
 
-@onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+signal show_text(dialogue_key)
 
 func _ready():
 	get_dir()
@@ -23,17 +22,12 @@ func _ready():
 	walk_timer.start()
 
 func _process(_delta):
-	if freeze_movement:
-		pass
-	elif not ((direction == -1 and position.x <= target_pos.x + offset)\
+	if not ((direction == -1 and position.x <= target_pos.x + offset)\
 	or (direction == 1 and position.x >= target_pos.x - offset)):
 		animations.play("walk")
 		position.x += direction * SPEED 
 	else:
 		animations.play("idle")
-
-func set_freeze_movement(value : bool):
-	freeze_movement = value
 
 func get_dir():
 	direction = pos2d.scale.x * -1

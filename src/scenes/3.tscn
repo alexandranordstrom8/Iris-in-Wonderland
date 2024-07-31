@@ -621,6 +621,7 @@ offset_bottom = 640.0
 shape = SubResource("CircleShape2D_8k0c3")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("16_p65gs")
 volume_db = -5.0
 autoplay = true

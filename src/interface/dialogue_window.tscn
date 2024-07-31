@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6qsiffl3gd7o"]
+
+[ext_resource type="PackedScene" uid="uid://hm44ce3u28ny" path="res://Iris-in-Wonderland/src/interface/dialogue_box.tscn" id="1_2t5ap"]
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/interface/dialogue_window.gd" id="1_nv57g"]
+
+[node name="DialogueWindow" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_nv57g")
+
+[node name="DialogueBox" parent="." instance=ExtResource("1_2t5ap")]
+
+[editable path="DialogueBox"]

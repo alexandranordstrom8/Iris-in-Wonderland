@@ -9,7 +9,6 @@ var _paused = false
 signal hp_changed(amount)
 signal sp_changed(amount)
 signal coin_count_changed(amount)
-signal paused(value)
 
 # item menu
 signal menu_change_sp(amount)
@@ -30,24 +29,23 @@ func _process(_delta):
 		if skill_menu.visible:
 			if Input.is_action_just_pressed("ui_pause") or Input.is_action_just_pressed("ui_ability"):
 				skill_menu.close_window()
-				skill_menu.hide()
 		elif Input.is_action_just_pressed("ui_pause"):
 			show_menu("PauseMenu")
 		elif Input.is_action_just_pressed("ui_ability"):
 			Save.get_skills()
-			skill_menu.show()
+			skill_menu.item_list = Save.item_list
+			skill_menu.open_window()
 
 func show_menu(m_name):
 	var menu = $Menus.get_node(m_name)
 	if _paused:
 		menu.hide()
-		Engine.time_scale = 1
+		get_tree().paused = false
 	else:
 		menu.show()
-		Engine.time_scale = 0
+		get_tree().paused = true
 	
 	_paused = not _paused
-	emit_signal("paused", _paused)
 
 func itemize(item_name, quantity):
 	skill_menu.increase_quantity(item_name, quantity)
@@ -94,18 +92,18 @@ func _on_menu_continue_pressed():
 
 func _on_menu_main_menu_pressed():
 	button_sfx.play()
-	Engine.time_scale = 1
+	get_tree().paused = false
 	save_values()
 	get_tree().change_scene_to_file("res://Iris-in-Wonderland/src/interface/main_menu.tscn")
 
 func _on_menu_retry_pressed():
 	button_sfx.play()
-	Engine.time_scale = 1
+	get_tree().paused = false
 	get_tree().reload_current_scene()
 
 func _on_death_menu_main_menu_pressed():
 	button_sfx.play()
-	Engine.time_scale = 1
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Iris-in-Wonderland/src/interface/main_menu.tscn")
 
 ### skill/item menu
@@ -134,5 +132,4 @@ func _on_skill_menu_change_hp(amount):
 
 func _on_skill_menu_special_used():
 	skill_menu.close_window()
-	skill_menu.hide()
 

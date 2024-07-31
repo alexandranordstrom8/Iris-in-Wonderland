@@ -760,9 +760,10 @@ position = Vector2(85, 102)
 [node name="markers" type="Node" parent="."]
 
 [node name="default" type="Marker2D" parent="markers"]
-position = Vector2(1267, -308)
+position = Vector2(2521, 626)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("25_ssiku")
 volume_db = -5.0
 autoplay = true
@@ -770,7 +771,6 @@ bus = &"Music"
 
 [connection signal="body_entered" from="bg/ExitArea" to="." method="_on_exit_area_body_entered"]
 [connection signal="interacted" from="character/player/iris" to="character/Caterpillar" method="_on_iris_interacted"]
-[connection signal="paused" from="character/player/ui/Interface" to="." method="_on_interface_paused"]
 [connection signal="exit_interacted" from="buttons/ExitButton" to="." method="_on_exit_button_exit_interacted"]
 
 [editable path="bg/platforms/table/Tea2"]

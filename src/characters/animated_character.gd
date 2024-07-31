@@ -1,9 +1,18 @@
 class_name AnimatedCharacter
 extends CharacterBody2D
 
-@onready var _animation = $AnimatedSprite2D
+@export var dialogue_key : String
+
 var animation_name = "default"
 var can_interact = false
+
+@onready var _animation = $AnimatedSprite2D
+
+signal show_text(dialogue_key)
+
+func _ready():
+	var world = get_tree().current_scene
+	show_text.connect(world._on_show_text)
 
 func change_animation(_name):
 	animation_name = _name

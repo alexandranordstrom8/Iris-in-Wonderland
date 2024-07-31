@@ -11,8 +11,11 @@ func _physics_process(_delta):
 
 func _on_iris_interacted():
 	if can_interact:
-		Save._save.unlocked_characters.characters["Benjamin"] = true
-		change_animation("idle")
+		if animation_name == "default":
+			Save._save.unlocked_characters.characters["Benjamin"] = true
+			change_animation("idle")
+			await get_tree().create_timer(0.1).timeout
+		emit_signal("show_text", dialogue_key)
 
 func _on_area_2d_body_entered(body):
 	super(body)

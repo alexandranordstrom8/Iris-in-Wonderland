@@ -87,10 +87,17 @@ func disable_buttons():
 	if timer_locked:
 		item_list["Raise Attack"][_BUTTON].disabled = true
 
+func open_window():
+	for item in item_list:
+		if item_list[item][_AVAILABLE]:
+			item_list[item][_BUTTON].show()
+	self.show()
+
 func close_window():
 	cost_label.text = ""
 	desc_label.text = ""
 	focused_item = ""
+	self.hide()
 
 func get_health_values(hp, sp):
 	_current_hp = hp

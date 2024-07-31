@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://rxq1umhh6ovy"]
+[gd_scene load_steps=65 format=3 uid="uid://rxq1umhh6ovy"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/4_shop.gd" id="1_vhhav"]
 [ext_resource type="PackedScene" uid="uid://bah2pxas0yt5v" path="res://Iris-in-Wonderland/src/background/sky.tscn" id="2_17fo3"]
@@ -37,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://u7d0betrebm1" path="res://Iris-in-Wonderland/assets/characters/strawberry.png" id="27_ijg8l"]
 [ext_resource type="PackedScene" uid="uid://bdnxj34q52lym" path="res://Iris-in-Wonderland/src/interface/shop_menu.tscn" id="31_t8hlq"]
 [ext_resource type="PackedScene" uid="uid://cgvgmi8l5dw87" path="res://Iris-in-Wonderland/src/interface/coin.tscn" id="33_uhwbk"]
+[ext_resource type="PackedScene" uid="uid://b6qsiffl3gd7o" path="res://Iris-in-Wonderland/src/interface/dialogue_window.tscn" id="38_pg7nc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olcg7"]
 size = Vector2(66, 2492)
@@ -1312,6 +1313,7 @@ position = Vector2(940, 626)
 position = Vector2(-612, 626)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("22_rjmdx")
 volume_db = -5.0
 autoplay = true
@@ -1321,6 +1323,9 @@ bus = &"Music"
 
 [node name="shop_menu" parent="ShopUI" instance=ExtResource("31_t8hlq")]
 visible = false
+
+[node name="DialogueWindow" parent="." instance=ExtResource("38_pg7nc")]
+scene_text_file = "res://Iris-in-Wonderland/src/json/4.json"
 
 [connection signal="body_entered" from="platforms/card_platform2/button/ButtonArea" to="." method="_on_button_area_body_entered"]
 [connection signal="body_exited" from="platforms/card_platform2/button/ButtonArea" to="." method="_on_button_area_body_exited"]

@@ -16,6 +16,3 @@ func _on_exit_area_body_entered(body):
 
 func _on_exit_button_exit_interacted():
 	change_scene(ScenePaths.scene_1)
-
-func _on_interface_paused(value):
-	caterpillar.set_freeze_movement(value)

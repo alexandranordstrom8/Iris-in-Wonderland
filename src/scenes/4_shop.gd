@@ -48,11 +48,14 @@ func _on_button_area_body_exited(body):
 		tween.tween_property(card_wall_back, "position", $markers/wall_back_pos1.position, 0.3)
 		tween.tween_property(card_wall_front, "position", $markers/wall_front_pos1.position, 0.3)
 
-func _on_shopkeeper_shop_opened():
+func _open_shop():
 	interface.visible = false
 	shop.get_coins(interface.get_coins())
 	shop.show()
 	Engine.time_scale = 0
+
+func _on_shopkeeper_shop_opened():
+	_open_shop()
 
 func _on_shop_menu_shop_closed(current_coins):
 	shop.hide()
@@ -63,3 +66,6 @@ func _on_shop_menu_shop_closed(current_coins):
 
 func _on_shop_menu_item_bought(item, amount):
 	interface.itemize(item, amount)
+
+func _on_dialogue_finished():
+	_open_shop()

@@ -25,6 +25,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [node name="Interface" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

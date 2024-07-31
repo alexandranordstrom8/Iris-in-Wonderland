@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://dxaievchquyu6"]
+[gd_scene load_steps=53 format=3 uid="uid://dxaievchquyu6"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/1.gd" id="1_pku5t"]
 [ext_resource type="Texture2D" uid="uid://d0uhb7j45xd1g" path="res://Iris-in-Wonderland/assets/background/grass.png" id="2_1tmdf"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://c0dydbsm6epto" path="res://Iris-in-Wonderland/src/characters/benjamin.tscn" id="30_7m22a"]
 [ext_resource type="PackedScene" uid="uid://bhmj4gwta52oe" path="res://Iris-in-Wonderland/src/characters/isabell.tscn" id="31_0uyta"]
 [ext_resource type="AudioStream" uid="uid://dcj6my0rmnj8n" path="res://Iris-in-Wonderland/assets/audio/星が輝く冬.mp3" id="31_an7j8"]
+[ext_resource type="PackedScene" uid="uid://b6qsiffl3gd7o" path="res://Iris-in-Wonderland/src/interface/dialogue_window.tscn" id="33_5tvaw"]
 [ext_resource type="PackedScene" uid="uid://em5hl7ux263y" path="res://Iris-in-Wonderland/src/interface/interact_button.tscn" id="34_ylwc1"]
 [ext_resource type="PackedScene" uid="uid://dfwlix1amhelg" path="res://Iris-in-Wonderland/src/scenes/panning_camera.tscn" id="38_rx7ip"]
 
@@ -525,6 +526,13 @@ region_rect = Rect2(0, 380.714, 961.263, 327.966)
 [node name="tree3" type="StaticBody2D" parent="bg/up/trees"]
 position = Vector2(1759, -340)
 rotation = 0.190989
+
+[node name="sprite3" type="Sprite2D" parent="bg/up/trees/tree3"]
+position = Vector2(1941.47, -104.449)
+rotation = 1.37696
+scale = Vector2(1.386, -1)
+texture = ExtResource("5_w6i18")
+flip_v = true
 
 [node name="sprite2" type="Sprite2D" parent="bg/up/trees/tree3"]
 position = Vector2(1337, 8)
@@ -1068,6 +1076,9 @@ position = Vector2(62.6667, 5.33333)
 position = Vector2(1795, -459)
 scale = Vector2(0.75, 0.75)
 
+[node name="CollisionShape2D" parent="character/isabell/Area2D" index="0"]
+position = Vector2(-294.667, 132)
+
 [node name="player" parent="character" instance=ExtResource("29_ulakm")]
 
 [node name="DefaultCamera" parent="character/player" index="2"]
@@ -1214,7 +1225,7 @@ position = Vector2(-2410, 626)
 position = Vector2(-890, 626)
 
 [node name="debug" type="Marker2D" parent="markers"]
-position = Vector2(-636, 532)
+position = Vector2(1553, -237)
 
 [node name="BeeSpawnPoint" type="Marker2D" parent="markers"]
 position = Vector2(-2221, -283)
@@ -1307,6 +1318,7 @@ position = Vector2(3061, 1386)
 position = Vector2(-2054, 626)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("31_an7j8")
 volume_db = -5.0
 autoplay = true
@@ -1315,6 +1327,9 @@ bus = &"Music"
 [node name="BeeTimer" type="Timer" parent="."]
 wait_time = 30.0
 autostart = true
+
+[node name="DialogueWindow" parent="." instance=ExtResource("33_5tvaw")]
+scene_text_file = "res://Iris-in-Wonderland/src/json/1.json"
 
 [connection signal="house_entered" from="bg/up/House" to="." method="_on_house_house_entered"]
 [connection signal="current_position" from="character/player/iris" to="camera/cam_0" method="_on_iris_current_position"]
@@ -1327,6 +1342,7 @@ autostart = true
 [connection signal="timeout" from="BeeTimer" to="." method="_on_bee_timer_timeout"]
 
 [editable path="character/benjamin"]
+[editable path="character/isabell"]
 [editable path="character/player"]
 [editable path="buttons/InteractButton2"]
 [editable path="buttons/InteractButton"]

@@ -90,6 +90,7 @@ height = 391.758
 
 [node name="benjamin" type="CharacterBody2D"]
 script = ExtResource("1_8kdg6")
+dialogue_key = "Benjamin"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_t3a4s")

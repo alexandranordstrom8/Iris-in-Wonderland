@@ -393,6 +393,14 @@ position = Vector2(1888, -2507)
 [node name="dirt_ground6" parent="bg/down/dirt_ground" instance=ExtResource("9_oe3iu")]
 position = Vector2(990, -2009)
 
+[node name="ColorRect" type="ColorRect" parent="bg/down/dirt_ground"]
+show_behind_parent = true
+offset_left = -1361.0
+offset_top = 701.0
+offset_right = 4505.0
+offset_bottom = 1736.0
+color = Color(0.607843, 0.407843, 0.352941, 1)
+
 [node name="walls" type="StaticBody2D" parent="bg/down"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bg/down/walls"]

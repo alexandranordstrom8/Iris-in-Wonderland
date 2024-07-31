@@ -62,3 +62,11 @@ func _on_bee_new_target(bee):
 	var spawn = $markers/BeeSpawnPoint.position
 	var boundary = $markers/BeeBoundary.position
 	bee.target_pos = Vector2(randi_range(spawn.x, boundary.x), randi_range(spawn.y, 600))
+
+func _on_show_text(char_name):
+	interface.visible = false
+	await get_tree().create_timer(0.1).timeout
+	$DialogueWindow.get_text(char_name)
+
+func _on_dialogue_finished():
+	interface.visible = true

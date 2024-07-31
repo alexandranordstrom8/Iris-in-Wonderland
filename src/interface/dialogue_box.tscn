@@ -1,11 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://hm44ce3u28ny"]
+[gd_scene load_steps=30 format=3 uid="uid://hm44ce3u28ny"]
 
 [ext_resource type="StyleBox" uid="uid://b4ohi7you0n08" path="res://Iris-in-Wonderland/src/interface/ui_bg.tres" id="1_7dbgb"]
-[ext_resource type="PackedScene" uid="uid://coukdhlnol1fl" path="res://Iris-in-Wonderland/src/characters/caterpillar_rig.tscn" id="1_c1mtn"]
-[ext_resource type="Script" path="res://Iris-in-Wonderland/src/interface/dialogue_box.gd" id="1_non5k"]
-[ext_resource type="PackedScene" uid="uid://c0dydbsm6epto" path="res://Iris-in-Wonderland/src/characters/benjamin.tscn" id="2_fnqbl"]
-[ext_resource type="PackedScene" uid="uid://dmgjvfs6b5eut" path="res://Iris-in-Wonderland/src/characters/shopkeeper.tscn" id="3_wgcob"]
-[ext_resource type="PackedScene" uid="uid://bhmj4gwta52oe" path="res://Iris-in-Wonderland/src/characters/isabell.tscn" id="4_ummd1"]
+[ext_resource type="Texture2D" uid="uid://cpkamkcv0fvc0" path="res://Iris-in-Wonderland/assets/characters/caterpillar.png" id="3_df52v"]
+[ext_resource type="Texture2D" uid="uid://bo84i7iswt2sv" path="res://Iris-in-Wonderland/assets/characters/benjamin_sleep.png" id="4_ltsup"]
+[ext_resource type="Texture2D" uid="uid://c77yv0av6rj5k" path="res://Iris-in-Wonderland/assets/characters/benjamin.png" id="5_3kj58"]
+[ext_resource type="Texture2D" uid="uid://bty6vatwmphsg" path="res://Iris-in-Wonderland/assets/characters/shopkeeper.png" id="6_bxarm"]
+[ext_resource type="Texture2D" uid="uid://ddngphqd4wjcm" path="res://Iris-in-Wonderland/assets/characters/isabell.png" id="7_folgt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8n1nr"]
 bg_color = Color(0.8, 0.894118, 0.890196, 1)
@@ -31,22 +31,223 @@ corner_radius_bottom_left = 50
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4c6m8"]
 
+[sub_resource type="Animation" id="Animation_flwfg"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(5, -8), Vector2(5, -11), Vector2(5, -8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("head:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_hfham"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, -8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("head:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7lk3g"]
+_data = {
+"RESET": SubResource("Animation_hfham"),
+"idle": SubResource("Animation_flwfg")
+}
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_14cb3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fv0kx"]
+atlas = ExtResource("4_ltsup")
+region = Rect2(0, 0, 249, 284)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gm1s6"]
+atlas = ExtResource("4_ltsup")
+region = Rect2(249, 0, 249, 284)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50v82"]
+atlas = ExtResource("4_ltsup")
+region = Rect2(498, 0, 249, 284)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3egfo"]
+atlas = ExtResource("5_3kj58")
+region = Rect2(0, 0, 249, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqwlr"]
+atlas = ExtResource("5_3kj58")
+region = Rect2(249, 0, 249, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3g4n6"]
+atlas = ExtResource("5_3kj58")
+region = Rect2(747, 0, 249, 280)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g8sp3"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_fv0kx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fv0kx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fv0kx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gm1s6")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_50v82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gm1s6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3egfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3egfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3egfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqwlr")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_3g4n6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqwlr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqwlr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hkxci"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5c5fu"]
+atlas = ExtResource("6_bxarm")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vj2u"]
+atlas = ExtResource("6_bxarm")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hihh8"]
+atlas = ExtResource("6_bxarm")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_36wyc"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_5c5fu")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_7vj2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hihh8")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_7vj2u")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_5c5fu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w6rdq"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_okyei"]
+atlas = ExtResource("7_folgt")
+region = Rect2(206, 0, 163, 389)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bgpc"]
+atlas = ExtResource("7_folgt")
+region = Rect2(43, 0, 163, 389)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ctgn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okyei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okyei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okyei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okyei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bgpc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="DialogueBox" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_non5k")
-_name = "Shopkeeper"
-_text = "a"
 
 [node name="bg" type="Panel" parent="."]
 layout_mode = 1
@@ -113,53 +314,184 @@ offset_right = 250.0
 offset_bottom = 53.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 24
 text = "Text "
 autowrap_mode = 2
 
-[node name="Caterpillar" type="Panel" parent="."]
+[node name="Caterpillar" type="Panel" parent="." groups=["names"]]
 visible = false
 layout_mode = 0
 offset_left = 654.0
-offset_top = 435.0
+offset_top = 442.0
 offset_right = 694.0
-offset_bottom = 475.0
+offset_bottom = 482.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_4c6m8")
 
-[node name="Caterpillar" parent="Caterpillar" instance=ExtResource("1_c1mtn")]
-scale = Vector2(0.5, 0.5)
+[node name="Node2D" type="Node2D" parent="Caterpillar"]
 
-[node name="Benjamin" type="Panel" parent="."]
+[node name="head" type="Sprite2D" parent="Caterpillar/Node2D"]
+position = Vector2(5, -8)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_df52v")
+region_enabled = true
+region_rect = Rect2(169.797, 220.099, 205.501, 193.1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Caterpillar/Node2D/head"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_7lk3g")
+}
+autoplay = "idle"
+
+[node name="Sprite2D" type="Sprite2D" parent="Caterpillar/Node2D"]
+show_behind_parent = true
+position = Vector2(216, 25)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_df52v")
+region_enabled = true
+region_rect = Rect2(31.6154, 28.7704, 171.841, 168.298)
+
+[node name="Sprite2D" type="Sprite2D" parent="Caterpillar/Node2D/Sprite2D"]
+show_behind_parent = true
+position = Vector2(-30, 58)
+texture = ExtResource("3_df52v")
+region_enabled = true
+region_rect = Rect2(270.776, 89.0035, 74.4056, 72.634)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Caterpillar/Node2D/Sprite2D"]
+show_behind_parent = true
+position = Vector2(35, 58)
+texture = ExtResource("3_df52v")
+region_enabled = true
+region_rect = Rect2(270.776, 89.0035, 74.4056, 72.634)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Caterpillar/Node2D"]
+show_behind_parent = true
+position = Vector2(167, 24)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_df52v")
+region_enabled = true
+region_rect = Rect2(31.6154, 28.7704, 171.841, 168.298)
+
+[node name="Sprite2D" type="Sprite2D" parent="Caterpillar/Node2D/Sprite2D2"]
+show_behind_parent = true
+position = Vector2(-30, 58)
+texture = ExtResource("3_df52v")
+region_enabled = true
+region_rect = Rect2(270.776, 89.0035, 74.4056, 72.634)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Caterpillar/Node2D/Sprite2D2"]
+show_behind_parent = true
+position = Vector2(35, 58)
+texture = ExtResource("3_df52v")
+region_enabled = true
+region_rect = Rect2(270.776, 89.0035, 74.4056, 72.634)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Caterpillar/Node2D"]
+show_behind_parent = true
+position = Vector2(120, 23)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_df52v")
+region_enabled = true
+region_rect = Rect2(31.6154, 28.7704, 171.841, 168.298)
+
+[node name="Sprite2D" type="Sprite2D" parent="Caterpillar/Node2D/Sprite2D3"]
+show_behind_parent = true
+position = Vector2(-30, 58)
+texture = ExtResource("3_df52v")
+region_enabled = true
+region_rect = Rect2(270.776, 89.0035, 74.4056, 72.634)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Caterpillar/Node2D/Sprite2D3"]
+show_behind_parent = true
+position = Vector2(35, 58)
+texture = ExtResource("3_df52v")
+region_enabled = true
+region_rect = Rect2(270.776, 89.0035, 74.4056, 72.634)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Caterpillar/Node2D"]
+show_behind_parent = true
+position = Vector2(76, 24)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_df52v")
+region_enabled = true
+region_rect = Rect2(31.6154, 28.7704, 171.841, 168.298)
+
+[node name="Sprite2D" type="Sprite2D" parent="Caterpillar/Node2D/Sprite2D4"]
+show_behind_parent = true
+position = Vector2(-30, 58)
+texture = ExtResource("3_df52v")
+region_enabled = true
+region_rect = Rect2(270.776, 89.0035, 74.4056, 72.634)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Caterpillar/Node2D/Sprite2D4"]
+show_behind_parent = true
+position = Vector2(35, 58)
+texture = ExtResource("3_df52v")
+region_enabled = true
+region_rect = Rect2(270.776, 89.0035, 74.4056, 72.634)
+
+[node name="Sprite2D5" type="Sprite2D" parent="Caterpillar/Node2D"]
+show_behind_parent = true
+position = Vector2(29, 25)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_df52v")
+region_enabled = true
+region_rect = Rect2(31.6154, 28.7704, 171.841, 168.298)
+
+[node name="Sprite2D" type="Sprite2D" parent="Caterpillar/Node2D/Sprite2D5"]
+show_behind_parent = true
+position = Vector2(-30, 58)
+texture = ExtResource("3_df52v")
+region_enabled = true
+region_rect = Rect2(270.776, 89.0035, 74.4056, 72.634)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Caterpillar/Node2D/Sprite2D5"]
+show_behind_parent = true
+position = Vector2(35, 58)
+texture = ExtResource("3_df52v")
+region_enabled = true
+region_rect = Rect2(270.776, 89.0035, 74.4056, 72.634)
+
+[node name="Benjamin" type="Panel" parent="." groups=["names"]]
 visible = false
 layout_mode = 0
-offset_left = 608.0
-offset_top = 450.0
-offset_right = 648.0
-offset_bottom = 490.0
+offset_left = 606.0
+offset_top = 456.0
+offset_right = 646.0
+offset_bottom = 496.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_14cb3")
 
-[node name="benjamin" parent="Benjamin" instance=ExtResource("2_fnqbl")]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Benjamin"]
 scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_g8sp3")
+animation = &"idle"
+autoplay = "idle"
 
-[node name="Shopkeeper" type="Panel" parent="."]
+[node name="Shopkeeper" type="Panel" parent="." groups=["names"]]
 visible = false
 layout_mode = 0
-offset_left = 368.0
-offset_top = 395.0
-offset_right = 408.0
-offset_bottom = 435.0
+offset_left = 359.0
+offset_top = 391.0
+offset_right = 399.0
+offset_bottom = 431.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_hkxci")
 
-[node name="shopkeeper" parent="Shopkeeper" instance=ExtResource("3_wgcob")]
-scale = Vector2(0.7, 0.7)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Shopkeeper"]
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_36wyc")
+autoplay = "default"
 
-[node name="Isabell" type="Panel" parent="."]
+[node name="Isabell" type="Panel" parent="." groups=["names"]]
 visible = false
 layout_mode = 0
-offset_left = 910.0
-offset_top = 478.0
-offset_right = 950.0
-offset_bottom = 518.0
+offset_left = 912.0
+offset_top = 486.0
+offset_right = 952.0
+offset_bottom = 526.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_w6rdq")
 
-[node name="isabell" parent="Isabell" instance=ExtResource("4_ummd1")]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Isabell"]
 scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_4ctgn")
+autoplay = "default"

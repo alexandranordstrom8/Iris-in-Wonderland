@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhmj4gwta52oe"]
+[gd_scene load_steps=8 format=3 uid="uid://bhmj4gwta52oe"]
 
 [ext_resource type="Texture2D" uid="uid://ddngphqd4wjcm" path="res://Iris-in-Wonderland/assets/characters/isabell.png" id="1_boq2j"]
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/isabell.gd" id="1_svxls"]
@@ -38,8 +38,12 @@ animations = [{
 radius = 36.8642
 height = 143.11
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_t1vv4"]
+radius = 430.7
+
 [node name="isabell" type="CharacterBody2D"]
 script = ExtResource("1_svxls")
+dialogue_key = "Isabell"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_047dt")
@@ -49,3 +53,12 @@ visible = false
 position = Vector2(-29, -35)
 rotation = -0.246194
 shape = SubResource("CapsuleShape2D_qd4l6")
+
+[node name="Area2D" type="Area2D" parent="."]
+process_mode = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_t1vv4")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

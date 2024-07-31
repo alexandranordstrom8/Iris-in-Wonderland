@@ -74,11 +74,6 @@ func from_res():
 	for item in i.item_list:
 		item_list[item][AVAILABLE] = i.item_list[item][i.AVAILABLE]
 		item_list[item][0] = i.item_list[item][i.QTY]
-	
-	print(p.current_coins, p.current_hp, p.current_sp)
-	print(p.is_small, p.coin_max, p.item_max)
-	print(i.item_list)
-	print(_save.unlocked_characters.characters)
 
 func to_res():
 	var p = _save.player_values
@@ -97,11 +92,16 @@ func to_res():
 		i.item_list[item][i.AVAILABLE] = item_list[item][AVAILABLE]
 		i.item_list[item][i.QTY] = item_list[item][0]
 	
+	print_save()
+	_save.write_to_file()
+
+func print_save():
+	var p = _save.player_values
+	var i = _save.inventory
 	print(p.current_coins, p.current_hp, p.current_sp)
 	print(p.is_small, p.coin_max, p.item_max)
 	print(i.item_list)
 	print(_save.unlocked_characters.characters)
-	_save.write_to_file()
 
 func reset():
 	current_coins = 0
