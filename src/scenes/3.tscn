@@ -596,6 +596,9 @@ visible = false
 [node name="Label" parent="buttons/ExitButton/HBoxContainer" index="1"]
 visible = true
 
+[node name="CollisionShape2D" parent="buttons/ExitButton/Area2D" index="0"]
+position = Vector2(6, 46)
+
 [node name="ExitButton2" parent="buttons" instance=ExtResource("10_y8kul")]
 offset_left = -1402.0
 offset_top = 620.0

@@ -654,7 +654,7 @@ shape = SubResource("RectangleShape2D_nbcp5")
 [node name="character" type="Node" parent="."]
 
 [node name="Caterpillar" parent="character" instance=ExtResource("7_s46tn")]
-position = Vector2(668, -165)
+position = Vector2(595, -175)
 
 [node name="Marker2D" parent="character/Caterpillar/markers" index="0"]
 position = Vector2(138, -144)
@@ -760,7 +760,7 @@ position = Vector2(85, 102)
 [node name="markers" type="Node" parent="."]
 
 [node name="default" type="Marker2D" parent="markers"]
-position = Vector2(2525, 626)
+position = Vector2(1267, -308)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("25_ssiku")
@@ -770,6 +770,7 @@ bus = &"Music"
 
 [connection signal="body_entered" from="bg/ExitArea" to="." method="_on_exit_area_body_entered"]
 [connection signal="interacted" from="character/player/iris" to="character/Caterpillar" method="_on_iris_interacted"]
+[connection signal="paused" from="character/player/ui/Interface" to="." method="_on_interface_paused"]
 [connection signal="exit_interacted" from="buttons/ExitButton" to="." method="_on_exit_button_exit_interacted"]
 
 [editable path="bg/platforms/table/Tea2"]

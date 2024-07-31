@@ -75,7 +75,7 @@ func from_res():
 		item_list[item][AVAILABLE] = i.item_list[item][i.AVAILABLE]
 		item_list[item][0] = i.item_list[item][i.QTY]
 	
-	print(p.current_coins, p.current_hp, p.current_sp, p.current_scene, p.prev_scene)
+	print(p.current_coins, p.current_hp, p.current_sp)
 	print(p.is_small, p.coin_max, p.item_max)
 	print(i.item_list)
 	print(_save.unlocked_characters.characters)
@@ -91,14 +91,16 @@ func to_res():
 	p.item_max = item_max
 	p.current_scene = current_scene
 	p.prev_scene = prev_scene
+	p.is_small = is_small
 	
 	for item in i.item_list:
 		i.item_list[item][i.AVAILABLE] = item_list[item][AVAILABLE]
 		i.item_list[item][i.QTY] = item_list[item][0]
 	
-	print(p.current_coins, p.current_hp, p.current_sp, p.current_scene, p.prev_scene)
+	print(p.current_coins, p.current_hp, p.current_sp)
 	print(p.is_small, p.coin_max, p.item_max)
 	print(i.item_list)
+	print(_save.unlocked_characters.characters)
 	_save.write_to_file()
 
 func reset():

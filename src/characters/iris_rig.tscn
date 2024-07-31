@@ -1716,6 +1716,7 @@ root_node = NodePath("../body")
 libraries = {
 "": SubResource("AnimationLibrary_6cpqn")
 }
+autoplay = "idle"
 
 [node name="jump" type="AudioStreamPlayer" parent="Sprite2D"]
 

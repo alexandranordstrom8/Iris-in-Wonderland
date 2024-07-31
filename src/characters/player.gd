@@ -54,7 +54,4 @@ func _on_interface_menu_grow():
 		tween.tween_property(iris, "scale", SCALE_DEFAULT, 0.5)
 
 func _on_interface_paused(value):
-	if value:
-		iris.set_freeze_movement(true)
-	else:
-		iris.set_freeze_movement(false)
+	iris.set_freeze_movement(value)

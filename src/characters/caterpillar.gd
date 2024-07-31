@@ -7,6 +7,7 @@ var target_reached : bool = false
 var direction : int
 var offset = SPEED
 var can_interact : bool = false
+var freeze_movement : bool = false
 
 @onready var walk_timer = $StartWalking
 @onready var pos2d = $Marker2D
@@ -22,12 +23,17 @@ func _ready():
 	walk_timer.start()
 
 func _process(_delta):
-	if not ((direction == -1 and position.x <= target_pos.x + offset)\
+	if freeze_movement:
+		pass
+	elif not ((direction == -1 and position.x <= target_pos.x + offset)\
 	or (direction == 1 and position.x >= target_pos.x - offset)):
 		animations.play("walk")
 		position.x += direction * SPEED 
 	else:
 		animations.play("idle")
+
+func set_freeze_movement(value : bool):
+	freeze_movement = value
 
 func get_dir():
 	direction = pos2d.scale.x * -1

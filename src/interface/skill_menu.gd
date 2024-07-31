@@ -100,6 +100,7 @@ func increase_quantity(item_name, quantity):
 	item_list[item_name][_NUMBER] += quantity
 	if not item_list[item_name][_AVAILABLE]:
 		item_list[item_name][_AVAILABLE] = true
+		item_list[item_name][_BUTTON].disabled = false
 		item_list[item_name][_BUTTON].show()
 
 func _on_button_focus(item_name):

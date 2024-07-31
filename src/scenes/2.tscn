@@ -949,7 +949,7 @@ position = Vector2(3159, 587)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_i8r8p")
 
-[node name="Timer" parent="character/cat" index="9"]
+[node name="Timer" parent="character/cat" index="7"]
 autostart = true
 
 [node name="start_area" type="Area2D" parent="character"]

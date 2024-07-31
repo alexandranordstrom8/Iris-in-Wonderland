@@ -161,14 +161,14 @@ color = Color(0.111197, 0.111197, 0.111197, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="fg"]
 offset_left = -328.0
-offset_top = 138.0
+offset_top = 109.0
 offset_right = -1.0
 offset_bottom = 506.0
 color = Color(0.109804, 0.109804, 0.109804, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="fg"]
 offset_left = 1280.0
-offset_top = 138.0
+offset_top = 89.0
 offset_right = 1607.0
 offset_bottom = 506.0
 color = Color(0.109804, 0.109804, 0.109804, 1)
