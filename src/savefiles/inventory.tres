@@ -8,9 +8,9 @@ item_list = {
 "Apple": [0, false],
 "Blue Heart": [0, false],
 "Cake": [0, false],
-"Caterpillar Tea": [0, true],
+"Caterpillar Tea": [0, false],
 "Golden Key": [0, false],
 "Pink Heart": [0, false],
-"Small Cookie": [0, true],
+"Small Cookie": [0, false],
 "Strawberry": [0, false]
 }

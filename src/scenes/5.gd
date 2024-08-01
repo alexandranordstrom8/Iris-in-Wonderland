@@ -3,7 +3,7 @@ extends World
 @onready var bounce_platform = $platforms/bounce
 
 func _ready():
-	super()
+	init_values()
 	player.position = $markers/spawn.position
 
 func _process(_delta):

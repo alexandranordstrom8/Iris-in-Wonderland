@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bhmj4gwta52oe"]
+[gd_scene load_steps=9 format=3 uid="uid://bhmj4gwta52oe"]
 
 [ext_resource type="Texture2D" uid="uid://ddngphqd4wjcm" path="res://Iris-in-Wonderland/assets/characters/isabell.png" id="1_boq2j"]
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/characters/isabell.gd" id="1_svxls"]
@@ -41,6 +41,9 @@ height = 143.11
 [sub_resource type="CircleShape2D" id="CircleShape2D_t1vv4"]
 radius = 430.7
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_1nemo"]
+radius = 146.168
+
 [node name="isabell" type="CharacterBody2D"]
 script = ExtResource("1_svxls")
 dialogue_key = "Isabell"
@@ -60,5 +63,13 @@ process_mode = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_t1vv4")
 
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(6, 8)
+shape = SubResource("CircleShape2D_1nemo")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]

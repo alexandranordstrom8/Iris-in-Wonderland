@@ -15,11 +15,8 @@ const bee_path = "res://Iris-in-Wonderland/src/characters/bee.tscn"
 
 func _ready():
 	Save.current_scene = scene_file_path
+	Save.to_res()
 	init_values()
-	$character/player.strawberry_used.connect(_on_player_strawberry_used)
-	
-	item_sfx = preload(item_sfx_path).instantiate()
-	get_tree().current_scene.add_child(item_sfx)
 
 func change_scene(new, show_loading_screen=true):
 	call_deferred("_change_scene_deferred", new, show_loading_screen)
@@ -31,6 +28,9 @@ func _change_scene_deferred(new, show_loading_screen=true):
 func init_values():
 	player.init(Save.current_hp, Save.current_sp)
 	interface.init(Save.current_coins)
+	$character/player.strawberry_used.connect(_on_player_strawberry_used)
+	item_sfx = preload(item_sfx_path).instantiate()
+	get_tree().current_scene.add_child(item_sfx)
 	
 func _on_enemy_get_position(target_name, enemy_name):
 	if String(target_name) == "iris":

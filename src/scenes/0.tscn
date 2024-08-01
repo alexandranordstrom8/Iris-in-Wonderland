@@ -618,15 +618,18 @@ position = Vector2(-460, 4263)
 [node name="audio" type="Node" parent="."]
 
 [node name="ambience" type="AudioStreamPlayer2D" parent="audio"]
+process_mode = 3
 stream = ExtResource("22_17n7r")
 autoplay = true
 bus = &"Ambience"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="audio"]
+process_mode = 3
 position = Vector2(875, 3559)
 stream = ExtResource("23_qdh13")
 autoplay = true
 max_distance = 2500.0
+bus = &"Music"
 
 [connection signal="body_entered" from="bg/glow/Glow/Area2D" to="." method="_on_glow_body_entered"]
 [connection signal="current_position" from="character/player/iris" to="camera/PanningCamera" method="_on_iris_current_position"]

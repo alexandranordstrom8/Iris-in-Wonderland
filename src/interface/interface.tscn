@@ -183,7 +183,7 @@ stream = ExtResource("12_3fm00")
 [connection signal="change_hp" from="Menus/SkillMenu" to="." method="_on_skill_menu_change_hp"]
 [connection signal="change_sp" from="Menus/SkillMenu" to="." method="_on_skill_menu_change_sp"]
 [connection signal="grow" from="Menus/SkillMenu" to="." method="_on_skill_menu_grow"]
+[connection signal="key_used" from="Menus/SkillMenu" to="." method="_on_skill_menu_key_used"]
 [connection signal="raise_attack" from="Menus/SkillMenu" to="." method="_on_skill_menu_raise_attack"]
 [connection signal="shrink" from="Menus/SkillMenu" to="." method="_on_skill_menu_shrink"]
-[connection signal="special_used" from="Menus/SkillMenu" to="." method="_on_skill_menu_special_used"]
 [connection signal="strawberry" from="Menus/SkillMenu" to="." method="_on_skill_menu_strawberry"]

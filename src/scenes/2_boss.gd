@@ -11,7 +11,7 @@ var coin_spawn_pos : Vector2
 @onready var camera = $character/player/DefaultCamera
 
 func _ready():
-	super._ready()
+	super()
 	player.position = $markers/Marker2D.position
 	$audio/ambience.play()
 

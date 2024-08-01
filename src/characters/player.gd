@@ -10,6 +10,7 @@ const SCALE_SMALL = Vector2(0.25, 0.25)
 @export var ignore_scale : bool = false
 
 signal strawberry_used(pos, dir)
+signal key_used
 
 func _ready():
 	if Save.is_small and not ignore_scale:
@@ -46,9 +47,10 @@ func _on_interface_menu_shrink():
 	tween.tween_property(iris, "scale", SCALE_SMALL, 0.5)
 
 func _on_interface_menu_grow():
-	if ignore_scale:
-		pass
-	else:
+	if not ignore_scale:
 		Save.is_small = false
 		var tween = get_tree().create_tween()
 		tween.tween_property(iris, "scale", SCALE_DEFAULT, 0.5)
+
+func _on_interface_menu_key():
+	emit_signal("key_used")

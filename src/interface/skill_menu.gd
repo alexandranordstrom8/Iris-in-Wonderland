@@ -21,7 +21,7 @@ signal raise_attack
 signal shrink
 signal grow
 signal benjamin
-signal special_used
+signal key_used
 
 # list indexes
 enum {_NUMBER, _TYPE, _DESCRIPTION, _AVAILABLE, _BUTTON, _HP, _SP}
@@ -88,6 +88,7 @@ func disable_buttons():
 		item_list["Raise Attack"][_BUTTON].disabled = true
 
 func open_window():
+	item_list = Save.item_list
 	for item in item_list:
 		if item_list[item][_AVAILABLE]:
 			item_list[item][_BUTTON].show()
@@ -97,6 +98,7 @@ func close_window():
 	cost_label.text = ""
 	desc_label.text = ""
 	focused_item = ""
+	Save.item_list = item_list
 	self.hide()
 
 func get_health_values(hp, sp):
@@ -134,6 +136,8 @@ func use_special_item(item_name):
 			emit_signal("shrink")
 		"Caterpillar Tea":
 			emit_signal("grow")
+		"Golden Key":
+			emit_signal("key_used")
 		"Benjamin's Blessing":
 			Save.coin_max *= 2
 			Save.item_max *= 2
@@ -141,11 +145,12 @@ func use_special_item(item_name):
 Coins %s 
 Items %s" % [Save.coin_max, Save.item_max]
 			emit_signal("benjamin")
-	emit_signal("special_used")
 
 func _on_button_pressed(item_name):
+	var _special = false
 	if item_name in special:
 		use_special_item(item_name)
+		_special = true
 	
 	emit_signal("change_hp", item_list[item_name][_HP])
 	emit_signal("change_sp", item_list[item_name][_SP])
@@ -153,4 +158,6 @@ func _on_button_pressed(item_name):
 	if item_list[item_name][_TYPE] == ITEM:
 		item_list[item_name][_NUMBER] = max(0, item_list[item_name][_NUMBER] - 1)
 		get_description(item_name)
-		
+	
+	if _special:
+		close_window()

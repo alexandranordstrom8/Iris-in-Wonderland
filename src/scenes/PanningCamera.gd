@@ -7,6 +7,7 @@ const DEFAULT_SPEED = 10
 
 var is_panning = false
 var free_movement = false
+var _stay_free : bool
 var look_down_possible = true
 var target = Vector2(0, 0)
 var look_down_target = 0
@@ -27,15 +28,18 @@ func handle_input():
 
 func _process(_delta): 
 	if is_panning:
+		var y_changed = false
 		if position.y < target.y:
 			position.y += move_speed
-		elif position.y > target.y:
+			y_changed = true
+		elif position.y > target.y + move_speed:
 			position.y -= move_speed
+			y_changed = true
 		if position.x < target.x:
 			position.x += move_speed
 		elif position.x > target.x + move_speed:
 			position.x -= move_speed
-		else:
+		elif not y_changed:
 			is_panning = false
 			move_speed = DEFAULT_SPEED
 			timer.start()
@@ -43,18 +47,19 @@ func _process(_delta):
 	elif look_down_possible:
 		handle_input()
 	
-func set_panning_target(target_pos, speed = DEFAULT_SPEED):
+func set_panning_target(target_pos, stay_free = false):
 	is_panning = true
 	free_movement = true
 	target = target_pos
-	move_speed = speed
+	_stay_free = stay_free
 
 func _on_iris_current_position(pos):
 	if not free_movement:
 		position = pos
 
 func _on_timer_timeout():
-	free_movement = false
+	if not _stay_free:
+		free_movement = false
 	emit_signal("finished_panning")
 
 func _on_stop_look_down_body_entered(body):

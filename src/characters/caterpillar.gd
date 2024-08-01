@@ -2,6 +2,8 @@ extends Node2D
 
 const SPEED = 10
 
+@export var dialogue_key : String = "Caterpillar"
+
 var target_pos : Vector2
 var target_reached : bool = false
 var direction : int
@@ -65,3 +67,4 @@ func _on_interact_button_body_exited(body):
 func _on_iris_interacted():
 	if can_interact:
 		Save._save.unlocked_characters.characters["Caterpillar"] = true
+		emit_signal("show_text", dialogue_key)

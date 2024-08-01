@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dxtv7x6vhqofw"]
+[gd_scene load_steps=43 format=3 uid="uid://dxtv7x6vhqofw"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/6.gd" id="1_iou1r"]
 [ext_resource type="Texture2D" uid="uid://b0awm4ubvp6a0" path="res://Iris-in-Wonderland/assets/background/plank.png" id="2_rwee0"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://bah2pxas0yt5v" path="res://Iris-in-Wonderland/src/background/sky.tscn" id="17_vrh87"]
 [ext_resource type="PackedScene" uid="uid://em5hl7ux263y" path="res://Iris-in-Wonderland/src/interface/interact_button.tscn" id="24_r6e6n"]
 [ext_resource type="AudioStream" uid="uid://dcj6my0rmnj8n" path="res://Iris-in-Wonderland/assets/audio/星が輝く冬.mp3" id="25_ssiku"]
+[ext_resource type="PackedScene" uid="uid://b6qsiffl3gd7o" path="res://Iris-in-Wonderland/src/interface/dialogue_window.tscn" id="26_d37s6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_du802"]
 bg_color = Color(0.447059, 0.678431, 0.517647, 1)
@@ -769,7 +770,11 @@ volume_db = -5.0
 autoplay = true
 bus = &"Music"
 
+[node name="DialogueWindow" parent="." instance=ExtResource("26_d37s6")]
+scene_text_file = "res://Iris-in-Wonderland/src/json/6.json"
+
 [connection signal="body_entered" from="bg/ExitArea" to="." method="_on_exit_area_body_entered"]
+[connection signal="show_text" from="character/Caterpillar" to="." method="_on_show_text"]
 [connection signal="interacted" from="character/player/iris" to="character/Caterpillar" method="_on_iris_interacted"]
 [connection signal="exit_interacted" from="buttons/ExitButton" to="." method="_on_exit_button_exit_interacted"]
 

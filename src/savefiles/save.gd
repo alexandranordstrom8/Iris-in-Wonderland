@@ -46,12 +46,10 @@ func _ready():
 		_save.write_to_file()
 
 # used by interface
-func set_variables(coins, hp, sp, items):
+func set_variables(coins, hp, sp):
 	current_coins = coins
 	current_hp = hp
 	current_sp = sp
-	item_list = items
-	to_res()
 
 func get_skills():
 	for char_name in _skills:

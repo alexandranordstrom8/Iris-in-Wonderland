@@ -14,6 +14,7 @@ signal coin_count_changed(amount)
 signal menu_change_sp(amount)
 signal menu_change_hp(amount)
 signal menu_strawberry
+signal menu_key
 signal menu_raise_attack
 signal menu_shrink
 signal menu_grow
@@ -54,8 +55,7 @@ func save_values():
 	Save.set_variables(
 		int($Counters/HBoxContainer/coin_counter/Label.text),
 		int($Counters/HBoxContainer/Panel/VBoxContainer/hp_bar/counter/Label.text), 
-		int($Counters/HBoxContainer/Panel/VBoxContainer/sp_bar/counter/Label.text),
-		skill_menu.item_list)
+		int($Counters/HBoxContainer/Panel/VBoxContainer/sp_bar/counter/Label.text))
 
 func get_coins():
 	return int($Counters/HBoxContainer/coin_counter/Label.text)
@@ -130,6 +130,5 @@ func _on_skill_menu_change_hp(amount):
 	if amount != 0:
 		emit_signal("menu_change_hp", amount)
 
-func _on_skill_menu_special_used():
-	skill_menu.close_window()
-
+func _on_skill_menu_key_used():
+	emit_signal("menu_key")

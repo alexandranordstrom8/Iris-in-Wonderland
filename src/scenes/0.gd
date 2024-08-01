@@ -17,6 +17,7 @@ func _ready():
 		camera.position = spawn_marker.position
 		player.position = spawn_marker.position
 	else:
+		init_values()
 		interface.visible = false
 		camera.make_current()
 		player.position = default_marker.position
