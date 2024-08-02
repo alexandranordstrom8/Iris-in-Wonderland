@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://rxq1umhh6ovy"]
+[gd_scene load_steps=66 format=3 uid="uid://rxq1umhh6ovy"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/4_shop.gd" id="1_vhhav"]
 [ext_resource type="PackedScene" uid="uid://bah2pxas0yt5v" path="res://Iris-in-Wonderland/src/background/sky.tscn" id="2_17fo3"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://co5rhs1t15yqh" path="res://Iris-in-Wonderland/src/background/card_platform_3.tscn" id="16_e41b7"]
 [ext_resource type="PackedScene" uid="uid://btqp4gxdg4jpw" path="res://Iris-in-Wonderland/src/background/card_platform_4.tscn" id="17_vvufv"]
 [ext_resource type="Texture2D" uid="uid://bhr160dgnoljc" path="res://Iris-in-Wonderland/assets/background/sign.png" id="19_1quds"]
+[ext_resource type="PackedScene" uid="uid://bsmxfxret6220" path="res://Iris-in-Wonderland/src/background/bowl.tscn" id="20_2raqc"]
 [ext_resource type="AudioStream" uid="uid://dcj6my0rmnj8n" path="res://Iris-in-Wonderland/assets/audio/星が輝く冬.mp3" id="22_rjmdx"]
 [ext_resource type="Texture2D" uid="uid://bly7hh38jkbfr" path="res://Iris-in-Wonderland/assets/interface/label_hp.png" id="22_v1vst"]
 [ext_resource type="PackedScene" uid="uid://csqxtf1r8n1qv" path="res://Iris-in-Wonderland/src/background/card_platform_5.tscn" id="23_j2q0k"]
@@ -933,6 +934,9 @@ theme_override_colors/font_color = Color(0.607843, 0.407843, 0.352941, 1)
 theme_override_colors/font_outline_color = Color(0.278431, 0, 0, 0.882353)
 theme_override_font_sizes/font_size = 36
 text = "Shop"
+
+[node name="bowl" parent="bg" instance=ExtResource("20_2raqc")]
+position = Vector2(-132, -472)
 
 [node name="platforms" type="Node" parent="."]
 

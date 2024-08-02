@@ -40,6 +40,8 @@ func _process(_delta):
 func show_menu(m_name):
 	var menu = $Menus.get_node(m_name)
 	if _paused:
+		if m_name == "PauseMenu":
+			menu.close_pause_menu()
 		menu.hide()
 		get_tree().paused = false
 	else:
@@ -94,7 +96,8 @@ func _on_menu_main_menu_pressed():
 	button_sfx.play()
 	get_tree().paused = false
 	save_values()
-	get_tree().change_scene_to_file("res://Iris-in-Wonderland/src/interface/main_menu.tscn")
+	Save.to_res()
+	get_tree().change_scene_to_file(ScenePaths.main_menu_path)
 
 func _on_menu_retry_pressed():
 	button_sfx.play()
@@ -104,7 +107,7 @@ func _on_menu_retry_pressed():
 func _on_death_menu_main_menu_pressed():
 	button_sfx.play()
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Iris-in-Wonderland/src/interface/main_menu.tscn")
+	get_tree().change_scene_to_file(ScenePaths.main_menu_path)
 
 ### skill/item menu
 func _on_skill_menu_strawberry():
@@ -132,3 +135,6 @@ func _on_skill_menu_change_hp(amount):
 
 func _on_skill_menu_key_used():
 	emit_signal("menu_key")
+
+func _on_skill_menu_caterpillar():
+	itemize("Caterpillar Tea", 1)

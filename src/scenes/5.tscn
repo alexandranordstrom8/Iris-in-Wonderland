@@ -1,18 +1,27 @@
-[gd_scene load_steps=26 format=3 uid="uid://t5fc2o13q0gx"]
+[gd_scene load_steps=38 format=3 uid="uid://t5fc2o13q0gx"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/5.gd" id="1_v4506"]
 [ext_resource type="PackedScene" uid="uid://bah2pxas0yt5v" path="res://Iris-in-Wonderland/src/background/sky.tscn" id="2_mvhnf"]
 [ext_resource type="Texture2D" uid="uid://rvyo48q01jg2" path="res://Iris-in-Wonderland/assets/background/card2.png" id="3_mhbg8"]
+[ext_resource type="PackedScene" uid="uid://bscu4jtruigqn" path="res://Iris-in-Wonderland/src/characters/god_bg.tscn" id="3_o77gf"]
 [ext_resource type="Texture2D" uid="uid://ba34vy4586mq2" path="res://Iris-in-Wonderland/assets/background/card3.png" id="4_scmug"]
 [ext_resource type="Texture2D" uid="uid://dieianxx5samo" path="res://Iris-in-Wonderland/assets/background/card4.png" id="5_w1bre"]
 [ext_resource type="Texture2D" uid="uid://kl2ifar8blmr" path="res://Iris-in-Wonderland/assets/background/card1.png" id="6_mekob"]
 [ext_resource type="PackedScene" uid="uid://brma5q2nftysu" path="res://Iris-in-Wonderland/src/background/card_platform_1.tscn" id="7_tw51s"]
+[ext_resource type="PackedScene" uid="uid://bsmxfxret6220" path="res://Iris-in-Wonderland/src/background/bowl.tscn" id="8_2o3bf"]
 [ext_resource type="PackedScene" uid="uid://co5rhs1t15yqh" path="res://Iris-in-Wonderland/src/background/card_platform_3.tscn" id="8_s4xjj"]
 [ext_resource type="PackedScene" uid="uid://btqp4gxdg4jpw" path="res://Iris-in-Wonderland/src/background/card_platform_4.tscn" id="9_dg71t"]
 [ext_resource type="PackedScene" uid="uid://duenctpiba1bt" path="res://Iris-in-Wonderland/src/background/card_platform_2.tscn" id="10_ux7nl"]
 [ext_resource type="PackedScene" uid="uid://csqxtf1r8n1qv" path="res://Iris-in-Wonderland/src/background/card_platform_5.tscn" id="11_vh7ha"]
 [ext_resource type="PackedScene" uid="uid://dru877c21uloj" path="res://Iris-in-Wonderland/src/characters/player.tscn" id="12_55hhl"]
 [ext_resource type="Texture2D" uid="uid://bgemt3eaij6yc" path="res://Iris-in-Wonderland/assets/background/tree4.png" id="13_sayuk"]
+[ext_resource type="PackedScene" uid="uid://dilfg8vmp3axa" path="res://Iris-in-Wonderland/src/background/glow.tscn" id="14_3ngwk"]
+[ext_resource type="Texture2D" uid="uid://da7sl4dvftgwt" path="res://Iris-in-Wonderland/assets/background/door2.png" id="14_ktfmk"]
+[ext_resource type="Theme" uid="uid://bscjj8hb4a3ex" path="res://Iris-in-Wonderland/src/interface/boss_theme.tres" id="15_5yorm"]
+[ext_resource type="PackedScene" uid="uid://b6qsiffl3gd7o" path="res://Iris-in-Wonderland/src/interface/dialogue_window.tscn" id="15_oh5c7"]
+[ext_resource type="PackedScene" uid="uid://caly8lh80pjwu" path="res://Iris-in-Wonderland/src/interface/bar_boss.tscn" id="16_4b78w"]
+[ext_resource type="AudioStream" uid="uid://v40cq20xhybe" path="res://Iris-in-Wonderland/assets/audio/trumpets_fanfare_end_complete_finish_109659.mp3" id="20_4ed57"]
+[ext_resource type="Theme" uid="uid://dqu1hdmh0ypou" path="res://Iris-in-Wonderland/src/interface/theme.tres" id="20_gwe8b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_apoc3"]
 size = Vector2(6087, 47)
@@ -816,6 +825,9 @@ _data = {
 "float": SubResource("Animation_s06h6")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_n08ni"]
+radius = 132.727
+
 [sub_resource type="Animation" id="Animation_drnve"]
 length = 0.001
 tracks/0/type = "value"
@@ -977,12 +989,20 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_obmga"]
 size = Vector2(227, 13)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_idmwl"]
+size = Vector2(41, 292)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0r1ql"]
+radius = 166.364
+
 [node name="world" type="Node2D" node_paths=PackedStringArray("interface", "player")]
 script = ExtResource("1_v4506")
 interface = NodePath("character/player/ui/Interface")
 player = NodePath("character/player/iris")
 
 [node name="sky" parent="." instance=ExtResource("2_mvhnf")]
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("3_o77gf")]
 
 [node name="bg" type="Node" parent="."]
 
@@ -1297,6 +1317,15 @@ libraries = {
 }
 autoplay = "float"
 
+[node name="bowl" parent="bg" instance=ExtResource("8_2o3bf")]
+position = Vector2(-772, 1271)
+
+[node name="bowl2" parent="bg" instance=ExtResource("8_2o3bf")]
+position = Vector2(1898, 1697)
+
+[node name="bowl3" parent="bg" instance=ExtResource("8_2o3bf")]
+position = Vector2(1873, 633)
+
 [node name="platforms" type="Node" parent="."]
 
 [node name="card_platform1" parent="platforms" instance=ExtResource("7_tw51s")]
@@ -1334,6 +1363,102 @@ position = Vector2(582, 0)
 
 [node name="card_platform2" parent="platforms/card_platform1/card_platform6" instance=ExtResource("10_ux7nl")]
 position = Vector2(388, 0)
+
+[node name="door" type="Sprite2D" parent="platforms/card_platform1"]
+position = Vector2(1191, -176)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("14_ktfmk")
+region_enabled = true
+region_rect = Rect2(123.5, 52.5, 117.5, 188.5)
+
+[node name="closed" type="Sprite2D" parent="platforms/card_platform1/door"]
+position = Vector2(-2.66667, 8.66667)
+texture = ExtResource("14_ktfmk")
+region_enabled = true
+region_rect = Rect2(7.5, 78.5, 103, 156)
+
+[node name="Sprite2D2" type="Sprite2D" parent="platforms/card_platform1/door/closed"]
+position = Vector2(10, 11.3333)
+texture = ExtResource("14_ktfmk")
+region_enabled = true
+region_rect = Rect2(48.5, 42.5, 43, 34)
+
+[node name="open" type="Sprite2D" parent="platforms/card_platform1/door"]
+visible = false
+position = Vector2(-84.6667, 9.33333)
+texture = ExtResource("14_ktfmk")
+region_enabled = true
+region_rect = Rect2(7.5, 78.5, 103, 156)
+
+[node name="Sprite2D2" type="Sprite2D" parent="platforms/card_platform1/door/open"]
+position = Vector2(12.6667, 1.33332)
+rotation = 1.5708
+scale = Vector2(0.904295, 1)
+texture = ExtResource("14_ktfmk")
+region_enabled = true
+region_rect = Rect2(36.5, -7.5, 211, 50)
+
+[node name="Sprite2D3" type="Sprite2D" parent="platforms/card_platform1/door/open"]
+position = Vector2(145.333, 1)
+rotation = 1.5708
+scale = Vector2(0.904, -1)
+texture = ExtResource("14_ktfmk")
+region_enabled = true
+region_rect = Rect2(36.5, -7.5, 211, 50)
+
+[node name="DoorArea" type="Area2D" parent="platforms/card_platform1/door"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platforms/card_platform1/door/DoorArea"]
+position = Vector2(0.666667, 19.3333)
+shape = SubResource("CircleShape2D_n08ni")
+
+[node name="Label" type="Label" parent="platforms/card_platform1/door"]
+visible = false
+offset_left = -45.3333
+offset_top = -142.0
+offset_right = 46.6667
+offset_bottom = -119.0
+text = "Go home?"
+
+[node name="Panel2" type="Panel" parent="platforms/card_platform1/door/Label"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.6667
+offset_top = 13.1667
+offset_right = 15.3333
+offset_bottom = 43.1667
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("20_gwe8b")
+
+[node name="Label" type="Label" parent="platforms/card_platform1/door/Label/Panel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "F"
+horizontal_alignment = 1
+
+[node name="Glow" parent="platforms/card_platform1/door" instance=ExtResource("14_3ngwk")]
+show_behind_parent = true
+position = Vector2(-0.666687, 7.33334)
+scale = Vector2(0.8, 0.8)
+frame_progress = 0.0
 
 [node name="card_platform2" parent="platforms" instance=ExtResource("7_tw51s")]
 position = Vector2(-987, 1314)
@@ -1436,6 +1561,32 @@ shape = SubResource("RectangleShape2D_obmga")
 [node name="character" type="Node" parent="."]
 
 [node name="player" parent="character" instance=ExtResource("12_55hhl")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="character/player/ui" index="0"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -640.5
+offset_right = 640.5
+offset_bottom = 161.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="character/player/ui/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_top = 50
+
+[node name="Label" type="Label" parent="character/player/ui/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("15_5yorm")
+text = "God"
+
+[node name="boss_bar" parent="character/player/ui/VBoxContainer" instance=ExtResource("16_4b78w")]
+layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="DefaultCamera" parent="character/player" index="2"]
 position = Vector2(-385, 1978)
@@ -1547,9 +1698,96 @@ region_rect = Rect2(978.323, 0, 141.543, 720)
 [node name="markers" type="Node" parent="."]
 
 [node name="spawn" type="Marker2D" parent="markers"]
-position = Vector2(-382, 1981)
+position = Vector2(-156, 1851)
 
+[node name="convo1" type="Area2D" parent="markers"]
+position = Vector2(486, 1496)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="markers/convo1"]
+position = Vector2(91.5, 136)
+shape = SubResource("RectangleShape2D_idmwl")
+
+[node name="debug" type="Marker2D" parent="markers"]
+position = Vector2(970, 579)
+
+[node name="Exit" type="Area2D" parent="markers"]
+position = Vector2(-396, 1989)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="markers/Exit"]
+shape = SubResource("CircleShape2D_0r1ql")
+
+[node name="Label" type="Label" parent="markers/Exit"]
+visible = false
+offset_left = -100.0
+offset_top = -136.0
+offset_right = 95.0
+offset_bottom = -113.0
+text = "Go back and prepare?"
+
+[node name="Panel2" type="Panel" parent="markers/Exit/Label"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = 21.0
+offset_right = 15.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("20_gwe8b")
+
+[node name="Label" type="Label" parent="markers/Exit/Label/Panel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "F"
+horizontal_alignment = 1
+
+[node name="door" type="Marker2D" parent="markers"]
+position = Vector2(1219, 527)
+
+[node name="DialogueWindow" parent="." instance=ExtResource("15_oh5c7")]
+visible = false
+scene_text_file = "res://Iris-in-Wonderland/src/json/5_1.json"
+
+[node name="DialogueWindow2" parent="." instance=ExtResource("15_oh5c7")]
+visible = false
+scene_text_file = "res://Iris-in-Wonderland/src/json/5_2.json"
+
+[node name="CardTimer" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_4ed57")
+bus = &"SFX"
+
+[connection signal="boss_health_changed" from="." to="character/player/ui/VBoxContainer/boss_bar" method="_on_hp_health_changed"]
+[connection signal="boss_max_health_changed" from="." to="character/player/ui/VBoxContainer/boss_bar" method="_on_hp_max_health_changed"]
+[connection signal="animation_finished" from="ParallaxBackground/ParallaxLayer/God/Sprite2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="platforms/card_platform1/door/DoorArea" to="." method="_on_door_area_body_entered"]
+[connection signal="body_exited" from="platforms/card_platform1/door/DoorArea" to="." method="_on_door_area_body_exited"]
 [connection signal="body_entered" from="platforms/bounce/Area2D" to="." method="_on_bounce_area_body_entered"]
+[connection signal="body_entered" from="markers/convo1" to="." method="_on_convo_1_body_entered"]
+[connection signal="body_entered" from="markers/Exit" to="." method="_on_exit_body_entered"]
+[connection signal="body_exited" from="markers/Exit" to="." method="_on_exit_body_exited"]
+[connection signal="timeout" from="CardTimer" to="." method="_on_card_timer_timeout"]
 
+[editable path="ParallaxBackground"]
+[editable path="ParallaxBackground/ParallaxLayer/God"]
 [editable path="platforms/bounce"]
 [editable path="character/player"]

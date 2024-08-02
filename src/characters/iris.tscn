@@ -29,6 +29,7 @@ script = ExtResource("5_l2pe0")
 script = ExtResource("5_l2pe0")
 
 [connection signal="damage_taken" from="hp" to="." method="_on_hp_damage_taken"]
+[connection signal="healed" from="hp" to="." method="_on_hp_healed"]
 [connection signal="health_changed" from="hp" to="." method="_on_hp_health_changed"]
 [connection signal="health_depleted" from="hp" to="." method="_on_hp_health_depleted"]
 [connection signal="status" from="hp" to="." method="_on_hp_status"]

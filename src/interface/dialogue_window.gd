@@ -5,6 +5,7 @@ extends CanvasLayer
 var scene_text : Dictionary
 var selected = []
 var sprite : Panel
+var _break : bool
 
 @onready var text_label = $DialogueBox/Box/Label
 @onready var _char_name = $DialogueBox/Box/Name/Label
@@ -31,7 +32,7 @@ func _get_text():
 	set_process(true)
 
 func next_line():
-	if selected.size() > 0:
+	if selected.size() > 0 and not _break:
 		_get_text()
 	else:
 		finish()
@@ -49,8 +50,9 @@ func _process(_delta):
 	if visible and Input.is_action_just_pressed("ui_accept"):
 		next_line()
 
-func get_text(char_name):
+func get_text(char_name, break_after_line = false):
 	_char_name.text = char_name
+	_break = break_after_line
 	sprite = box.get_node(char_name)
 	sprite.show()
 	get_tree().paused = true

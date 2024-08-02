@@ -190,6 +190,33 @@ _data = {
 "slide": SubResource("Animation_4rbtp")
 }
 
+[sub_resource type="Animation" id="Animation_2i1fo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1626, -86)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_hvomi"]
 resource_name = "slide"
 length = 2.0
@@ -217,33 +244,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 0.0, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_2i1fo"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1626, -86)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_27rkx"]
@@ -314,6 +314,33 @@ _data = {
 "slide": SubResource("Animation_hiino")
 }
 
+[sub_resource type="Animation" id="Animation_0ww7j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1899, 30)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_li82m"]
 resource_name = "slide"
 length = 2.0
@@ -343,7 +370,16 @@ tracks/1/keys = {
 "values": [0.0, 0.0, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_0ww7j"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eu3jq"]
+_data = {
+"RESET": SubResource("Animation_0ww7j"),
+"slide": SubResource("Animation_li82m")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ueiik"]
+radius = 186.218
+
+[sub_resource type="Animation" id="Animation_epje2"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -355,7 +391,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1899, 30)]
+"values": [Vector2(-55, -79)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -369,15 +405,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0]
 }
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_eu3jq"]
-_data = {
-"RESET": SubResource("Animation_0ww7j"),
-"slide": SubResource("Animation_li82m")
-}
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ueiik"]
-radius = 186.218
 
 [sub_resource type="Animation" id="Animation_4r4fj"]
 resource_name = "float"
@@ -405,33 +432,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 0.0, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_epje2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-55, -79)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kft6m"]
@@ -745,35 +745,30 @@ region_rect = Rect2(0, 0, 961.263, 356.454)
 
 [node name="Sprite2D11" type="Sprite2D" parent="bg/up/trees/tree3/Sprite2D10"]
 position = Vector2(528.664, 222.038)
-scale = Vector2(1, 1)
 texture = ExtResource("8_45drd")
 region_enabled = true
 region_rect = Rect2(0, 0, 961.263, 356.454)
 
 [node name="Sprite2D12" type="Sprite2D" parent="bg/up/trees/tree3/Sprite2D10"]
 position = Vector2(710.541, 56.9022)
-scale = Vector2(1, 1)
 texture = ExtResource("8_45drd")
 region_enabled = true
 region_rect = Rect2(0, 0, 961.263, 356.454)
 
 [node name="Sprite2D13" type="Sprite2D" parent="bg/up/trees/tree3/Sprite2D10"]
 position = Vector2(1174.64, 184.555)
-scale = Vector2(1, 1)
 texture = ExtResource("8_45drd")
 region_enabled = true
 region_rect = Rect2(0, 0, 961.263, 356.454)
 
 [node name="Sprite2D14" type="Sprite2D" parent="bg/up/trees/tree3/Sprite2D10"]
 position = Vector2(1140.51, 16.5808)
-scale = Vector2(1, 1)
 texture = ExtResource("8_45drd")
 region_enabled = true
 region_rect = Rect2(0, 0, 961.263, 356.454)
 
 [node name="Sprite2D15" type="Sprite2D" parent="bg/up/trees/tree3/Sprite2D10"]
 position = Vector2(-84.3701, 176.497)
-scale = Vector2(1, 1)
 texture = ExtResource("8_45drd")
 region_enabled = true
 region_rect = Rect2(0, 0, 961.263, 356.454)
@@ -787,35 +782,30 @@ region_rect = Rect2(0, 380.714, 961.263, 327.966)
 
 [node name="Sprite2D21" type="Sprite2D" parent="bg/up/trees/tree3/Sprite2D17"]
 position = Vector2(-372.914, 114.279)
-scale = Vector2(1, 1)
 texture = ExtResource("8_45drd")
 region_enabled = true
 region_rect = Rect2(0, 380.714, 961.263, 327.966)
 
 [node name="Sprite2D18" type="Sprite2D" parent="bg/up/trees/tree3/Sprite2D17"]
 position = Vector2(-394.105, -140.705)
-scale = Vector2(1, 1)
 texture = ExtResource("8_45drd")
 region_enabled = true
 region_rect = Rect2(0, 380.714, 961.263, 327.966)
 
 [node name="Sprite2D16" type="Sprite2D" parent="bg/up/trees/tree3/Sprite2D17"]
 position = Vector2(292.324, -205.673)
-scale = Vector2(1, 1)
 texture = ExtResource("8_45drd")
 region_enabled = true
 region_rect = Rect2(0, 380.714, 961.263, 327.966)
 
 [node name="Sprite2D20" type="Sprite2D" parent="bg/up/trees/tree3/Sprite2D17"]
 position = Vector2(-111.206, -275.917)
-scale = Vector2(1, 1)
 texture = ExtResource("8_45drd")
 region_enabled = true
 region_rect = Rect2(0, 380.714, 961.263, 327.966)
 
 [node name="Sprite2D19" type="Sprite2D" parent="bg/up/trees/tree3/Sprite2D17"]
 position = Vector2(683.007, 9.48914)
-scale = Vector2(1, 1)
 texture = ExtResource("8_45drd")
 region_enabled = true
 region_rect = Rect2(0, 380.714, 961.263, 327.966)
@@ -1584,6 +1574,9 @@ position = Vector2(-2410, 626)
 [node name="Marker2D_6" type="Marker2D" parent="markers"]
 position = Vector2(-890, 626)
 
+[node name="Marker2D_5" type="Marker2D" parent="markers"]
+position = Vector2(3071, -425)
+
 [node name="debug" type="Marker2D" parent="markers"]
 position = Vector2(1638, -197)
 
@@ -1677,6 +1670,9 @@ position = Vector2(3061, 1386)
 [node name="cam_3" parent="camera" instance=ExtResource("38_rx7ip")]
 position = Vector2(-2054, 626)
 
+[node name="cam_5" parent="camera" instance=ExtResource("38_rx7ip")]
+position = Vector2(3077, -417)
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("31_an7j8")
@@ -1687,7 +1683,9 @@ bus = &"Music"
 [node name="bird_sfx" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("36_w0xgk")
+volume_db = 10.0
 pitch_scale = 0.8
+bus = &"SFX"
 
 [node name="BeeTimer" type="Timer" parent="."]
 wait_time = 30.0

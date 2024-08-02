@@ -41,11 +41,13 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_health_health_depleted():
+	dead = true
 	hp.damage_taken.disconnect(_on_hp_damage_taken)
 	hp.health_depleted.disconnect(_on_health_health_depleted)
 	
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "modulate", Color.BLACK, 0.8)
+	tween.tween_property(self, "modulate", Color.TRANSPARENT, 0.2)
 	
 	Save._save.unlocked_characters.characters["Bee"] = true
 	await get_tree().create_timer(1).timeout

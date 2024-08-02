@@ -16,3 +16,9 @@ func _on_exit_area_body_entered(body):
 
 func _on_exit_button_exit_interacted():
 	change_scene(ScenePaths.scene_1)
+
+func _on_show_text(char_name):
+	interface.visible = false
+	await get_tree().create_timer(0.1).timeout
+	$DialogueWindow.get_text(char_name, Save._save.unlocked_characters.characters["Caterpillar"])
+	Save._save.unlocked_characters.characters["Caterpillar"] = true

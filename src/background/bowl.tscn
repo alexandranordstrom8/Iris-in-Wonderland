@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsmxfxret6220"]
+
+[ext_resource type="Script" path="res://Iris-in-Wonderland/src/background/bowl.gd" id="1_2wu02"]
+[ext_resource type="Texture2D" uid="uid://dn0npxoua01ih" path="res://Iris-in-Wonderland/assets/background/bowl.png" id="1_ohwav"]
+[ext_resource type="PackedScene" uid="uid://dilfg8vmp3axa" path="res://Iris-in-Wonderland/src/background/glow.tscn" id="3_otqdy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n1ns2"]
+radius = 31.0
+height = 112.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ooex"]
+size = Vector2(101, 20)
+
+[node name="bowl" type="StaticBody2D"]
+script = ExtResource("1_2wu02")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(2, -10)
+texture = ExtResource("1_ohwav")
+region_enabled = true
+region_rect = Rect2(154.5, -1.25, 87, 131)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 10
+texture = ExtResource("1_ohwav")
+region_enabled = true
+region_rect = Rect2(0, -0.375, 154, 129)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-39, -47, -50, -36, -59, -21, -64, -6, -65, 6, -63, 20, -57, 36, -50, 48, -45, 56, -37, 55, -39, 46, -49, 30, -53, 9, -52, -11, -48, -26)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+scale = Vector2(-1, 1)
+polygon = PackedVector2Array(-39, -47, -50, -36, -59, -21, -64, -6, -65, 6, -63, 20, -57, 36, -50, 48, -45, 56, -37, 55, -39, 46, -49, 30, -54, 11, -54, -7, -47, -25)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 14)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_n1ns2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 45)
+shape = SubResource("RectangleShape2D_3ooex")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
+
+[node name="Glow" parent="." instance=ExtResource("3_otqdy")]
+scale = Vector2(0.5, 0.5)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

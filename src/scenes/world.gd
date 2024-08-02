@@ -7,6 +7,8 @@ extends Node2D
 @onready var enemies = get_tree().get_nodes_in_group("enemy")
 @onready var coins = get_tree().get_nodes_in_group("coins")
 
+var player_hidden : bool = false
+
 const item_sfx_path = "res://Iris-in-Wonderland/src/interface/item_sfx.tscn"
 var item_sfx : AudioStreamPlayer
 
@@ -33,13 +35,24 @@ func init_values():
 	get_tree().current_scene.add_child(item_sfx)
 	
 func _on_enemy_get_position(target_name, enemy_name):
+	var _enemy = $character.get_node(String(enemy_name))
 	if String(target_name) == "iris":
+		if player_hidden:
+			_enemy.set_target_pos(Vector2(randi_range(-2000, 2500), randi_range(-2000, 2000)))
+			return
 		target_name = "player/iris"
 	else:
 		target_name = String(target_name)
 	var target = $character.get_node(target_name)
-	var _enemy = $character.get_node(String(enemy_name))
 	_enemy.set_target_pos(target.position)
+
+func _on_bowl_heal():
+	player_hidden = true
+	player.get_node("hp").heal(10)
+	player.get_node("sp").heal(10)
+
+func _on_bowl_exited():
+	player_hidden = false
 
 func _on_item_itemized(item_name, quantity):
 	if item_sfx:

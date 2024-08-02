@@ -1,0 +1,251 @@
+[gd_scene load_steps=6 format=3 uid="uid://cy15flyefiiw3"]
+
+[ext_resource type="Texture2D" uid="uid://bmfe6gdwj3bd0" path="res://Iris-in-Wonderland/assets/characters/god.png" id="1_6l4m1"]
+
+[sub_resource type="Animation" id="Animation_n1e7s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("l_wing:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(275.5, -53)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("l_wing:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("r_wing:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-283.5, -53)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("r_wing:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("eye:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_l0mi6"]
+resource_name = "blink"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("eye:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_bri7q"]
+resource_name = "default"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("l_wing:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 0.8, 1, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(275.5, -53), Vector2(255, -98), Vector2(275.5, -53), Vector2(255, -98), Vector2(275.5, -53), Vector2(275.5, -53)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("l_wing:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 0.8, 1, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.5708, 1.35165, 1.5708, 1.35165, 1.5708, 1.5708]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("r_wing:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 0.8, 1, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-283.5, -53), Vector2(-281, -101), Vector2(-283.5, -53), Vector2(-281, -101), Vector2(-283.5, -53), Vector2(-283.5, -53)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("r_wing:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 0.8, 1, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.5708, 1.78215, 1.5708, 1.78215, 1.5708, 1.5708]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ddd1"]
+_data = {
+"RESET": SubResource("Animation_n1e7s"),
+"blink": SubResource("Animation_l0mi6"),
+"default": SubResource("Animation_bri7q")
+}
+
+[node name="God" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6l4m1")
+region_enabled = true
+region_rect = Rect2(0, 77.0317, 409.938, 434.968)
+
+[node name="l_wing" type="Sprite2D" parent="Sprite2D"]
+show_behind_parent = true
+position = Vector2(275.5, -53)
+rotation = 1.5708
+texture = ExtResource("1_6l4m1")
+region_enabled = true
+region_rect = Rect2(511.094, 113.344, 256.718, 397.233)
+
+[node name="r_wing" type="Sprite2D" parent="Sprite2D"]
+show_behind_parent = true
+position = Vector2(-283.5, -53)
+rotation = 1.5708
+scale = Vector2(1, -1)
+texture = ExtResource("1_6l4m1")
+region_enabled = true
+region_rect = Rect2(511.094, 113.344, 256.718, 397.233)
+
+[node name="l_paw" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(103.5, 119)
+rotation = 2.53596
+scale = Vector2(1, -1)
+texture = ExtResource("1_6l4m1")
+region_enabled = true
+region_rect = Rect2(617.437, 1.81314, 145.25, 88.1873)
+
+[node name="r_paw" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-104.5, 114)
+rotation = 0.60646
+texture = ExtResource("1_6l4m1")
+region_enabled = true
+region_rect = Rect2(617.437, 1.81314, 145.25, 88.1873)
+
+[node name="eye" type="Sprite2D" parent="Sprite2D"]
+visible = false
+position = Vector2(-72, -59)
+texture = ExtResource("1_6l4m1")
+region_enabled = true
+region_rect = Rect2(422.906, 7.00064, 103.75, 82.9998)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprite2D/eye"]
+position = Vector2(147, 1)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("1_6l4m1")
+region_enabled = true
+region_rect = Rect2(422.906, 7.00064, 103.75, 82.9998)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_6ddd1")
+}
+autoplay = "default"

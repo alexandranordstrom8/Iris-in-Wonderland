@@ -1,6 +1,7 @@
 extends Node
 
 const loading_screen_path = "res://Iris-in-Wonderland/src/interface/loading_screen.tscn"
+const main_menu_path = "res://Iris-in-Wonderland/src/interface/main_menu.tscn"
 
 var scene_0 = "res://Iris-in-Wonderland/src/scenes/0.tscn"
 var scene_1 = "res://Iris-in-Wonderland/src/scenes/1.tscn"

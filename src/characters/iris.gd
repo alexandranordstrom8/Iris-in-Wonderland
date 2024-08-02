@@ -7,6 +7,7 @@ const ACTION_COOLDOWN = 0.8
 const SCRATCH_DMG = 10
 const DASH_DMG = 1
 var dmg_multiplier = 1
+var can_deal_damage = 1
 
 var _timer = ACTION_COOLDOWN
 var freeze_movement = false
@@ -54,7 +55,7 @@ func handle_input():
 	if Input.is_action_just_pressed("ui_attack") and _timer >= ACTION_COOLDOWN:
 		_timer = 0
 		attacking = true
-		emit_signal("damage_dealt", SCRATCH_DMG * dmg_multiplier)
+		emit_signal("damage_dealt", SCRATCH_DMG * dmg_multiplier * can_deal_damage)
 		
 	# dash
 	if Input.is_action_just_pressed("ui_dash") and _timer >= ACTION_COOLDOWN:
@@ -67,7 +68,7 @@ func handle_input():
 		else:
 			velocity.x *= 2
 	
-		emit_signal("damage_dealt", DASH_DMG * dmg_multiplier)
+		emit_signal("damage_dealt", DASH_DMG * dmg_multiplier * can_deal_damage)
 		emit_signal("knock_back", velocity.x, pos2d.scale.x, position.x)
 		
 		if Input.is_action_just_released("ui_dash") or _timer > ACTION_COOLDOWN:
@@ -112,7 +113,12 @@ func set_freeze_movement(value: bool):
 func _physics_process(delta):
 	_timer += delta
 	velocity.y += gravity * delta
-		
+	
+	if Save.is_small:
+		can_deal_damage = 0
+	else:
+		can_deal_damage = 1
+	
 	if not freeze_movement:
 		handle_input()
 		emit_signal("current_position", position)
@@ -131,13 +137,18 @@ func _on_hp_status(value):
 func _on_hp_health_changed(health):
 	emit_signal("hp_changed", health)
 
+func _on_sp_health_changed(health):
+	emit_signal("sp_changed", health)
+
 func _on_hp_damage_taken():
 	var tween = get_tree().create_tween()
 	tween.tween_property(sprite, "modulate", Color.LIGHT_CORAL, 0.1)
 	tween.tween_property(sprite, "modulate", Color.WHITE, 0.1)
 
-func _on_sp_health_changed(health):
-	emit_signal("sp_changed", health)
+func _on_hp_healed():
+	var tween = get_tree().create_tween()
+	tween.tween_property(sprite, "modulate", Color.PALE_GREEN, 0.1)
+	tween.tween_property(sprite, "modulate", Color.WHITE, 0.1)
 
 func _on_enemy_attacked(amount, can_interact, pos, dir):
 	if can_interact["iris"]:

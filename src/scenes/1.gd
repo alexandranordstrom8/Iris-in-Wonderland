@@ -5,6 +5,7 @@ extends World
 
 @onready var cam0 = $camera/cam_0
 @onready var cam3 = $camera/cam_3
+@onready var cam5 = $camera/cam_5
 
 func _ready():
 	super()
@@ -21,6 +22,9 @@ func _ready():
 		ScenePaths.scene_4:
 			player.position = $markers/Marker2D_4.position
 			cam3.make_current()
+		ScenePaths.scene_5:
+			player.position = $markers/Marker2D_5.position
+			cam5.make_current()
 		ScenePaths.scene_6:
 			player.position = $markers/Marker2D_6.position
 			cam3.make_current()
@@ -64,3 +68,4 @@ func _on_special_dialogue(char_name):
 	await get_tree().create_timer(0.1).timeout
 	$bird_sfx.play()
 	$DialogueWindowSpecial.get_text(char_name)
+	player.get_node("hp").take_damage(10)

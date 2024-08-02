@@ -926,6 +926,7 @@ offset_right = 640.5
 offset_bottom = 161.0
 grow_horizontal = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="character/player/ui/CanvasLayer/VBoxContainer"]
 layout_mode = 2
@@ -1072,6 +1073,7 @@ bus = &"Music"
 
 [node name="win" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource("34_agaox")
+bus = &"SFX"
 
 [connection signal="hp_depleted" from="character/player/iris" to="." method="_on_iris_hp_depleted"]
 [connection signal="finished_panning" from="character/player/DefaultCamera" to="." method="_on_panning_camera_finished_panning"]

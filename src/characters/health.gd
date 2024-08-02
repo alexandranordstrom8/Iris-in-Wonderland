@@ -12,6 +12,7 @@ signal max_health_changed(maximum)
 signal health_depleted
 signal status(value)
 signal damage_taken # damage animation
+signal healed # heal animation
 
 func _ready():
 	health = max_health
@@ -49,6 +50,7 @@ func heal(amount):
 	health = min(health, max_health)
 	heal_sfx.play()
 	emit_signal("health_changed", health)
+	emit_signal("healed")
 	check_status()
 	
 func change_max(maximum):

@@ -23,8 +23,9 @@ var item_list = {
 	"Raise Attack" : [20, SKILL, "Raises attack damage for 5 seconds", true, null, 0, -20],
 	"Purr" : [5, SKILL, "Recover 5 hp", true, null, 5, -5],
 	"Benjamin's Blessing" : [50, SKILL, "Allows you to carry twice the amount of coins and items", false, null, 0, -50],
+	"Caterpillar's Blessing" : [5, SKILL, "Brew one cup of Caterpillar Tea.", false, null, 0, -5],
 	"Golden Key" : [0, ITEM, "Can open any door", false, null, 0, 0],
-	"Small Cookie" : [0, ITEM, "Makes you shrink", false, null, 0, 0],
+	"Small Cookie" : [0, ITEM, "Makes you shrink. Lets you explore new places but you can't deal damage.", false, null, 0, 0],
 	"Caterpillar Tea" : [0, ITEM, "Makes you grow", false, null, 0, 0],
 	"Cake" : [0, ITEM, "Heals 10 sp", false, null, 0, 10],
 	"Apple" : [0, ITEM, "Heals 10 hp", false, null, 10, 0],
@@ -34,6 +35,7 @@ var item_list = {
 
 var _skills = {
 	"Benjamin" : "Benjamin's Blessing",
+	"Caterpillar" : "Caterpillar's Blessing",
 	}
 
 func _ready():

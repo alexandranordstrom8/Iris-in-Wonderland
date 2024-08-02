@@ -21,6 +21,7 @@ signal raise_attack
 signal shrink
 signal grow
 signal benjamin
+signal caterpillar
 signal key_used
 
 # list indexes
@@ -30,7 +31,7 @@ enum {SKILL, ITEM}
 var item_list : Dictionary
 
 var special = ["Strawberry", "Raise Attack", "Small Cookie", "Caterpillar Tea", "Golden Key",
-"Benjamin's Blessing"]
+"Benjamin's Blessing", "Caterpillar's Blessing"]
 
 func _ready():
 	item_list = Save.item_list
@@ -138,6 +139,8 @@ func use_special_item(item_name):
 			emit_signal("grow")
 		"Golden Key":
 			emit_signal("key_used")
+		"Caterpillar's Blessing":
+			emit_signal("caterpillar")
 		"Benjamin's Blessing":
 			Save.coin_max *= 2
 			Save.item_max *= 2

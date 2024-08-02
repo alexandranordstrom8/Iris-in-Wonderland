@@ -66,5 +66,4 @@ func _on_interact_button_body_exited(body):
 
 func _on_iris_interacted():
 	if can_interact:
-		Save._save.unlocked_characters.characters["Caterpillar"] = true
 		emit_signal("show_text", dialogue_key)

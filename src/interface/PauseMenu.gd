@@ -36,3 +36,6 @@ func _on_album_pressed():
 func _on_album_button_pressed():
 	$Button.play()
 	$character_album.hide()
+
+func close_pause_menu():
+	$character_album.hide()
