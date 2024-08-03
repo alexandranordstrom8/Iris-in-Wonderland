@@ -5,12 +5,13 @@
 [resource]
 script = ExtResource("1_vu11n")
 characters = {
-"Bee": 0,
-"Benjamin": 0,
-"Cat": 0,
-"Caterpillar": 0,
-"God": 0,
-"Isabell": 0,
-"Shopkeeper": 0,
-"Strawberry": 0
+"Bee": false,
+"Benjamin": false,
+"Cat": false,
+"Caterpillar": false,
+"God": false,
+"Isabell": false,
+"Merry": false,
+"Shopkeeper": false,
+"Strawberry": false
 }

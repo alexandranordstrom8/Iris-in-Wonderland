@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://hm44ce3u28ny"]
+[gd_scene load_steps=38 format=3 uid="uid://hm44ce3u28ny"]
 
 [ext_resource type="StyleBox" uid="uid://b4ohi7you0n08" path="res://Iris-in-Wonderland/src/interface/ui_bg.tres" id="1_7dbgb"]
 [ext_resource type="Texture2D" uid="uid://chlr6bnythav7" path="res://Iris-in-Wonderland/assets/interface/paw2.png" id="2_vvd5m"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bty6vatwmphsg" path="res://Iris-in-Wonderland/assets/characters/shopkeeper.png" id="6_bxarm"]
 [ext_resource type="Texture2D" uid="uid://ddngphqd4wjcm" path="res://Iris-in-Wonderland/assets/characters/isabell.png" id="7_folgt"]
 [ext_resource type="PackedScene" uid="uid://cy15flyefiiw3" path="res://Iris-in-Wonderland/src/characters/god.tscn" id="9_2tfg4"]
+[ext_resource type="PackedScene" uid="uid://byim6brsdyom7" path="res://Iris-in-Wonderland/src/characters/merry.tscn" id="10_xalv3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8n1nr"]
 bg_color = Color(0.8, 0.894118, 0.890196, 1)
@@ -646,3 +647,15 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_w6rdq")
 [node name="God" parent="God" instance=ExtResource("9_2tfg4")]
 position = Vector2(-177, -143)
 scale = Vector2(0.75, 0.75)
+
+[node name="Merry" type="Panel" parent="." groups=["names"]]
+visible = false
+layout_mode = 0
+offset_left = 780.0
+offset_top = 407.0
+offset_right = 820.0
+offset_bottom = 447.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_w6rdq")
+
+[node name="merry" parent="Merry" instance=ExtResource("10_xalv3")]
+scale = Vector2(0.5, 0.5)

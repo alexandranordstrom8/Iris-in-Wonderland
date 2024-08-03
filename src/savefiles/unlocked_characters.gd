@@ -4,6 +4,7 @@ extends Resource
 @export var characters = {
 	"Benjamin" : false,
 	"Isabell" : false,
+	"Merry" : false,
 	"Shopkeeper" : false,
 	"Strawberry" : false,
 	"Bee" : false,

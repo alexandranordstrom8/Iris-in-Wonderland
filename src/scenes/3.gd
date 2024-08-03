@@ -1,5 +1,7 @@
 extends World
 
+var merry_can_interact : bool = false
+
 @onready var cam1 = $camera/cam_1
 @onready var cam4 = $camera/cam_4
 
@@ -22,6 +24,19 @@ func _ready():
 			player.position = $markers/Table.position
 			cam4.make_current()
 
+func get_dialogue(_break : bool):
+	interface.visible = false
+	await get_tree().create_timer(0.1).timeout
+	$DialogueWindow.get_text("Merry", _break)
+
+func _input(event):
+	if event.is_action_pressed("ui_accept") and merry_can_interact:
+		if not Save._save.unlocked_characters.characters["Merry"]:
+			Save._save.unlocked_characters.characters["Merry"] = true
+			get_dialogue(false)
+		else:
+			get_dialogue(true)
+
 func _on_exit_button_exit_interacted():
 	change_scene(ScenePaths.scene_1)
 
@@ -33,3 +48,11 @@ func _on_exit_button_table_exit_interacted():
 
 func _on_bee_timer_timeout():
 	add_bee($markers/BeeSpawnPoint.position)
+
+func _on_interact_area_body_entered(body):
+	if body.name == "iris":
+		merry_can_interact = true
+
+func _on_interact_area_body_exited(body):
+	if body.name == "iris":
+		merry_can_interact = false

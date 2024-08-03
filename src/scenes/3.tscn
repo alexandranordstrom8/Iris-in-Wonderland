@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bkopqoengsrtf"]
+[gd_scene load_steps=33 format=3 uid="uid://bkopqoengsrtf"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/3.gd" id="1_h8hpr"]
 [ext_resource type="PackedScene" uid="uid://bah2pxas0yt5v" path="res://Iris-in-Wonderland/src/background/sky.tscn" id="2_aacsv"]
@@ -22,7 +22,9 @@
 [ext_resource type="PackedScene" uid="uid://rgd0x5rf8glb" path="res://Iris-in-Wonderland/src/background/collectible_apple.tscn" id="16_4iyj2"]
 [ext_resource type="AudioStream" uid="uid://dcj6my0rmnj8n" path="res://Iris-in-Wonderland/assets/audio/星が輝く冬.mp3" id="16_p65gs"]
 [ext_resource type="PackedScene" uid="uid://bsmxfxret6220" path="res://Iris-in-Wonderland/src/background/bowl.tscn" id="17_ehqxj"]
+[ext_resource type="PackedScene" uid="uid://byim6brsdyom7" path="res://Iris-in-Wonderland/src/characters/merry.tscn" id="17_mw6wg"]
 [ext_resource type="PackedScene" uid="uid://dfwlix1amhelg" path="res://Iris-in-Wonderland/src/scenes/panning_camera.tscn" id="18_sjkht"]
+[ext_resource type="PackedScene" uid="uid://b6qsiffl3gd7o" path="res://Iris-in-Wonderland/src/interface/dialogue_window.tscn" id="25_erh3m"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0opjm"]
 animations = [{
@@ -49,6 +51,9 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7symg"]
 size = Vector2(614, 27)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6fhcs"]
+radius = 121.017
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtwn5"]
 size = Vector2(138, 20)
@@ -431,6 +436,31 @@ texture = ExtResource("9_w74ye")
 region_enabled = true
 region_rect = Rect2(388.287, 56.6467, 102.892, 147.908)
 
+[node name="merry" parent="bg/table" instance=ExtResource("17_mw6wg")]
+show_behind_parent = true
+position = Vector2(-336, 381)
+
+[node name="InteractButton" parent="bg/table/merry" instance=ExtResource("10_y8kul")]
+offset_left = 84.0
+offset_top = -48.0
+offset_right = 165.0
+offset_bottom = -7.0
+
+[node name="Area2D" parent="bg/table/merry/InteractButton" index="1"]
+position = Vector2(90, 79)
+
+[node name="Area2D2" type="Area2D" parent="bg/table/merry/InteractButton"]
+position = Vector2(90, 79)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bg/table/merry/InteractButton/Area2D2"]
+shape = SubResource("CircleShape2D_6fhcs")
+
+[node name="InteractArea" type="Area2D" parent="bg/table/merry"]
+position = Vector2(174, 31)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bg/table/merry/InteractArea"]
+shape = SubResource("CircleShape2D_6fhcs")
+
 [node name="chair" type="StaticBody2D" parent="bg"]
 position = Vector2(-1013, 517)
 
@@ -470,6 +500,7 @@ shape = SubResource("RectangleShape2D_0ldmr")
 
 [node name="bowl" parent="bg" instance=ExtResource("17_ehqxj")]
 position = Vector2(-1747, 625)
+heal_amount = 30
 
 [node name="character" type="Node" parent="."]
 
@@ -583,7 +614,7 @@ position = Vector2(-1366, 626)
 position = Vector2(-476, 626)
 
 [node name="BeeSpawnPoint" type="Marker2D" parent="markers"]
-position = Vector2(-1045, 283)
+position = Vector2(-1510, -363)
 
 [node name="BeeBoundary" type="Marker2D" parent="markers"]
 position = Vector2(1608, -33)
@@ -645,6 +676,13 @@ position = Vector2(-1346, 626)
 wait_time = 30.0
 autostart = true
 
+[node name="DialogueWindow" parent="." instance=ExtResource("25_erh3m")]
+scene_text_file = "res://Iris-in-Wonderland/src/json/3.json"
+
+[connection signal="body_entered" from="bg/table/merry/InteractButton/Area2D2" to="bg/table/merry/InteractButton" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="bg/table/merry/InteractButton/Area2D2" to="bg/table/merry/InteractButton" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="bg/table/merry/InteractArea" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="bg/table/merry/InteractArea" to="." method="_on_interact_area_body_exited"]
 [connection signal="current_position" from="character/player/iris" to="camera/cam_1" method="_on_iris_current_position"]
 [connection signal="current_position" from="character/player/iris" to="camera/cam_4" method="_on_iris_current_position"]
 [connection signal="exit_interacted" from="buttons/ExitButton" to="." method="_on_exit_button_exit_interacted"]
@@ -652,6 +690,7 @@ autostart = true
 [connection signal="exit_interacted" from="buttons/ExitButton3" to="." method="_on_exit_button_table_exit_interacted"]
 [connection signal="timeout" from="BeeTimer" to="." method="_on_bee_timer_timeout"]
 
+[editable path="bg/table/merry/InteractButton"]
 [editable path="character/player"]
 [editable path="buttons/ExitButton"]
 [editable path="buttons/ExitButton2"]
