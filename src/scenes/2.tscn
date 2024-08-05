@@ -1053,6 +1053,7 @@ visible = false
 visible = true
 
 [node name="audio" type="Node" parent="."]
+process_mode = 3
 
 [node name="ambience" type="AudioStreamPlayer" parent="audio"]
 process_mode = 3

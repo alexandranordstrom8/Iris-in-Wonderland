@@ -13,14 +13,9 @@ static func exists() -> bool:
 	return ResourceLoader.exists(SAVE_FILE_PATH)
 
 func write_to_file():
-	print("write")
 	ResourceSaver.save(self, SAVE_FILE_PATH)
 
 static func load_file() -> Resource:
-	print("load")
 	if exists():
 		return load(SAVE_FILE_PATH)
 	return null
-
-func reset():
-	pass

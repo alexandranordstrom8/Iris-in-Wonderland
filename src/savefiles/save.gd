@@ -92,9 +92,9 @@ func to_res():
 		i.item_list[item][i.AVAILABLE] = item_list[item][AVAILABLE]
 		i.item_list[item][i.QTY] = item_list[item][0]
 	
-	print_save()
 	_save.write_to_file()
 
+# debug
 func print_save():
 	var p = _save.player_values
 	var i = _save.inventory
@@ -104,19 +104,22 @@ func print_save():
 	print(_save.unlocked_characters.characters)
 
 func reset():
-	current_coins = 0
-	current_hp = 100
-	current_sp = 100
-	coin_max = 50
-	item_max = 10
-	current_scene = ""
-	prev_scene = ""
-	is_small = false
-	table_empty = false
-	
-	for i in item_list:
-		if item_list[i][TYPE] == ITEM:
-			item_list[i][0] = 0
-			item_list[i][AVAILABLE] = false
-	
-	to_res()
+	_save = SaveGame.new()
+	from_res()
+	_save.write_to_file()
+	#current_coins = 0
+	#current_hp = 100
+	#current_sp = 100
+	#coin_max = 50
+	#item_max = 10
+	#current_scene = ""
+	#prev_scene = ""
+	#is_small = false
+	#table_empty = false
+	#
+	#for i in item_list:
+		#if item_list[i][TYPE] == ITEM:
+			#item_list[i][0] = 0
+			#item_list[i][AVAILABLE] = false
+	#
+	#to_res()

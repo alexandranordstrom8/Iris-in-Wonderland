@@ -12,6 +12,7 @@ var item_sfx : AudioStreamPlayer
 
 const strawberry_path = "res://Iris-in-Wonderland/src/characters/strawberry.tscn"
 const bee_path = "res://Iris-in-Wonderland/src/characters/bee.tscn"
+const coin_path = "res://Iris-in-Wonderland/src/interface/coin.tscn"
 
 func _ready():
 	Save.current_scene = scene_file_path
@@ -66,6 +67,12 @@ func _on_bee_new_target(bee):
 	var spawn = $markers/BeeSpawnPoint.position
 	var boundary = $markers/BeeBoundary.position
 	bee.target_pos = Vector2(randi_range(spawn.x, boundary.x), randi_range(spawn.y, 600))
+
+func _on_bee_spawn_coin(coin_position):
+	var _coin = preload(coin_path).instantiate()
+	$collectibles.add_child(_coin)
+	_coin.position = coin_position
+	_coin.value = 5
 
 func _on_show_text(char_name):
 	interface.visible = false

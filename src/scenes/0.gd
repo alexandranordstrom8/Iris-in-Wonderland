@@ -22,12 +22,11 @@ func _ready():
 		camera.make_current()
 		player.position = default_marker.position
 		pos2d.scale.x = -1
-		$character/player.strawberry_used.connect(_on_player_strawberry_used)
 	camera.look_down_possible = false
 
 func _on_area_2d_body_entered(body):
 	if body.name == "iris" and not started:
-		camera.set_panning_target(ref_marker.position, 30)
+		camera.set_panning_target(ref_marker.position, false, 30)
 		started = true
 
 func _on_glow_body_entered(body):

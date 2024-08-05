@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://ca65krls4ifx"]
+[gd_scene load_steps=11 format=3 uid="uid://ca65krls4ifx"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/3_table.gd" id="1_2a7y7"]
 [ext_resource type="PackedScene" uid="uid://b8wxjqdavi135" path="res://Iris-in-Wonderland/src/background/ground.tscn" id="1_xyrqt"]
 [ext_resource type="PackedScene" uid="uid://bh4th8fe5trsh" path="res://Iris-in-Wonderland/src/characters/strawberry.tscn" id="5_e8ygi"]
 [ext_resource type="PackedScene" uid="uid://em5hl7ux263y" path="res://Iris-in-Wonderland/src/interface/interact_button.tscn" id="5_ikubx"]
+[ext_resource type="AudioStream" uid="uid://cjapqwdf4vkrj" path="res://Iris-in-Wonderland/assets/audio/wind.mp3" id="6_op56c"]
 [ext_resource type="PackedScene" uid="uid://dru877c21uloj" path="res://Iris-in-Wonderland/src/characters/player.tscn" id="7_57qde"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_encd8"]
@@ -196,6 +197,12 @@ visible = true
 
 [node name="Area2D" parent="buttons/ExitButton" index="1"]
 position = Vector2(31, 40)
+
+[node name="ambience" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("6_op56c")
+autoplay = true
+bus = &"Ambience"
 
 [connection signal="exit_interacted" from="buttons/ExitButton" to="." method="_on_interact_button_exit_interacted"]
 

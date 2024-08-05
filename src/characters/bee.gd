@@ -8,12 +8,14 @@ var dead : bool = false
 @onready var pos2d = $Marker2D
 
 signal new_target(_self)
+signal spawn_coin(coin_position)
 
 func _ready():
 	super()
 	gravity = 0
 	set_target_pos(position)
 	new_target.connect(get_tree().current_scene._on_bee_new_target)
+	spawn_coin.connect(get_tree().current_scene._on_bee_spawn_coin)
 
 func update_position(delta):
 	if position.x < target_pos.x - OFFSET:
@@ -51,6 +53,7 @@ func _on_health_health_depleted():
 	
 	Save._save.unlocked_characters.characters["Bee"] = true
 	await get_tree().create_timer(1).timeout
+	emit_signal("spawn_coin", self.position)
 	queue_free()
 
 func _on_timer_timeout():

@@ -502,13 +502,6 @@ shape = SubResource("RectangleShape2D_0ldmr")
 position = Vector2(-1747, 625)
 heal_amount = 30
 
-[node name="character" type="Node" parent="."]
-
-[node name="player" parent="character" instance=ExtResource("9_is8fu")]
-
-[node name="DefaultCamera" parent="character/player" index="2"]
-enabled = false
-
 [node name="collectibles" type="Node" parent="."]
 
 [node name="CollectibleCake" parent="collectibles" instance=ExtResource("15_3fw4n")]
@@ -518,6 +511,13 @@ position = Vector2(-1632, 631)
 [node name="CollectibleApple" parent="collectibles" instance=ExtResource("16_4iyj2")]
 z_index = 11
 position = Vector2(-1672, 664)
+
+[node name="character" type="Node" parent="."]
+
+[node name="player" parent="character" instance=ExtResource("9_is8fu")]
+
+[node name="DefaultCamera" parent="character/player" index="2"]
+enabled = false
 
 [node name="fg" type="Node" parent="."]
 

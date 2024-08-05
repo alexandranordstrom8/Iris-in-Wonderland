@@ -47,11 +47,12 @@ func _process(_delta):
 	elif look_down_possible:
 		handle_input()
 	
-func set_panning_target(target_pos, stay_free = false):
+func set_panning_target(target_pos, stay_free = false, speed = DEFAULT_SPEED):
 	is_panning = true
 	free_movement = true
 	target = target_pos
 	_stay_free = stay_free
+	move_speed = speed
 
 func _on_iris_current_position(pos):
 	if not free_movement:

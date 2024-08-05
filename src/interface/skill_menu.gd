@@ -5,7 +5,6 @@ const button = "res://Iris-in-Wonderland/src/interface/skill_menu_button.tscn"
 var _current_sp : int = 100
 var _current_hp : int = 100
 var timer_locked : bool = false
-var focused_item : String = ""
 var in_enclosed_space : bool = false
 var next_to_door : bool = false
 
@@ -48,8 +47,6 @@ func _ready():
 
 func _process(_delta):
 	disable_buttons()
-	if focused_item != "":
-		get_description(focused_item)
 
 func get_description(item):
 	if item_list[item][_TYPE] == SKILL:
@@ -80,7 +77,7 @@ func disable_buttons():
 		or (item_list[item][_HP] > 0 and _current_hp == 100)\
 		or (item_list[item][_SP] > 0 and _current_sp == 100):
 			item_list[item][_BUTTON].disabled = true
-		elif item in special and item_list[item][_TYPE] == ITEM:
+		elif item in special and item_list[item][_TYPE] == ITEM and item != "Strawberry":
 			pass
 		else:
 			item_list[item][_BUTTON].disabled = false
@@ -93,12 +90,12 @@ func open_window():
 	for item in item_list:
 		if item_list[item][_AVAILABLE]:
 			item_list[item][_BUTTON].show()
+	disable_buttons()
 	self.show()
 
 func close_window():
 	cost_label.text = ""
 	desc_label.text = ""
-	focused_item = ""
 	Save.item_list = item_list
 	self.hide()
 
@@ -114,7 +111,7 @@ func increase_quantity(item_name, quantity):
 		item_list[item_name][_BUTTON].show()
 
 func _on_button_focus(item_name):
-	focused_item = item_name
+	get_description(item_name)
 	if item_name == "Caterpillar Tea" and in_enclosed_space:
 		$popup.show()
 	else:

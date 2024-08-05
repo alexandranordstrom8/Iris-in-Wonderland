@@ -11,6 +11,7 @@ func init(coins):
 
 func check_max():
 	max_amount = Save.coin_max
+	amount = min(max_amount, amount)
 	if amount >= max_amount:
 		$Label.set("theme_override_colors/font_color", Color.LIGHT_CORAL)
 		$Label.set("theme_override_colors/font_outline_color", Color.RED)

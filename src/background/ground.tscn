@@ -6,6 +6,7 @@
 size = Vector2(1281, 24)
 
 [node name="ground" type="StaticBody2D"]
+collision_layer = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_repeat = 2

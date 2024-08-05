@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://t5fc2o13q0gx"]
+[gd_scene load_steps=40 format=3 uid="uid://t5fc2o13q0gx"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/5.gd" id="1_v4506"]
 [ext_resource type="PackedScene" uid="uid://bah2pxas0yt5v" path="res://Iris-in-Wonderland/src/background/sky.tscn" id="2_mvhnf"]
@@ -22,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://caly8lh80pjwu" path="res://Iris-in-Wonderland/src/interface/bar_boss.tscn" id="16_4b78w"]
 [ext_resource type="AudioStream" uid="uid://v40cq20xhybe" path="res://Iris-in-Wonderland/assets/audio/trumpets_fanfare_end_complete_finish_109659.mp3" id="20_4ed57"]
 [ext_resource type="Theme" uid="uid://dqu1hdmh0ypou" path="res://Iris-in-Wonderland/src/interface/theme.tres" id="20_gwe8b"]
+[ext_resource type="AudioStream" uid="uid://cjapqwdf4vkrj" path="res://Iris-in-Wonderland/assets/audio/wind.mp3" id="23_ywa6h"]
+[ext_resource type="AudioStream" uid="uid://dqmlp4w64t07v" path="res://Iris-in-Wonderland/assets/audio/electro_sonic_011.mp3" id="24_b6xhw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_apoc3"]
 size = Vector2(6087, 47)
@@ -1772,9 +1774,24 @@ scene_text_file = "res://Iris-in-Wonderland/src/json/5_2.json"
 [node name="CardTimer" type="Timer" parent="."]
 wait_time = 10.0
 
-[node name="win" type="AudioStreamPlayer" parent="."]
+[node name="audio" type="Node" parent="."]
+
+[node name="win" type="AudioStreamPlayer" parent="audio"]
+process_mode = 3
 stream = ExtResource("20_4ed57")
 bus = &"SFX"
+
+[node name="ambience" type="AudioStreamPlayer" parent="audio"]
+process_mode = 3
+stream = ExtResource("23_ywa6h")
+autoplay = true
+bus = &"Ambience"
+
+[node name="music" type="AudioStreamPlayer" parent="audio"]
+process_mode = 3
+stream = ExtResource("24_b6xhw")
+volume_db = -20.0
+bus = &"Music"
 
 [connection signal="boss_health_changed" from="." to="character/player/ui/VBoxContainer/boss_bar" method="_on_hp_health_changed"]
 [connection signal="boss_max_health_changed" from="." to="character/player/ui/VBoxContainer/boss_bar" method="_on_hp_max_health_changed"]

@@ -40,9 +40,14 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
-func _on_fragile_area_body_entered(body):
-	if body in get_tree().get_nodes_in_group("character"):
-		hp.take_damage(10)
+func _on_hitbox_body_entered(body):
+	if body.is_in_group("character") and not body.is_in_group("card"):
+		set_can_interact(body.name, true)
+
+func _on_hitbox_body_exited(body):
+	if body.is_in_group("character") and not body.is_in_group("card"):
+		set_can_interact(body.name, false)
+		emit_signal("get_position", body.name, self.name)
 
 func _on_detection_area_body_exited(body):
 	if body.is_in_group("character") and not body == self:

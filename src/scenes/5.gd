@@ -13,6 +13,7 @@ var started = false
 var won = false
 var at_exit = false
 var at_door = false
+var play_music = false
 
 signal boss_health_changed
 signal boss_max_health_changed
@@ -22,12 +23,14 @@ func _ready():
 	boss_bar.visible = false
 	door.visible = false
 	player.position = $markers/spawn.position
-	#player.position = $markers/debug.position
 	
 	emit_signal("boss_max_health_changed", boss_health)
 
 func _process(_delta):
 	bounce_platform.position.x = player.position.x
+	
+	if play_music and $audio/music.volume_db < 0:
+		$audio/music.volume_db += 0.1
 	
 	if at_exit and Input.is_action_just_pressed("ui_accept"):
 		change_scene(ScenePaths.scene_1)
@@ -36,7 +39,7 @@ func _process(_delta):
 		door.get_node("closed").visible = false
 		door.get_node("open").visible = true
 		await get_tree().create_timer(0.5).timeout
-		get_tree().change_scene_to_file(ScenePaths.main_menu_path)
+		change_scene(ScenePaths.end_scene)
 
 func _on_bounce_area_body_entered(body):
 	if body.name == "iris":
@@ -67,7 +70,9 @@ func free_cards():
 
 func boss_hp_depleted():
 	won = true
+	$audio/music.stop()
 	await free_cards()
+	interface.visible = false
 	$DialogueWindow2.get_text("God")
 	door.visible = true
 
@@ -78,15 +83,18 @@ func _on_dialogue_finished():
 		boss_bar.visible = true
 		add_card()
 		card_timer.start()
+		play_music = true
+		$audio/music.play()
 	if won:
 		var tween = get_tree().create_tween()
 		tween.tween_property(god_sprite, "modulate", Color.TRANSPARENT, 0.5)
-		$win.play()
+		$audio/win.play()
 		boss_bar.hide()
 		$character/player/DefaultCamera.set_panning_target($markers/door.position)
 
 func _on_convo_1_body_entered(body):
 	if body.name == "iris":
+		interface.visible = false
 		$DialogueWindow.get_text("God")
 
 func _on_exit_body_entered(body):
