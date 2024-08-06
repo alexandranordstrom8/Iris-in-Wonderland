@@ -1763,6 +1763,9 @@ horizontal_alignment = 1
 [node name="door" type="Marker2D" parent="markers"]
 position = Vector2(1219, 527)
 
+[node name="card_spawn" type="Marker2D" parent="markers"]
+position = Vector2(1641, 1384)
+
 [node name="DialogueWindow" parent="." instance=ExtResource("15_oh5c7")]
 visible = false
 scene_text_file = "res://Iris-in-Wonderland/src/json/5_1.json"

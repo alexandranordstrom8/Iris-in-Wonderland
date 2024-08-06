@@ -39,3 +39,9 @@ func _on_album_button_pressed():
 
 func close_pause_menu():
 	$character_album.hide()
+
+func _on_controls_button_toggled(toggled_on):
+	if toggled_on:
+		$Control.show()
+	else:
+		$Control.hide()

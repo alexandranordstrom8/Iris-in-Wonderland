@@ -32,7 +32,7 @@ func _process(_delta):
 				skill_menu.close_window()
 		elif Input.is_action_just_pressed("ui_pause"):
 			show_menu("PauseMenu")
-		elif Input.is_action_just_pressed("ui_ability"):
+		elif Input.is_action_just_pressed("ui_ability") and not get_tree().paused:
 			Save.get_skills()
 			skill_menu.item_list = Save.item_list
 			skill_menu.open_window()

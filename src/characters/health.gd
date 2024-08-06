@@ -20,6 +20,7 @@ func _ready():
 	emit_signal("health_changed", health)
 	
 	heal_sfx = preload(heal_sfx_path).instantiate()
+	heal_sfx.process_mode = Node.PROCESS_MODE_ALWAYS
 	self.add_child(heal_sfx)
 
 func init(amount):

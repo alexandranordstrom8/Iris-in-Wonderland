@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dkb0t7gvvm3xm"]
+[gd_scene load_steps=13 format=3 uid="uid://dkb0t7gvvm3xm"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/interface/PauseMenu.gd" id="1_83xqv"]
 [ext_resource type="Theme" uid="uid://dqu1hdmh0ypou" path="res://Iris-in-Wonderland/src/interface/theme.tres" id="2_a2ios"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cii8dmnv30gpm" path="res://Iris-in-Wonderland/src/interface/options.tscn" id="5_es61y"]
 [ext_resource type="PackedScene" uid="uid://cjf75c4mff5vv" path="res://Iris-in-Wonderland/src/interface/character_album.tscn" id="6_ryrbf"]
 [ext_resource type="AudioStream" uid="uid://46fnjfe3g6jo" path="res://Iris-in-Wonderland/assets/audio/jump2.mp3" id="7_2io11"]
+[ext_resource type="PackedScene" uid="uid://dh2dc30udu07g" path="res://Iris-in-Wonderland/src/interface/controls.tscn" id="8_8r1q0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_72aft"]
 bg_color = Color(1, 1, 1, 0.509804)
@@ -44,6 +45,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_72aft")
+
+[node name="Control" parent="." instance=ExtResource("8_8r1q0")]
+visible = false
+layout_mode = 1
 
 [node name="Panel" type="Panel" parent="."]
 clip_children = 1
@@ -144,6 +149,20 @@ texture = ExtResource("3_atcw2")
 expand_mode = 1
 stretch_mode = 2
 
+[node name="ControlsButton" type="Button" parent="."]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -484.0
+offset_top = 160.0
+offset_right = -454.0
+offset_bottom = 193.0
+grow_horizontal = 0
+toggle_mode = true
+text = "?"
+
 [node name="Options" parent="." instance=ExtResource("5_es61y")]
 visible = false
 layout_mode = 1
@@ -160,6 +179,7 @@ bus = &"SFX"
 [connection signal="pressed" from="Panel/VBoxContainer/Album" to="." method="_on_album_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
+[connection signal="toggled" from="ControlsButton" to="." method="_on_controls_button_toggled"]
 [connection signal="pressed" from="Options/Panel/Button" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="character_album/Panel/Button" to="." method="_on_album_button_pressed"]
 

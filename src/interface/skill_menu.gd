@@ -92,12 +92,14 @@ func open_window():
 			item_list[item][_BUTTON].show()
 	disable_buttons()
 	self.show()
+	get_tree().paused = true
 
 func close_window():
 	cost_label.text = ""
 	desc_label.text = ""
 	Save.item_list = item_list
 	self.hide()
+	get_tree().paused = false
 
 func get_health_values(hp, sp):
 	_current_hp = hp

@@ -1578,7 +1578,7 @@ position = Vector2(-890, 626)
 position = Vector2(3071, -425)
 
 [node name="debug" type="Marker2D" parent="markers"]
-position = Vector2(1638, -197)
+position = Vector2(816, 983)
 
 [node name="BeeSpawnPoint" type="Marker2D" parent="markers"]
 position = Vector2(-2221, -283)

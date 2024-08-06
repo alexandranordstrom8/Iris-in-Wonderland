@@ -7,7 +7,10 @@ var dead : bool = false
 var prev_health = 100
 var iris_hitbox2 = false
 
+@onready var animations = $Marker2D/Sprite2D/cloud/AnimationPlayer
+
 signal health_changed(amount)
+signal attack_animated(value)
 
 func _ready():
 	super()
@@ -18,10 +21,12 @@ func _ready():
 	health_changed.connect(world._on_card_health_changed)
 
 func update_position(delta):
-	if position.x < target_pos.x - OFFSET:
+	if position.x < target_pos.x:
 		velocity.x += SPEED * delta
-	elif position.x > target_pos.x + OFFSET:
+		$Marker2D.scale.x = 1
+	elif position.x > target_pos.x:
 		velocity.x -= SPEED * delta
+		$Marker2D.scale.x = -1
 	if position.y < target_pos.y - OFFSET:
 		velocity.y += SPEED * delta
 	elif position.y > target_pos.y + OFFSET:
@@ -31,11 +36,11 @@ func _physics_process(delta):
 	attack_timer += delta
 	
 	if not dead:
-		for entity in can_interact:
-			if can_interact[entity] and not entity == self.name and attack_timer >= ACTION_COOLDOWN:
-				attack_timer = 0
-				emit_signal("attacked", damage, can_interact, position, scale.x)
-				return
+		#for entity in can_interact:
+			#if can_interact[entity] and not entity == self.name and attack_timer >= ACTION_COOLDOWN:
+				#attack_timer = 0
+				#emit_signal("attacked", damage, can_interact, position, scale.x)
+				#return
 		update_position(delta)
 	
 	move_and_slide()
@@ -43,6 +48,7 @@ func _physics_process(delta):
 func _on_hitbox_body_entered(body):
 	if body.is_in_group("character") and not body.is_in_group("card"):
 		set_can_interact(body.name, true)
+		animations.play("attack")
 
 func _on_hitbox_body_exited(body):
 	if body.is_in_group("character") and not body.is_in_group("card"):
@@ -86,9 +92,15 @@ func _on_hp_health_changed(health):
 	prev_health = health
 
 func _on_hitbox_2_body_entered(body):
-	if body.name == "iris":
-		iris_hitbox2 = true
+	if body.is_in_group("character") and not body.is_in_group("card"):
+		animations.play("attack")
 
-func _on_hitbox_2_body_exited(body):
-	if body.name == "iris":
-		iris_hitbox2 = false
+func _on_fragile_area_body_entered(body):
+	if body.is_in_group("character") and not body.is_in_group("card")\
+	and body.position.y < position.y:
+		hp.take_damage(10)
+
+func _on_attack_animated(value):
+	emit_signal("attacked", value, can_interact, position, scale.x)
+	if value == damage:
+		animations.play("default")

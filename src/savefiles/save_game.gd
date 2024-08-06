@@ -19,3 +19,6 @@ static func load_file() -> Resource:
 	if exists():
 		return load(SAVE_FILE_PATH)
 	return null
+
+func reset():
+	OS.move_to_trash(ProjectSettings.globalize_path(SAVE_FILE_PATH))

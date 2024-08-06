@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://qi0mpgnl1ag3"]
+[gd_scene load_steps=40 format=3 uid="uid://qi0mpgnl1ag3"]
 
 [ext_resource type="Script" path="res://Iris-in-Wonderland/src/scenes/0.gd" id="1_y7cj4"]
 [ext_resource type="Texture2D" uid="uid://bi3pnx50gmcry" path="res://Iris-in-Wonderland/assets/background/brown2.png" id="2_lawmn"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dilfg8vmp3axa" path="res://Iris-in-Wonderland/src/background/glow.tscn" id="11_kb7wv"]
 [ext_resource type="Texture2D" uid="uid://b0ucchoxmyik8" path="res://Iris-in-Wonderland/assets/background/ground_texture.png" id="12_synn6"]
 [ext_resource type="Texture2D" uid="uid://bqdgm4e6it73k" path="res://Iris-in-Wonderland/assets/background/brown1.png" id="14_8yus0"]
+[ext_resource type="Theme" uid="uid://dqu1hdmh0ypou" path="res://Iris-in-Wonderland/src/interface/theme.tres" id="15_kr7tu"]
 [ext_resource type="PackedScene" uid="uid://bh4th8fe5trsh" path="res://Iris-in-Wonderland/src/characters/strawberry.tscn" id="16_6api1"]
 [ext_resource type="PackedScene" uid="uid://dru877c21uloj" path="res://Iris-in-Wonderland/src/characters/player.tscn" id="17_qlwcq"]
 [ext_resource type="PackedScene" uid="uid://cgvgmi8l5dw87" path="res://Iris-in-Wonderland/src/interface/coin.tscn" id="20_46xpu"]
@@ -56,6 +57,11 @@ size = Vector2(44.5, 623)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uk411"]
 size = Vector2(34.5, 1079)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oy0u7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sfnhp"]
+size = Vector2(1001, 210)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a85l4"]
 size = Vector2(2348, 31)
@@ -456,6 +462,300 @@ offset_bottom = 1098.0
 texture = ExtResource("14_8yus0")
 stretch_mode = 1
 
+[node name="tutorial" type="Panel" parent="bg/down"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -911.0
+offset_top = 472.0
+offset_right = -591.0
+offset_bottom = 763.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_oy0u7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="bg/down/tutorial"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -102.0
+offset_top = -69.0
+offset_right = -32.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="bg/down/tutorial/VBoxContainer"]
+layout_mode = 2
+text = "Walk"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="bg/down/tutorial/VBoxContainer"]
+layout_mode = 2
+
+[node name="<" type="Panel" parent="bg/down/tutorial/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("15_kr7tu")
+
+[node name="Label" type="Label" parent="bg/down/tutorial/VBoxContainer/HBoxContainer/<"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -25.0
+offset_right = 19.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "<"
+horizontal_alignment = 1
+
+[node name=">" type="Panel" parent="bg/down/tutorial/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("15_kr7tu")
+
+[node name="Label" type="Label" parent="bg/down/tutorial/VBoxContainer/HBoxContainer/>"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -25.0
+offset_right = 19.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = ">"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="VBoxContainer" parent="bg/down/tutorial"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -123.0
+offset_top = 16.0
+offset_right = 10.0
+offset_bottom = 86.0
+grow_horizontal = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="bg/down/tutorial/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Q" type="Panel" parent="bg/down/tutorial/HBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("15_kr7tu")
+
+[node name="Label" type="Label" parent="bg/down/tutorial/HBoxContainer2/HBoxContainer2/Q"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Q"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="bg/down/tutorial/HBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+text = "Skill/item"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="bg/down/tutorial/HBoxContainer2"]
+layout_mode = 2
+
+[node name="E" type="Panel" parent="bg/down/tutorial/HBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("15_kr7tu")
+
+[node name="Label" type="Label" parent="bg/down/tutorial/HBoxContainer2/HBoxContainer/E"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "E"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="bg/down/tutorial/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Scratch"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="bg/down/tutorial/HBoxContainer2"]
+layout_mode = 2
+
+[node name="F" type="Panel" parent="bg/down/tutorial/HBoxContainer2/HBoxContainer4"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("15_kr7tu")
+
+[node name="Label" type="Label" parent="bg/down/tutorial/HBoxContainer2/HBoxContainer4/F"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "F"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="bg/down/tutorial/HBoxContainer2/HBoxContainer4"]
+layout_mode = 2
+text = "Accept"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="bg/down/tutorial/HBoxContainer2"]
+layout_mode = 2
+
+[node name="F" type="Panel" parent="bg/down/tutorial/HBoxContainer2/HBoxContainer5"]
+custom_minimum_size = Vector2(36, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("15_kr7tu")
+
+[node name="Label" type="Label" parent="bg/down/tutorial/HBoxContainer2/HBoxContainer5/F"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Esc"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="bg/down/tutorial/HBoxContainer2/HBoxContainer5"]
+layout_mode = 2
+text = "Pause"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="bg/down/tutorial/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Shift" type="Panel" parent="bg/down/tutorial/HBoxContainer2/HBoxContainer3"]
+custom_minimum_size = Vector2(56, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("15_kr7tu")
+
+[node name="Label" type="Label" parent="bg/down/tutorial/HBoxContainer2/HBoxContainer3/Shift"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Shift"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="bg/down/tutorial/HBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+text = "Dash"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="bg/down/tutorial"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -69.0
+offset_right = 162.0
+offset_bottom = -16.0
+grow_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="bg/down/tutorial/VBoxContainer2"]
+layout_mode = 2
+text = "Jump"
+horizontal_alignment = 1
+
+[node name="Space" type="Panel" parent="bg/down/tutorial/VBoxContainer2"]
+custom_minimum_size = Vector2(130, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("15_kr7tu")
+
+[node name="Label" type="Label" parent="bg/down/tutorial/VBoxContainer2/Space"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Space"
+horizontal_alignment = 1
+
+[node name="tutorial" type="Area2D" parent="bg/down/tutorial"]
+position = Vector2(44, 168)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bg/down/tutorial/tutorial"]
+position = Vector2(-229.5, 226)
+shape = SubResource("RectangleShape2D_sfnhp")
+
 [node name="glow" type="Node" parent="bg"]
 
 [node name="Glow" parent="bg/glow" instance=ExtResource("11_kb7wv")]
@@ -631,6 +931,7 @@ autoplay = true
 max_distance = 2500.0
 bus = &"Music"
 
+[connection signal="body_exited" from="bg/down/tutorial/tutorial" to="." method="_on_tutorial_body_exited"]
 [connection signal="body_entered" from="bg/glow/Glow/Area2D" to="." method="_on_glow_body_entered"]
 [connection signal="current_position" from="character/player/iris" to="camera/PanningCamera" method="_on_iris_current_position"]
 [connection signal="current_position" from="character/player/iris" to="camera/PanningCamera2" method="_on_iris_current_position"]

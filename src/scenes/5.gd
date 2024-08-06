@@ -4,6 +4,7 @@ const card_path = "res://Iris-in-Wonderland/src/background/card_platform6.tscn"
 
 @onready var bounce_platform = $platforms/bounce
 @onready var god_sprite = $ParallaxBackground/ParallaxLayer/God
+@onready var god_anim = $ParallaxBackground/ParallaxLayer/God/Sprite2D/AnimationPlayer
 @onready var boss_bar = $character/player/ui/VBoxContainer
 @onready var door = $platforms/card_platform1/door
 @onready var card_timer = $CardTimer
@@ -23,6 +24,8 @@ func _ready():
 	boss_bar.visible = false
 	door.visible = false
 	player.position = $markers/spawn.position
+	
+	god_anim.animation_finished.connect(_on_god_anim_finished)
 	
 	emit_signal("boss_max_health_changed", boss_health)
 
@@ -81,7 +84,7 @@ func _on_dialogue_finished():
 	if not started:
 		started = true
 		boss_bar.visible = true
-		add_card()
+		add_card($markers/card_spawn.position)
 		card_timer.start()
 		play_music = true
 		$audio/music.play()
@@ -117,10 +120,16 @@ func _on_door_area_body_exited(body):
 		at_door = false
 		$platforms/card_platform1/door/Label.visible = false
 
-func add_card():
+func add_card(pos = Vector2(0, 0)):
 	var _card = preload(card_path).instantiate()
 	$character.add_child(_card)
+	_card.position = pos
+
+func _on_god_anim_finished(anim_name):
+	if anim_name == "blink":
+		god_anim.play("default")
 
 func _on_card_timer_timeout():
 	if started and not won:
 		add_card()
+		god_anim.play("blink")

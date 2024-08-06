@@ -1,0 +1,240 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh2dc30udu07g"]
+
+[ext_resource type="StyleBox" uid="uid://b6v6nc31m0tob" path="res://Iris-in-Wonderland/src/interface/menu_popup_bg.tres" id="1_1ukhh"]
+[ext_resource type="Theme" uid="uid://dqu1hdmh0ypou" path="res://Iris-in-Wonderland/src/interface/theme.tres" id="2_soial"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -448.0
+offset_top = -110.0
+offset_right = -128.0
+offset_bottom = 110.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("1_1ukhh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -102.0
+offset_top = -69.0
+offset_right = -32.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Walk"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="<" type="Panel" parent="Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_soial")
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer/<"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -25.0
+offset_right = 19.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "<"
+horizontal_alignment = 1
+
+[node name=">" type="Panel" parent="Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_soial")
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer/>"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -25.0
+offset_right = 19.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = ">"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -123.0
+offset_top = 16.0
+offset_right = 10.0
+offset_bottom = 86.0
+grow_horizontal = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Q" type="Panel" parent="Panel/HBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_soial")
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer2/HBoxContainer2/Q"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Q"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel/HBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+text = "Skill/item"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer2"]
+layout_mode = 2
+
+[node name="E" type="Panel" parent="Panel/HBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_soial")
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer2/HBoxContainer/E"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "E"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Scratch"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Shift" type="Panel" parent="Panel/HBoxContainer2/HBoxContainer3"]
+custom_minimum_size = Vector2(56, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_soial")
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer2/HBoxContainer3/Shift"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Shift"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+text = "Dash"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -69.0
+offset_right = 162.0
+offset_bottom = -16.0
+grow_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer2"]
+layout_mode = 2
+text = "Jump"
+horizontal_alignment = 1
+
+[node name="Space" type="Panel" parent="Panel/VBoxContainer2"]
+custom_minimum_size = Vector2(130, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_soial")
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer2/Space"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Space"
+horizontal_alignment = 1

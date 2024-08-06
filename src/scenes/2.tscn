@@ -746,6 +746,8 @@ region_rect = Rect2(971.272, 52.4025, 144.305, 262.028)
 show_behind_parent = true
 position = Vector2(3623, 360)
 scale = Vector2(-1, 1)
+collision_layer = 0
+collision_mask = 0
 
 [node name="MushroomY" parent="bg/mushrooms" instance=ExtResource("8_g5hqg")]
 position = Vector2(1603, 114)

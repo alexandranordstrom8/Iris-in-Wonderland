@@ -57,6 +57,8 @@ func get_skills():
 	for char_name in _skills:
 		if _save.unlocked_characters.characters[char_name]:
 			item_list[_skills[char_name]][AVAILABLE] = true
+		else:
+			item_list[_skills[char_name]][AVAILABLE] = false
 
 func from_res():
 	var p = _save.player_values
@@ -104,22 +106,8 @@ func print_save():
 	print(_save.unlocked_characters.characters)
 
 func reset():
+	_save.reset()
 	_save = SaveGame.new()
 	from_res()
+	get_skills()
 	_save.write_to_file()
-	#current_coins = 0
-	#current_hp = 100
-	#current_sp = 100
-	#coin_max = 50
-	#item_max = 10
-	#current_scene = ""
-	#prev_scene = ""
-	#is_small = false
-	#table_empty = false
-	#
-	#for i in item_list:
-		#if item_list[i][TYPE] == ITEM:
-			#item_list[i][0] = 0
-			#item_list[i][AVAILABLE] = false
-	#
-	#to_res()

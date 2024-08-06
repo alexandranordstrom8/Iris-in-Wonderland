@@ -35,3 +35,7 @@ func _on_glow_body_entered(body):
 
 func _on_exit_button_exit_interacted():
 	change_scene(ScenePaths.scene_1)
+
+func _on_tutorial_body_exited(_body):
+	var tween = get_tree().create_tween()
+	tween.tween_property($bg/down/tutorial, "modulate", Color.TRANSPARENT, 0.2)
