@@ -114,11 +114,11 @@ layout_mode = 2
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 20
 
-[node name="Strawberry" parent="Panel/ScrollContainer/items" instance=ExtResource("3_k6nmd")]
+[node name="Strawberry" parent="Panel/ScrollContainer/items" groups=["panel"] instance=ExtResource("3_k6nmd")]
 layout_mode = 2
 item_name = "Strawberry"
 
-[node name="Heart" parent="Panel/ScrollContainer/items" instance=ExtResource("3_k6nmd")]
+[node name="Heart" parent="Panel/ScrollContainer/items" groups=["panel"] instance=ExtResource("3_k6nmd")]
 layout_mode = 2
 item_name = "Pink Heart"
 
@@ -134,7 +134,7 @@ offset_bottom = 56.0
 grow_horizontal = 2
 texture = ExtResource("4_in5sf")
 
-[node name="Heart2" parent="Panel/ScrollContainer/items" instance=ExtResource("3_k6nmd")]
+[node name="Heart2" parent="Panel/ScrollContainer/items" groups=["panel"] instance=ExtResource("3_k6nmd")]
 layout_mode = 2
 item_name = "Blue Heart"
 
@@ -150,7 +150,7 @@ offset_bottom = 56.0
 grow_horizontal = 2
 texture = ExtResource("5_1nir5")
 
-[node name="Key" parent="Panel/ScrollContainer/items" instance=ExtResource("3_k6nmd")]
+[node name="Key" parent="Panel/ScrollContainer/items" groups=["panel"] instance=ExtResource("3_k6nmd")]
 layout_mode = 2
 item_name = "Golden Key"
 cost = 100

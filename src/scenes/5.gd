@@ -36,6 +36,7 @@ func _process(_delta):
 		$audio/music.volume_db += 0.1
 	
 	if at_exit and Input.is_action_just_pressed("ui_accept"):
+		Save.from_res()
 		change_scene(ScenePaths.scene_1)
 	
 	if at_door and Input.is_action_just_pressed("ui_accept"):
@@ -96,7 +97,7 @@ func _on_dialogue_finished():
 		$character/player/DefaultCamera.set_panning_target($markers/door.position)
 
 func _on_convo_1_body_entered(body):
-	if body.name == "iris":
+	if body.name == "iris" and not started:
 		interface.visible = false
 		$DialogueWindow.get_text("God")
 

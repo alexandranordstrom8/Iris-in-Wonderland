@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://cijpnucngt0re"]
+[gd_scene load_steps=48 format=3 uid="uid://cijpnucngt0re"]
 
 [ext_resource type="PackedScene" uid="uid://bng63fw5pf27e" path="res://Iris-in-Wonderland/src/background/green_background.tscn" id="1_efq5o"]
 [ext_resource type="Texture2D" uid="uid://p6jiynjt247g" path="res://Iris-in-Wonderland/assets/background/tree1.png" id="1_gt21c"]
@@ -40,8 +40,11 @@ radius = 96.5
 height = 794.328
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jnbpu"]
-radius = 74.0
-height = 224.0
+radius = 56.0797
+height = 189.421
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xejk"]
+size = Vector2(20, 323.194)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d3fw5"]
 height = 342.0
@@ -486,10 +489,10 @@ rotation = -3.32136
 shape = SubResource("CapsuleShape2D_4ff3g")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="bg/trees/StaticBody2D3"]
-position = Vector2(3744, 631)
-rotation = -0.869174
-scale = Vector2(-1, 1)
-shape = SubResource("CapsuleShape2D_jnbpu")
+position = Vector2(3780, 600)
+rotation = 2.50177
+scale = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_4xejk")
 
 [node name="Sprite2D" type="Sprite2D" parent="bg/trees"]
 position = Vector2(1966, 266)

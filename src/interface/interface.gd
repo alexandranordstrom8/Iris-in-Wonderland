@@ -102,6 +102,7 @@ func _on_menu_main_menu_pressed():
 func _on_menu_retry_pressed():
 	button_sfx.play()
 	get_tree().paused = false
+	Save.from_res()
 	get_tree().reload_current_scene()
 
 func _on_death_menu_main_menu_pressed():

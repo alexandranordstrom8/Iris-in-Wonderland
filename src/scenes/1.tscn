@@ -1705,6 +1705,7 @@ scene_text_file = "res://Iris-in-Wonderland/src/json/1_special.json"
 [connection signal="key_used" from="character/player" to="." method="_on_player_key_used"]
 [connection signal="current_position" from="character/player/iris" to="camera/cam_0" method="_on_iris_current_position"]
 [connection signal="current_position" from="character/player/iris" to="camera/cam_3" method="_on_iris_current_position"]
+[connection signal="current_position" from="character/player/iris" to="camera/cam_5" method="_on_iris_current_position"]
 [connection signal="interacted" from="character/player/iris" to="character/benjamin" method="_on_iris_interacted"]
 [connection signal="interacted" from="character/player/iris" to="character/isabell" method="_on_iris_interacted"]
 [connection signal="exit_interacted" from="buttons/ExitButton" to="." method="_on_exit_button_exit_interacted"]

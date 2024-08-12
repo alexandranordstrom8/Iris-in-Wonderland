@@ -5,6 +5,8 @@ var selected : String
 var cost : int
 var amount : int = 0
 
+@onready var items = $Panel/ScrollContainer/items
+
 @onready var description = $Panel/VBoxContainer/Description
 @onready var amount_label = $Panel/VBoxContainer/HBoxContainer/HBoxContainer/amount
 @onready var cost_label = $Panel/VBoxContainer/HBoxContainer/Panel/cost
@@ -53,6 +55,11 @@ func close_shop():
 func _on_shop_panel_description(item_name, _cost, text):
 	add_button.disabled = false
 	amount = 0
+	
+	for item in get_tree().get_nodes_in_group("panel"):
+		if item.item_name == selected:
+			item.reset()
+	
 	selected = item_name
 	cost = _cost
 	description.text = text
@@ -60,14 +67,10 @@ func _on_shop_panel_description(item_name, _cost, text):
 func _on_subtract_pressed():
 	amount -= 1
 	amount = max(0, amount)
-	if selected == "Golden Key" and amount == 0:
-		add_button.disabled = false
 
 func _on_add_pressed():
 	amount += 1
 	subtract_button.disabled = false
-	if selected == "Golden Key" and amount == 1:
-		add_button.disabled = true
 
 func _on_exit_button_pressed():
 	close_shop()

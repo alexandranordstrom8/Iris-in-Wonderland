@@ -1798,7 +1798,6 @@ bus = &"Music"
 
 [connection signal="boss_health_changed" from="." to="character/player/ui/VBoxContainer/boss_bar" method="_on_hp_health_changed"]
 [connection signal="boss_max_health_changed" from="." to="character/player/ui/VBoxContainer/boss_bar" method="_on_hp_max_health_changed"]
-[connection signal="animation_finished" from="ParallaxBackground/ParallaxLayer/God/Sprite2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="platforms/card_platform1/door/DoorArea" to="." method="_on_door_area_body_entered"]
 [connection signal="body_exited" from="platforms/card_platform1/door/DoorArea" to="." method="_on_door_area_body_exited"]
 [connection signal="body_entered" from="platforms/bounce/Area2D" to="." method="_on_bounce_area_body_entered"]

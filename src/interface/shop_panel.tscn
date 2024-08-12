@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bfrexgkbcbk1q" path="res://Iris-in-Wonderland/assets/interface/coin.png" id="3_xpad3"]
 
 [node name="Panel" type="Panel"]
+modulate = Color(0.753984, 0.753984, 0.753984, 1)
 clip_contents = true
 custom_minimum_size = Vector2(100, 100)
 size_flags_horizontal = 0
@@ -53,3 +54,4 @@ texture = ExtResource("3_xpad3")
 expand_mode = 1
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

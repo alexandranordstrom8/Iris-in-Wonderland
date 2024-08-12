@@ -18,6 +18,8 @@ func _ready():
 func _process(_delta):
 	if play_music and $audio/music.volume_db < 0:
 		$audio/music.volume_db += 0.1
+	if started and not won:
+		$buttons/ExitButton.visible = false
 
 func _on_start_area_body_entered(body):
 	if body.name == "iris" and not started:
